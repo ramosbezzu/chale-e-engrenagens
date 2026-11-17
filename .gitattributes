@@ -1,0 +1,9 @@
+# Tudo em LF no repositorio, nos dois sistemas (WSL e Windows), para nao aparecer diff fantasma.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.jar binary
+*.mrpack binary
+*.ttf binary
+*.png binary
+*.ico binary
+*.icns binary
