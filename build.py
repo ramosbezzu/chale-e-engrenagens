@@ -75,7 +75,7 @@ def manifest(cfg):
     numero = lambda v: tuple(int(x) for x in v["versao"].split("."))
     anteriores = []
     if destino.exists():
-        antigo = json.loads(destino.read_text())
+        antigo = json.loads(destino.read_text(encoding="utf-8"))
         candidatas = [{k: antigo[k] for k in CAMPOS_VERSAO}] + antigo.get("anteriores", [])
         atual = tuple(int(x) for x in cfg["version"].split("."))
         candidatas = sorted((c for c in candidatas if numero(c) < atual), key=numero, reverse=True)
@@ -101,13 +101,13 @@ def manifest(cfg):
         "historico": cfg.get("historico", []),
         "anteriores": anteriores,
     }
-    destino.write_text(json.dumps(pack, indent=1, ensure_ascii=False) + "\n")
+    destino.write_text(json.dumps(pack, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     packs = []
     for path in sorted(out.glob("*.json")):
         if path.name != "index.json":
-            p = json.loads(path.read_text())
+            p = json.loads(path.read_text(encoding="utf-8"))
             packs.append({"id": p["id"], "arquivo": path.name, "nome": p["nome"], "versao": p["versao"]})
-    launcher = json.loads((ROOT / "launcher" / "package.json").read_text())
+    launcher = json.loads((ROOT / "launcher" / "package.json").read_text(encoding="utf-8"))
     (out / "index.json").write_text(json.dumps({
         "formato": 1,
         "launcher": {"versao": launcher["version"], "pagina": launcher["homepage"] + "/releases/latest"},
@@ -120,7 +120,7 @@ def manifest(cfg):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     cfg_path = ROOT / (args[0] if args else "mods.json")
-    cfg = json.loads(cfg_path.read_text())
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
     if "--manifesto" in sys.argv:
         # So regenera o manifesto do launcher a partir do .mrpack ja existente (nao resolve mods de novo).
         return manifest(cfg)
@@ -193,7 +193,7 @@ def main():
         "files": files,
         "dependencies": {"minecraft": cfg["minecraft"], "neoforge": cfg["neoforge"]},
     }
-    lock_path.write_text(json.dumps(lock, indent=2, ensure_ascii=False) + "\n")
+    lock_path.write_text(json.dumps(lock, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     out = mrpack_path(cfg)
     out.parent.mkdir(exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:

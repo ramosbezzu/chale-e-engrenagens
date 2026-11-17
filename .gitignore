@@ -3,3 +3,4 @@ dist/
 launcher/build/
 node_modules/
 __pycache__/
+.teste/

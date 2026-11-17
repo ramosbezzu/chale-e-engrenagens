@@ -33,6 +33,14 @@ O que o Lareira faz em cada launcher:
 
 Mundos, opções e configs que você mexeu são mantidos nas atualizações. A pasta `mods` vira um espelho exato do pack, porque quem joga junto precisa ter exatamente os mesmos mods.
 
+## Pedir mod novo (com IA)
+
+Abra o Claude Code nesta pasta e peça em português ("coloca o mod X no Chalé"). As regras que a IA segue para pesquisar, otimizar, testar e publicar estão em [AGENTS.md](AGENTS.md); o `CLAUDE.md` só aponta para ele. O teste de servidor é automático:
+
+```
+python ferramentas/testar_servidor.py cozy.json
+```
+
 ## Publicar uma versão nova de um pack
 
 ```bash
