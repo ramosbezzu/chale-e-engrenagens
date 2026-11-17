@@ -350,6 +350,20 @@
     "license": "MIT"
   },
   {
+    "slug": "cooking-for-blockheads",
+    "title": "Cooking for Blockheads",
+    "group": "Comidas",
+    "version": "21.1.25+neoforge-1.21.1",
+    "type": "release",
+    "published": "2026-11-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "cookingforblockheads-neoforge-1.21.1-21.1.25.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
     "slug": "copycats",
     "title": "Create: Copycats+",
     "group": "Addons do Create",
@@ -586,6 +600,20 @@
     },
     "file": "Cucumber-1.21.1-8.0.16.jar",
     "license": "MIT"
+  },
+  {
+    "slug": "delicious-kitchen-appliances",
+    "title": "Delicious Kitchen Appliances",
+    "group": "Decoracao",
+    "version": "1.4.0",
+    "type": "release",
+    "published": "2026-03-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "delicious-kitchen-appliances-1.4.0-mc1.21.1-neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
   },
   {
     "slug": "dynamic-fps",
@@ -1426,6 +1454,20 @@
     },
     "file": "puzzleslib-v21.1.66-mc1.21.1+neoforge.jar",
     "license": "MPL-2.0"
+  },
+  {
+    "slug": "quick-skin",
+    "title": "Quick Skin",
+    "group": "Qualidade de vida",
+    "version": "mc1.21.1-v4.2.0-neoforge",
+    "type": "release",
+    "published": "2026-11-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Quick Skin - NeoForge - 1.21.1-4.2.0.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
   },
   {
     "slug": "reeses-sodium-options",

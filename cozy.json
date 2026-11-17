@@ -2,7 +2,7 @@
   "id": "chale",
   "name": "Chale & Engrenagens",
   "titulo": "Chalé & Engrenagens",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create, Create Aeronautics, AE2, Immersive Engineering, Mystical Agriculture, comidas, biomas, animais e decoracao, otimizado para PC fraco.",
   "minecraft": "1.21.1",
   "neoforge": "21.1.265",
@@ -54,7 +54,8 @@
       "fruits-delight",
       "bountiful-fares",
       "lets-do-vinery",
-      "lets-do-meadow"
+      "lets-do-meadow",
+      "cooking-for-blockheads"
     ],
     "Animais": [
       "naturalist",
@@ -88,7 +89,8 @@
       "supplementaries",
       "amendments",
       "comforts",
-      "farmers-cutting-biomes-o-plenty"
+      "farmers-cutting-biomes-o-plenty",
+      "delicious-kitchen-appliances"
     ],
     "Storage": [
       "sophisticated-backpacks",
@@ -110,7 +112,8 @@
       "natures-compass",
       "ambientsounds",
       "iris",
-      "easylan"
+      "easylan",
+      "quick-skin"
     ],
     "Facilitadores": [
       "fallingtree",
@@ -192,9 +195,38 @@
       "arquivo": "config/simulated-server.toml",
       "de": "maxBlocksMoved = 128000",
       "para": "maxBlocksMoved = 16384"
+    },
+    {
+      "arquivo": "config/quickskin-server.json",
+      "de": "\"maxTextureUploadKilobytes\": 16384,",
+      "para": "\"maxTextureUploadKilobytes\": 1024,"
+    },
+    {
+      "arquivo": "config/quickskin-server.json",
+      "de": "\"maxSkinResolution\": 0,",
+      "para": "\"maxSkinResolution\": 128,"
     }
   ],
   "historico": [
+    {
+      "versao": "1.2.7",
+      "data": "2026-11-17",
+      "titulo": "Cozinha de verdade e skin personalizada",
+      "novidades": [
+        "Cooking for Blockheads: geladeira, forno, pia, balcões e torradeira, com um livro de cozinha que mostra o que dá para fazer com os ingredientes que você tem (inclusive das comidas do Farmer's Delight e companhia)",
+        "Delicious Kitchen Appliances: micro-ondas, fogão, cooktop, lava-louças, geladeira americana, batedeira, armários e mesas em várias cores",
+        "Quick Skin: troque a sua skin dentro do jogo, pela tela inicial ou pelo menu de pausa, escolhendo pelo nome de um jogador ou por um arquivo de imagem",
+        "Skins e capas limitadas a 128x128 e 1 MB, para não pesar no PC mais fraco"
+      ],
+      "compativel": [
+        "Mundos da 1.2.6 abrem normalmente",
+        "A skin escolhida no Quick Skin aparece para todo mundo na LAN",
+        "Quem não mexer no Quick Skin continua com a skin da própria conta"
+      ],
+      "incompativel": [
+        "Não conecta com quem está na 1.2.6: quem joga junto precisa atualizar junto"
+      ]
+    },
     {
       "versao": "1.2.6",
       "data": "2026-11-16",

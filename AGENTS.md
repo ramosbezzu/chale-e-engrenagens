@@ -62,6 +62,8 @@ Versão do pack em `MAIOR.MENOR.CORRECAO`:
 - **MENOR** (1.2.6 -> 1.3.0): qualquer mod novo ou grupo novo.
 - **MAIOR** (1.x -> 2.0.0): troca de versão do Minecraft ou do NeoForge major, ou mudança que exige mundo novo.
 
+Se o dono pedir um número específico ("faz a 1.2.7"), use o número dele, mesmo que a regra acima sugira outro.
+
 Toda versão publicada fica disponível como "anterior" no launcher na versão seguinte (o `build.py` copia a versão que estava no manifesto para `"anteriores"`; `"manter_anteriores": N` no json guarda mais). Por isso:
 
 - **Nunca** apague nem edite à mão `manifest/*.json`. Sempre gere pelo `build.py`.
@@ -147,6 +149,8 @@ git push
 - **FastWorkbench** esconde o livro de receitas por padrão; o pack força `"Remove Recipe Book Button"=false` (a esposa sentiu falta).
 - **EasyLAN** vem com `online-mode=true`; o pack força `false` para a conta offline do TLauncher conseguir entrar.
 - Tirados de propósito do Chalé por desempenho ou foco: Tectonic, Diesel Generators, Power Loader, Create Crafts & Additions.
+- **Skins**: o **Skin Restorer** não serve, porque não funciona no TLauncher (ele sobrescreve o sistema de skins do cliente). O pack usa o **Quick Skin** (cliente e servidor, sincroniza pelo próprio mod, menu na tela inicial e na pausa). Os limites de 128x128 e 1 MB em `quickskin-server.json` são de propósito, por causa do PC fraco.
+- **Cozinha**: Cooking for Blockheads (funcional, lê receitas de todos os mods de comida) e Delicious Kitchen Appliances (micro-ondas, fogão, lava-louças) convivem bem; o servidor sobe sem erro novo com os dois (1.2.7).
 - A pasta portátil antiga (`Chale-e-Engrenagens-<versao>` com `.bat` e `.ps1`) está **aposentada**: o Lareira substitui. Não gere mais.
 
 Ao descobrir uma armadilha nova, adicione aqui no mesmo commit da correção.
