@@ -1,0 +1,396 @@
+{
+ "formato": 1,
+ "id": "trilhos",
+ "nome": "Trilhos & Engrenagens",
+ "versao": "1.1.0",
+ "resumo": "Vanilla plus em NeoForge 1.21.1 com Create no centro, trens e tecnologia leve.",
+ "minecraft": "1.21.1",
+ "neoforge": "21.1.265",
+ "pasta": ".minecraft-trilhos",
+ "perfil": "trilhos-e-engrenagens",
+ "icone": "Furnace_On",
+ "marcadorAntigo": null,
+ "arquivos": [
+  {
+   "caminho": "mods/addonslib-neoforge-1.21.1-1.14.jar",
+   "sha1": "9f4eae06f0b713ed73cfcae03c668fb5b289e020",
+   "tamanho": 131893,
+   "url": "https://cdn.modrinth.com/data/cl5ec0Qm/versions/7SEGJEQj/addonslib-neoforge-1.21.1-1.14.jar"
+  },
+  {
+   "caminho": "mods/another_furniture-neoforge-4.0.3.jar",
+   "sha1": "36e2b147d86c31262bf8f7c571aeea683d71173d",
+   "tamanho": 2422436,
+   "url": "https://cdn.modrinth.com/data/ulloLmqG/versions/cugGiMKt/another_furniture-neoforge-4.0.3.jar"
+  },
+  {
+   "caminho": "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+   "sha1": "81cf0e668f991f83ac8820c386fbd6c9c3602246",
+   "tamanho": 75804,
+   "url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/uAKA6Laj/appleskin-neoforge-mc1.21-3.0.9.jar"
+  },
+  {
+   "caminho": "mods/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+   "sha1": "294ae397c011980623bf155f9dfce82bb81865a0",
+   "tamanho": 22338156,
+   "url": "https://cdn.modrinth.com/data/HXF82T3G/versions/BtZKRp69/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar"
+  },
+  {
+   "caminho": "mods/comforts-neoforge-9.0.5+1.21.1.jar",
+   "sha1": "21d6bee3821d62fe3356c51fb1d697871a3087ff",
+   "tamanho": 422658,
+   "url": "https://cdn.modrinth.com/data/SaCpeal4/versions/3kpPjcTc/comforts-neoforge-9.0.5%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/copycats-3.0.9+mc.1.21.1-neoforge.jar",
+   "sha1": "74de17876c43f5f780bac478b9f9eb11e687b8d7",
+   "tamanho": 1799381,
+   "url": "https://cdn.modrinth.com/data/UT2M39wf/versions/bPYeUWZx/copycats-3.0.9%2Bmc.1.21.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/create-1.21.1-6.0.10.jar",
+   "sha1": "0e97e49837bed766e6f28a4c95b04885d6acc353",
+   "tamanho": 19123767,
+   "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar"
+  },
+  {
+   "caminho": "mods/create-central-kitchen-2.6.2b.jar",
+   "sha1": "796355e592455c84c4eee8b7cd998734a9500c0d",
+   "tamanho": 511818,
+   "url": "https://cdn.modrinth.com/data/btq68HMO/versions/qZxkZR8W/create-central-kitchen-2.6.2b.jar"
+  },
+  {
+   "caminho": "mods/create_connected-1.3.3-mc1.21.1.jar",
+   "sha1": "96ae45fa44cd7028a31b9613cb672009e811b145",
+   "tamanho": 6786783,
+   "url": "https://cdn.modrinth.com/data/Vg5TIO6d/versions/Xe7EqzfQ/create_connected-1.3.3-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/createdeco-2.1.3.jar",
+   "sha1": "93d9eff58b46c6953e907d071e6be4e3ce07be38",
+   "tamanho": 3328498,
+   "url": "https://cdn.modrinth.com/data/sMvUb4Rb/versions/qrcMVoBD/createdeco-2.1.3.jar"
+  },
+  {
+   "caminho": "mods/createdieselgenerators-1.21.1-1.3.15.jar",
+   "sha1": "7f751dabfa83c141c1d13025cd16f06553ba459b",
+   "tamanho": 3154746,
+   "url": "https://cdn.modrinth.com/data/ZM3tt6p1/versions/UoPH8lO1/createdieselgenerators-1.21.1-1.3.15.jar"
+  },
+  {
+   "caminho": "mods/CreateDragonsPlus-1.11.9.jar",
+   "sha1": "67ffcb61207a7dbc6b1e70f0473ddbacb19d44eb",
+   "tamanho": 1085674,
+   "url": "https://cdn.modrinth.com/data/dzb1a5WV/versions/b0u9vk8C/CreateDragonsPlus-1.11.9.jar"
+  },
+  {
+   "caminho": "mods/Create Encased-1.21.1-1.10.0-fix1.jar",
+   "sha1": "c37f6a614621b2c37e5fb1d78f07f31d9456e0c1",
+   "tamanho": 3383308,
+   "url": "https://cdn.modrinth.com/data/hSSqdyU1/versions/pld6Eng9/Create%20Encased-1.21.1-1.10.0-fix1.jar"
+  },
+  {
+   "caminho": "mods/create_power_loader-2.0.5-mc1.21.1.jar",
+   "sha1": "5bd3ecef6fc66985e6fdf416706c98fb774ba03d",
+   "tamanho": 442369,
+   "url": "https://cdn.modrinth.com/data/wPQ6GgFE/versions/3Y4r0ItR/create_power_loader-2.0.5-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/railways-0.3.0-beta.2+neoforge-mc1.21.1.jar",
+   "sha1": "82a28ce51fdbc583477d7ae7c4c94cc6d23ec2b4",
+   "tamanho": 18728584,
+   "url": "https://cdn.modrinth.com/data/L3Jv0QZI/versions/czVeSmZo/railways-0.3.0-beta.2%2Bneoforge-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/create_factory_logistics-1.21.1-1.6.1-all.jar",
+   "sha1": "4bc1f1a2241e37152e19143f86843837827c0a7c",
+   "tamanho": 1303123,
+   "url": "https://cdn.modrinth.com/data/QMGO17gm/versions/6lav8Nc5/create_factory_logistics-1.21.1-1.6.1-all.jar"
+  },
+  {
+   "caminho": "mods/createaddition-1.7.2.jar",
+   "sha1": "8e7158d3144b1ee97e58092fe006675b0e09f6d8",
+   "tamanho": 1772844,
+   "url": "https://cdn.modrinth.com/data/kU1G12Nn/versions/hsjVajlP/createaddition-1.7.2.jar"
+  },
+  {
+   "caminho": "mods/entityculling-neoforge-1.11.3-mc1.21.1.jar",
+   "sha1": "f122f84f329793675b2625d51b77f990d7de3579",
+   "tamanho": 1510075,
+   "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/eieYbWYb/entityculling-neoforge-1.11.3-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/farmers-cutting-biomes-o-plenty-2.0.0.jar",
+   "sha1": "39e402ef4c5f9336973c1a0017049e19ca4e97ef",
+   "tamanho": 53279,
+   "url": "https://cdn.modrinth.com/data/QWfaJXEc/versions/iCt2qwi3/farmers-cutting-biomes-o-plenty-2.0.0.jar"
+  },
+  {
+   "caminho": "mods/FarmersDelight-1.21.1-1.3.4.jar",
+   "sha1": "27675ddfcb8cc37e6ea1ab6c15051c7949d94657",
+   "tamanho": 3160490,
+   "url": "https://cdn.modrinth.com/data/R2OftAxM/versions/XTVZDOol/FarmersDelight-1.21.1-1.3.4.jar"
+  },
+  {
+   "caminho": "mods/ferritecore-7.0.3-neoforge.jar",
+   "sha1": "9563692efb708b6b568df27a01ec52f6311928ef",
+   "tamanho": 121559,
+   "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/x7kQWVju/ferritecore-7.0.3-neoforge.jar"
+  },
+  {
+   "caminho": "mods/GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+   "sha1": "e3d4bb80a06f619be989ab529d0cd4e33e076943",
+   "tamanho": 90717,
+   "url": "https://cdn.modrinth.com/data/s3dmwKy5/versions/S2TfWrZR/GlitchCore-neoforge-1.21.1-2.1.0.2.jar"
+  },
+  {
+   "caminho": "mods/iris-neoforge-1.8.14-beta.1+mc1.21.1.jar",
+   "sha1": "1bd129cf7bce65d6b1c0543045f0620c98a0f885",
+   "tamanho": 2540723,
+   "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/KduFYu4t/iris-neoforge-1.8.14-beta.1%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+   "sha1": "88ee316e68900080b017f60c12162e2731924cf8",
+   "tamanho": 726853,
+   "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/eYz2YBGT/Jade-1.21.1-NeoForge-15.10.6.jar"
+  },
+  {
+   "caminho": "mods/jei-1.21.1-neoforge-19.64.0.455.jar",
+   "sha1": "f6d6fc08d54c40752926b570a2220471e8c45c1a",
+   "tamanho": 2375741,
+   "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/iv3KiVkE/jei-1.21.1-neoforge-19.64.0.455.jar"
+  },
+  {
+   "caminho": "mods/kotlinforforge-5.12.0-all.jar",
+   "sha1": "d10d062caf1aad9aec82d7852f2fee1781735c1f",
+   "tamanho": 7279264,
+   "url": "https://cdn.modrinth.com/data/ordsPcFz/versions/uhJhCT7X/kotlinforforge-5.12.0-all.jar"
+  },
+  {
+   "caminho": "mods/lithium-neoforge-0.15.4+mc1.21.1.jar",
+   "sha1": "97212e45c963730bbfc7c44780df99317814c21b",
+   "tamanho": 774220,
+   "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/DDUrRVCA/lithium-neoforge-0.15.4%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/lithostitched-1.8.1-neoforge-21.1.jar",
+   "sha1": "88cdded5b617e19b4d2676948b5550699de23578",
+   "tamanho": 1023751,
+   "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/cZu4cHY3/lithostitched-1.8.1-neoforge-21.1.jar"
+  },
+  {
+   "caminho": "mods/mcwbiomesoplenty-neoforge-1.21.1-1.6.jar",
+   "sha1": "ec8e661a5ef336eb2bd9b8a1978df1213a812ded",
+   "tamanho": 7018204,
+   "url": "https://cdn.modrinth.com/data/Tanquv9C/versions/QZd7wABw/mcwbiomesoplenty-neoforge-1.21.1-1.6.jar"
+  },
+  {
+   "caminho": "mods/mcw-bridges-3.1.2-mc1.21.1neoforge.jar",
+   "sha1": "71ece28129789a2123cf07e79938f488d8675bb2",
+   "tamanho": 661387,
+   "url": "https://cdn.modrinth.com/data/GURcjz8O/versions/aQ7rY7ng/mcw-bridges-3.1.2-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-doors-1.1.5-mc1.21.1neoforge.jar",
+   "sha1": "c127904f23db1a641dd9e065ec51c5c177cb4cd7",
+   "tamanho": 1190404,
+   "url": "https://cdn.modrinth.com/data/kNxa8z3e/versions/u7BRX44F/mcw-doors-1.1.5-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar",
+   "sha1": "b5580c3fc521ed8bf4db3e407bd590efc317f74d",
+   "tamanho": 673871,
+   "url": "https://cdn.modrinth.com/data/GmwLse2I/versions/jVdb0r4W/mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-furniture-3.4.1-mc1.21.1neoforge.jar",
+   "sha1": "3dccc819f14bcc60b3683edd82ca8c5e64964229",
+   "tamanho": 2080436,
+   "url": "https://cdn.modrinth.com/data/dtWC90iB/versions/Z5V3Ps7S/mcw-furniture-3.4.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-lights-1.1.5-mc1.21.1neoforge.jar",
+   "sha1": "13c1107caf26b2c60d8626b3658b26cc7f634b38",
+   "tamanho": 525744,
+   "url": "https://cdn.modrinth.com/data/w4an97C2/versions/5U2kQZIL/mcw-lights-1.1.5-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar",
+   "sha1": "4bb7e1d28eef19f87438881b0f582a15297b95ae",
+   "tamanho": 777742,
+   "url": "https://cdn.modrinth.com/data/VRLhWB91/versions/tlymsxUG/mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-roofs-2.3.2-mc1.21.1neoforge.jar",
+   "sha1": "05806ff152fab56f7c1b4b215d772ea73611283d",
+   "tamanho": 1784829,
+   "url": "https://cdn.modrinth.com/data/B8jaH3P1/versions/jiXRXiSt/mcw-roofs-2.3.2-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar",
+   "sha1": "1f8b59e31f889f53b6296b42ee09d447e7e56620",
+   "tamanho": 572870,
+   "url": "https://cdn.modrinth.com/data/n2fvCDlM/versions/StnP0RNi/mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar",
+   "sha1": "eb1d3c118acb450cc2fe14c2ce7ce247a1bca60c",
+   "tamanho": 1261268,
+   "url": "https://cdn.modrinth.com/data/C7I0BCni/versions/rQUE4LCz/mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mezz_config-1.21.1-neoforge-0.6.10-standalone.jar",
+   "sha1": "12beda0b388b97b9d49df76b6d9c8acde7f913e3",
+   "tamanho": 346260,
+   "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/sL7Ghaz1/mezz_config-1.21.1-neoforge-0.6.10-standalone.jar"
+  },
+  {
+   "caminho": "mods/moonlight-1.21.1-3.8.1-neoforge.jar",
+   "sha1": "0054e4dabc8623463b58ddeb1e2308e943c125bd",
+   "tamanho": 2317647,
+   "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/Utlh1Gae/moonlight-1.21.1-3.8.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+   "sha1": "6dae57f4f50f7808d2ed9a18f6cd1c0d4640c6bc",
+   "tamanho": 73938,
+   "url": "https://cdn.modrinth.com/data/aC3cM3Vq/versions/9I21YYxf/MouseTweaks-neoforge-mc1.21-2.26.1.jar"
+  },
+  {
+   "caminho": "mods/sliceanddice-4.3.4-neoforge.jar",
+   "sha1": "bfcb12d13465caf6743f200fbd755b72705011e4",
+   "tamanho": 1356389,
+   "url": "https://cdn.modrinth.com/data/GmjmRQ0A/versions/D6mQaFRW/sliceanddice-4.3.4-neoforge.jar"
+  },
+  {
+   "caminho": "mods/sodium-neoforge-0.8.13+mc1.21.1.jar",
+   "sha1": "1757289be21ed18db5b0d90703fa3db1b2de5693",
+   "tamanho": 1292934,
+   "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uMOpc5uV/sodium-neoforge-0.8.13%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedbackpacks-1.21.1-3.26.20.2244.jar",
+   "sha1": "65cd49f3e37fa3ca3abc721a17f8fe68cd4cfe90",
+   "tamanho": 1264515,
+   "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/DY0e8WVr/sophisticatedbackpacks-1.21.1-3.26.20.2244.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedcore-1.21.1-1.5.28.2458.jar",
+   "sha1": "7f76836109777fc09733914e948167dae14de113",
+   "tamanho": 1845534,
+   "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/fp75rxsS/sophisticatedcore-1.21.1-1.5.28.2458.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedstorage-1.21.1-1.6.16.2222.jar",
+   "sha1": "33d8daae028961f3b8d8b8e9e1c6d3ab91f6d2c2",
+   "tamanho": 1936453,
+   "url": "https://cdn.modrinth.com/data/hMlaZH8f/versions/hC4LaBhJ/sophisticatedstorage-1.21.1-1.6.16.2222.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedstoragecreateintegration-1.21.1-0.1.23.246.jar",
+   "sha1": "423cc6d71f686935ad894cef433c563532bfea51",
+   "tamanho": 148042,
+   "url": "https://cdn.modrinth.com/data/MJ0hdevs/versions/xePmjcI1/sophisticatedstoragecreateintegration-1.21.1-0.1.23.246.jar"
+  },
+  {
+   "caminho": "mods/storage-drawers-create-compat-1.0.1.jar",
+   "sha1": "721fbc60d3df917b587f5d6e65cd39960b297bd0",
+   "tamanho": 1321464,
+   "url": "https://cdn.modrinth.com/data/c8JYP4m3/versions/akK0oNH8/storage-drawers-create-compat-1.0.1.jar"
+  },
+  {
+   "caminho": "mods/StorageDrawers-neoforge-1.21.1-13.11.4.jar",
+   "sha1": "b8e11e3d1fd63fd1a0d9277ec3f966c7e5cff385",
+   "tamanho": 1131420,
+   "url": "https://cdn.modrinth.com/data/guitPqEi/versions/px0CCB06/StorageDrawers-neoforge-1.21.1-13.11.4.jar"
+  },
+  {
+   "caminho": "mods/supplementaries-1.21.1-4.0.2-neoforge.jar",
+   "sha1": "af25cb08a82c72b3fb67508071ce627714bd2b57",
+   "tamanho": 13840377,
+   "url": "https://cdn.modrinth.com/data/fFEIiSDQ/versions/rWq0ko29/supplementaries-1.21.1-4.0.2-neoforge.jar"
+  },
+  {
+   "caminho": "mods/tectonic-3.0.28-neoforge-21.1.jar",
+   "sha1": "db15156eec4320c2997c4dd4948119472de01224",
+   "tamanho": 451757,
+   "url": "https://cdn.modrinth.com/data/lWDHr9jE/versions/n4iyW7aB/tectonic-3.0.28-neoforge-21.1.jar"
+  },
+  {
+   "caminho": "mods/TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+   "sha1": "744394d979b422be560babf9df7a6800ede9ac5b",
+   "tamanho": 120365,
+   "url": "https://cdn.modrinth.com/data/kkmrDlKT/versions/6e8GCrLb/TerraBlender-neoforge-1.21.1-4.1.0.8.jar"
+  },
+  {
+   "caminho": "mods/Terralith_1.21.1_v2.6.2_Neoforge.jar",
+   "sha1": "d4a9fe71b841f70edfb4b280f9bf5c58e4a28224",
+   "tamanho": 2814865,
+   "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/IY93YaEe/Terralith_1.21.1_v2.6.2_Neoforge.jar"
+  },
+  {
+   "caminho": "mods/xaerominimap-neoforge-1.21.1-26.6.0.jar",
+   "sha1": "551e8e2aa3498b506cc949a74606cdc0380e5e00",
+   "tamanho": 2186351,
+   "url": "https://cdn.modrinth.com/data/1bokaNcj/versions/irjR7dHk/xaerominimap-neoforge-1.21.1-26.6.0.jar"
+  },
+  {
+   "caminho": "mods/xaeroworldmap-neoforge-1.21.1-1.47.0.jar",
+   "sha1": "2936c9cb9dfbdab145fe6f1e8ae2c68915246a5f",
+   "tamanho": 1427078,
+   "url": "https://cdn.modrinth.com/data/NcUtCpym/versions/SnQ4SoDe/xaeroworldmap-neoforge-1.21.1-1.47.0.jar"
+  },
+  {
+   "caminho": "mods/YungsApi-1.21.1-NeoForge-5.1.9.jar",
+   "sha1": "2c4b740c8ad27bbcb2a21b85b64f011b809aed91",
+   "tamanho": 413763,
+   "url": "https://cdn.modrinth.com/data/Ua7DFN59/versions/2prKITKh/YungsApi-1.21.1-NeoForge-5.1.9.jar"
+  },
+  {
+   "caminho": "mods/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+   "sha1": "73a660c13063450e555e5e2c015ae24d606b32b4",
+   "tamanho": 782160,
+   "url": "https://cdn.modrinth.com/data/o1C1Dkj5/versions/D6aZn0Em/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar"
+  },
+  {
+   "caminho": "mods/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar",
+   "sha1": "6a14e1d8201f068ca87ef8333e471c5378955906",
+   "tamanho": 493967,
+   "url": "https://cdn.modrinth.com/data/HjmxVlSr/versions/Go3nbneL/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar"
+  },
+  {
+   "caminho": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
+   "sha1": "838139b54cddb56b2e83cd260d8efd960ac536d6",
+   "tamanho": 553397,
+   "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip"
+  }
+ ],
+ "configs": [
+  {
+   "caminho": "config/iris.properties",
+   "conteudo": "shaderPack=ComplementaryReimagined_r5.9.3.zip\nenableShaders=true\n"
+  }
+ ],
+ "ajustes": [],
+ "historico": [
+  {
+   "versao": "1.1.0",
+   "data": "2026-11-04",
+   "titulo": "Primeira versão no Lareira",
+   "novidades": [
+    "Create no centro, com Steam 'n' Rails, Diesel Generators, Factory Logistics e Power Loader",
+    "Terralith, Tectonic e Biomes O' Plenty",
+    "Shaders Complementary Reimagined ligados por padrão"
+   ],
+   "compativel": [
+    "Quem já tinha o pack instalado: o Lareira reconhece a pasta e mantém mundos e opções"
+   ],
+   "incompativel": [
+    "Quem joga junto (LAN ou servidor) precisa estar na mesma versão do pack.",
+    "Não misture com o Chalé & Engrenagens: são mundos e pastas separados"
+   ]
+  }
+ ],
+ "anteriores": []
+}

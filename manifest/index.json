@@ -1,0 +1,21 @@
+{
+ "formato": 1,
+ "launcher": {
+  "versao": "1.0.0",
+  "pagina": "https://github.com/ramosbezzu/chale-e-engrenagens/releases/latest"
+ },
+ "packs": [
+  {
+   "id": "chale",
+   "arquivo": "chale.json",
+   "nome": "Chalé & Engrenagens",
+   "versao": "1.2.6"
+  },
+  {
+   "id": "trilhos",
+   "arquivo": "trilhos.json",
+   "nome": "Trilhos & Engrenagens",
+   "versao": "1.1.0"
+  }
+ ]
+}

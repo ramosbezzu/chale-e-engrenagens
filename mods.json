@@ -1,0 +1,103 @@
+{
+  "id": "trilhos",
+  "name": "Trilhos & Engrenagens",
+  "version": "1.1.0",
+  "summary": "Vanilla plus em NeoForge 1.21.1 com Create no centro, trens e tecnologia leve.",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.265",
+  "pasta": ".minecraft-trilhos",
+  "perfil": "trilhos-e-engrenagens",
+  "icone": "Furnace_On",
+  "pins": {
+    "create-steam-n-rails-1.21.1": "0.3.0-beta.2+neoforge-mc1.21.1"
+  },
+  "mods": {
+    "Nucleo": [
+      "create",
+      "create-steam-n-rails-1.21.1"
+    ],
+    "Addons do Create": [
+      "createaddition",
+      "create-diesel-generators",
+      "create_factory_logistics",
+      "create-connected",
+      "create-encased",
+      "copycats",
+      "create-deco",
+      "create-power-loader",
+      "create-central-kitchen",
+      "slice-and-dice"
+    ],
+    "Storage": [
+      "sophisticated-backpacks",
+      "sophisticated-storage",
+      "sophisticated-storage-create-integration",
+      "storagedrawers",
+      "storage-drawers-create-compat"
+    ],
+    "Vanilla plus": [
+      "farmers-delight",
+      "supplementaries",
+      "comforts"
+    ],
+    "Mundo": [
+      "terralith",
+      "tectonic",
+      "yungs-better-dungeons",
+      "yungs-better-mineshafts",
+      "biomes-o-plenty"
+    ],
+    "Interface": [
+      "jei",
+      "jade",
+      "xaeros-minimap",
+      "xaeros-world-map",
+      "appleskin",
+      "mouse-tweaks",
+      "iris"
+    ],
+    "Performance": [
+      "sodium",
+      "lithium",
+      "ferrite-core",
+      "entityculling"
+    ],
+    "Decoracao": [
+      "macaws-furniture",
+      "macaws-windows",
+      "macaws-doors",
+      "macaws-roofs",
+      "macaws-bridges",
+      "macaws-lights-and-lamps",
+      "macaws-trapdoors",
+      "macaws-paths-and-pavings",
+      "macaws-fences-and-walls",
+      "macaws-biomes-o-plenty",
+      "another-furniture",
+      "farmers-cutting-biomes-o-plenty"
+    ]
+  },
+  "shaders": [
+    "complementary-reimagined"
+  ],
+  "default_shader": "complementary-reimagined",
+  "historico": [
+    {
+      "versao": "1.1.0",
+      "data": "2026-11-04",
+      "titulo": "Primeira versão no Lareira",
+      "novidades": [
+        "Create no centro, com Steam 'n' Rails, Diesel Generators, Factory Logistics e Power Loader",
+        "Terralith, Tectonic e Biomes O' Plenty",
+        "Shaders Complementary Reimagined ligados por padrão"
+      ],
+      "compativel": [
+        "Quem já tinha o pack instalado: o Lareira reconhece a pasta e mantém mundos e opções"
+      ],
+      "incompativel": [
+        "Quem joga junto (LAN ou servidor) precisa estar na mesma versão do pack.",
+        "Não misture com o Chalé & Engrenagens: são mundos e pastas separados"
+      ]
+    }
+  ]
+}

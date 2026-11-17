@@ -1,0 +1,1920 @@
+[
+  {
+    "slug": "addonslib",
+    "title": "AddonsLib",
+    "group": "Dependencias",
+    "version": "1.21.1-1.14",
+    "type": "release",
+    "published": "2026-07-02",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "addonslib-neoforge-1.21.1-1.14.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "ae2",
+    "title": "Applied Energistics 2",
+    "group": "Tecnologia",
+    "version": "19.2.19",
+    "type": "release",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "appliedenergistics2-19.2.19.jar",
+    "license": "LicenseRef-Multiple"
+  },
+  {
+    "slug": "ai-improvements",
+    "title": "AI Improvements: Performance Tuning",
+    "group": "Performance",
+    "version": "0.5.3",
+    "type": "release",
+    "published": "2024-06-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "AI-Improvements-1.21-0.5.3.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "almanac",
+    "title": "Almanac",
+    "group": "Dependencias",
+    "version": "1.26.11.1",
+    "type": "release",
+    "published": "2026-11-03",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "almanac-neoforge-1.21.1-1.26.11.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "alternate-current",
+    "title": "Alternate Current",
+    "group": "Performance",
+    "version": "neoforge-mc1.21-1.9.0",
+    "type": "release",
+    "published": "2024-08-26",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "alternate_current-mc1.21-1.9.0.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "ambientsounds",
+    "title": "AmbientSounds",
+    "group": "Qualidade de vida",
+    "version": "6.3.11",
+    "type": "release",
+    "published": "2026-10-19",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "AmbientSounds_NEOFORGE_v6.3.11_mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "amendments",
+    "title": "Amendments",
+    "group": "Decoracao",
+    "version": "1.21-2.2.7",
+    "type": "release",
+    "published": "2026-10-31",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "amendments-1.21-2.2.7-neoforge.jar",
+    "license": "LicenseRef-Supplementaries-Team-License-1.1"
+  },
+  {
+    "slug": "another-furniture",
+    "title": "Another Furniture",
+    "group": "Decoracao",
+    "version": "4.0.3",
+    "type": "release",
+    "published": "2026-09-23",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "another_furniture-neoforge-4.0.3.jar",
+    "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "appleskin",
+    "title": "AppleSkin",
+    "group": "Qualidade de vida",
+    "version": "3.0.9+mc1.21",
+    "type": "release",
+    "published": "2026-04-01",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "appleskin-neoforge-mc1.21-3.0.9.jar",
+    "license": "Unlicense"
+  },
+  {
+    "slug": "applied-energistics-2-wireless-terminals",
+    "title": "Applied Energistics 2 Wireless Terminals",
+    "group": "Tecnologia",
+    "version": "19.5.1",
+    "type": "release",
+    "published": "2026-07-17",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ae2wtlib-19.5.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "aquaculture",
+    "title": "Aquaculture 2",
+    "group": "Animais",
+    "version": "2.7.22",
+    "type": "release",
+    "published": "2026-11-03",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Aquaculture-1.21.1-2.7.22.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "architectury-api",
+    "title": "Architectury API",
+    "group": "Dependencias",
+    "version": "13.0.12+neoforge",
+    "type": "release",
+    "published": "2026-11-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "architectury-13.0.12-neoforge.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "badoptimizations",
+    "title": "BadOptimizations",
+    "group": "Performance",
+    "version": "2.4.1",
+    "type": "release",
+    "published": "2025-12-15",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "BadOptimizations-2.4.1-1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "balm",
+    "title": "Balm",
+    "group": "Dependencias",
+    "version": "21.0.67+neoforge-1.21.1",
+    "type": "release",
+    "published": "2026-11-02",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "balm-neoforge-1.21.1-21.0.67.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "biomes-o-plenty",
+    "title": "Biomes O' Plenty",
+    "group": "Mundo",
+    "version": "21.1.0.14",
+    "type": "beta",
+    "published": "2026-06-20",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "bountiful-fares",
+    "title": "Bountiful Fares",
+    "group": "Comidas",
+    "version": "3.0.13",
+    "type": "release",
+    "published": "2026-09-18",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "bountifulfares-neoforge-1.21.1-3.0.13.jar",
+    "license": "LicenseRef-Heccology-License"
+  },
+  {
+    "slug": "brewin-and-chewin",
+    "title": "Brewin' And Chewin'",
+    "group": "Comidas",
+    "version": "4.5.0+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-06-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "BrewinAndChewin-neoforge-4.5.0+1.21.1.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "carry-on",
+    "title": "Carry On",
+    "group": "Facilitadores",
+    "version": "2.2.6",
+    "type": "release",
+    "published": "2026-07-26",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "carryon-neoforge-1.21.1-2.2.6.13.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "chunky",
+    "title": "Chunky",
+    "group": "Performance",
+    "version": "1.4.23",
+    "type": "release",
+    "published": "2025-04-04",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Chunky-NeoForge-1.4.23.jar",
+    "license": "GPL-3.0-only"
+  },
+  {
+    "slug": "clientsort",
+    "title": "Client Sort",
+    "group": "Facilitadores",
+    "version": "3.89.2+1.21.1",
+    "type": "release",
+    "published": "2026-09-26",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "clientsort-neoforge-3.89.2+1.21.1.jar",
+    "license": "Apache-2.0"
+  },
+  {
+    "slug": "cloth-config",
+    "title": "Cloth Config API",
+    "group": "Dependencias",
+    "version": "15.0.140+neoforge",
+    "type": "release",
+    "published": "2024-09-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "cloth-config-15.0.140-neoforge.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "clumps",
+    "title": "Clumps",
+    "group": "Performance",
+    "version": "19.0.0.1",
+    "type": "release",
+    "published": "2024-08-13",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Clumps-neoforge-1.21.1-19.0.0.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "colorwheel",
+    "title": "Colorwheel",
+    "group": "Performance",
+    "version": "1.3.2+mc1.21.1",
+    "type": "release",
+    "published": "2026-11-03",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "colorwheel-neoforge-1.3.2+mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "comforts",
+    "title": "Comforts",
+    "group": "Decoracao",
+    "version": "9.0.5+1.21.1",
+    "type": "release",
+    "published": "2026-01-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "comforts-neoforge-9.0.5+1.21.1.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "configurable",
+    "title": "Configurable",
+    "group": "Dependencias",
+    "version": "3.5.3",
+    "type": "release",
+    "published": "2026-10-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "configurable-3.5.3+1.21.1-neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "copycats",
+    "title": "Create: Copycats+",
+    "group": "Addons do Create",
+    "version": "3.0.11+mc.1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-11-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "copycats-3.0.11+mc.1.21.1-neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "crafting-tweaks",
+    "title": "Crafting Tweaks",
+    "group": "Qualidade de vida",
+    "version": "21.1.11+neoforge-1.21.1",
+    "type": "release",
+    "published": "2026-08-21",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "craftingtweaks-neoforge-1.21.1-21.1.11.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "create",
+    "title": "Create",
+    "group": "Nucleo",
+    "version": "6.0.10+mc1.21.1",
+    "type": "release",
+    "published": "2026-04-21",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create-1.21.1-6.0.10.jar",
+    "license": "LicenseRef-Create-Mod-License"
+  },
+  {
+    "slug": "create-aeronautics",
+    "title": "Create Aeronautics",
+    "group": "Veiculos",
+    "version": "1.3.2+mc1.21.1",
+    "type": "release",
+    "published": "2026-08-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create-aeronautics-bundled-1.21.1-1.3.2.jar",
+    "license": "LicenseRef-Simulated-Project-License"
+  },
+  {
+    "slug": "create-aeronautics-compatability",
+    "title": "Create Aeronautics: Compatibility",
+    "group": "Veiculos",
+    "version": "1.1.3",
+    "type": "release",
+    "published": "2026-07-10",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "aeronauticscompat-1.1.3.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "create-applied-kinetics",
+    "title": "Create: Applied Kinetics",
+    "group": "Tecnologia",
+    "version": "1.5.6-1.21.1",
+    "type": "release",
+    "published": "2026-11-11",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "createappliedkinetics-1.5.6-1.21.1.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "create-central-kitchen",
+    "title": "Create: Central Kitchen",
+    "group": "Addons do Create",
+    "version": "2.6.2b",
+    "type": "release",
+    "published": "2026-10-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create-central-kitchen-2.6.2b.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "create-connected",
+    "title": "Create: Connected",
+    "group": "Addons do Create",
+    "version": "1.3.3-mc1.21.1",
+    "type": "release",
+    "published": "2026-08-31",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create_connected-1.3.3-mc1.21.1.jar",
+    "license": "AGPL-3.0-or-later"
+  },
+  {
+    "slug": "create-deco",
+    "title": "Create Deco",
+    "group": "Addons do Create",
+    "version": "2.1.3",
+    "type": "release",
+    "published": "2026-04-18",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "createdeco-2.1.3.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "create-dragons-plus",
+    "title": "Create: Dragons Plus",
+    "group": "Dependencias",
+    "version": "1.11.9",
+    "type": "release",
+    "published": "2026-09-17",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "CreateDragonsPlus-1.11.9.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "create-jetpack",
+    "title": "Create Jetpack",
+    "group": "Ferramentas",
+    "version": "5.2.1",
+    "type": "release",
+    "published": "2026-07-31",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create_jetpack-forge-5.2.1.jar",
+    "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "create-quarry",
+    "title": "Create: Quarry",
+    "group": "Ferramentas",
+    "version": "1.1.0",
+    "type": "release",
+    "published": "2026-10-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create_quarry-1.1.0.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "create-steam-n-rails-1.21.1",
+    "title": "Steam 'n' Rails Neoforge",
+    "group": "Nucleo",
+    "version": "0.3.0-beta.2+neoforge-mc1.21.1",
+    "type": "beta",
+    "published": "2026-07-27",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "railways-0.3.0-beta.2+neoforge-mc1.21.1.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "creativecore",
+    "title": "CreativeCore",
+    "group": "Dependencias",
+    "version": "2.13.54",
+    "type": "release",
+    "published": "2026-11-10",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "CreativeCore_NEOFORGE_v2.13.54_mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "cristel-lib",
+    "title": "Cristel Lib",
+    "group": "Dependencias",
+    "version": "neoforge-1.21.1-3.1.7",
+    "type": "release",
+    "published": "2026-06-13",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "cristellib-neoforge-1.21.1-3.1.7.jar",
+    "license": "CC-BY-NC-ND-4.0"
+  },
+  {
+    "slug": "critters-and-companions",
+    "title": "Critters and Companions",
+    "group": "Animais",
+    "version": "2.7.0",
+    "type": "release",
+    "published": "2026-08-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "crittersandcompanions-neoforge-1.21.1-2.7.0.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "cucumber",
+    "title": "Cucumber Library",
+    "group": "Dependencias",
+    "version": "8.0.16",
+    "type": "release",
+    "published": "2026-05-04",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Cucumber-1.21.1-8.0.16.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "dynamic-fps",
+    "title": "Dynamic FPS",
+    "group": "Performance",
+    "version": "3.11.4",
+    "type": "release",
+    "published": "2026-01-29",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "easylan",
+    "title": "EasyLAN",
+    "group": "Qualidade de vida",
+    "version": "v1.6a",
+    "type": "alpha",
+    "published": "2026-05-19",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "EasyLAN-neoforge-1.21.1-v1.6a.jar",
+    "license": "GPL-3.0-or-later"
+  },
+  {
+    "slug": "entityculling",
+    "title": "Entity Culling",
+    "group": "Performance",
+    "version": "1.12.1",
+    "type": "release",
+    "published": "2026-11-13",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "entityculling-neoforge-1.12.1-mc1.21.1.jar",
+    "license": "LicenseRef-tr7zw-Protective-License"
+  },
+  {
+    "slug": "fallingtree",
+    "title": "FallingTree",
+    "group": "Facilitadores",
+    "version": "1.21.1-1.21.1.11",
+    "type": "release",
+    "published": "2025-08-01",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "FallingTree-1.21.1-1.21.1.11.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "farmers-cutting-biomes-o-plenty",
+    "title": "Farmer's Cutting: Biomes O' Plenty",
+    "group": "Decoracao",
+    "version": "2.0.0+mod",
+    "type": "release",
+    "published": "2024-07-28",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "farmers-cutting-biomes-o-plenty-2.0.0.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "farmers-delight",
+    "title": "Farmer's Delight",
+    "group": "Comidas",
+    "version": "1.21.1-1.3.4",
+    "type": "release",
+    "published": "2026-08-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "FarmersDelight-1.21.1-1.3.4.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "fastfurnace",
+    "title": "FastFurnace",
+    "group": "Performance",
+    "version": "1.21.1-9.0.1",
+    "type": "beta",
+    "published": "2026-06-19",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "FastFurnace-1.21.1-9.0.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "fastsuite",
+    "title": "FastSuite",
+    "group": "Performance",
+    "version": "1.21.1-6.0.7",
+    "type": "release",
+    "published": "2026-06-19",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "FastSuite-1.21.1-6.0.7.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "fastworkbench",
+    "title": "FastWorkbench",
+    "group": "Performance",
+    "version": "1.21.1-9.1.3",
+    "type": "release",
+    "published": "2026-06-19",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "FastWorkbench-1.21.1-9.1.3.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "ferrite-core",
+    "title": "FerriteCore",
+    "group": "Performance",
+    "version": "7.0.3-neoforge",
+    "type": "release",
+    "published": "2026-01-25",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ferritecore-7.0.3-neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "friends-and-foes-forge",
+    "title": "Friends&Foes (Forge/NeoForge)",
+    "group": "Animais",
+    "version": "neoforge-5.0.5+mc1.21.1",
+    "type": "release",
+    "published": "2026-11-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "friendsandfoes-neoforge-5.0.5+mc1.21.1.jar",
+    "license": "CC-BY-NC-ND-4.0"
+  },
+  {
+    "slug": "fruits-delight",
+    "title": "Fruits Delight",
+    "group": "Comidas",
+    "version": "1.2.14",
+    "type": "release",
+    "published": "2026-05-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "fruitsdelight-1.2.14.jar",
+    "license": "LGPL-2.1-only"
+  },
+  {
+    "slug": "geckolib",
+    "title": "Geckolib",
+    "group": "Dependencias",
+    "version": "4.9.3",
+    "type": "release",
+    "published": "2026-09-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "geckolib-neoforge-1.21.1-4.9.3.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "glitchcore",
+    "title": "GlitchCore",
+    "group": "Dependencias",
+    "version": "2.1.0.2",
+    "type": "beta",
+    "published": "2026-05-18",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "gravestone-and-sable-compatibility-patch",
+    "title": "Gravestone and Sable Compatibility Patch",
+    "group": "Veiculos",
+    "version": "1.0.0",
+    "type": "release",
+    "published": "2026-05-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "gravestone_sable_compat-1.0.0.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "gravestone-mod",
+    "title": "GraveStone Mod",
+    "group": "Facilitadores",
+    "version": "neoforge-1.21.1-1.0.40",
+    "type": "release",
+    "published": "2026-08-17",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "gravestone-neoforge-1.21.1-1.0.40.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "guideme",
+    "title": "GuideME",
+    "group": "Dependencias",
+    "version": "21.1.22",
+    "type": "release",
+    "published": "2026-10-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "guideme-21.1.22.jar",
+    "license": "LicenseRef-Multiple-OSS-Licenses"
+  },
+  {
+    "slug": "handcrafted",
+    "title": "Handcrafted",
+    "group": "Decoracao",
+    "version": "4.0.3",
+    "type": "release",
+    "published": "2025-03-22",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "handcrafted-neoforge-1.21.1-4.0.3.jar",
+    "license": "LicenseRef-Terrarium-Licence"
+  },
+  {
+    "slug": "immediatelyfast",
+    "title": "ImmediatelyFast",
+    "group": "Performance",
+    "version": "1.6.15+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-10-13",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "ImmediatelyFast-NeoForge-1.6.15+1.21.1.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "immersiveengineering",
+    "title": "Immersive Engineering",
+    "group": "Tecnologia",
+    "version": "12.4.2-194",
+    "type": "release",
+    "published": "2025-07-05",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ImmersiveEngineering-1.21.1-12.4.2-194.jar",
+    "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "instrumentus",
+    "title": "Instrumentus",
+    "group": "Ferramentas",
+    "version": "1.21.1-2.8.9",
+    "type": "release",
+    "published": "2026-04-11",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "instrumentus-1.21.1-2.8.9.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "iris",
+    "title": "Iris Shaders",
+    "group": "Qualidade de vida",
+    "version": "1.8.14-beta.1+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-06-13",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "iris-neoforge-1.8.14-beta.1+mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "jade",
+    "title": "Jade 🔍",
+    "group": "Qualidade de vida",
+    "version": "15.10.6+neoforge",
+    "type": "release",
+    "published": "2026-08-06",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Jade-1.21.1-NeoForge-15.10.6.jar",
+    "license": "CC-BY-NC-SA-4.0"
+  },
+  {
+    "slug": "jamlib",
+    "title": "JamLib",
+    "group": "Dependencias",
+    "version": "1.3.6+1.21.1",
+    "type": "release",
+    "published": "2026-03-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "jamlib-neoforge-1.3.6+1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "jei",
+    "title": "Just Enough Items (JEI)",
+    "group": "Qualidade de vida",
+    "version": "19.64.0.455",
+    "type": "release",
+    "published": "2026-10-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "jei-1.21.1-neoforge-19.64.0.455.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "kotlin-for-forge",
+    "title": "Kotlin for Forge",
+    "group": "Dependencias",
+    "version": "5.13.0",
+    "type": "release",
+    "published": "2026-11-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "kotlinforforge-5.13.0-all.jar",
+    "license": "LGPL-2.1-only"
+  },
+  {
+    "slug": "ksyxis",
+    "title": "Ksyxis",
+    "group": "Performance",
+    "version": "1.4.6",
+    "type": "release",
+    "published": "2026-10-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Ksyxis-1.4.6.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "leaves-be-gone",
+    "title": "Leaves Be Gone",
+    "group": "Facilitadores",
+    "version": "v21.1.1-1.21.1-NeoForge",
+    "type": "release",
+    "published": "2026-05-04",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar",
+    "license": "MPL-2.0"
+  },
+  {
+    "slug": "lets-do-meadow",
+    "title": "[Let's Do] Meadow",
+    "group": "Comidas",
+    "version": "1.4.10",
+    "type": "release",
+    "published": "2026-10-18",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "letsdo-meadow-neoforge-1.4.10.jar",
+    "license": "LicenseRef-custom"
+  },
+  {
+    "slug": "lets-do-vinery",
+    "title": "[Let's Do] Vinery",
+    "group": "Comidas",
+    "version": "1.5.6",
+    "type": "release",
+    "published": "2026-10-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "letsdo-vinery-neoforge-1.5.6.jar",
+    "license": "LicenseRef-custom"
+  },
+  {
+    "slug": "lithium",
+    "title": "Lithium",
+    "group": "Performance",
+    "version": "mc1.21.1-0.15.4-neoforge",
+    "type": "release",
+    "published": "2026-06-27",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "lithium-neoforge-0.15.4+mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "lithostitched",
+    "title": "Lithostitched",
+    "group": "Dependencias",
+    "version": "1.8.1-neoforge-21.1",
+    "type": "release",
+    "published": "2026-10-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "lithostitched-1.8.1-neoforge-21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "lmd",
+    "title": "Let Me Despawn",
+    "group": "Performance",
+    "version": "1.26.11.1",
+    "type": "release",
+    "published": "2026-11-03",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "letmedespawn-neoforge-1.21.1-1.26.11.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "macaws-biomes-o-plenty",
+    "title": "Macaw's Biomes O' Plenty",
+    "group": "Decoracao",
+    "version": "1.21.1-1.6",
+    "type": "release",
+    "published": "2026-06-21",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcwbiomesoplenty-neoforge-1.21.1-1.6.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "macaws-bridges",
+    "title": "Macaw's Bridges",
+    "group": "Decoracao",
+    "version": "3.1.2",
+    "type": "release",
+    "published": "2026-02-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-bridges-3.1.2-mc1.21.1neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "macaws-doors",
+    "title": "Macaw's Doors",
+    "group": "Decoracao",
+    "version": "1.1.5",
+    "type": "release",
+    "published": "2026-02-13",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-doors-1.1.5-mc1.21.1neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "macaws-fences-and-walls",
+    "title": "Macaw's Fences and Walls",
+    "group": "Decoracao",
+    "version": "1.2.1",
+    "type": "release",
+    "published": "2025-12-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "macaws-furniture",
+    "title": "Macaw's Furniture",
+    "group": "Decoracao",
+    "version": "3.4.1",
+    "type": "release",
+    "published": "2025-11-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-furniture-3.4.1-mc1.21.1neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "macaws-lights-and-lamps",
+    "title": "Macaw's Lights and Lamps",
+    "group": "Decoracao",
+    "version": "1.1.5",
+    "type": "release",
+    "published": "2025-12-07",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-lights-1.1.5-mc1.21.1neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "macaws-paths-and-pavings",
+    "title": "Macaw's Paths and Pavings",
+    "group": "Decoracao",
+    "version": "1.1.1",
+    "type": "release",
+    "published": "2025-09-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "macaws-roofs",
+    "title": "Macaw's Roofs",
+    "group": "Decoracao",
+    "version": "2.3.2",
+    "type": "release",
+    "published": "2025-05-04",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-roofs-2.3.2-mc1.21.1neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "macaws-trapdoors",
+    "title": "Macaw's Trapdoors",
+    "group": "Decoracao",
+    "version": "1.1.5",
+    "type": "release",
+    "published": "2025-11-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "macaws-windows",
+    "title": "Macaw's Windows",
+    "group": "Decoracao",
+    "version": "2.4.2",
+    "type": "release",
+    "published": "2025-12-10",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "mezzconfig",
+    "title": "MezzConfig",
+    "group": "Dependencias",
+    "version": "0.7.1",
+    "type": "beta",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mezz_config-1.21.1-neoforge-0.7.1-standalone.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "modelfix",
+    "title": "Model Gap Fix",
+    "group": "Performance",
+    "version": "1.21-1.10",
+    "type": "release",
+    "published": "2024-08-03",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "modelfix-1.21-1.10.jar",
+    "license": "GPL-3.0-only"
+  },
+  {
+    "slug": "modernfix",
+    "title": "ModernFix",
+    "group": "Performance",
+    "version": "5.27.27+mc1.21.1",
+    "type": "release",
+    "published": "2026-10-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "modernfix-neoforge-5.27.27+mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "moonlight",
+    "title": "Moonlight Lib",
+    "group": "Dependencias",
+    "version": "1.21.1-3.8.3",
+    "type": "release",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "moonlight-1.21.1-3.8.3-neoforge.jar",
+    "license": "LicenseRef-LGPL-with-additional-dependency-clause"
+  },
+  {
+    "slug": "moreculling",
+    "title": "More Culling",
+    "group": "Performance",
+    "version": "1.0.11",
+    "type": "release",
+    "published": "2026-11-01",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "moreculling-neoforge-1.21.1-1.0.11.jar",
+    "license": "GPL-3.0-only"
+  },
+  {
+    "slug": "mouse-tweaks",
+    "title": "Mouse Tweaks",
+    "group": "Qualidade de vida",
+    "version": "1.21-2.26.1-neoforge",
+    "type": "release",
+    "published": "2024-08-17",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+    "license": "BSD-3-Clause"
+  },
+  {
+    "slug": "mystical-agriculture",
+    "title": "Mystical Agriculture",
+    "group": "Magia e Fazenda",
+    "version": "8.0.29",
+    "type": "release",
+    "published": "2026-10-22",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "MysticalAgriculture-1.21.1-8.0.29.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "naturalist",
+    "title": "Naturalist",
+    "group": "Animais",
+    "version": "2.0.7+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-10-21",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "naturalist-2.0.7-neoforge-1.21.1.jar",
+    "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "natures-compass",
+    "title": "Nature's Compass",
+    "group": "Qualidade de vida",
+    "version": "1.21.1-3.4.0-neoforge",
+    "type": "release",
+    "published": "2026-04-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "NaturesCompass-1.21.1-3.4.0-neoforge.jar",
+    "license": "CC-BY-NC-SA-4.0"
+  },
+  {
+    "slug": "neruina",
+    "title": "Neruina - Ticking Entity Fixer",
+    "group": "Performance",
+    "version": "3.3.5",
+    "type": "release",
+    "published": "2026-10-17",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "neruina-3.3.5+1.21.1-neoforge.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "nexuslib",
+    "title": "NexusLib",
+    "group": "Dependencias",
+    "version": "1.2.0",
+    "type": "release",
+    "published": "2026-09-18",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "nexuslib-neoforge-1.21.1-1.2.0.jar",
+    "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "oceans-delight",
+    "title": "Ocean's Delight",
+    "group": "Comidas",
+    "version": "1.0.4",
+    "type": "release",
+    "published": "2026-04-17",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "oceansdelight-neoforge-1.0.4-1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "ore-vein-miner",
+    "title": "Ore Vein Miner",
+    "group": "Facilitadores",
+    "version": "7.01R+mod",
+    "type": "release",
+    "published": "2026-08-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ore-vein-miner-7.01R.jar",
+    "license": "AGPL-3.0-only"
+  },
+  {
+    "slug": "packet-fixer",
+    "title": "Packet Fixer",
+    "group": "Performance",
+    "version": "3.3.1",
+    "type": "release",
+    "published": "2025-11-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "packetfixer-3.3.1-1.20.5-1.21.X-merged.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "placebo",
+    "title": "Placebo",
+    "group": "Dependencias",
+    "version": "1.21.1-9.9.4",
+    "type": "release",
+    "published": "2026-10-13",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Placebo-1.21.1-9.9.4.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "polymorph",
+    "title": "Polymorph",
+    "group": "Qualidade de vida",
+    "version": "1.1.0+1.21.1",
+    "type": "release",
+    "published": "2025-07-21",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "polymorph-neoforge-1.1.0+1.21.1.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "puzzles-lib",
+    "title": "Puzzles Lib",
+    "group": "Dependencias",
+    "version": "21.1.66",
+    "type": "release",
+    "published": "2026-10-26",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "puzzleslib-v21.1.66-mc1.21.1+neoforge.jar",
+    "license": "MPL-2.0"
+  },
+  {
+    "slug": "reeses-sodium-options",
+    "title": "Reese's Sodium Options",
+    "group": "Performance",
+    "version": "mc1.21.1-2.2.4+neoforge",
+    "type": "release",
+    "published": "2026-09-16",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "reeses-sodium-options-neoforge-2.2.4+mc1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "resourceful-config",
+    "title": "Resourceful Config",
+    "group": "Dependencias",
+    "version": "3.0.11",
+    "type": "release",
+    "published": "2025-04-26",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "resourcefulconfig-neoforge-1.21-3.0.11.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "resourceful-lib",
+    "title": "Resourceful Lib",
+    "group": "Dependencias",
+    "version": "3.0.12",
+    "type": "release",
+    "published": "2024-12-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "resourcefullib-neoforge-1.21-3.0.12.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "rightclickharvest",
+    "title": "RightClickHarvest",
+    "group": "Facilitadores",
+    "version": "4.7.1+1.21.1",
+    "type": "release",
+    "published": "2026-11-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "rightclickharvest-neoforge-4.7.1+1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "rustic-delight",
+    "title": "Rustic Delight",
+    "group": "Comidas",
+    "version": "1.7.1",
+    "type": "release",
+    "published": "2026-07-31",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "rusticdelight-neoforge-1.21-1.7.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "sable",
+    "title": "Sable",
+    "group": "Dependencias",
+    "version": "2.0.6+mc1.21.1",
+    "type": "release",
+    "published": "2026-10-03",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "sable-neoforge-1.21.1-2.0.6.jar",
+    "license": "LicenseRef-PolyForm-Shield-License-1.0.0"
+  },
+  {
+    "slug": "serene-seasons",
+    "title": "Serene Seasons",
+    "group": "Mundo",
+    "version": "10.1.0.9",
+    "type": "beta",
+    "published": "2026-09-05",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "SereneSeasons-neoforge-1.21.1-10.1.0.9.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "slice-and-dice",
+    "title": "Create Slice & Dice",
+    "group": "Addons do Create",
+    "version": "4.3.4",
+    "type": "release",
+    "published": "2026-09-20",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "sliceanddice-4.3.4-neoforge.jar",
+    "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "sodium",
+    "title": "Sodium",
+    "group": "Performance",
+    "version": "mc1.21.1-0.8.13-neoforge",
+    "type": "release",
+    "published": "2026-08-28",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "sodium-neoforge-0.8.13+mc1.21.1.jar",
+    "license": "LicenseRef-Polyform-Shield-1.0.0"
+  },
+  {
+    "slug": "sodium-extra",
+    "title": "Sodium Extra",
+    "group": "Performance",
+    "version": "mc1.21.1-0.9.5+neoforge",
+    "type": "release",
+    "published": "2026-10-25",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "sodium-extra-neoforge-0.9.5+mc1.21.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "sophisticated-backpacks",
+    "title": "Sophisticated Backpacks",
+    "group": "Storage",
+    "version": "1.21.1-3.26.21.2249",
+    "type": "release",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "sophisticatedbackpacks-1.21.1-3.26.21.2249.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "sophisticated-core",
+    "title": "Sophisticated Core",
+    "group": "Dependencias",
+    "version": "1.21.1-1.5.38.2484",
+    "type": "release",
+    "published": "2026-11-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "sophisticatedcore-1.21.1-1.5.38.2484.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "sophisticated-storage",
+    "title": "Sophisticated Storage",
+    "group": "Storage",
+    "version": "1.21.1-1.6.19.2234",
+    "type": "release",
+    "published": "2026-11-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "sophisticatedstorage-1.21.1-1.6.19.2234.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "sophisticated-storage-create-integration",
+    "title": "Sophisticated Storage Create Integration",
+    "group": "Storage",
+    "version": "1.21.1-0.1.23.246",
+    "type": "release",
+    "published": "2026-10-12",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "sophisticatedstoragecreateintegration-1.21.1-0.1.23.246.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "spark",
+    "title": "spark",
+    "group": "Performance",
+    "version": "1.10.124-neoforge-1.21.1",
+    "type": "release",
+    "published": "2025-02-23",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "spark-1.10.124-neoforge.jar",
+    "license": "GPL-3.0-only"
+  },
+  {
+    "slug": "storage-drawers-create-compat",
+    "title": "Create: Storage Drawers compat",
+    "group": "Storage",
+    "version": "1.0.1+mod",
+    "type": "release",
+    "published": "2025-05-28",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "storage-drawers-create-compat-1.0.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "storagedrawers",
+    "title": "Storage Drawers",
+    "group": "Storage",
+    "version": "1.21.1-13.11.4",
+    "type": "release",
+    "published": "2025-09-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "StorageDrawers-neoforge-1.21.1-13.11.4.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "straw-golem-rebaled-updated",
+    "title": "Straw Golem Updated",
+    "group": "Magia e Fazenda",
+    "version": "2.2.2",
+    "type": "release",
+    "published": "2026-07-20",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "strawgolem-neoforge-1.21-2.2.2.jar",
+    "license": "AGPL-3.0-only"
+  },
+  {
+    "slug": "structure-layout-optimizer",
+    "title": "Structure Layout Optimizer",
+    "group": "Performance",
+    "version": "1.0.13+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-11-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "structure_layout_optimizer-neoforge-1.0.13.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "supplementaries",
+    "title": "Supplementaries",
+    "group": "Decoracao",
+    "version": "1.21.1-4.1.1",
+    "type": "release",
+    "published": "2026-11-13",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "supplementaries-1.21.1-4.1.1-neoforge.jar",
+    "license": "LicenseRef-Supplementaries-Team-License"
+  },
+  {
+    "slug": "terrablender",
+    "title": "TerraBlender",
+    "group": "Dependencias",
+    "version": "4.1.0.8",
+    "type": "beta",
+    "published": "2025-01-05",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "terralith",
+    "title": "Terralith",
+    "group": "Mundo",
+    "version": "2.6.2",
+    "type": "release",
+    "published": "2026-06-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Terralith_1.21.1_v2.6.2_Neoforge.jar",
+    "license": "LicenseRef-Stardust-Labs-License"
+  },
+  {
+    "slug": "towns-and-towers",
+    "title": "Towns and Towers",
+    "group": "Mundo",
+    "version": "1.13.11",
+    "type": "release",
+    "published": "2026-08-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "t_and_t-fabric-neoforge-1.13.11.jar",
+    "license": "CC-BY-NC-SA-4.0"
+  },
+  {
+    "slug": "trashslot",
+    "title": "TrashSlot",
+    "group": "Facilitadores",
+    "version": "21.1.11+neoforge-1.21.1",
+    "type": "release",
+    "published": "2026-05-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "trashslot-neoforge-1.21.1-21.1.11.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "twigs",
+    "title": "Twigs",
+    "group": "Decoracao",
+    "version": "1.21.1-3.1.2",
+    "type": "release",
+    "published": "2026-06-03",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "Twigs-1.21.1-3.1.2.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "untitled-duck-mod",
+    "title": "Untitled Duck Mod",
+    "group": "Animais",
+    "version": "1.7.1+neoforge",
+    "type": "release",
+    "published": "2026-11-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "untitledduckmod-1.7.1-neoforge-1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "waystones",
+    "title": "Waystones",
+    "group": "Qualidade de vida",
+    "version": "21.1.47+neoforge-1.21.1",
+    "type": "release",
+    "published": "2026-11-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "waystones-neoforge-1.21.1-21.1.47.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "xaeros-minimap",
+    "title": "Xaero's Minimap",
+    "group": "Qualidade de vida",
+    "version": "neoforge-1.21.1-26.6.0",
+    "type": "release",
+    "published": "2026-10-05",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "xaerominimap-neoforge-1.21.1-26.6.0.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "xaeros-world-map",
+    "title": "Xaero's World Map",
+    "group": "Qualidade de vida",
+    "version": "neoforge-1.21.1-1.47.0",
+    "type": "release",
+    "published": "2026-10-05",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "xaeroworldmap-neoforge-1.21.1-1.47.0.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "yacl",
+    "title": "YetAnotherConfigLib (YACL)",
+    "group": "Dependencias",
+    "version": "3.8.2+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-01-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar",
+    "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "yungs-api",
+    "title": "YUNG's API",
+    "group": "Dependencias",
+    "version": "1.21.1-NeoForge-5.1.9",
+    "type": "release",
+    "published": "2026-09-16",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "YungsApi-1.21.1-NeoForge-5.1.9.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "yungs-better-dungeons",
+    "title": "YUNG's Better Dungeons",
+    "group": "Mundo",
+    "version": "1.21.1-NeoForge-5.1.4",
+    "type": "release",
+    "published": "2024-12-01",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "yungs-better-mineshafts",
+    "title": "YUNG's Better Mineshafts",
+    "group": "Mundo",
+    "version": "1.21.1-NeoForge-5.1.1",
+    "type": "release",
+    "published": "2024-10-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "zfastnoise",
+    "title": "Fast Noise",
+    "group": "Performance",
+    "version": "1.0.13+1.21.1+neoforge",
+    "type": "release",
+    "published": "2026-07-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "zfastnoise-1.0.13+1.21.1+neoforge.jar",
+    "license": "MPL-2.0"
+  },
+  {
+    "slug": "complementary-reimagined",
+    "title": "Complementary Shaders - Reimagined",
+    "group": "Shaders",
+    "version": "r5.9.3",
+    "type": "release",
+    "published": "2026-09-15",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "ComplementaryReimagined_r5.9.3.zip",
+    "license": "LicenseRef-Custom"
+  }
+]

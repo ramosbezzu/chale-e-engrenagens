@@ -1,0 +1,217 @@
+{
+  "id": "chale",
+  "name": "Chale & Engrenagens",
+  "titulo": "Chalé & Engrenagens",
+  "version": "1.2.6",
+  "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create, Create Aeronautics, AE2, Immersive Engineering, Mystical Agriculture, comidas, biomas, animais e decoracao, otimizado para PC fraco.",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.265",
+  "pasta": ".minecraft-chale",
+  "perfil": "chale-e-engrenagens",
+  "icone": "Cake",
+  "marcador_antigo": "chale-e-engrenagens.txt",
+  "overrides": "overrides-cozy",
+  "pins": {
+    "create-steam-n-rails-1.21.1": "0.3.0-beta.2+neoforge-mc1.21.1"
+  },
+  "mods": {
+    "Nucleo": [
+      "create",
+      "create-steam-n-rails-1.21.1"
+    ],
+    "Addons do Create": [
+      "create-central-kitchen",
+      "slice-and-dice",
+      "create-deco",
+      "create-connected",
+      "copycats"
+    ],
+    "Tecnologia": [
+      "ae2",
+      "applied-energistics-2-wireless-terminals",
+      "create-applied-kinetics",
+      "immersiveengineering"
+    ],
+    "Magia e Fazenda": [
+      "mystical-agriculture",
+      "straw-golem-rebaled-updated"
+    ],
+    "Ferramentas": [
+      "instrumentus",
+      "create-jetpack",
+      "create-quarry"
+    ],
+    "Veiculos": [
+      "create-aeronautics",
+      "create-aeronautics-compatability",
+      "gravestone-and-sable-compatibility-patch"
+    ],
+    "Comidas": [
+      "farmers-delight",
+      "oceans-delight",
+      "rustic-delight",
+      "brewin-and-chewin",
+      "fruits-delight",
+      "bountiful-fares",
+      "lets-do-vinery",
+      "lets-do-meadow"
+    ],
+    "Animais": [
+      "naturalist",
+      "friends-and-foes-forge",
+      "critters-and-companions",
+      "untitled-duck-mod",
+      "aquaculture"
+    ],
+    "Mundo": [
+      "terralith",
+      "biomes-o-plenty",
+      "serene-seasons",
+      "towns-and-towers",
+      "yungs-better-dungeons",
+      "yungs-better-mineshafts"
+    ],
+    "Decoracao": [
+      "macaws-furniture",
+      "macaws-windows",
+      "macaws-doors",
+      "macaws-roofs",
+      "macaws-bridges",
+      "macaws-lights-and-lamps",
+      "macaws-trapdoors",
+      "macaws-paths-and-pavings",
+      "macaws-fences-and-walls",
+      "macaws-biomes-o-plenty",
+      "another-furniture",
+      "handcrafted",
+      "twigs",
+      "supplementaries",
+      "amendments",
+      "comforts",
+      "farmers-cutting-biomes-o-plenty"
+    ],
+    "Storage": [
+      "sophisticated-backpacks",
+      "sophisticated-storage",
+      "sophisticated-storage-create-integration",
+      "storagedrawers",
+      "storage-drawers-create-compat"
+    ],
+    "Qualidade de vida": [
+      "jei",
+      "jade",
+      "xaeros-minimap",
+      "xaeros-world-map",
+      "appleskin",
+      "mouse-tweaks",
+      "crafting-tweaks",
+      "polymorph",
+      "waystones",
+      "natures-compass",
+      "ambientsounds",
+      "iris",
+      "easylan"
+    ],
+    "Facilitadores": [
+      "fallingtree",
+      "ore-vein-miner",
+      "leaves-be-gone",
+      "rightclickharvest",
+      "gravestone-mod",
+      "carry-on",
+      "clientsort",
+      "trashslot"
+    ],
+    "Performance": [
+      "sodium",
+      "sodium-extra",
+      "reeses-sodium-options",
+      "lithium",
+      "ferrite-core",
+      "modernfix",
+      "immediatelyfast",
+      "entityculling",
+      "moreculling",
+      "dynamic-fps",
+      "badoptimizations",
+      "fastsuite",
+      "fastworkbench",
+      "fastfurnace",
+      "ksyxis",
+      "clumps",
+      "lmd",
+      "alternate-current",
+      "ai-improvements",
+      "neruina",
+      "modelfix",
+      "spark",
+      "packet-fixer",
+      "structure-layout-optimizer",
+      "zfastnoise",
+      "chunky",
+      "colorwheel"
+    ]
+  },
+  "shaders": [
+    "complementary-reimagined"
+  ],
+  "default_shader": "complementary-reimagined",
+  "shaders_enabled": false,
+  "ajustes": [
+    {
+      "arquivo": "config/easylan.cfg",
+      "de": "online-mode=true",
+      "para": "online-mode=false"
+    },
+    {
+      "arquivo": "config/fastbench.cfg",
+      "de": "\"Remove Recipe Book Button\"=true",
+      "para": "\"Remove Recipe Book Button\"=false"
+    },
+    {
+      "arquivo": "config/xaero/minimap/default_radar_categories_client.json",
+      "de": "\"icons\": 1.0,",
+      "para": "\"icons\": 2.0,"
+    },
+    {
+      "arquivo": "config/xaero/minimap/default_radar_categories_client.json",
+      "de": "\"names\": 0.0,",
+      "para": "\"names\": 1.0,"
+    },
+    {
+      "arquivo": "config/flywheel-client.toml",
+      "de": "lightSmoothness = \"SMOOTH\"",
+      "para": "lightSmoothness = \"FLAT\""
+    },
+    {
+      "arquivo": "config/sable-common.toml",
+      "de": "sub_level_tracking_range = 320.0",
+      "para": "sub_level_tracking_range = 160.0"
+    },
+    {
+      "arquivo": "config/simulated-server.toml",
+      "de": "maxBlocksMoved = 128000",
+      "para": "maxBlocksMoved = 16384"
+    }
+  ],
+  "historico": [
+    {
+      "versao": "1.2.6",
+      "data": "2026-11-16",
+      "titulo": "Primeira versão no Lareira",
+      "novidades": [
+        "Create, Create Aeronautics, AE2, Immersive Engineering e Mystical Agriculture",
+        "Comidas, animais, biomas e decoração, tudo otimizado para PC fraco",
+        "Corrigido o crash ao usar Shift + botão direito"
+      ],
+      "compativel": [
+        "Quem já tinha o pack pela pasta portátil: o Lareira reconhece a instalação e mantém mundos e opções",
+        "Shaders funcionam com as contraptions do Create (Colorwheel)"
+      ],
+      "incompativel": [
+        "Não conecta com versões anteriores à 1.2.6. Quem joga junto (LAN ou servidor) precisa estar na mesma versão do pack.",
+        "Create Aeronautics tem defeitos visuais com shaders ligados"
+      ]
+    }
+  ]
+}

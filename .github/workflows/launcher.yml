@@ -1,0 +1,46 @@
+# Monta o Lareira para Windows, macOS e Linux e publica como release.
+# Dispara ao enviar uma tag "launcher-v1.2.3" (a mesma versao do launcher/package.json).
+name: launcher
+on:
+  push:
+    tags: ['launcher-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  montar:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-latest, macos-latest, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node teste.js
+        working-directory: launcher
+      - run: node empacotar/montar.js
+        working-directory: launcher
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lareira-${{ matrix.os }}
+          path: launcher/build/*
+          if-no-files-found: error
+
+  publicar:
+    if: startsWith(github.ref, 'refs/tags/launcher-v')
+    needs: montar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: pacotes
+          merge-multiple: true
+      - run: gh release create "$TAG" pacotes/* --repo "$GITHUB_REPOSITORY" --title "Lareira ${TAG#launcher-v}" --generate-notes --latest
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}

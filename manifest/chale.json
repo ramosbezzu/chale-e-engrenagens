@@ -1,0 +1,929 @@
+{
+ "formato": 1,
+ "id": "chale",
+ "nome": "Chalé & Engrenagens",
+ "versao": "1.2.6",
+ "resumo": "Vanilla plus cozy em NeoForge 1.21.1: Create, Create Aeronautics, AE2, Immersive Engineering, Mystical Agriculture, comidas, biomas, animais e decoracao, otimizado para PC fraco.",
+ "minecraft": "1.21.1",
+ "neoforge": "21.1.265",
+ "pasta": ".minecraft-chale",
+ "perfil": "chale-e-engrenagens",
+ "icone": "Cake",
+ "marcadorAntigo": "chale-e-engrenagens.txt",
+ "arquivos": [
+  {
+   "caminho": "mods/addonslib-neoforge-1.21.1-1.14.jar",
+   "sha1": "9f4eae06f0b713ed73cfcae03c668fb5b289e020",
+   "tamanho": 131893,
+   "url": "https://cdn.modrinth.com/data/cl5ec0Qm/versions/7SEGJEQj/addonslib-neoforge-1.21.1-1.14.jar"
+  },
+  {
+   "caminho": "mods/appliedenergistics2-19.2.19.jar",
+   "sha1": "aa28d9d98d400fa9a191456bb14a433a3a2f6bfc",
+   "tamanho": 8238387,
+   "url": "https://cdn.modrinth.com/data/XxWD5pD3/versions/DxZ2waV0/appliedenergistics2-19.2.19.jar"
+  },
+  {
+   "caminho": "mods/AI-Improvements-1.21-0.5.3.jar",
+   "sha1": "b4a8e11384454bcc341043b251db7fb5afdfdf45",
+   "tamanho": 28984,
+   "url": "https://cdn.modrinth.com/data/DSVgwcji/versions/dGNP90t0/AI-Improvements-1.21-0.5.3.jar"
+  },
+  {
+   "caminho": "mods/almanac-neoforge-1.21.1-1.26.11.1.jar",
+   "sha1": "b5c46d36aebc046f8f57ffef430dfe3aeb805320",
+   "tamanho": 430991,
+   "url": "https://cdn.modrinth.com/data/Gi02250Z/versions/hvOxynOa/almanac-neoforge-1.21.1-1.26.11.1.jar"
+  },
+  {
+   "caminho": "mods/alternate_current-mc1.21-1.9.0.jar",
+   "sha1": "1201c14362f2bad7062d315f8a9b26afbabd2c9c",
+   "tamanho": 50425,
+   "url": "https://cdn.modrinth.com/data/r0v8vy1s/versions/PCNyL6v4/alternate_current-mc1.21-1.9.0.jar"
+  },
+  {
+   "caminho": "mods/AmbientSounds_NEOFORGE_v6.3.11_mc1.21.1.jar",
+   "sha1": "9762244f9c116c85a6af3469da686650ed455bb1",
+   "tamanho": 84815086,
+   "url": "https://cdn.modrinth.com/data/fM515JnW/versions/WGalCQAo/AmbientSounds_NEOFORGE_v6.3.11_mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/amendments-1.21-2.2.7-neoforge.jar",
+   "sha1": "f8db6e9b5610fab90a7c545c374feb9140fc7832",
+   "tamanho": 1212703,
+   "url": "https://cdn.modrinth.com/data/6iTJugQR/versions/w19mjFoT/amendments-1.21-2.2.7-neoforge.jar"
+  },
+  {
+   "caminho": "mods/another_furniture-neoforge-4.0.3.jar",
+   "sha1": "36e2b147d86c31262bf8f7c571aeea683d71173d",
+   "tamanho": 2422436,
+   "url": "https://cdn.modrinth.com/data/ulloLmqG/versions/cugGiMKt/another_furniture-neoforge-4.0.3.jar"
+  },
+  {
+   "caminho": "mods/appleskin-neoforge-mc1.21-3.0.9.jar",
+   "sha1": "81cf0e668f991f83ac8820c386fbd6c9c3602246",
+   "tamanho": 75804,
+   "url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/uAKA6Laj/appleskin-neoforge-mc1.21-3.0.9.jar"
+  },
+  {
+   "caminho": "mods/ae2wtlib-19.5.1.jar",
+   "sha1": "b1bee01393b15f1eb0f46d58862ef99234e1d337",
+   "tamanho": 252091,
+   "url": "https://cdn.modrinth.com/data/pNabrMMw/versions/CxSEpEnO/ae2wtlib-19.5.1.jar"
+  },
+  {
+   "caminho": "mods/Aquaculture-1.21.1-2.7.22.jar",
+   "sha1": "972b0ab7f0f07f4dbcb00af80c1addf5325d0683",
+   "tamanho": 608905,
+   "url": "https://cdn.modrinth.com/data/Vl1uNAuy/versions/EVDXfAI9/Aquaculture-1.21.1-2.7.22.jar"
+  },
+  {
+   "caminho": "mods/architectury-13.0.12-neoforge.jar",
+   "sha1": "646dace27624ac08ad8d229fe15f6601a8b7fbb2",
+   "tamanho": 584731,
+   "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/xGfBrBzj/architectury-13.0.12-neoforge.jar"
+  },
+  {
+   "caminho": "mods/BadOptimizations-2.4.1-1.21.1.jar",
+   "sha1": "1461d8e46391efd32a3085150e86094c9f6f5c9d",
+   "tamanho": 283566,
+   "url": "https://cdn.modrinth.com/data/g96Z4WVZ/versions/S2qthD5S/BadOptimizations-2.4.1-1.21.1.jar"
+  },
+  {
+   "caminho": "mods/balm-neoforge-1.21.1-21.0.67.jar",
+   "sha1": "68c95ca8a6a87d26199d43ff6978bc94949329e3",
+   "tamanho": 786010,
+   "url": "https://cdn.modrinth.com/data/MBAkmtvl/versions/gMedgtzL/balm-neoforge-1.21.1-21.0.67.jar"
+  },
+  {
+   "caminho": "mods/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
+   "sha1": "294ae397c011980623bf155f9dfce82bb81865a0",
+   "tamanho": 22338156,
+   "url": "https://cdn.modrinth.com/data/HXF82T3G/versions/BtZKRp69/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar"
+  },
+  {
+   "caminho": "mods/bountifulfares-neoforge-1.21.1-3.0.13.jar",
+   "sha1": "56cb8a97cb067cd7ef9c47c3f00b652a9281b0a9",
+   "tamanho": 4322580,
+   "url": "https://cdn.modrinth.com/data/YgrSDjlb/versions/w8uM2PS4/bountifulfares-neoforge-1.21.1-3.0.13.jar"
+  },
+  {
+   "caminho": "mods/BrewinAndChewin-neoforge-4.5.0+1.21.1.jar",
+   "sha1": "bc86c776779b16dec386f4b667ff46d9e2ecb88d",
+   "tamanho": 1575450,
+   "url": "https://cdn.modrinth.com/data/hIu9KJTT/versions/MbcR48Ou/BrewinAndChewin-neoforge-4.5.0%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/carryon-neoforge-1.21.1-2.2.6.13.jar",
+   "sha1": "2ceb0d9284525b6cb2a214c88cf6511cab91f601",
+   "tamanho": 361486,
+   "url": "https://cdn.modrinth.com/data/joEfVgkn/versions/PV8oLZ1q/carryon-neoforge-1.21.1-2.2.6.13.jar"
+  },
+  {
+   "caminho": "mods/Chunky-NeoForge-1.4.23.jar",
+   "sha1": "ab0c74743a653020fe2dfc4986b43e893947f3e9",
+   "tamanho": 340572,
+   "url": "https://cdn.modrinth.com/data/fALzjamp/versions/LuFhm4eU/Chunky-NeoForge-1.4.23.jar"
+  },
+  {
+   "caminho": "mods/clientsort-neoforge-3.89.2+1.21.1.jar",
+   "sha1": "05c7d37ad5f8aa5dcbe81623842b6f87f5ce1ae8",
+   "tamanho": 353091,
+   "url": "https://cdn.modrinth.com/data/K0AkAin6/versions/2c4hM8Ut/clientsort-neoforge-3.89.2%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/cloth-config-15.0.140-neoforge.jar",
+   "sha1": "c3e5733ba4503b102589a026000fd5ce0212f6f2",
+   "tamanho": 1163890,
+   "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
+  },
+  {
+   "caminho": "mods/Clumps-neoforge-1.21.1-19.0.0.1.jar",
+   "sha1": "fa2576297c7bd12b28aa7070e8141792bd66da4c",
+   "tamanho": 18382,
+   "url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/jo7lDoK4/Clumps-neoforge-1.21.1-19.0.0.1.jar"
+  },
+  {
+   "caminho": "mods/colorwheel-neoforge-1.3.2+mc1.21.1.jar",
+   "sha1": "d4d5681fb5f5b1d95a843b7e752ad746a56c4093",
+   "tamanho": 515142,
+   "url": "https://cdn.modrinth.com/data/BzHgFoGz/versions/lV874ox8/colorwheel-neoforge-1.3.2%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/comforts-neoforge-9.0.5+1.21.1.jar",
+   "sha1": "21d6bee3821d62fe3356c51fb1d697871a3087ff",
+   "tamanho": 422658,
+   "url": "https://cdn.modrinth.com/data/SaCpeal4/versions/3kpPjcTc/comforts-neoforge-9.0.5%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/configurable-3.5.3+1.21.1-neoforge.jar",
+   "sha1": "694e68c671dacf418c8ed7ab543f62c80fdd0f95",
+   "tamanho": 159048,
+   "url": "https://cdn.modrinth.com/data/lGffrQ3O/versions/lycKbfGw/configurable-3.5.3%2B1.21.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/copycats-3.0.11+mc.1.21.1-neoforge.jar",
+   "sha1": "020a921b43794bb2172d48a5e6ec4a4f56a681b9",
+   "tamanho": 1805121,
+   "url": "https://cdn.modrinth.com/data/UT2M39wf/versions/zLlVJXf0/copycats-3.0.11%2Bmc.1.21.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/craftingtweaks-neoforge-1.21.1-21.1.11.jar",
+   "sha1": "b6252039445978a742f439fc398f2a198b86bd4e",
+   "tamanho": 256086,
+   "url": "https://cdn.modrinth.com/data/DMu0oBKf/versions/IhkQpEve/craftingtweaks-neoforge-1.21.1-21.1.11.jar"
+  },
+  {
+   "caminho": "mods/create-1.21.1-6.0.10.jar",
+   "sha1": "0e97e49837bed766e6f28a4c95b04885d6acc353",
+   "tamanho": 19123767,
+   "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/UjX6dr61/create-1.21.1-6.0.10.jar"
+  },
+  {
+   "caminho": "mods/create-aeronautics-bundled-1.21.1-1.3.2.jar",
+   "sha1": "ddbe9cbc25e8f663218aa1e9fdfc4b99f0e11e4b",
+   "tamanho": 33123131,
+   "url": "https://cdn.modrinth.com/data/oWaK0Q19/versions/44pLdPGg/create-aeronautics-bundled-1.21.1-1.3.2.jar"
+  },
+  {
+   "caminho": "mods/aeronauticscompat-1.1.3.jar",
+   "sha1": "4d1aea2d6e27705e284d4603aa3422d84464e406",
+   "tamanho": 43764,
+   "url": "https://cdn.modrinth.com/data/aLVC5usA/versions/j10zlI9h/aeronauticscompat-1.1.3.jar"
+  },
+  {
+   "caminho": "mods/createappliedkinetics-1.5.6-1.21.1.jar",
+   "sha1": "b9e94ff0d666982067172a78dad74f9c421eba32",
+   "tamanho": 73853,
+   "url": "https://cdn.modrinth.com/data/mYGTCuZY/versions/1nkYMksD/createappliedkinetics-1.5.6-1.21.1.jar"
+  },
+  {
+   "caminho": "mods/create-central-kitchen-2.6.2b.jar",
+   "sha1": "796355e592455c84c4eee8b7cd998734a9500c0d",
+   "tamanho": 511818,
+   "url": "https://cdn.modrinth.com/data/btq68HMO/versions/qZxkZR8W/create-central-kitchen-2.6.2b.jar"
+  },
+  {
+   "caminho": "mods/create_connected-1.3.3-mc1.21.1.jar",
+   "sha1": "96ae45fa44cd7028a31b9613cb672009e811b145",
+   "tamanho": 6786783,
+   "url": "https://cdn.modrinth.com/data/Vg5TIO6d/versions/Xe7EqzfQ/create_connected-1.3.3-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/createdeco-2.1.3.jar",
+   "sha1": "93d9eff58b46c6953e907d071e6be4e3ce07be38",
+   "tamanho": 3328498,
+   "url": "https://cdn.modrinth.com/data/sMvUb4Rb/versions/qrcMVoBD/createdeco-2.1.3.jar"
+  },
+  {
+   "caminho": "mods/CreateDragonsPlus-1.11.9.jar",
+   "sha1": "67ffcb61207a7dbc6b1e70f0473ddbacb19d44eb",
+   "tamanho": 1085674,
+   "url": "https://cdn.modrinth.com/data/dzb1a5WV/versions/b0u9vk8C/CreateDragonsPlus-1.11.9.jar"
+  },
+  {
+   "caminho": "mods/create_jetpack-forge-5.2.1.jar",
+   "sha1": "cbd949c62723d805c2ab019def6e6718c50037b8",
+   "tamanho": 495109,
+   "url": "https://cdn.modrinth.com/data/UbFnAd4l/versions/sCwiqLqq/create_jetpack-forge-5.2.1.jar"
+  },
+  {
+   "caminho": "mods/create_quarry-1.1.0.jar",
+   "sha1": "34a0a6e3c554e6b6b381a71255341dbc4d326920",
+   "tamanho": 112632,
+   "url": "https://cdn.modrinth.com/data/gLTAirKi/versions/ZWQs6qLV/create_quarry-1.1.0.jar"
+  },
+  {
+   "caminho": "mods/railways-0.3.0-beta.2+neoforge-mc1.21.1.jar",
+   "sha1": "82a28ce51fdbc583477d7ae7c4c94cc6d23ec2b4",
+   "tamanho": 18728584,
+   "url": "https://cdn.modrinth.com/data/L3Jv0QZI/versions/czVeSmZo/railways-0.3.0-beta.2%2Bneoforge-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/CreativeCore_NEOFORGE_v2.13.54_mc1.21.1.jar",
+   "sha1": "07db1f441349db503fc21a146606121747780b7b",
+   "tamanho": 1237192,
+   "url": "https://cdn.modrinth.com/data/OsZiaDHq/versions/v8QrwctR/CreativeCore_NEOFORGE_v2.13.54_mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/cristellib-neoforge-1.21.1-3.1.7.jar",
+   "sha1": "d250804b7ecea365bc736ec36ec6fc3f933917f1",
+   "tamanho": 583525,
+   "url": "https://cdn.modrinth.com/data/cl223EMc/versions/Sduz0AWP/cristellib-neoforge-1.21.1-3.1.7.jar"
+  },
+  {
+   "caminho": "mods/crittersandcompanions-neoforge-1.21.1-2.7.0.jar",
+   "sha1": "957286bd79fd0b735c2e9619a249dde77292ca06",
+   "tamanho": 2098079,
+   "url": "https://cdn.modrinth.com/data/Yd4wb5wZ/versions/aeDUpTJS/crittersandcompanions-neoforge-1.21.1-2.7.0.jar"
+  },
+  {
+   "caminho": "mods/Cucumber-1.21.1-8.0.16.jar",
+   "sha1": "0e97553af44d39d1976fe6feb4baf1c30c6b2f06",
+   "tamanho": 275588,
+   "url": "https://cdn.modrinth.com/data/Rw1NrDzF/versions/8421rqFF/Cucumber-1.21.1-8.0.16.jar"
+  },
+  {
+   "caminho": "mods/dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar",
+   "sha1": "35b17e95b2b65930116ccc83e0cc358ac1bfcf9e",
+   "tamanho": 220193,
+   "url": "https://cdn.modrinth.com/data/LQ3K71Q1/versions/T238FZpQ/dynamic-fps-3.11.4%2Bminecraft-1.21.0-neoforge.jar"
+  },
+  {
+   "caminho": "mods/EasyLAN-neoforge-1.21.1-v1.6a.jar",
+   "sha1": "1ef43cb07cf6dabb185bec8f88c6ffd62a7c8eb8",
+   "tamanho": 112385,
+   "url": "https://cdn.modrinth.com/data/GwNdY4Sy/versions/PPv6en73/EasyLAN-neoforge-1.21.1-v1.6a.jar"
+  },
+  {
+   "caminho": "mods/entityculling-neoforge-1.12.1-mc1.21.1.jar",
+   "sha1": "75671869d5991e7fbeed77f0549501d1368d6f44",
+   "tamanho": 1523607,
+   "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/DDaDZQ47/entityculling-neoforge-1.12.1-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/FallingTree-1.21.1-1.21.1.11.jar",
+   "sha1": "7e1b3ee0ba89b556d5a468797bb1b5f4e2b8ccb7",
+   "tamanho": 496356,
+   "url": "https://cdn.modrinth.com/data/Fb4jn8m6/versions/wxGXaJMA/FallingTree-1.21.1-1.21.1.11.jar"
+  },
+  {
+   "caminho": "mods/farmers-cutting-biomes-o-plenty-2.0.0.jar",
+   "sha1": "39e402ef4c5f9336973c1a0017049e19ca4e97ef",
+   "tamanho": 53279,
+   "url": "https://cdn.modrinth.com/data/QWfaJXEc/versions/iCt2qwi3/farmers-cutting-biomes-o-plenty-2.0.0.jar"
+  },
+  {
+   "caminho": "mods/FarmersDelight-1.21.1-1.3.4.jar",
+   "sha1": "27675ddfcb8cc37e6ea1ab6c15051c7949d94657",
+   "tamanho": 3160490,
+   "url": "https://cdn.modrinth.com/data/R2OftAxM/versions/XTVZDOol/FarmersDelight-1.21.1-1.3.4.jar"
+  },
+  {
+   "caminho": "mods/FastFurnace-1.21.1-9.0.1.jar",
+   "sha1": "cb77b3bc40bb598cfc50773d491c9e1af06d3833",
+   "tamanho": 4622,
+   "url": "https://cdn.modrinth.com/data/9X0318ev/versions/pqj92Yco/FastFurnace-1.21.1-9.0.1.jar"
+  },
+  {
+   "caminho": "mods/FastSuite-1.21.1-6.0.7.jar",
+   "sha1": "9dd867fe29642d9e3f2f9059f1abf372936fbabc",
+   "tamanho": 28192,
+   "url": "https://cdn.modrinth.com/data/roccmqou/versions/OQZRQcDM/FastSuite-1.21.1-6.0.7.jar"
+  },
+  {
+   "caminho": "mods/FastWorkbench-1.21.1-9.1.3.jar",
+   "sha1": "cfe55dc815979028d2a2211e26115dbd02273f87",
+   "tamanho": 28636,
+   "url": "https://cdn.modrinth.com/data/5NYPwQRn/versions/IwciHwPN/FastWorkbench-1.21.1-9.1.3.jar"
+  },
+  {
+   "caminho": "mods/ferritecore-7.0.3-neoforge.jar",
+   "sha1": "9563692efb708b6b568df27a01ec52f6311928ef",
+   "tamanho": 121559,
+   "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/x7kQWVju/ferritecore-7.0.3-neoforge.jar"
+  },
+  {
+   "caminho": "mods/friendsandfoes-neoforge-5.0.5+mc1.21.1.jar",
+   "sha1": "f82a19b725c2751576aa2d5fe9086eab6aab4ff7",
+   "tamanho": 5280774,
+   "url": "https://cdn.modrinth.com/data/BOCJKD49/versions/SHNibBGE/friendsandfoes-neoforge-5.0.5%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/fruitsdelight-1.2.14.jar",
+   "sha1": "9e13ddd63337a180c6e69c0b3c7e622f1d27c71a",
+   "tamanho": 1910595,
+   "url": "https://cdn.modrinth.com/data/g6sbyCTu/versions/TWbuEFZt/fruitsdelight-1.2.14.jar"
+  },
+  {
+   "caminho": "mods/geckolib-neoforge-1.21.1-4.9.3.jar",
+   "sha1": "5cfe835472a5c5457ae9ac192d9d7b317454d5ac",
+   "tamanho": 634531,
+   "url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/Grwn5rUB/geckolib-neoforge-1.21.1-4.9.3.jar"
+  },
+  {
+   "caminho": "mods/GlitchCore-neoforge-1.21.1-2.1.0.2.jar",
+   "sha1": "e3d4bb80a06f619be989ab529d0cd4e33e076943",
+   "tamanho": 90717,
+   "url": "https://cdn.modrinth.com/data/s3dmwKy5/versions/S2TfWrZR/GlitchCore-neoforge-1.21.1-2.1.0.2.jar"
+  },
+  {
+   "caminho": "mods/gravestone_sable_compat-1.0.0.jar",
+   "sha1": "e85ce99d0a777794f7b7e3eb955dd1eea28a8073",
+   "tamanho": 37546,
+   "url": "https://cdn.modrinth.com/data/xJqwA0XO/versions/bdUGV5X8/gravestone_sable_compat-1.0.0.jar"
+  },
+  {
+   "caminho": "mods/gravestone-neoforge-1.21.1-1.0.40.jar",
+   "sha1": "97230b93af34ac6581ed36b0cc98f6b16b06c04e",
+   "tamanho": 322082,
+   "url": "https://cdn.modrinth.com/data/RYtXKJPr/versions/rMGJpjaM/gravestone-neoforge-1.21.1-1.0.40.jar"
+  },
+  {
+   "caminho": "mods/guideme-21.1.22.jar",
+   "sha1": "eb2f531c91566a0f119b4b3a3acd927b48b6b27e",
+   "tamanho": 9332340,
+   "url": "https://cdn.modrinth.com/data/Ck4E7v7R/versions/QeYKsstN/guideme-21.1.22.jar"
+  },
+  {
+   "caminho": "mods/handcrafted-neoforge-1.21.1-4.0.3.jar",
+   "sha1": "8ecd27f1d66f9b742cfae3c8ffa773765f574b52",
+   "tamanho": 7132842,
+   "url": "https://cdn.modrinth.com/data/pJmCFF0p/versions/JfqnpP2Z/handcrafted-neoforge-1.21.1-4.0.3.jar"
+  },
+  {
+   "caminho": "mods/ImmediatelyFast-NeoForge-1.6.15+1.21.1.jar",
+   "sha1": "f991166f7c82b493481c876e3c83c9fac4159671",
+   "tamanho": 368896,
+   "url": "https://cdn.modrinth.com/data/5ZwdcRci/versions/EJzmEPZV/ImmediatelyFast-NeoForge-1.6.15%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/ImmersiveEngineering-1.21.1-12.4.2-194.jar",
+   "sha1": "a4e90c2df8009040f6d022433c5d76635944dd59",
+   "tamanho": 14232121,
+   "url": "https://cdn.modrinth.com/data/tIm2nV03/versions/uNRARSH2/ImmersiveEngineering-1.21.1-12.4.2-194.jar"
+  },
+  {
+   "caminho": "mods/instrumentus-1.21.1-2.8.9.jar",
+   "sha1": "54e26f552ddba4179fa3713058e7c63007e0cd38",
+   "tamanho": 2122622,
+   "url": "https://cdn.modrinth.com/data/ZSHoSQwH/versions/JjcAQCwY/instrumentus-1.21.1-2.8.9.jar"
+  },
+  {
+   "caminho": "mods/iris-neoforge-1.8.14-beta.1+mc1.21.1.jar",
+   "sha1": "1bd129cf7bce65d6b1c0543045f0620c98a0f885",
+   "tamanho": 2540723,
+   "url": "https://cdn.modrinth.com/data/YL57xq9U/versions/KduFYu4t/iris-neoforge-1.8.14-beta.1%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/Jade-1.21.1-NeoForge-15.10.6.jar",
+   "sha1": "88ee316e68900080b017f60c12162e2731924cf8",
+   "tamanho": 726853,
+   "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/eYz2YBGT/Jade-1.21.1-NeoForge-15.10.6.jar"
+  },
+  {
+   "caminho": "mods/jamlib-neoforge-1.3.6+1.21.1.jar",
+   "sha1": "0e422dd29b3f82eaf2a450a0370ace82b8d00f82",
+   "tamanho": 188553,
+   "url": "https://cdn.modrinth.com/data/IYY9Siz8/versions/n6UM6TcS/jamlib-neoforge-1.3.6%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/jei-1.21.1-neoforge-19.64.0.455.jar",
+   "sha1": "f6d6fc08d54c40752926b570a2220471e8c45c1a",
+   "tamanho": 2375741,
+   "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/iv3KiVkE/jei-1.21.1-neoforge-19.64.0.455.jar"
+  },
+  {
+   "caminho": "mods/kotlinforforge-5.13.0-all.jar",
+   "sha1": "b1d5563f4e3db9ec4a4a2b371560aa171d6de237",
+   "tamanho": 7364729,
+   "url": "https://cdn.modrinth.com/data/ordsPcFz/versions/9ZlVvei8/kotlinforforge-5.13.0-all.jar"
+  },
+  {
+   "caminho": "mods/Ksyxis-1.4.6.jar",
+   "sha1": "6de6271329e0c83e3ccc0512a0d3cfcc3e790d3f",
+   "tamanho": 23873,
+   "url": "https://cdn.modrinth.com/data/2ecVyZ49/versions/kzLBJQLn/Ksyxis-1.4.6.jar"
+  },
+  {
+   "caminho": "mods/LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar",
+   "sha1": "1d8eec39ed44414af14d14c0dfb5abd097e77491",
+   "tamanho": 55937,
+   "url": "https://cdn.modrinth.com/data/AVq17PqV/versions/kAbmpvF3/LeavesBeGone-v21.1.1-1.21.1-NeoForge.jar"
+  },
+  {
+   "caminho": "mods/letsdo-meadow-neoforge-1.4.10.jar",
+   "sha1": "dd30b394460c7994de8ab22e3ea0bf7d61fa42c6",
+   "tamanho": 2965222,
+   "url": "https://cdn.modrinth.com/data/ra7o6Sl7/versions/7lmxOKYR/letsdo-meadow-neoforge-1.4.10.jar"
+  },
+  {
+   "caminho": "mods/letsdo-vinery-neoforge-1.5.6.jar",
+   "sha1": "2e2866ba9abdfff57509b291b76567054e1d5065",
+   "tamanho": 2570708,
+   "url": "https://cdn.modrinth.com/data/1DWmBJVA/versions/NmoLFrhq/letsdo-vinery-neoforge-1.5.6.jar"
+  },
+  {
+   "caminho": "mods/lithium-neoforge-0.15.4+mc1.21.1.jar",
+   "sha1": "97212e45c963730bbfc7c44780df99317814c21b",
+   "tamanho": 774220,
+   "url": "https://cdn.modrinth.com/data/gvQqBUqZ/versions/DDUrRVCA/lithium-neoforge-0.15.4%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/lithostitched-1.8.1-neoforge-21.1.jar",
+   "sha1": "88cdded5b617e19b4d2676948b5550699de23578",
+   "tamanho": 1023751,
+   "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/cZu4cHY3/lithostitched-1.8.1-neoforge-21.1.jar"
+  },
+  {
+   "caminho": "mods/letmedespawn-neoforge-1.21.1-1.26.11.1.jar",
+   "sha1": "59f0390eb44ccb90a7d188143125b4d64a96b7e5",
+   "tamanho": 29590,
+   "url": "https://cdn.modrinth.com/data/vE2FN5qn/versions/83U4ROV4/letmedespawn-neoforge-1.21.1-1.26.11.1.jar"
+  },
+  {
+   "caminho": "mods/mcwbiomesoplenty-neoforge-1.21.1-1.6.jar",
+   "sha1": "ec8e661a5ef336eb2bd9b8a1978df1213a812ded",
+   "tamanho": 7018204,
+   "url": "https://cdn.modrinth.com/data/Tanquv9C/versions/QZd7wABw/mcwbiomesoplenty-neoforge-1.21.1-1.6.jar"
+  },
+  {
+   "caminho": "mods/mcw-bridges-3.1.2-mc1.21.1neoforge.jar",
+   "sha1": "71ece28129789a2123cf07e79938f488d8675bb2",
+   "tamanho": 661387,
+   "url": "https://cdn.modrinth.com/data/GURcjz8O/versions/aQ7rY7ng/mcw-bridges-3.1.2-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-doors-1.1.5-mc1.21.1neoforge.jar",
+   "sha1": "c127904f23db1a641dd9e065ec51c5c177cb4cd7",
+   "tamanho": 1190404,
+   "url": "https://cdn.modrinth.com/data/kNxa8z3e/versions/u7BRX44F/mcw-doors-1.1.5-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar",
+   "sha1": "b5580c3fc521ed8bf4db3e407bd590efc317f74d",
+   "tamanho": 673871,
+   "url": "https://cdn.modrinth.com/data/GmwLse2I/versions/jVdb0r4W/mcw-mcwfences-1.2.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-furniture-3.4.1-mc1.21.1neoforge.jar",
+   "sha1": "3dccc819f14bcc60b3683edd82ca8c5e64964229",
+   "tamanho": 2080436,
+   "url": "https://cdn.modrinth.com/data/dtWC90iB/versions/Z5V3Ps7S/mcw-furniture-3.4.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-lights-1.1.5-mc1.21.1neoforge.jar",
+   "sha1": "13c1107caf26b2c60d8626b3658b26cc7f634b38",
+   "tamanho": 525744,
+   "url": "https://cdn.modrinth.com/data/w4an97C2/versions/5U2kQZIL/mcw-lights-1.1.5-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar",
+   "sha1": "4bb7e1d28eef19f87438881b0f582a15297b95ae",
+   "tamanho": 777742,
+   "url": "https://cdn.modrinth.com/data/VRLhWB91/versions/tlymsxUG/mcw-mcwpaths-1.1.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-roofs-2.3.2-mc1.21.1neoforge.jar",
+   "sha1": "05806ff152fab56f7c1b4b215d772ea73611283d",
+   "tamanho": 1784829,
+   "url": "https://cdn.modrinth.com/data/B8jaH3P1/versions/jiXRXiSt/mcw-roofs-2.3.2-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar",
+   "sha1": "1f8b59e31f889f53b6296b42ee09d447e7e56620",
+   "tamanho": 572870,
+   "url": "https://cdn.modrinth.com/data/n2fvCDlM/versions/StnP0RNi/mcw-trapdoors-1.1.5-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar",
+   "sha1": "eb1d3c118acb450cc2fe14c2ce7ce247a1bca60c",
+   "tamanho": 1261268,
+   "url": "https://cdn.modrinth.com/data/C7I0BCni/versions/rQUE4LCz/mcw-mcwwindows-2.4.2-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mezz_config-1.21.1-neoforge-0.7.1-standalone.jar",
+   "sha1": "2382e29c9a0f44d4f4b9baa4cb3f6a356e048e60",
+   "tamanho": 347249,
+   "url": "https://cdn.modrinth.com/data/7tEfOcA7/versions/V6oWFnxW/mezz_config-1.21.1-neoforge-0.7.1-standalone.jar"
+  },
+  {
+   "caminho": "mods/modelfix-1.21-1.10.jar",
+   "sha1": "9608b1bff92e075ad8c2feb07f7ef095f6887117",
+   "tamanho": 47035,
+   "url": "https://cdn.modrinth.com/data/QdG47OkI/versions/X2U8ceG9/modelfix-1.21-1.10.jar"
+  },
+  {
+   "caminho": "mods/modernfix-neoforge-5.27.27+mc1.21.1.jar",
+   "sha1": "52c008540c7dc2cc451f7e939a885d7462c9ae72",
+   "tamanho": 614138,
+   "url": "https://cdn.modrinth.com/data/nmDcB62a/versions/ZDZENbHH/modernfix-neoforge-5.27.27%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/moonlight-1.21.1-3.8.3-neoforge.jar",
+   "sha1": "046821d548a1269164c792bab46d55798085c285",
+   "tamanho": 2327347,
+   "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/yBea1yLM/moonlight-1.21.1-3.8.3-neoforge.jar"
+  },
+  {
+   "caminho": "mods/moreculling-neoforge-1.21.1-1.0.11.jar",
+   "sha1": "ea5ea2c826af8d8d4682d6cd867acb8e8ea983e7",
+   "tamanho": 337255,
+   "url": "https://cdn.modrinth.com/data/51shyZVL/versions/ucyxnpWe/moreculling-neoforge-1.21.1-1.0.11.jar"
+  },
+  {
+   "caminho": "mods/MouseTweaks-neoforge-mc1.21-2.26.1.jar",
+   "sha1": "6dae57f4f50f7808d2ed9a18f6cd1c0d4640c6bc",
+   "tamanho": 73938,
+   "url": "https://cdn.modrinth.com/data/aC3cM3Vq/versions/9I21YYxf/MouseTweaks-neoforge-mc1.21-2.26.1.jar"
+  },
+  {
+   "caminho": "mods/MysticalAgriculture-1.21.1-8.0.29.jar",
+   "sha1": "4a774506f65899683aa40b92fec972ddcc4fdc4f",
+   "tamanho": 2328280,
+   "url": "https://cdn.modrinth.com/data/C95ReXie/versions/4Wc9oVPI/MysticalAgriculture-1.21.1-8.0.29.jar"
+  },
+  {
+   "caminho": "mods/naturalist-2.0.7-neoforge-1.21.1.jar",
+   "sha1": "a7f9f6d9991880c377d2248af5c1ea05a0aa1039",
+   "tamanho": 11347884,
+   "url": "https://cdn.modrinth.com/data/F8BQNPWX/versions/9Yn8ig4c/naturalist-2.0.7-neoforge-1.21.1.jar"
+  },
+  {
+   "caminho": "mods/NaturesCompass-1.21.1-3.4.0-neoforge.jar",
+   "sha1": "e19721873bebc4dbc1674bb101af39d0ea406b95",
+   "tamanho": 224657,
+   "url": "https://cdn.modrinth.com/data/fPetb5Kh/versions/nFniEtJV/NaturesCompass-1.21.1-3.4.0-neoforge.jar"
+  },
+  {
+   "caminho": "mods/neruina-3.3.5+1.21.1-neoforge.jar",
+   "sha1": "f8556c45619b21b95741f340b0eaea48f26b4a6b",
+   "tamanho": 852856,
+   "url": "https://cdn.modrinth.com/data/1s5x833P/versions/zGwTcpmb/neruina-3.3.5%2B1.21.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/nexuslib-neoforge-1.21.1-1.2.0.jar",
+   "sha1": "596e58e7bf6a3e73de1c331e59ca9b51a44ee058",
+   "tamanho": 140994,
+   "url": "https://cdn.modrinth.com/data/bgDhVmqz/versions/KZh9Z9Sd/nexuslib-neoforge-1.21.1-1.2.0.jar"
+  },
+  {
+   "caminho": "mods/oceansdelight-neoforge-1.0.4-1.21.1.jar",
+   "sha1": "2246edd8fc1bbf60422f5099854c1de0b2a439c9",
+   "tamanho": 117108,
+   "url": "https://cdn.modrinth.com/data/DGiq4ZSW/versions/ja5Qg1xw/oceansdelight-neoforge-1.0.4-1.21.1.jar"
+  },
+  {
+   "caminho": "mods/ore-vein-miner-7.01R.jar",
+   "sha1": "adb5916fb70231323fd92a54f756662c85192371",
+   "tamanho": 342729,
+   "url": "https://cdn.modrinth.com/data/Xl2GihRU/versions/DGYptgDM/ore-vein-miner-7.01R.jar"
+  },
+  {
+   "caminho": "mods/packetfixer-3.3.1-1.20.5-1.21.X-merged.jar",
+   "sha1": "a8bb6e25807682e72c23bf4065f3cd5f6373ece3",
+   "tamanho": 46623,
+   "url": "https://cdn.modrinth.com/data/c7m1mi73/versions/2C41Q8WX/packetfixer-3.3.1-1.20.5-1.21.X-merged.jar"
+  },
+  {
+   "caminho": "mods/Placebo-1.21.1-9.9.4.jar",
+   "sha1": "007d52a42020a331d5272495f6d676e0ad1a2c13",
+   "tamanho": 326063,
+   "url": "https://cdn.modrinth.com/data/tCkE8p2N/versions/B5zbSVlT/Placebo-1.21.1-9.9.4.jar"
+  },
+  {
+   "caminho": "mods/polymorph-neoforge-1.1.0+1.21.1.jar",
+   "sha1": "84f8c539fa326dc723ae62b7a6916d6b01982d07",
+   "tamanho": 174972,
+   "url": "https://cdn.modrinth.com/data/tagwiZkJ/versions/VEburL70/polymorph-neoforge-1.1.0%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/puzzleslib-v21.1.66-mc1.21.1+neoforge.jar",
+   "sha1": "fd584167f1277aef5411a98a22390c65cabe6e07",
+   "tamanho": 1451120,
+   "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/kmN5PWk9/puzzleslib-v21.1.66-mc1.21.1%2Bneoforge.jar"
+  },
+  {
+   "caminho": "mods/reeses-sodium-options-neoforge-2.2.4+mc1.21.1.jar",
+   "sha1": "e9e6d101b31acb51539141937ad5b069ff2ccc4d",
+   "tamanho": 258894,
+   "url": "https://cdn.modrinth.com/data/Bh37bMuy/versions/XjF2IkL8/reeses-sodium-options-neoforge-2.2.4%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/resourcefulconfig-neoforge-1.21-3.0.11.jar",
+   "sha1": "6bf2b6ea9c071c00a2abcdc552667fb6f7d21031",
+   "tamanho": 341009,
+   "url": "https://cdn.modrinth.com/data/M1953qlQ/versions/lSbyRD6v/resourcefulconfig-neoforge-1.21-3.0.11.jar"
+  },
+  {
+   "caminho": "mods/resourcefullib-neoforge-1.21-3.0.12.jar",
+   "sha1": "24389c8e48ff0e8594e4686b750c494c66a5f8df",
+   "tamanho": 484332,
+   "url": "https://cdn.modrinth.com/data/G1hIVOrD/versions/x99nCLTm/resourcefullib-neoforge-1.21-3.0.12.jar"
+  },
+  {
+   "caminho": "mods/rightclickharvest-neoforge-4.7.1+1.21.1.jar",
+   "sha1": "217830521d3086bec2ed4e420af8b17d92c7a157",
+   "tamanho": 287188,
+   "url": "https://cdn.modrinth.com/data/Cnejf5xM/versions/EjnJWMLk/rightclickharvest-neoforge-4.7.1%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/rusticdelight-neoforge-1.21-1.7.1.jar",
+   "sha1": "697df889af0cec1823cf5330fca62bf7f6e5037f",
+   "tamanho": 1031957,
+   "url": "https://cdn.modrinth.com/data/foa4fGIH/versions/sAaG4pSA/rusticdelight-neoforge-1.21-1.7.1.jar"
+  },
+  {
+   "caminho": "mods/sable-neoforge-1.21.1-2.0.6.jar",
+   "sha1": "cf46f7e8c1511f170abcdbee739944f0540549bf",
+   "tamanho": 12986135,
+   "url": "https://cdn.modrinth.com/data/T9PomCSv/versions/fg9dTRz9/sable-neoforge-1.21.1-2.0.6.jar"
+  },
+  {
+   "caminho": "mods/SereneSeasons-neoforge-1.21.1-10.1.0.9.jar",
+   "sha1": "6b98eb4e64344bb8aba424187ed08bf04e59dccf",
+   "tamanho": 163020,
+   "url": "https://cdn.modrinth.com/data/e0bNACJD/versions/pHEgQQUE/SereneSeasons-neoforge-1.21.1-10.1.0.9.jar"
+  },
+  {
+   "caminho": "mods/sliceanddice-4.3.4-neoforge.jar",
+   "sha1": "bfcb12d13465caf6743f200fbd755b72705011e4",
+   "tamanho": 1356389,
+   "url": "https://cdn.modrinth.com/data/GmjmRQ0A/versions/D6mQaFRW/sliceanddice-4.3.4-neoforge.jar"
+  },
+  {
+   "caminho": "mods/sodium-neoforge-0.8.13+mc1.21.1.jar",
+   "sha1": "1757289be21ed18db5b0d90703fa3db1b2de5693",
+   "tamanho": 1292934,
+   "url": "https://cdn.modrinth.com/data/AANobbMI/versions/uMOpc5uV/sodium-neoforge-0.8.13%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/sodium-extra-neoforge-0.9.5+mc1.21.1.jar",
+   "sha1": "6ca433df0ad08ce8413582e75dcae7619414a068",
+   "tamanho": 483373,
+   "url": "https://cdn.modrinth.com/data/PtjYWJkn/versions/T819dLGI/sodium-extra-neoforge-0.9.5%2Bmc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedbackpacks-1.21.1-3.26.21.2249.jar",
+   "sha1": "940e93e9eaaf7db50c308c2a849a471830f6c1ea",
+   "tamanho": 1265683,
+   "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/tJnK2DE1/sophisticatedbackpacks-1.21.1-3.26.21.2249.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedcore-1.21.1-1.5.38.2484.jar",
+   "sha1": "d03c42d2f00ddec0bf999b3525afe85dba6c6e46",
+   "tamanho": 1855171,
+   "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/hhok4NTk/sophisticatedcore-1.21.1-1.5.38.2484.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedstorage-1.21.1-1.6.19.2234.jar",
+   "sha1": "c0ed6343dd6aba82921ae704daf65c5b15eec4d7",
+   "tamanho": 2097594,
+   "url": "https://cdn.modrinth.com/data/hMlaZH8f/versions/acJAaBrG/sophisticatedstorage-1.21.1-1.6.19.2234.jar"
+  },
+  {
+   "caminho": "mods/sophisticatedstoragecreateintegration-1.21.1-0.1.23.246.jar",
+   "sha1": "423cc6d71f686935ad894cef433c563532bfea51",
+   "tamanho": 148042,
+   "url": "https://cdn.modrinth.com/data/MJ0hdevs/versions/xePmjcI1/sophisticatedstoragecreateintegration-1.21.1-0.1.23.246.jar"
+  },
+  {
+   "caminho": "mods/spark-1.10.124-neoforge.jar",
+   "sha1": "9430cc2ab64ff89d698be593769fb9f9ee4efae6",
+   "tamanho": 3642581,
+   "url": "https://cdn.modrinth.com/data/l6YH9Als/versions/v5qtqRQi/spark-1.10.124-neoforge.jar"
+  },
+  {
+   "caminho": "mods/storage-drawers-create-compat-1.0.1.jar",
+   "sha1": "721fbc60d3df917b587f5d6e65cd39960b297bd0",
+   "tamanho": 1321464,
+   "url": "https://cdn.modrinth.com/data/c8JYP4m3/versions/akK0oNH8/storage-drawers-create-compat-1.0.1.jar"
+  },
+  {
+   "caminho": "mods/StorageDrawers-neoforge-1.21.1-13.11.4.jar",
+   "sha1": "b8e11e3d1fd63fd1a0d9277ec3f966c7e5cff385",
+   "tamanho": 1131420,
+   "url": "https://cdn.modrinth.com/data/guitPqEi/versions/px0CCB06/StorageDrawers-neoforge-1.21.1-13.11.4.jar"
+  },
+  {
+   "caminho": "mods/strawgolem-neoforge-1.21-2.2.2.jar",
+   "sha1": "93f81faf45091f770da45da680706d2f2197007a",
+   "tamanho": 2731674,
+   "url": "https://cdn.modrinth.com/data/Lv51AjnX/versions/Kzm4Vqr0/strawgolem-neoforge-1.21-2.2.2.jar"
+  },
+  {
+   "caminho": "mods/structure_layout_optimizer-neoforge-1.0.13.jar",
+   "sha1": "f6c9a3393e9b833ca4671c093c38fccabcdaea0d",
+   "tamanho": 95065,
+   "url": "https://cdn.modrinth.com/data/ayPU0OHc/versions/cn0D1llp/structure_layout_optimizer-neoforge-1.0.13.jar"
+  },
+  {
+   "caminho": "mods/supplementaries-1.21.1-4.1.1-neoforge.jar",
+   "sha1": "b1e0c795341f98ce4980ef2d606f3b9f9ef38021",
+   "tamanho": 13958834,
+   "url": "https://cdn.modrinth.com/data/fFEIiSDQ/versions/ry2Njtnv/supplementaries-1.21.1-4.1.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/TerraBlender-neoforge-1.21.1-4.1.0.8.jar",
+   "sha1": "744394d979b422be560babf9df7a6800ede9ac5b",
+   "tamanho": 120365,
+   "url": "https://cdn.modrinth.com/data/kkmrDlKT/versions/6e8GCrLb/TerraBlender-neoforge-1.21.1-4.1.0.8.jar"
+  },
+  {
+   "caminho": "mods/Terralith_1.21.1_v2.6.2_Neoforge.jar",
+   "sha1": "d4a9fe71b841f70edfb4b280f9bf5c58e4a28224",
+   "tamanho": 2814865,
+   "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/IY93YaEe/Terralith_1.21.1_v2.6.2_Neoforge.jar"
+  },
+  {
+   "caminho": "mods/t_and_t-fabric-neoforge-1.13.11.jar",
+   "sha1": "8f00e36a11568c0b66bbdf5c0e9ee492e511b303",
+   "tamanho": 3553006,
+   "url": "https://cdn.modrinth.com/data/DjLobEOy/versions/DZxwgj6V/t_and_t-fabric-neoforge-1.13.11.jar"
+  },
+  {
+   "caminho": "mods/trashslot-neoforge-1.21.1-21.1.11.jar",
+   "sha1": "ce09d0128e6a7d225e731e1307f9c1deddac209a",
+   "tamanho": 77535,
+   "url": "https://cdn.modrinth.com/data/vRYk0bv7/versions/HY8Ybozd/trashslot-neoforge-1.21.1-21.1.11.jar"
+  },
+  {
+   "caminho": "mods/Twigs-1.21.1-3.1.2.jar",
+   "sha1": "528c54b099afc36ae50c408ce9bfb78a28bdea8b",
+   "tamanho": 2711016,
+   "url": "https://cdn.modrinth.com/data/RG50cUrX/versions/r1egimV5/Twigs-1.21.1-3.1.2.jar"
+  },
+  {
+   "caminho": "mods/untitledduckmod-1.7.1-neoforge-1.21.1.jar",
+   "sha1": "9cf58cd8b8e7cd407ebc2dcb77d9e652a0deb71d",
+   "tamanho": 330757,
+   "url": "https://cdn.modrinth.com/data/ojFjz7JF/versions/vNlEAHKP/untitledduckmod-1.7.1-neoforge-1.21.1.jar"
+  },
+  {
+   "caminho": "mods/waystones-neoforge-1.21.1-21.1.47.jar",
+   "sha1": "51c3390c2555416979905f9d1b05ebc1a4de29c8",
+   "tamanho": 1254420,
+   "url": "https://cdn.modrinth.com/data/LOpKHB2A/versions/sE6fMBGR/waystones-neoforge-1.21.1-21.1.47.jar"
+  },
+  {
+   "caminho": "mods/xaerominimap-neoforge-1.21.1-26.6.0.jar",
+   "sha1": "551e8e2aa3498b506cc949a74606cdc0380e5e00",
+   "tamanho": 2186351,
+   "url": "https://cdn.modrinth.com/data/1bokaNcj/versions/irjR7dHk/xaerominimap-neoforge-1.21.1-26.6.0.jar"
+  },
+  {
+   "caminho": "mods/xaeroworldmap-neoforge-1.21.1-1.47.0.jar",
+   "sha1": "2936c9cb9dfbdab145fe6f1e8ae2c68915246a5f",
+   "tamanho": 1427078,
+   "url": "https://cdn.modrinth.com/data/NcUtCpym/versions/SnQ4SoDe/xaeroworldmap-neoforge-1.21.1-1.47.0.jar"
+  },
+  {
+   "caminho": "mods/yet_another_config_lib_v3-3.8.2+1.21.1-neoforge.jar",
+   "sha1": "fe270c9f6e0a8142cf316944087f5109cef08bbb",
+   "tamanho": 1118651,
+   "url": "https://cdn.modrinth.com/data/1eAoo2KR/versions/7TVdVtxF/yet_another_config_lib_v3-3.8.2%2B1.21.1-neoforge.jar"
+  },
+  {
+   "caminho": "mods/YungsApi-1.21.1-NeoForge-5.1.9.jar",
+   "sha1": "2c4b740c8ad27bbcb2a21b85b64f011b809aed91",
+   "tamanho": 413763,
+   "url": "https://cdn.modrinth.com/data/Ua7DFN59/versions/2prKITKh/YungsApi-1.21.1-NeoForge-5.1.9.jar"
+  },
+  {
+   "caminho": "mods/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar",
+   "sha1": "73a660c13063450e555e5e2c015ae24d606b32b4",
+   "tamanho": 782160,
+   "url": "https://cdn.modrinth.com/data/o1C1Dkj5/versions/D6aZn0Em/YungsBetterDungeons-1.21.1-NeoForge-5.1.4.jar"
+  },
+  {
+   "caminho": "mods/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar",
+   "sha1": "6a14e1d8201f068ca87ef8333e471c5378955906",
+   "tamanho": 493967,
+   "url": "https://cdn.modrinth.com/data/HjmxVlSr/versions/Go3nbneL/YungsBetterMineshafts-1.21.1-NeoForge-5.1.1.jar"
+  },
+  {
+   "caminho": "mods/zfastnoise-1.0.13+1.21.1+neoforge.jar",
+   "sha1": "7b9f0b4d62a6e30505f8e64ebb58dfd2dc46c81e",
+   "tamanho": 39526,
+   "url": "https://cdn.modrinth.com/data/OnlVIpq5/versions/9vSFkDAr/zfastnoise-1.0.13%2B1.21.1%2Bneoforge.jar"
+  },
+  {
+   "caminho": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
+   "sha1": "838139b54cddb56b2e83cd260d8efd960ac536d6",
+   "tamanho": 553397,
+   "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip"
+  }
+ ],
+ "configs": [
+  {
+   "caminho": "config/easylan.cfg",
+   "conteudo": "#EasyLAN configuration\nonline-mode=false\nMotd=Chale & Engrenagens\n"
+  },
+  {
+   "caminho": "config/fastbench.cfg",
+   "conteudo": "# File Specification: https://gist.github.com/Shadows-of-Fire/88ac714a758636c57a52e32ace5474c1\r\n\r\n# \r\n\r\ngeneral {\r\n    # If the recipe book button is removed.\r\n    # Default: true\r\n    B:\"Remove Recipe Book Button\"=false\r\n\r\n    # If the crafting table has a tooltip\r\n    # Default: false\r\n    B:\"Disable tooltip on crafting table\"=false\r\n\r\n    # The tick interval at which all pooled grid updates will be run. Duplicate updates within the interval will be squashed.\r\n    # Default: 1; Range: [1 ~ 100]\r\n    I:\"Grid Update Interval\"=1\r\n}\r\n\r\n\r\n"
+  },
+  {
+   "caminho": "config/flywheel-client.toml",
+   "conteudo": "#Select the backend to use. Set to \"DEFAULT\" to let Flywheel decide.\r\nbackend = \"DEFAULT\"\r\n#Enable or disable instance update limiting with distance.\r\nlimitUpdates = true\r\n#The number of worker threads to use. Set to -1 to let Flywheel decide. Set to 0 to disable parallelism. Requires a game restart to take effect.\r\n# Default: -1\r\n# Range: -1 ~ 12\r\nworkerThreads = -1\r\n\r\n#Config options for Flywheel's built-in backends.\r\n[flw_backends]\r\n\t#How smooth Flywheel's shader-based lighting should be. May have a large performance impact.\r\n\t#Allowed Values: FLAT, TRI_LINEAR, SMOOTH, SMOOTH_INNER_FACE_CORRECTED\r\n\tlightSmoothness = \"FLAT\"\r\n"
+  },
+  {
+   "caminho": "config/iris.properties",
+   "conteudo": "shaderPack=ComplementaryReimagined_r5.9.3.zip\nenableShaders=false\n"
+  },
+  {
+   "caminho": "config/sable-common.toml",
+   "conteudo": "#Whether sub-levels can split when parts are separated\r\nsub_level_splitting = true\r\n#Sub-level splitting heatmap steps that take place per tick\r\n# Default: 200\r\n# Range: > 1\r\nsub_level_splitting_heatmap_steps = 200\r\n#The distance to network sub-levels to players at\r\n# Default: 320.0\r\n# Range: 1.0 ~ 1.7976931348623157E308\r\nsub_level_tracking_range = 160.0\r\n#Keeps sub-levels with intersecting players from unloading at all\r\nsub_levels_with_players_cannot_unload = true\r\n#The minimum y coordinate sub-levels can exist at\r\n# Default: -10000.0\r\n# Range: -Infinity ~ Infinity\r\nsub_level_remove_min = -10000.0\r\n#The maximum y coordinate sub-levels can exist at\r\n# Default: 100000.0\r\n# Range: -Infinity ~ Infinity\r\nsub_level_remove_max = 100000.0\r\n#The fraction of velocity that is retained when a sub-level is loaded in. A value of 0.0 will indicate that no velocity should be carried over, while a value of 1.0 would carry over 100% of velocity on load.\r\n# Default: 0.9\r\n# Range: 0.0 ~ 1.0\r\nsub_level_velocity_retained_on_load = 0.9\r\n#The strength multiplier applied to sub-level punching impulses\r\n# Default: 2.1\r\n# Range: 0.0 ~ Infinity\r\nsub_level_punch_strength_multiplier = 2.1\r\n#The strength multiplier applied to the vertical component of downward sub-level punching impulses (to prevent jumping by punching the ground while standing on something light)\r\n# Default: 0.175\r\n# Range: 0.0 ~ Infinity\r\nsub_level_punch_downward_strength_multiplier = 0.175\r\n#The cooldown in ticks between sub-level punches\r\n# Default: 3\r\n# Range: > 0\r\nsub_level_punch_cooldown_ticks = 3\r\n#If the entire Sable UDP Networking pipeline should be disabled. This can improve compatibility with certain mods like Replay mod and certain networking setups, but will have worse performance and latency for networking sub-levels.\r\ndisable_udp_pipeline = false\r\n#If Sable should attempt to authenticate with clients and send them sub-level movement data over UDP\r\nattempt_udp_networking = true\r\n#If Sable should log when saving sub-levels for a dimension.\r\nsub_level_saving_log_message = true\r\n#If Sable should use verbose logging for its serialization system and the holding chunk-map. Not recommended- for debugging purposes only.\r\nverbose_serialization_logging = false\r\n"
+  },
+  {
+   "caminho": "config/simulated-server.toml",
+   "conteudo": "#.\r\n#Parameters and abilities of Simulated's kinetic mechanisms\r\n[kinetics]\r\n\r\n\t\t#.\r\n\t\t#.\r\n\t\t#Fine tune the kinetic stats of individual components\r\n\t\t[kinetics.stressValues.v2]\r\n\r\n\t\t\t#.\r\n\t\t\t#.\r\n\t\t\t#[in Stress Units]\r\n\t\t\t#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.\r\n\t\t\t[kinetics.stressValues.v2.impact]\r\n\t\t\t\trope_winch = 4.0\r\n\t\t\t\tauger_shaft = 0.5\r\n\t\t\t\ttorsion_spring = 16.0\r\n\t\t\t\tauger_cog = 0.5\r\n\t\t\t\tswivel_bearing = 4.0\r\n\r\n\t\t\t#.\r\n\t\t\t#[in Stress Units]\r\n\t\t\t#Configure how much stress a source can accommodate for.\r\n\t\t\t[kinetics.stressValues.v2.capacity]\r\n\t\t\t\tlight_blue_portable_engine = 64.0\r\n\t\t\t\tyellow_portable_engine = 64.0\r\n\t\t\t\tgray_portable_engine = 64.0\r\n\t\t\t\tblack_portable_engine = 64.0\r\n\t\t\t\tred_portable_engine = 64.0\r\n\t\t\t\tlime_portable_engine = 64.0\r\n\t\t\t\tlight_gray_portable_engine = 64.0\r\n\t\t\t\tpink_portable_engine = 64.0\r\n\t\t\t\tgreen_portable_engine = 64.0\r\n\t\t\t\tcyan_portable_engine = 64.0\r\n\t\t\t\ttorsion_spring = 8.0\r\n\t\t\t\tbrown_portable_engine = 64.0\r\n\t\t\t\tmagenta_portable_engine = 64.0\r\n\t\t\t\tpurple_portable_engine = 64.0\r\n\t\t\t\tsteering_wheel = 16.0\r\n\t\t\t\twhite_portable_engine = 64.0\r\n\t\t\t\tblue_portable_engine = 64.0\r\n\t\t\t\torange_portable_engine = 64.0\r\n\r\n#.\r\n#Settings for sub-level assembly\r\n[assembly]\r\n\t#.\r\n\t#.\r\n\t#Maximum amount of blocks in a structure assemble-able by Physics Assemblers, Swivel Bearings, or other means.\r\n\t# Default: 128000\r\n\t# Range: > 1\r\n\tmaxBlocksMoved = 16384\r\n\t#.\r\n\t#Maximum range in blocks which honey glue may initially be placed\r\n\t# Default: 48\r\n\t# Range: > 1\r\n\thoneyGlueRange = 48\r\n\t#.\r\n\t#Maximum range in blocks which merging glue may be placed by items such as slime balls\r\n\t# Default: 4.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tmergingGlueRange = 4.0\r\n\t#.\r\n\t#The amount of ticks that disassembly alignment is allowed to take before failing.\r\n\t# Default: 20\r\n\t# Range: > 5\r\n\tmaxDisassemblyTicks = 20\r\n\t#.\r\n\t#The maximum amount of degrees a Simulated Contraption is allowed to be tilted to fully disassemble\r\n\t# Default: 4.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdisassemblyDegreeTolerance = 4.0\r\n\t#.\r\n\t#The maximum velocity a Simulated Contraption is allowed to disassemble at in m/s\r\n\t# Default: 5.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdisassemblyMaxVelocity = 5.0\r\n\t#.\r\n\t#The maximum angular velocity a Simulated Contraption is allowed to disassemble at in rad/s\r\n\t# Default: 1.5707963705062866\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdisassemblyMaxAngularVelocity = 1.5707963705062866\r\n\t#.\r\n\t#Disallow disassembly of Simulated Contraptions in mid-air, requiring them to be within a few chunk sections of terrain\r\n\tdisallowMidAirDisassembly = true\r\n\t#.\r\n\t#Whether only the original Physics Assembler can disassemble the Sub-Level it assembled\r\n\t#Disabling allows *ALL* Physics Assemblers to disassemble any Sub-Level\r\n\t\"Primary Disassembly\" = false\r\n\r\n#.\r\n#Parameters related to the physics of Simulated Contraptions\r\n[physics]\r\n\t#.\r\n\t#.\r\n\t#The maximum force two magnets will apply towards each other\r\n\t# Default: 1000.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tredstoneMagnetStrength = 1000.0\r\n\t#.\r\n\t#The maximum force two docking connectors will apply towards each other\r\n\t# Default: 1000.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdockingConnectorStrength = 1000.0\r\n\t#.\r\n\t#Limit for linear acceleration for a magnet pair\r\n\t# Default: 500.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tredstoneMagnetLinearAccelerationClamping = 500.0\r\n\t#.\r\n\t#Limit for angular acceleration for a magnet pair\r\n\t# Default: 50.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tredstoneMagnetAngularAccelerationClamping = 50.0\r\n\t#.\r\n\t#Limit for linear acceleration for a docking connector pair\r\n\t# Default: 500.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdockingConnectorLinearAccelerationClamping = 500.0\r\n\t#.\r\n\t#Limit for angular acceleration for a docking connector pair\r\n\t# Default: 50.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdockingConnectorAngularAccelerationClamping = 50.0\r\n\t#.\r\n\t#The stiffness of locked swivel bearing joints\r\n\t# Default: 1600.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tswivel_stiffness = 1600.0\r\n\t#.\r\n\t#The friction / damping of unlocked swivel bearing joints\r\n\t# Default: 0.30000001192092896\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tswivel_friction = 0.30000001192092896\r\n\t#.\r\n\t#The damping of locked swivel bearing joints\r\n\t# Default: 40.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tswivel_damping = 40.0\r\n\t#.\r\n\t#The angle tolerance in degrees for docking connectors to link\r\n\t# Default: 20.0\r\n\t# Range: 0.0 ~ 365.0\r\n\tdocking_connector_angle = 20.0\r\n\t#.\r\n\t#The distance tolerance in blocks for docking connectors to link\r\n\t# Default: 0.5\r\n\t# Range: 0.0 ~ 4.0\r\n\tdocking_connector_distance = 0.5\r\n\t#.\r\n\t#The maximum force handles are allowed to apply to the contraption they are attached to\r\n\t# Default: 120.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\thandleMaxForce = 120.0\r\n\t#.\r\n\t#The linear stiffness of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 2650.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_linear_stiffness = 2650.0\r\n\t#.\r\n\t#The linear damping of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 125.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_linear_damping = 125.0\r\n\t#.\r\n\t#The angular stiffness of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 10000.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_angular_stiffness = 10000.0\r\n\t#.\r\n\t#The angular damping of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 850.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_angular_damping = 850.0\r\n\r\n#.\r\n#Parameters and abilities of Simulated Blocks\r\n[blocks]\r\n\t#.\r\n\t#.\r\n\t#Maximum range for the Optical Sensor\r\n\t# Default: 15\r\n\t# Range: > 0\r\n\toptical_sensor_max_range = 15\r\n\t#.\r\n\t#Maximum range for the Laser Pointer\r\n\t# Default: 100\r\n\t# Range: > 0\r\n\tlaser_pointer_max_range = 100\r\n\t#.\r\n\t#Maximum range for rope connections\r\n\t# Default: 40.0\r\n\t# Range: 0.0 ~ 1000.0\r\n\tmax_rope_range = 40.0\r\n\t#.\r\n\t#Maximum percent the rope mounted on a Rope Winch is allowed to stretch before not accepting input\r\n\t# Default: 25.0\r\n\t# Range: 0.0 ~ 100.0\r\n\tmax_rope_winch_stretch_allowed = 25.0\r\n\t#.\r\n\t#Steepest angle at which a rope can be grabbed onto using a wrench in degrees\r\n\t# Default: 85.0\r\n\t# Range: 0.0 ~ 90.0\r\n\tmax_rope_zipline_angle = 85.0\r\n\t#.\r\n\t#The maximum RPM a Swivel Bearing is allowed to rotate at\r\n\t# Default: 96.0\r\n\t# Range: 0.0 ~ 256.0\r\n\tmax_swivel_bearing_speed = 96.0\r\n\t#.\r\n\t#The maximum FE capacity of Docking Connectors\r\n\t# Default: 10000\r\n\t# Range: > 0\r\n\tdocking_connector_fe_capacity = 10000\r\n\t#.\r\n\t#The maximum FE/t throughput of Docking Connectors\r\n\t# Default: 10000\r\n\t# Range: > 0\r\n\tdocking_connector_fe_throughput = 10000\r\n\r\n#.\r\n#Equipment and gadgets added by Simulated\r\n[equipment]\r\n\t#.\r\n\t#.\r\n\t#Amount of free Plunger Launcher shots provided by one filled Backtank. Set to 0 makes Plunger Launchers unbreakable\r\n\t# Default: 100\r\n\t# Range: > 0\r\n\tmaxPlungerLauncherShots = 100\r\n\t#.\r\n\t#The max range that launched plungers can be from each other\r\n\t# Default: 64\r\n\t# Range: > 0\r\n\tmaxPlungerLauncherRange = 64\r\n"
+  },
+  {
+   "caminho": "config/xaero/minimap/default_radar_categories_client.json",
+   "conteudo": "{\n  \"hardInclude\": \"anything\",\n  \"includeList\": [],\n  \"includeListInSuperCategory\": true,\n  \"excludeMode\": \"ONLY\",\n  \"excludeList\": [\n    \"minecraft:glow_item_frame\",\n    \"minecraft:item_frame\"\n  ],\n  \"name\": \"gui.xaero_entity_category_root\",\n  \"protection\": true,\n  \"settingOverrides\": {\n    \"displayHeight\": 0.0,\n    \"displayed\": true,\n    \"heightBasedFade\": true,\n    \"renderOrder\": 0.0,\n    \"color\": 13.0,\n    \"displayNameWhenIconFails\": true,\n    \"entityNumber\": 1000.0,\n    \"alwaysDisplayNametags\": false,\n    \"startFadingAt\": 0.0,\n    \"dotSize\": 2.0,\n    \"renderOverMinimapFrame\": 1.0,\n    \"icons\": 2.0,\n    \"heightLimit\": 20.0,\n    \"names\": 1.0,\n    \"iconScale\": 1.0\n  },\n  \"subCategories\": [\n    {\n      \"hardInclude\": \"living\",\n      \"includeList\": [],\n      \"includeListInSuperCategory\": true,\n      \"excludeMode\": \"ONLY\",\n      \"excludeList\": [\n        \"minecraft:armor_stand\"\n      ],\n      \"name\": \"gui.xaero_entity_category_living\",\n      \"protection\": true,\n      \"settingOverrides\": {\n        \"renderOrder\": 2.0,\n        \"color\": 14.0\n      },\n      \"subCategories\": [\n        {\n          \"hardInclude\": \"players\",\n          \"includeList\": [],\n          \"includeListInSuperCategory\": true,\n          \"excludeMode\": \"ONLY\",\n          \"excludeList\": [],\n          \"name\": \"gui.xaero_entity_category_players\",\n          \"protection\": true,\n          \"settingOverrides\": {\n            \"renderOrder\": 6.0,\n            \"heightLimit\": 2050.0,\n            \"color\": 15.0\n          },\n          \"subCategories\": [\n            {\n              \"hardInclude\": \"nothing\",\n              \"includeList\": [],\n              \"includeListInSuperCategory\": true,\n              \"excludeMode\": \"ONLY\",\n              \"excludeList\": [],\n              \"name\": \"gui.xaero_entity_category_friend\",\n              \"protection\": true,\n              \"settingOverrides\": {},\n              \"subCategories\": []\n            },\n            {\n              \"hardInclude\": \"tracked\",\n              \"includeList\": [],\n              \"includeListInSuperCategory\": true,\n              \"excludeMode\": \"ONLY\",\n              \"excludeList\": [],\n              \"name\": \"gui.xaero_entity_category_tracked\",\n              \"protection\": true,\n              \"settingOverrides\": {\n                \"icons\": 2.0\n              },\n              \"subCategories\": []\n            },\n            {\n              \"hardInclude\": \"same-team\",\n              \"includeList\": [],\n              \"includeListInSuperCategory\": true,\n              \"excludeMode\": \"ONLY\",\n              \"excludeList\": [],\n              \"name\": \"gui.xaero_entity_category_same_team\",\n              \"protection\": true,\n              \"settingOverrides\": {},\n              \"subCategories\": []\n            },\n            {\n              \"hardInclude\": \"anything\",\n              \"includeList\": [],\n              \"includeListInSuperCategory\": true,\n              \"excludeMode\": \"ONLY\",\n              \"excludeList\": [],\n              \"name\": \"gui.xaero_entity_category_other_teams\",\n              \"protection\": true,\n              \"settingOverrides\": {\n                \"renderOrder\": 7.0\n              },\n              \"subCategories\": []\n            }\n          ]\n        },\n        {\n          \"hardInclude\": \"hostile\",\n          \"includeList\": [],\n          \"includeListInSuperCategory\": true,\n          \"excludeMode\": \"ONLY\",\n          \"excludeList\": [],\n          \"name\": \"gui.xaero_entity_category_hostile\",\n          \"protection\": true,\n          \"settingOverrides\": {\n            \"renderOrder\": 3.0\n          },\n          \"subCategories\": [\n            {\n              \"hardInclude\": \"tamed\",\n              \"includeList\": [],\n              \"includeListInSuperCategory\": true,\n              \"excludeMode\": \"ONLY\",\n              \"excludeList\": [],\n              \"name\": \"gui.xaero_entity_category_hostile_tamed\",\n              \"protection\": true,\n              \"settingOverrides\": {\n                \"renderOrder\": 5.0\n              },\n              \"subCategories\": []\n            }\n          ]\n        },\n        {\n          \"hardInclude\": \"anything\",\n          \"includeList\": [],\n          \"includeListInSuperCategory\": true,\n          \"excludeMode\": \"ONLY\",\n          \"excludeList\": [],\n          \"name\": \"gui.xaero_entity_category_friendly\",\n          \"protection\": true,\n          \"settingOverrides\": {},\n          \"subCategories\": [\n            {\n              \"hardInclude\": \"tamed\",\n              \"includeList\": [],\n              \"includeListInSuperCategory\": true,\n              \"excludeMode\": \"ONLY\",\n              \"excludeList\": [],\n              \"name\": \"gui.xaero_entity_category_friendly_tamed\",\n              \"protection\": true,\n              \"settingOverrides\": {\n                \"renderOrder\": 4.0\n              },\n              \"subCategories\": []\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"hardInclude\": \"items\",\n      \"includeList\": [],\n      \"includeListInSuperCategory\": true,\n      \"excludeMode\": \"ONLY\",\n      \"excludeList\": [],\n      \"name\": \"gui.xaero_entity_category_items\",\n      \"protection\": true,\n      \"settingOverrides\": {\n        \"renderOrder\": 1.0,\n        \"color\": 12.0\n      },\n      \"subCategories\": []\n    },\n    {\n      \"hardInclude\": \"anything\",\n      \"includeList\": [],\n      \"includeListInSuperCategory\": true,\n      \"excludeMode\": \"ONLY\",\n      \"excludeList\": [],\n      \"name\": \"gui.xaero_entity_category_other_entities\",\n      \"protection\": true,\n      \"settingOverrides\": {\n        \"color\": 5.0\n      },\n      \"subCategories\": []\n    }\n  ]\n}"
+  },
+  {
+   "caminho": "options.txt",
+   "conteudo": "version:3955\nlang:pt_br\nrenderDistance:8\nsimulationDistance:6\ngraphicsMode:0\nrenderClouds:\"false\"\nparticles:1\nentityShadows:false\nbiomeBlendRadius:1\nmipmapLevels:2\nentityDistanceScaling:0.75\nmaxFps:60\nenableVsync:false\n"
+  }
+ ],
+ "ajustes": [
+  {
+   "arquivo": "config/easylan.cfg",
+   "de": "online-mode=true",
+   "para": "online-mode=false"
+  },
+  {
+   "arquivo": "config/fastbench.cfg",
+   "de": "\"Remove Recipe Book Button\"=true",
+   "para": "\"Remove Recipe Book Button\"=false"
+  },
+  {
+   "arquivo": "config/xaero/minimap/default_radar_categories_client.json",
+   "de": "\"icons\": 1.0,",
+   "para": "\"icons\": 2.0,"
+  },
+  {
+   "arquivo": "config/xaero/minimap/default_radar_categories_client.json",
+   "de": "\"names\": 0.0,",
+   "para": "\"names\": 1.0,"
+  },
+  {
+   "arquivo": "config/flywheel-client.toml",
+   "de": "lightSmoothness = \"SMOOTH\"",
+   "para": "lightSmoothness = \"FLAT\""
+  },
+  {
+   "arquivo": "config/sable-common.toml",
+   "de": "sub_level_tracking_range = 320.0",
+   "para": "sub_level_tracking_range = 160.0"
+  },
+  {
+   "arquivo": "config/simulated-server.toml",
+   "de": "maxBlocksMoved = 128000",
+   "para": "maxBlocksMoved = 16384"
+  }
+ ],
+ "historico": [
+  {
+   "versao": "1.2.6",
+   "data": "2026-11-16",
+   "titulo": "Primeira versão no Lareira",
+   "novidades": [
+    "Create, Create Aeronautics, AE2, Immersive Engineering e Mystical Agriculture",
+    "Comidas, animais, biomas e decoração, tudo otimizado para PC fraco",
+    "Corrigido o crash ao usar Shift + botão direito"
+   ],
+   "compativel": [
+    "Quem já tinha o pack pela pasta portátil: o Lareira reconhece a instalação e mantém mundos e opções",
+    "Shaders funcionam com as contraptions do Create (Colorwheel)"
+   ],
+   "incompativel": [
+    "Não conecta com versões anteriores à 1.2.6. Quem joga junto (LAN ou servidor) precisa estar na mesma versão do pack.",
+    "Create Aeronautics tem defeitos visuais com shaders ligados"
+   ]
+  }
+ ],
+ "anteriores": []
+}

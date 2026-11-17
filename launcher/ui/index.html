@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lareira</title>
+<link rel="icon" href="icone.png">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header class="cena">
+  <canvas id="cena" aria-hidden="true"></canvas>
+  <div class="letreiro">
+    <h1>Lareira</h1>
+    <p>modpacks quentinhos, sempre em dia</p>
+  </div>
+  <div class="modo" id="modo" role="group" aria-label="Launcher usado para jogar"></div>
+</header>
+
+<div class="faixa" id="faixa" hidden></div>
+
+<main>
+  <nav class="packs" id="packs" aria-label="Modpacks"></nav>
+
+  <section class="painel" id="painel" aria-live="polite">
+    <div class="vazio" id="vazio">Acendendo a lareira...</div>
+    <div id="detalhe" hidden>
+      <div class="topo">
+        <h2 id="nome"></h2>
+        <div class="etiquetas" id="etiquetas"></div>
+        <div class="versoes" id="versoes" role="group" aria-label="Versão do pack" hidden></div>
+      </div>
+      <p class="resumo" id="resumo"></p>
+
+      <div class="acao">
+        <button class="botao" id="principal" type="button"></button>
+        <div class="situacao">
+          <strong id="situacao"></strong>
+          <span id="situacao2"></span>
+        </div>
+      </div>
+
+      <div class="progresso" id="progresso" hidden>
+        <div class="barra"><div class="cheio" id="cheio"></div></div>
+        <span id="fase"></span>
+      </div>
+      <div class="recado" id="recado" hidden></div>
+
+      <h3>Novidades e compatibilidade</h3>
+      <div class="historico" id="historico"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="links">
+    <button class="link" id="abrirPasta" type="button">abrir pasta</button>
+    <button class="link" id="reparar" type="button">reparar arquivos</button>
+    <button class="link" id="recarregar" type="button">procurar atualizações</button>
+  </span>
+  <span class="versao" id="versao"></span>
+</footer>
+
+<div class="fundo-dialogo" id="dialogo" hidden>
+  <div class="dialogo" role="dialog" aria-modal="true" aria-labelledby="dialogoTitulo">
+    <h3 id="dialogoTitulo"></h3>
+    <p id="dialogoTexto"></p>
+    <div class="dialogo-botoes">
+      <button class="botao pequeno claro" id="dialogoNao" type="button">Cancelar</button>
+      <button class="botao pequeno" id="dialogoSim" type="button">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

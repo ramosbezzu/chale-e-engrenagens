@@ -1,0 +1,5 @@
+# Os .mrpack e as pastas expandidas tem os .jar dos mods: nao vao para o repositorio.
+dist/
+launcher/build/
+node_modules/
+__pycache__/
