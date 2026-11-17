@@ -112,7 +112,7 @@ def manifest(cfg):
         "formato": 1,
         "launcher": {"versao": launcher["version"], "pagina": launcher["homepage"] + "/releases/latest"},
         "packs": packs,
-    }, indent=1, ensure_ascii=False) + "\n")
+    }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"manifesto -> manifest/{cfg['id']}.json ({len(pack['arquivos'])} arquivos, "
           f"anterior: {', '.join(a['versao'] for a in anteriores) or 'nenhuma'})")
 
