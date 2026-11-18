@@ -10,7 +10,7 @@ const http = require('http');
 const crypto = require('crypto');
 const { spawn, execFile, execFileSync } = require('child_process');
 
-const VERSAO = '1.3.2';
+const VERSAO = '1.3.3';
 const REPO = 'ramosbezzu/chale-e-engrenagens';
 const MANIFESTO_PADRAO = `https://raw.githubusercontent.com/${REPO}/main/manifest/`;
 const HOSTS_DOWNLOAD = ['cdn.modrinth.com', 'github.com', 'raw.githubusercontent.com'];
@@ -149,8 +149,23 @@ const cmpVersao = (a, b) => {
   return 0;
 };
 
-async function baixarTexto(nome) {
+// O raw.githubusercontent.com guarda cada arquivo por ate 5 minutos em cada servidor do CDN, e o "main"
+// podia continuar mostrando a versao anterior depois de publicada (cache: 'no-store' nao passa por cima).
+// Por isso o Lareira pergunta ao git do GitHub (sem cache) qual e o commit atual do main e baixa o
+// manifesto daquele commit: cada publicacao vira um endereco novo. Se o git nao responder, usa o main.
+async function baseAtual() {
   const base = baseManifesto();
+  if (base !== MANIFESTO_PADRAO) return base;
+  try {
+    const r = await fetch(`https://github.com/${REPO}.git/info/refs?service=git-upload-pack`, { cache: 'no-store', signal: AbortSignal.timeout(8000) });
+    const m = r.ok && (await r.text()).match(/([0-9a-f]{40}) refs\/heads\/main\n/);
+    if (m) return `https://raw.githubusercontent.com/${REPO}/${m[1]}/manifest/`;
+    log('commit do main: resposta inesperada', r.status);
+  } catch (e) { log('commit do main:', e.message); }
+  return base;
+}
+
+async function baixarTexto(base, nome) {
   if (!/^https?:/.test(base)) return fs.readFileSync(path.join(base, nome), 'utf8');
   const r = await fetch(base + nome, { cache: 'no-store', signal: AbortSignal.timeout(12000) });
   if (!r.ok) throw new Error(`HTTP ${r.status} em ${nome}`);
@@ -237,13 +252,14 @@ async function carregarManifesto() {
   const cache = path.join(DADOS, 'cache');
   let textos;
   try {
-    const index = await baixarTexto('index.json');
+    const base = await baseAtual();
+    const index = await baixarTexto(base, 'index.json');
     const idx = JSON.parse(index);
     if (idx.formato !== 1) throw new Error('Este launcher e antigo demais para o manifesto atual. Baixe a versao nova.');
     textos = { 'index.json': index };
     for (const p of idx.packs) {
       if (!/^[a-z0-9-]+\.json$/.test(p.arquivo)) throw new Error('manifesto invalido');
-      textos[p.arquivo] = await baixarTexto(p.arquivo);
+      textos[p.arquivo] = await baixarTexto(base, p.arquivo);
     }
     fs.mkdirSync(cache, { recursive: true });
     for (const [nome, texto] of Object.entries(textos)) gravar(path.join(cache, nome), texto);

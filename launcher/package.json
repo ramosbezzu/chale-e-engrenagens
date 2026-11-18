@@ -1,6 +1,6 @@
 {
   "name": "lareira",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Lareira: launcher cozy dos modpacks Chalé & Engrenagens e Trilhos & Engrenagens",
   "homepage": "https://github.com/ramosbezzu/chale-e-engrenagens",
   "main": "lareira.js",
