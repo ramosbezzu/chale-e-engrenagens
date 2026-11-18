@@ -1,9 +1,17 @@
 {
  "formato": 1,
  "launcher": {
-  "versao": "1.3.2",
+  "versao": "1.3.3",
   "pagina": "https://github.com/ramosbezzu/chale-e-engrenagens/releases/latest",
   "historico": [
+   {
+    "versao": "1.3.3",
+    "data": "2026-11-18",
+    "titulo": "Versão nova do modpack aparece na hora",
+    "novidades": [
+     "Quando sai versão nova do modpack, o botão Atualizar aparece assim que você abre o Lareira ou clica em procurar atualizações. Antes ele podia levar até uns 5 minutos para perceber."
+    ]
+   },
    {
     "versao": "1.3.2",
     "data": "2026-11-18",
