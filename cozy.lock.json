@@ -1,5 +1,19 @@
 [
   {
+    "slug": "additional-enchanted-miner",
+    "title": "Additional Enchanted Miner",
+    "group": "Ferramentas",
+    "version": "21.1.170",
+    "type": "release",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "AdditionalEnchantedMiner-1.21.1-neoforge-21.1.170.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
     "slug": "addonslib",
     "title": "AddonsLib",
     "group": "Dependencias",
@@ -168,6 +182,20 @@
     "license": "LGPL-3.0-only"
   },
   {
+    "slug": "azimuth-api",
+    "title": "Azimuth API",
+    "group": "Dependencias",
+    "version": "1.4.10",
+    "type": "release",
+    "published": "2026-10-04",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "azimuth-1.4.10.jar",
+    "license": "MIT"
+  },
+  {
     "slug": "badoptimizations",
     "title": "BadOptimizations",
     "group": "Performance",
@@ -194,20 +222,6 @@
     },
     "file": "balm-neoforge-1.21.1-21.0.67.jar",
     "license": "LicenseRef-All-Rights-Reserved"
-  },
-  {
-    "slug": "better-animations-collection",
-    "title": "Better Animations Collection",
-    "group": "Chat e animacoes",
-    "version": "v21.1.1-1.21.1-NeoForge",
-    "type": "release",
-    "published": "2025-09-28",
-    "env": {
-      "client": "required",
-      "server": "unsupported"
-    },
-    "file": "BetterAnimationsCollection-v21.1.1-1.21.1-NeoForge.jar",
-    "license": "MPL-2.0"
   },
   {
     "slug": "biomes-o-plenty",
@@ -532,6 +546,20 @@
     "license": "LicenseRef-All-Rights-Reserved"
   },
   {
+    "slug": "create-aquatic-ambitions",
+    "title": "Create: Aquatic Ambitions",
+    "group": "Addons do Create",
+    "version": "1.21.1-6.0.10-2.0.4",
+    "type": "release",
+    "published": "2026-07-19",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create_aquatic_ambitions-1.21.1-2.0.4.jar",
+    "license": "MIT"
+  },
+  {
     "slug": "create-big-cannons",
     "title": "Create Big Cannons",
     "group": "Armas",
@@ -544,6 +572,20 @@
     },
     "file": "createbigcannons-5.11.7+mc.1.21.1.jar",
     "license": "LicenseRef-Create-Big-Cannons-License"
+  },
+  {
+    "slug": "create-bits-n-bobs",
+    "title": "Create: Bits 'n' Bobs",
+    "group": "Addons do Create",
+    "version": "2.3.5",
+    "type": "release",
+    "published": "2026-09-15",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "bits_n_bobs-2.3.5.jar",
+    "license": "MIT"
   },
   {
     "slug": "create-central-kitchen",
@@ -684,6 +726,20 @@
     },
     "file": "createaddition-1.7.2.jar",
     "license": "MIT"
+  },
+  {
+    "slug": "createnuclear",
+    "title": "Create Nuclear",
+    "group": "Tecnologia",
+    "version": "2.0.1",
+    "type": "release",
+    "published": "2026-11-07",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "createnuclear-2.0.1-neoforge.jar",
+    "license": "LGPL-3.0-only"
   },
   {
     "slug": "creativecore",
@@ -1092,6 +1148,20 @@
     "license": "LicenseRef-Terrarium-Licence"
   },
   {
+    "slug": "hypertube",
+    "title": "Create: Hypertubes",
+    "group": "Addons do Create",
+    "version": "0.6.0",
+    "type": "release",
+    "published": "2026-07-30",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create_hypertube-0.6.0-NEOFORGE.jar",
+    "license": "Apache-2.0"
+  },
+  {
     "slug": "immediatelyfast",
     "title": "ImmediatelyFast",
     "group": "Performance",
@@ -1146,6 +1216,20 @@
     },
     "file": "instrumentus-1.21.1-2.8.9.jar",
     "license": "MIT"
+  },
+  {
+    "slug": "interiors",
+    "title": "Create: Interiors",
+    "group": "Addons do Create",
+    "version": "0.6.1",
+    "type": "release",
+    "published": "2026-01-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "interiors-1.21.1-neoforge-0.6.1.jar",
+    "license": "GPL-3.0-or-later"
   },
   {
     "slug": "iris",
@@ -1641,14 +1725,14 @@
     "slug": "nexuslib",
     "title": "NexusLib",
     "group": "Dependencias",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "type": "release",
-    "published": "2026-09-18",
+    "published": "2026-11-18",
     "env": {
       "client": "required",
       "server": "required"
     },
-    "file": "nexuslib-neoforge-1.21.1-1.2.0.jar",
+    "file": "nexuslib-neoforge-1.21.1-1.2.1.jar",
     "license": "LicenseRef-Custom"
   },
   {
@@ -1876,6 +1960,20 @@
     "license": "LicenseRef-PolyForm-Shield-License-1.0.0"
   },
   {
+    "slug": "scalable-cats-force",
+    "title": "Scalable Cat's Force",
+    "group": "Dependencias",
+    "version": "3.7.1-build-11",
+    "type": "release",
+    "published": "2025-07-06",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ScalableCatsForce-NeoForge-3.7.1-build-11-with-library.jar",
+    "license": "Apache-2.0"
+  },
+  {
     "slug": "serene-seasons",
     "title": "Serene Seasons",
     "group": "Mundo",
@@ -2058,17 +2156,31 @@
     "license": "MIT"
   },
   {
-    "slug": "supplementaries",
-    "title": "Supplementaries",
-    "group": "Decoracao",
-    "version": "1.21.1-4.1.1",
+    "slug": "strut-your-stuff",
+    "title": "Strut Your Stuff (Struts)",
+    "group": "Dependencias",
+    "version": "1.3.1",
     "type": "release",
-    "published": "2026-11-13",
+    "published": "2026-09-05",
     "env": {
       "client": "required",
       "server": "required"
     },
-    "file": "supplementaries-1.21.1-4.1.1-neoforge.jar",
+    "file": "struts-1.3.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "supplementaries",
+    "title": "Supplementaries",
+    "group": "Decoracao",
+    "version": "1.21.1-4.1.3",
+    "type": "release",
+    "published": "2026-11-18",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "supplementaries-1.21.1-4.1.3-neoforge.jar",
     "license": "LicenseRef-Supplementaries-Team-License"
   },
   {
@@ -2327,14 +2439,14 @@
     "slug": "complementary-reimagined",
     "title": "Complementary Shaders - Reimagined",
     "group": "Shaders",
-    "version": "r5.9.3",
+    "version": "r5.10",
     "type": "release",
-    "published": "2026-09-15",
+    "published": "2026-11-18",
     "env": {
       "client": "required",
       "server": "unsupported"
     },
-    "file": "ComplementaryReimagined_r5.9.3.zip",
+    "file": "ComplementaryReimagined_r5.10.zip",
     "license": "LicenseRef-Custom"
   },
   {

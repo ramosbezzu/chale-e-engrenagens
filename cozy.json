@@ -2,7 +2,7 @@
   "id": "chale",
   "name": "Chale & Engrenagens",
   "titulo": "Chalé & Engrenagens",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create com eletricidade, armas e canhões, Create Aeronautics, AE2, Immersive Engineering, comidas, biomas, animais, decoração de Natal e casa tecnológica, otimizado para PC fraco.",
   "minecraft": "1.21.1",
   "neoforge": "21.1.265",
@@ -24,7 +24,11 @@
       "slice-and-dice",
       "create-deco",
       "create-connected",
-      "copycats"
+      "copycats",
+      "create-bits-n-bobs",
+      "create-aquatic-ambitions",
+      "interiors",
+      "hypertube"
     ],
     "Tecnologia": [
       "ae2",
@@ -33,7 +37,8 @@
       "immersiveengineering",
       "create-new-age",
       "createaddition",
-      "create-solar-punk"
+      "create-solar-punk",
+      "createnuclear"
     ],
     "Armas": [
       "cgs",
@@ -52,6 +57,7 @@
       "instrumentus",
       "create-jetpack",
       "create-quarry",
+      "additional-enchanted-miner",
       "cloud-boots"
     ],
     "Veiculos": [
@@ -141,7 +147,6 @@
       "not-enough-animations",
       "emotecraft",
       "fwa",
-      "better-animations-collection",
       "entity-model-features"
     ],
     "Facilitadores": [
@@ -242,9 +247,39 @@
       "arquivo": "config/createbigcannons-server.toml",
       "de": "damageRestriction = \"ALL_DAMAGE\"",
       "para": "damageRestriction = \"NO_DAMAGE\""
+    },
+    {
+      "arquivo": "config/createnuclear-server.toml",
+      "de": "warn_all_players = false",
+      "para": "warn_all_players = true"
     }
   ],
   "historico": [
+    {
+      "versao": "1.4.1",
+      "data": "2026-11-18",
+      "titulo": "Fresh Animations funcionando e novos addons do Create",
+      "novidades": [
+        "Fresh Animations agora funciona de verdade: aldeões e bichos ganham as animações novas quando o pacote está ligado em Opções > Pacotes de recursos",
+        "Saiu o Better Animations Collection, que trocava o modelo dos mesmos bichos e escondia as animações do Fresh Animations",
+        "QuarryPlus (Additional Enchanted Miner): escavadeiras automáticas que aceitam encantamento (Fortuna, Toque Suave, Eficiência), ligadas na energia elétrica do pack",
+        "Create: Bits 'n' Bobs: luminárias, correntes, painéis e várias pecinhas decorativas e mecânicas para as máquinas",
+        "Create: Interiors: sofás e cadeiras no estilo do Create, que também funcionam como assento em trens e dirigíveis",
+        "Create: Hypertubes: tubos de transporte para viajar pelo mapa voando dentro deles",
+        "Create: Aquatic Ambitions: máquinas para produzir prismarinho, corais e cobre em quantidade",
+        "Create Nuclear: reator nuclear para gerar muita energia. Cuidado: tem radiação e, se o reator esquentar demais, ele explode e destrói o que estiver em volta. Todo mundo por perto recebe um aviso antes da explosão"
+      ],
+      "compativel": [
+        "Mundos da 1.4.0 abrem normalmente",
+        "Nada some do mundo: o mod que saiu só mudava a aparência dos bichos",
+        "Os minérios novos do Create Nuclear (urânio, tório, chumbo e salitre) só aparecem em partes do mapa que ainda não foram exploradas"
+      ],
+      "incompativel": [
+        "Não conecta com quem está na 1.4.0: quem joga junto precisa atualizar junto",
+        "Não monte o reator nuclear perto da casa: a explosão quebra construções e deixa a área contaminada",
+        "Abra o Lareira e clique em Atualizar antes de entrar"
+      ]
+    },
     {
       "versao": "1.4.0",
       "data": "2026-11-18",
