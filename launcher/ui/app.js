@@ -127,6 +127,7 @@ function desenharHistorico(p) {
     if (instalada && cmp(h.versao, instalada) === 0) cab.append(el('span', 'instalada', 'INSTALADA'));
     if (h.data) cab.append(el('time', null, h.data.split('-').reverse().join('/')));
     e.append(cab);
+    if (h.tema === 'natal') e.classList.add('natal');
     const bloco = (rotulo, itens, classe) => {
       if (!itens || !itens.length) return;
       if (rotulo) e.append(el('span', 'rotulo', rotulo));
@@ -134,12 +135,45 @@ function desenharHistorico(p) {
       for (const i of itens) ul.append(el('li', classe, i));
       e.append(ul);
     };
-    bloco(null, h.novidades, null);
+    if (h.mensagem) e.append(el('p', 'mensagem', h.mensagem));
+    if (h.secoes && h.secoes.length) {
+      for (const s of h.secoes) {
+        e.append(el('h4', null, s.titulo));
+        bloco(null, s.itens, null);
+        if (s.fotos.length) e.append(galeria(s.fotos));
+      }
+    } else bloco(null, h.novidades, null);
     bloco('Compatível', h.compativel, 'sim');
     bloco('Incompatível / atenção', h.incompativel, 'nao');
+    if (h.despedida) e.append(el('p', 'mensagem despedida', h.despedida));
     caixa.append(e);
   }
   if (!p.historico.length) caixa.append(el('p', 'resumo', 'Sem notas para este pack ainda.'));
+}
+
+// Fotos dos mods (do CDN do Modrinth). Clique amplia; se a foto nao carregar (sem internet), some.
+function galeria(lista) {
+  const g = el('div', 'fotos');
+  for (const f of lista) {
+    const fig = el('figure');
+    const img = el('img');
+    img.loading = 'lazy'; img.alt = f.legenda; img.src = f.url; img.referrerPolicy = 'no-referrer';
+    img.onerror = () => fig.remove();
+    fig.append(img);
+    if (f.legenda) fig.append(el('figcaption', null, f.legenda));
+    fig.tabIndex = 0;
+    fig.onclick = fig.onkeydown = (ev) => { if (ev.type === 'click' || ev.key === 'Enter') ampliar(f); };
+    g.append(fig);
+  }
+  return g;
+}
+
+function ampliar(f) {
+  $('fotoGrande').src = f.url;
+  $('fotoGrande').alt = f.legenda;
+  $('fotoLegenda').textContent = f.legenda;
+  $('foto').hidden = false;
+  $('foto').focus();
 }
 
 function desenharProgresso(t) {
@@ -263,6 +297,26 @@ function conectar() {
   };
 }
 
+// ------------------------------------------------------------ Natal (15/11 a 06/01, decoracao automatica)
+const hoje = new Date();
+const NATAL = new URLSearchParams(location.search).has('natal')
+  || (hoje.getMonth() === 10 && hoje.getDate() >= 15) || hoje.getMonth() === 11 || (hoje.getMonth() === 0 && hoje.getDate() <= 6);
+
+function enfeitar() {
+  if (!NATAL) return;
+  document.body.classList.add('natal');
+  $('subtitulo').textContent = 'feliz natal! modpacks quentinhos, sempre em dia';
+  // Varal de pisca-pisca embaixo da cena: cada lampada pisca no seu ritmo.
+  const varal = $('pisca');
+  const cores = ['vermelha', 'amarela', 'verde', 'azul'];
+  for (let i = 0; i < 64; i++) {
+    const l = el('i', cores[i % cores.length]);
+    l.style.animationDelay = `${-((i * 7) % 11) * 0.23}s`;
+    varal.append(l);
+  }
+  varal.hidden = false;
+}
+
 // ------------------------------------------------------------ cena em pixel art (tudo desenhado no codigo)
 function cena() {
   const tela = $('cena');
@@ -279,8 +333,56 @@ function cena() {
     tela.width = L; tela.height = A;
     semente = 7;
     estrelas = Array.from({ length: Math.floor(L / 5) }, () => ({ x: Math.floor(acaso() * L), y: Math.floor(acaso() * (A - 22)), f: acaso() * 6 }));
-    neve = Array.from({ length: Math.floor(L / 9) }, () => ({ x: acaso() * L, y: acaso() * A, v: 3 + acaso() * 4 }));
+    neve = Array.from({ length: Math.floor(L / (NATAL ? 6 : 9)) }, () => ({ x: acaso() * L, y: acaso() * A, v: 3 + acaso() * 4 }));
+    enfeites = Array.from({ length: 14 }, () => ({ a: acaso(), b: acaso(), f: acaso() * 6, c: Math.floor(acaso() * 4) }));
   }
+  let enfeites = [];
+  const LUZES = ['#ff5a4f', '#ffd75e', '#6fd36a', '#5fb4ff'];
+  // Lampada que alterna entre acesa e apagada (cada uma com sua fase).
+  const luz = (x, y, i, t) => {
+    const acesa = parado || Math.sin(t / 380 + i * 1.7) > -0.3;
+    px(x, y, 1, 1, acesa ? LUZES[i % 4] : '#4a3a44');
+  };
+
+  // Arvore de Natal com bolas, estrela e presentes.
+  function arvoreNatal(x, base, alt, t) {
+    for (let i = 0; i < alt; i++) {
+      const larg = Math.floor(i * 0.42) + (i % 4 === 3 ? 0 : 1);
+      px(x - larg, base - alt + i, larg * 2 + 1, 1, i % 4 === 0 ? '#2f5c38' : '#3f6b45');
+    }
+    px(x - 1, base, 3, 2, '#5a3a28');
+    enfeites.forEach((e, k) => {
+      const i = 3 + Math.floor(e.a * (alt - 4));
+      const larg = Math.floor(i * 0.42);
+      luz(x - larg + Math.floor(e.b * (larg * 2 + 1)), base - alt + i, e.c + k, t + e.f * 900);
+    });
+    const brilho = parado ? 1 : Math.sin(t / 260);
+    const estrela = brilho > 0.4 ? '#fff2a8' : '#ffc857';
+    px(x, base - alt - 3, 1, 3, estrela); px(x - 1, base - alt - 2, 3, 1, estrela);
+    if (brilho > 0.85) { px(x - 2, base - alt - 2, 1, 1, '#fff7e6'); px(x + 2, base - alt - 2, 1, 1, '#fff7e6'); }
+    // presentes
+    px(x - 6, base - 1, 4, 3, '#c8463a'); px(x - 5, base - 1, 1, 3, '#ffd75e');
+    px(x + 3, base, 4, 2, '#4f7fc9'); px(x + 4, base, 1, 2, '#f6e8cb');
+    px(x + 7, base - 1, 3, 3, '#5d8f4e'); px(x + 8, base - 1, 1, 3, '#c8463a');
+  }
+
+  // Treno com renas cruzando o ceu de tempos em tempos.
+  function treno(t) {
+    const ciclo = 42000, dur = 16000, fase = t % ciclo;
+    if (parado || fase > dur) return;
+    const x = -24 + (fase / dur) * (L + 48), y = 9 + Math.round(Math.sin(fase / 900) * 2);
+    for (const [dx, nariz] of [[16, true], [10, false]]) {
+      px(x + dx, y, 4, 2, '#8a5a3c'); px(x + dx + 3, y - 1, 2, 1, '#8a5a3c');
+      px(x + dx, y + 2, 1, 1, '#8a5a3c'); px(x + dx + 3, y + 2, 1, 1, '#8a5a3c');
+      px(x + dx + 4, y - 2, 1, 1, '#d9a7a0');
+      if (nariz) px(x + dx + 5, y - 1, 1, 1, Math.sin(t / 150) > 0 ? '#ff5a4f' : '#a8443a');
+    }
+    px(x + 5, y + 1, 5, 1, '#d9a7a0'); // arreio
+    px(x, y, 6, 3, '#c8463a'); px(x - 1, y + 3, 7, 1, '#ffd75e'); // treno
+    px(x + 2, y - 2, 2, 2, '#c8463a'); px(x + 2, y - 3, 2, 1, '#f6e8cb'); // papai noel
+    px(x - 2, y - 1, 2, 2, '#6b4630'); // saco de presentes
+  }
+
 
   function pinheiro(x, base, alt, cor, corNeve) {
     for (let i = 0; i < alt; i++) {
@@ -305,8 +407,9 @@ function cena() {
     const chao = A - 7;
     ['#1b1626', '#221b33', '#2b2140', '#3a2a4d', '#57365a', '#7d4560', '#a85a5c'].forEach((cor, i, v) => px(0, Math.floor((chao * i) / v.length), L, Math.ceil(chao / v.length) + 1, cor));
     for (const e of estrelas) if (Math.sin(t / 900 + e.f) > -0.6) px(e.x, e.y, 1, 1, e.y < chao * 0.5 ? '#f6e8cb' : '#d9a7a0');
+    if (NATAL) treno(t);
     // lua
-    const lx = Math.floor(L * 0.52);
+    const lx = Math.floor(L * (NATAL ? 0.36 : 0.52)); // no Natal sai do caminho da arvore enfeitada
     px(lx, 7, 7, 9, '#f6e8cb'); px(lx - 1, 8, 9, 7, '#f6e8cb'); px(lx + 4, 7, 4, 4, '#3a2a4d'); px(lx + 5, 8, 4, 4, '#2b2140');
     // morros ao fundo
     for (let x = 0; x < L; x++) {
@@ -326,6 +429,14 @@ function cena() {
     const janela = brilho > 0.9 ? '#ffe08a' : brilho < -1.2 ? '#f0a03c' : '#ffc857';
     for (const jx of [cx + 5, cx + 27]) { px(jx - 1, topo + 10, 8, 7, '#3a2824'); px(jx, topo + 11, 6, 5, janela); px(jx + 3, topo + 11, 1, 5, '#3a2824'); px(jx, topo + 13, 6, 1, '#3a2824'); }
     px(cx + 4, chao, 8, 1, 'rgba(255,200,87,.35)'); px(cx + 26, chao, 8, 1, 'rgba(255,200,87,.35)');
+    if (NATAL) {
+      // pisca-pisca na beira do telhado e guirlanda na porta
+      for (let i = 0; i <= 8; i += 2) { luz(cx - 3 + i, topo - i + 8, i, t); luz(cx + 40 - i, topo - i + 8, i + 1, t); }
+      for (let x = cx - 1, i = 0; x < cx + 39; x += 3, i++) luz(x, topo + 9, i, t);
+      px(cx + 17, topo + 12, 4, 1, '#3f6b45'); px(cx + 17, topo + 15, 4, 1, '#3f6b45');
+      px(cx + 16, topo + 13, 1, 2, '#3f6b45'); px(cx + 21, topo + 13, 1, 2, '#3f6b45');
+      px(cx + 18, topo + 15, 2, 1, '#c8463a');
+    }
 
     // engrenagem girando ao lado do chale (a roda do moinho)
     engrenagem(cx - 12, chao - 9, 7, parado ? 0.3 : t / 1400, '#a8744a', '#6b4630');
@@ -342,8 +453,10 @@ function cena() {
     }
 
     // pinheiros da frente e o chao de neve
-    for (let x = 14; x < L; x += 37) if (x > 110 && (x < cx - 26 || x > cx + 46)) pinheiro(x + ((x * 5) % 9), chao + 1, 17 + ((x * 11) % 8), '#3f6b45', '#e9eef2');
+    const livre = NATAL ? cx - 50 : cx - 26; // no Natal a arvore enfeitada fica a esquerda da engrenagem
+    for (let x = 14; x < L; x += 37) if (x > 110 && (x < livre || x > cx + 46)) pinheiro(x + ((x * 5) % 9), chao + 1, 17 + ((x * 11) % 8), '#3f6b45', '#e9eef2');
     px(0, chao, L, A - chao, '#e9eef2');
+    if (NATAL) arvoreNatal(cx - 36, chao, 20, t);
     for (let x = 0; x < L; x += 3) px(x + ((x * 13) % 3), chao + 2 + ((x * 7) % 4), 2, 1, '#cfd9e2');
     for (const n of neve) px((n.x + Math.sin(t / 1300 + n.v) * 3 + L) % L, (n.y + (parado ? 0 : (t / 1000) * n.v)) % A, 1, 1, 'rgba(246,232,203,.8)');
   }
@@ -351,10 +464,14 @@ function cena() {
   medir();
   addEventListener('resize', () => { medir(); if (parado) quadro(0); });
   if (parado) { quadro(0); return; }
+  quadro(performance.now()); // primeiro quadro na hora, sem esperar o laco
   let anterior = 0;
   const laco = (t) => { if (t - anterior > 80) { anterior = t; quadro(t); } requestAnimationFrame(laco); };
   requestAnimationFrame(laco);
 }
 
+$('foto').onclick = () => { $('foto').hidden = true; };
+$('foto').onkeydown = (ev) => { if (ev.key === 'Escape' || ev.key === 'Enter') $('foto').hidden = true; };
+enfeitar();
 cena();
 conectar();

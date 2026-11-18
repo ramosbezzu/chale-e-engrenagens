@@ -60,6 +60,19 @@ async function rodar(pack, modo) {
   ruim((p) => { p.neoforge = '21.1 --x'; });
   ruim((p) => { p.configs[0].caminho = 'config/../../x'; });
   ruim((p) => { p.ajustes[0].arquivo = 'mods/x.jar'; });
+  ruim((p) => { p.arquivos.push({ caminho: 'resourcepacks/x.zip', sha1: sha1('x'), tamanho: 1, url: 'https://cdn.modrinth.com/x.zip' }); }); // so em "pacotes"
+  ruim((p) => { p.pacotes = [{ caminho: 'mods/x.jar', sha1: sha1('x'), tamanho: 1, url: 'https://cdn.modrinth.com/x.jar' }]; });
+  ruim((p) => { p.pacotes = [{ caminho: 'resourcepacks/../x.zip', sha1: sha1('x'), tamanho: 1, url: 'https://cdn.modrinth.com/x.zip' }]; });
+
+  // ---- notas de versao: so fotos https do CDN do Modrinth, texto vira texto
+  const notas = L.validarPack({ ...JSON.parse(JSON.stringify(packFalso())), historico: [{
+    versao: '1.3.0', titulo: 'Natal', tema: 'natal', mensagem: 'Oi', novidades: ['a', 3],
+    secoes: [{ titulo: 'Casa', itens: ['TV', {}], fotos: [
+      { url: 'https://cdn.modrinth.com/data/x/a.webp', legenda: 'boa' }, { url: 'https://exemplo.com/b.png' },
+      { url: 'javascript:alert(1)' }, { url: 'http://cdn.modrinth.com/c.png' }] }],
+  }] }).historico[0];
+  assert.deepStrictEqual(notas.novidades, ['a']);
+  assert.deepStrictEqual(notas.secoes, [{ titulo: 'Casa', itens: ['TV'], fotos: [{ url: 'https://cdn.modrinth.com/data/x/a.webp', legenda: 'boa' }] }]);
   assert.ok(L.cmpVersao('1.10.0', '1.9.9') > 0 && L.cmpVersao('1.2', '1.2.0') === 0 && L.cmpVersao('1.2.5', '1.2.6') < 0);
 
   // ---- launcher oficial: atualizacao de uma instalacao antiga (marcador .txt, perfil com outro nome)
@@ -107,6 +120,17 @@ async function rodar(pack, modo) {
   e = L._teste.estadoPack(pack, 'oficial');
   assert.strictEqual(e.estado, 'ok');
   assert.strictEqual(e.instalada, '1.2.6');
+
+  // ---- pacotes de recursos: entram, e so os que o Lareira instalou saem quando o pack os tira
+  const comPacote = L.validarPack({ ...JSON.parse(JSON.stringify(pack)),
+    pacotes: [{ caminho: 'resourcepacks/fresh.zip', sha1: sha1('fresh'), tamanho: 5, url: 'https://cdn.modrinth.com/x/fresh.zip' }] });
+  escrever(path.join(jogo, 'resourcepacks', 'fresh.zip'), 'fresh');
+  escrever(path.join(jogo, 'resourcepacks', 'do-jogador.zip'), 'meu');
+  await rodar(comPacote, 'oficial');
+  assert.deepStrictEqual(JSON.parse(fs.readFileSync(path.join(jogo, 'lareira.json'), 'utf8')).pacotes, ['resourcepacks/fresh.zip']);
+  assert.strictEqual(L._teste.estadoPack(comPacote, 'oficial').tamanho, 17);
+  await rodar(pack, 'oficial');
+  assert.deepStrictEqual(fs.readdirSync(path.join(jogo, 'resourcepacks')), ['do-jogador.zip'], 'pacote do pack sai, o do jogador fica');
 
   // ---- versao anterior: o jogador pode ficar (ou voltar) na versao anterior que o manifesto traz
   const comAnterior = L.validarPack({ ...JSON.parse(JSON.stringify(pack)), anteriores: [{

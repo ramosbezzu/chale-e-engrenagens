@@ -12,9 +12,10 @@
   <canvas id="cena" aria-hidden="true"></canvas>
   <div class="letreiro">
     <h1>Lareira</h1>
-    <p>modpacks quentinhos, sempre em dia</p>
+    <p id="subtitulo">modpacks quentinhos, sempre em dia</p>
   </div>
   <div class="modo" id="modo" role="group" aria-label="Launcher usado para jogar"></div>
+  <div class="pisca" id="pisca" aria-hidden="true" hidden></div>
 </header>
 
 <div class="faixa" id="faixa" hidden></div>
@@ -70,6 +71,13 @@
       <button class="botao pequeno" id="dialogoSim" type="button">Continuar</button>
     </div>
   </div>
+</div>
+
+<div class="fundo-dialogo foto" id="foto" tabindex="-1" hidden>
+  <figure>
+    <img id="fotoGrande" alt="">
+    <figcaption id="fotoLegenda"></figcaption>
+  </figure>
 </div>
 
 <script src="app.js"></script>

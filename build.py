@@ -51,12 +51,24 @@ def environment(project):
 
 
 # O que muda de uma versao do pack para outra (o resto do manifesto e igual para todas).
-CAMPOS_VERSAO = ("versao", "minecraft", "neoforge", "arquivos", "configs", "ajustes")
+CAMPOS_VERSAO = ("versao", "minecraft", "neoforge", "arquivos", "pacotes", "configs", "ajustes")
+
+# Pacotes de recursos vao em "pacotes", fora de "arquivos": o Lareira 1.0.0 recusa o manifesto
+# inteiro se "arquivos" tiver algo fora de mods/ e shaderpacks/. O 1.1.0+ instala os dois.
+PREFIXO_PACOTES = "resourcepacks/"
 
 
 def mrpack_path(cfg):
     safe = re.sub(r"[^A-Za-z0-9]+", "-", cfg["name"].replace("&", "e")).strip("-")
     return ROOT / "dist" / f"{safe}-{cfg['version']}.mrpack"
+
+
+def historico_compativel(h):
+    """Entradas com "secoes" (titulo, itens e fotos) tambem levam "novidades" em lista simples:
+    e o que o Lareira 1.0.0 mostra (ele nao conhece secoes nem fotos)."""
+    if h.get("secoes") and not h.get("novidades"):
+        h = {**h, "novidades": [i for s in h["secoes"] for i in s.get("itens", [])]}
+    return h
 
 
 def manifest(cfg):
@@ -76,7 +88,7 @@ def manifest(cfg):
     anteriores = []
     if destino.exists():
         antigo = json.loads(destino.read_text(encoding="utf-8"))
-        candidatas = [{k: antigo[k] for k in CAMPOS_VERSAO}] + antigo.get("anteriores", [])
+        candidatas = [{k: antigo[k] for k in CAMPOS_VERSAO if k in antigo}] + antigo.get("anteriores", [])
         atual = tuple(int(x) for x in cfg["version"].split("."))
         candidatas = sorted((c for c in candidatas if numero(c) < atual), key=numero, reverse=True)
         anteriores = candidatas[:cfg.get("manter_anteriores", 1)]
@@ -94,11 +106,15 @@ def manifest(cfg):
         "marcadorAntigo": cfg.get("marcador_antigo"),
         "arquivos": [
             {"caminho": f["path"], "sha1": f["hashes"]["sha1"], "tamanho": f["fileSize"], "url": f["downloads"][0]}
-            for f in index["files"]
+            for f in index["files"] if not f["path"].startswith(PREFIXO_PACOTES)
+        ],
+        "pacotes": [
+            {"caminho": f["path"], "sha1": f["hashes"]["sha1"], "tamanho": f["fileSize"], "url": f["downloads"][0]}
+            for f in index["files"] if f["path"].startswith(PREFIXO_PACOTES)
         ],
         "configs": configs,
         "ajustes": cfg.get("ajustes", []),
-        "historico": cfg.get("historico", []),
+        "historico": [historico_compativel(h) for h in cfg.get("historico", [])],
         "anteriores": anteriores,
     }
     destino.write_text(json.dumps(pack, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
@@ -113,7 +129,7 @@ def manifest(cfg):
         "launcher": {"versao": launcher["version"], "pagina": launcher["homepage"] + "/releases/latest"},
         "packs": packs,
     }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    print(f"manifesto -> manifest/{cfg['id']}.json ({len(pack['arquivos'])} arquivos, "
+    print(f"manifesto -> manifest/{cfg['id']}.json ({len(pack['arquivos'])} arquivos, {len(pack['pacotes'])} pacotes, "
           f"anterior: {', '.join(a['versao'] for a in anteriores) or 'nenhuma'})")
 
 
@@ -186,6 +202,28 @@ def main():
         })
         if slug == cfg.get("default_shader"):
             shader_default = f["filename"]
+
+    # Pacotes de recursos (ex.: Fresh Animations): so cliente. Vem instalados e desligados;
+    # cada jogador liga em Opcoes > Pacotes de recursos (o pack nao mexe no options.txt).
+    for slug in cfg.get("resourcepacks", []):
+        project = get(f"/project/{slug}")
+        versions = [v for v in get(f"/project/{slug}/version") if cfg["minecraft"] in v["game_versions"]]
+        if not versions:
+            raise SystemExit(f"{slug}: sem versao para Minecraft {cfg['minecraft']}")
+        version = sorted(versions, key=lambda v: RANK[v["version_type"]])[0]
+        f = next((x for x in version["files"] if x["primary"]), version["files"][0])
+        env = {"client": "required", "server": "unsupported"}
+        files.append({
+            "path": f"{PREFIXO_PACOTES}{f['filename']}",
+            "hashes": {"sha1": f["hashes"]["sha1"], "sha512": f["hashes"]["sha512"]},
+            "env": env, "downloads": [f["url"]], "fileSize": f["size"],
+        })
+        lock.append({
+            "slug": slug, "title": project["title"], "group": "Pacotes de recursos",
+            "version": version["version_number"], "type": version["version_type"],
+            "published": version["date_published"][:10], "env": env, "file": f["filename"],
+            "license": project["license"]["id"],
+        })
 
     index = {
         "formatVersion": 1, "game": "minecraft",

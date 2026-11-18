@@ -51,6 +51,17 @@ h1, h2, h3, p { margin: 0; }
 .modo button[aria-pressed="true"] { background: var(--chama); color: var(--tinta); }
 .modo button:disabled { opacity: .45; cursor: not-allowed; }
 
+/* ------------------------------------------------ natal: varal de pisca-pisca na base da cena */
+.pisca { position: absolute; left: 0; right: 0; bottom: -14px; height: 18px; display: flex; justify-content: space-between; padding: 0 10px; z-index: 2; pointer-events: none; }
+.pisca::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--px); background: #22301f; }
+.pisca i { position: relative; width: 8px; height: 12px; margin-top: 4px; animation: pisca 1.6s steps(1) infinite; }
+.pisca i::before { content: ""; position: absolute; left: 2px; top: -4px; width: 4px; height: 4px; background: #22301f; }
+.pisca i:nth-child(odd) { margin-top: 2px; }
+.pisca .vermelha { --luz: #ff5a4f; } .pisca .amarela { --luz: #ffd75e; } .pisca .verde { --luz: #6fd36a; } .pisca .azul { --luz: #5fb4ff; }
+@keyframes pisca { 0% { background: var(--luz); box-shadow: 0 0 10px 1px var(--luz); } 55% { background: #4a3a44; box-shadow: none; } }
+.natal .letreiro h1 { text-shadow: 7px 7px 0 #a8443a, 14px 14px 0 rgba(0, 0, 0, .35); }
+.natal main { padding-top: 30px; }
+
 /* ------------------------------------------------ aviso do topo */
 .faixa { --b: var(--brasa-escura); margin: 14px 24px 0; padding: 8px 14px; background: var(--chama); display: flex; gap: 12px; align-items: center; justify-content: space-between; }
 .faixa.cinza { --b: var(--noite); background: var(--madeira-clara); color: var(--creme); }
@@ -129,6 +140,22 @@ h3 { margin-top: 24px; font-size: 20px; font-weight: 400; text-transform: upperc
 .entrada li.nao { color: var(--tijolo); }
 .entrada li.nao::before { background: var(--tijolo); width: 8px; height: 4px; top: 11px; }
 .entrada .rotulo { display: block; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--tinta-suave); }
+.entrada .mensagem { margin-top: 8px; white-space: pre-line; }
+.entrada .despedida { margin-top: 12px; color: var(--brasa-escura); }
+.entrada h4 { margin: 14px 0 0; font-size: 20px; font-weight: 400; color: var(--tinta); }
+.entrada.natal { background-image: repeating-linear-gradient(90deg, #c8463a 0 16px, #fbf1da 16px 32px); background-size: 100% var(--px); background-repeat: no-repeat; background-color: #fbf1da; padding-top: 16px; }
+.entrada.natal header b { color: #a8443a; }
+
+/* fotos dos mods no changelog */
+.fotos { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin: 10px var(--px) 4px; }
+.fotos figure { margin: 0; cursor: zoom-in; background: var(--pergaminho); padding: var(--px); box-shadow: 0 0 0 var(--px) var(--madeira-clara); }
+.fotos figure:hover { box-shadow: 0 0 0 var(--px) var(--brasa); }
+.fotos img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--madeira-escura); }
+.fotos figcaption { padding: 4px 4px 0; color: var(--tinta-suave); line-height: 22px; }
+.foto { cursor: zoom-out; padding: 32px; }
+.foto figure { margin: 0; max-width: min(1000px, 92vw); background: var(--creme); padding: 8px; box-shadow: 0 0 0 var(--px) var(--chama); }
+.foto img { display: block; max-width: 100%; max-height: 78vh; margin: 0 auto; }
+.foto figcaption { padding: 6px 4px 0; color: var(--tinta); text-align: center; }
 
 /* ------------------------------------------------ rodape */
 footer { flex: none; display: flex; gap: 18px; align-items: center; padding: 6px 28px 12px; color: var(--madeira-clara); justify-content: space-between; }
@@ -156,4 +183,7 @@ footer { flex: none; display: flex; gap: 18px; align-items: center; padding: 6px
   .acao { flex-wrap: wrap; }
   footer { flex-wrap: wrap; }
 }
-@media (prefers-reduced-motion: reduce) { .cheio, .cheio.indefinido { transition: none; animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .cheio, .cheio.indefinido { transition: none; animation: none; }
+  .pisca i { animation: none; background: var(--luz); }
+}

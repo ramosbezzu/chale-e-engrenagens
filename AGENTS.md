@@ -86,6 +86,8 @@ Toda versão publicada fica disponível como "anterior" no launcher na versão s
 
 É isso que o jogador lê na tela de novidades do launcher. Escreva para a esposa do dono entender: nada de nome de arquivo .jar, nada de jargão. `incompativel` sempre traz a linha de multiplayer quando a lista de mods mudou.
 
+Versões maiores podem usar o formato rico (Lareira 1.1.0+), como a 1.3.0: `"mensagem"` (abertura, aceita `\n`), `"secoes": [{"titulo", "itens", "fotos": [{"url", "legenda"}]}]` no lugar de `"novidades"`, `"despedida"` e `"tema": "natal"` (borda de bengala doce). O `build.py` gera `novidades` a partir das seções para o Lareira 1.0.0, que não conhece seções nem fotos. Fotos: só `https://cdn.modrinth.com/...` (o launcher descarta outras); use as miniaturas `_350.webp` da galeria do mod (`/v2/project/<slug>` campo `gallery`) e olhe a imagem antes de escolher.
+
 ## Otimizar
 
 O alvo do Chalé é o **PC fraco**. Regras:
@@ -96,7 +98,8 @@ O alvo do Chalé é o **PC fraco**. Regras:
 - Shaders ficam **desligados por padrão** no Chalé (`"shaders_enabled": false`). Não mude isso.
 - Grupo Performance atual (não remova sem motivo forte): sodium, sodium-extra, reeses-sodium-options, lithium, ferrite-core, modernfix, immediatelyfast, entityculling, moreculling, dynamic-fps, badoptimizations, fastsuite, fastworkbench, fastfurnace, ksyxis, clumps, lmd, alternate-current, ai-improvements, neruina, modelfix, spark, packet-fixer, structure-layout-optimizer, zfastnoise, chunky, colorwheel.
 - Mod novo de otimização: confira se não duplica um que já existe (ex.: dois mods de culling, dois de pathfinding) e se é compatível com Sodium 0.8+ e Iris.
-- Config que deixa mais leve: coloque o arquivo em `overrides-cozy/config/` (vale para instalação nova) **e** uma regra em `"ajustes"` do `cozy.json` (`{"arquivo", "de", "para"}`), que o launcher aplica também em quem já tem o pack instalado com a config antiga. Os ajustes atuais (EasyLAN offline, livro de receitas, radar do Xaero, Flywheel FLAT, Sable 160, maxBlocksMoved 16384) devem continuar.
+- Config que deixa mais leve: coloque o arquivo em `overrides-cozy/config/` (vale para instalação nova) **e** uma regra em `"ajustes"` do `cozy.json` (`{"arquivo", "de", "para"}`), que o launcher aplica também em quem já tem o pack instalado com a config antiga. Os ajustes atuais (EasyLAN offline, livro de receitas, radar do Xaero, Flywheel FLAT, Sable 160, maxBlocksMoved 16384, limites do Quick Skin, canhões sem dano em bloco) devem continuar.
+- Pacotes de recursos (ex.: Fresh Animations) vão em `"resourcepacks"` do `cozy.json`. O `build.py` põe no `.mrpack` e no campo `"pacotes"` do manifesto, **nunca** em `"arquivos"`: o Lareira 1.0.0 recusa o manifesto inteiro se `"arquivos"` tiver algo fora de `mods/` e `shaderpacks/`. Só o Lareira 1.1.0+ instala `pacotes`. Eles vêm desligados (o pack não mexe no `options.txt`): o jogador liga em Opções > Pacotes de recursos.
 - Configs de servidor do NeoForge 1.21.1 ficam em `config/`, não em `saves/*/serverconfig`.
 - Não mexa em `options.txt` nem em RAM do jogador. O launcher calcula a RAM pelo PC (3 a 6 GB).
 
@@ -148,7 +151,12 @@ git push
 - **Iron Chests** não tem build NeoForge 1.21.1. O Sophisticated Storage já cobre baús melhores.
 - **FastWorkbench** esconde o livro de receitas por padrão; o pack força `"Remove Recipe Book Button"=false` (a esposa sentiu falta).
 - **EasyLAN** vem com `online-mode=true`; o pack força `false` para a conta offline do TLauncher conseguir entrar.
-- Tirados de propósito do Chalé por desempenho ou foco: Tectonic, Diesel Generators, Power Loader, Create Crafts & Additions.
+- Tirados de propósito do Chalé por desempenho ou foco: Tectonic, Diesel Generators, Power Loader. O Create Crafts & Additions voltou na 1.3.0 a pedido do dono (junto com o Create: New Age e o Create: Solarpunk).
+- **Create Big Cannons** vem com `damageRestriction = "ALL_DAMAGE"`; o pack força `NO_DAMAGE` (tiro acerta mob, não quebra construção) em `createbigcannons-server.toml`. O dono pediu para proteger as construções no mundo compartilhado.
+- **Create: Solarpunk** tem um "aquecimento global" que vira o bioma em deserto morto perto de fornalhas e motores. Vem desligado (`[global_warming] enabled = false`); deixe assim.
+- **Fresh Animations** precisa do Entity Model Features (que puxa o Entity Texture Features). Não use a extensão de jogador do Fresh Animations: ela troca o modelo do player e pode brigar com as skins do Quick Skin.
+- O Sable avisa no log que não achou `ViewFinderAccess$Block` do Vista (mixin de compatibilidade opcional). É só aviso, o servidor sobe normal (1.3.0).
+- **MrCrayfish's Furniture Refurbished** (eletrodomésticos com eletricidade) não existe no Modrinth: não entra.
 - **Skins**: o **Skin Restorer** não serve, porque não funciona no TLauncher (ele sobrescreve o sistema de skins do cliente). O pack usa o **Quick Skin** (cliente e servidor, sincroniza pelo próprio mod, menu na tela inicial e na pausa). Os limites de 128x128 e 1 MB em `quickskin-server.json` são de propósito, por causa do PC fraco.
 - **Cozinha**: Cooking for Blockheads (funcional, lê receitas de todos os mods de comida) e Delicious Kitchen Appliances (micro-ondas, fogão, lava-louças) convivem bem; o servidor sobe sem erro novo com os dois (1.2.7).
 - A pasta portátil antiga (`Chale-e-Engrenagens-<versao>` com `.bat` e `.ps1`) está **aposentada**: o Lareira substitui. Não gere mais.

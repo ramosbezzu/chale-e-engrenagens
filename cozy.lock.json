@@ -196,6 +196,20 @@
     "license": "LicenseRef-All-Rights-Reserved"
   },
   {
+    "slug": "better-animations-collection",
+    "title": "Better Animations Collection",
+    "group": "Chat e animacoes",
+    "version": "v21.1.1-1.21.1-NeoForge",
+    "type": "release",
+    "published": "2025-09-28",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "BetterAnimationsCollection-v21.1.1-1.21.1-NeoForge.jar",
+    "license": "MPL-2.0"
+  },
+  {
     "slug": "biomes-o-plenty",
     "title": "Biomes O' Plenty",
     "group": "Mundo",
@@ -252,6 +266,48 @@
     "license": "LGPL-3.0-only"
   },
   {
+    "slug": "cgs",
+    "title": "Create: Gunsmithing",
+    "group": "Armas",
+    "version": "1.4.9",
+    "type": "release",
+    "published": "2026-07-24",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create-gunsmithing-1.21.1-1.4.9.jar",
+    "license": "GPL-2.0-or-later"
+  },
+  {
+    "slug": "chat-heads",
+    "title": "Chat Heads",
+    "group": "Chat e animacoes",
+    "version": "0.15.7",
+    "type": "release",
+    "published": "2026-08-13",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "chat_heads-0.15.7-neoforge-1.21.jar",
+    "license": "MPL-2.0"
+  },
+  {
+    "slug": "chatanimation",
+    "title": "Chat Animation [Smooth Chat]",
+    "group": "Chat e animacoes",
+    "version": "1.3.5+neoforge-1.21",
+    "type": "release",
+    "published": "2026-10-16",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "chatanimation-neoforge-1.3.5+mc1.21.jar",
+    "license": "MIT"
+  },
+  {
     "slug": "chunky",
     "title": "Chunky",
     "group": "Performance",
@@ -294,6 +350,20 @@
     "license": "LGPL-3.0-only"
   },
   {
+    "slug": "cloud-boots",
+    "title": "Cloud Boots",
+    "group": "Ferramentas",
+    "version": "1.21.1-3.0.3",
+    "type": "release",
+    "published": "2026-10-03",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "cloudboots-neoforge-1.21.1-3.0.3.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
     "slug": "clumps",
     "title": "Clumps",
     "group": "Performance",
@@ -334,6 +404,20 @@
     },
     "file": "comforts-neoforge-9.0.5+1.21.1.jar",
     "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "comics-bubbles-chat",
+    "title": "Comics Bubbles Chat",
+    "group": "Chat e animacoes",
+    "version": "1.4.0",
+    "type": "release",
+    "published": "2026-08-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "1.21.1-comicsbubbleschat-neoforge-1.4.0.jar",
+    "license": "CC-BY-NC-SA-4.0"
   },
   {
     "slug": "configurable",
@@ -448,6 +532,20 @@
     "license": "LicenseRef-All-Rights-Reserved"
   },
   {
+    "slug": "create-big-cannons",
+    "title": "Create Big Cannons",
+    "group": "Armas",
+    "version": "5.11.7",
+    "type": "release",
+    "published": "2026-06-22",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "createbigcannons-5.11.7+mc.1.21.1.jar",
+    "license": "LicenseRef-Create-Big-Cannons-License"
+  },
+  {
     "slug": "create-central-kitchen",
     "title": "Create: Central Kitchen",
     "group": "Addons do Create",
@@ -518,6 +616,20 @@
     "license": "LicenseRef-Custom"
   },
   {
+    "slug": "create-new-age",
+    "title": "Create: New Age",
+    "group": "Tecnologia",
+    "version": "1.2.0+mc1.21.1",
+    "type": "release",
+    "published": "2026-06-08",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "create-new-age-1.2.0+neoforge-mc1.21.1.jar",
+    "license": "BSD-3-Clause"
+  },
+  {
     "slug": "create-quarry",
     "title": "Create: Quarry",
     "group": "Ferramentas",
@@ -529,6 +641,20 @@
       "server": "required"
     },
     "file": "create_quarry-1.1.0.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "create-solar-punk",
+    "title": "Create: Solarpunk",
+    "group": "Tecnologia",
+    "version": "2.1.0-1.21.1",
+    "type": "release",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "solarpunk-2.1.0-1.21.1.jar",
     "license": "LicenseRef-All-Rights-Reserved"
   },
   {
@@ -544,6 +670,20 @@
     },
     "file": "railways-0.3.0-beta.2+neoforge-mc1.21.1.jar",
     "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "createaddition",
+    "title": "Create Crafts & Additions",
+    "group": "Tecnologia",
+    "version": "neoforge-1.21.1-1.7.2",
+    "type": "release",
+    "published": "2026-10-01",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "createaddition-1.7.2.jar",
+    "license": "MIT"
   },
   {
     "slug": "creativecore",
@@ -644,6 +784,34 @@
     "license": "GPL-3.0-or-later"
   },
   {
+    "slug": "emotecraft",
+    "title": "Emotecraft",
+    "group": "Chat e animacoes",
+    "version": "2.4.12+1.21.1-forge",
+    "type": "release",
+    "published": "2025-08-29",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "emotecraft-for-MC1.21.1-2.4.12-neoforge.jar",
+    "license": "GPL-3.0-or-later"
+  },
+  {
+    "slug": "entity-model-features",
+    "title": "[EMF] Entity Model Features",
+    "group": "Chat e animacoes",
+    "version": "3.3.12-neoforge-1.21",
+    "type": "release",
+    "published": "2026-10-15",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "entity_model_features-3.3.12-1.21-neoforge.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
     "slug": "entityculling",
     "title": "Entity Culling",
     "group": "Performance",
@@ -656,6 +824,48 @@
     },
     "file": "entityculling-neoforge-1.12.1-mc1.21.1.jar",
     "license": "LicenseRef-tr7zw-Protective-License"
+  },
+  {
+    "slug": "entitytexturefeatures",
+    "title": "[ETF] Entity Texture Features",
+    "group": "Dependencias",
+    "version": "7.2.7-neoforge-1.21",
+    "type": "release",
+    "published": "2026-11-03",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "entity_texture_features-7.2.7-1.21-neoforge.jar",
+    "license": "LGPL-3.0-only"
+  },
+  {
+    "slug": "etched",
+    "title": "Etched",
+    "group": "Casa tecnologica",
+    "version": "5.1.0",
+    "type": "release",
+    "published": "2026-06-06",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "etched-5.1.0.jar",
+    "license": "GPL-3.0-only"
+  },
+  {
+    "slug": "exposure",
+    "title": "Exposure",
+    "group": "Casa tecnologica",
+    "version": "1.9.21",
+    "type": "release",
+    "published": "2026-11-09",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "exposure-neoforge-1.21.1-1.9.21.jar",
+    "license": "MIT"
   },
   {
     "slug": "fallingtree",
@@ -784,6 +994,20 @@
     "license": "LGPL-2.1-only"
   },
   {
+    "slug": "fwa",
+    "title": "Fancy World Animations [FWA]",
+    "group": "Chat e animacoes",
+    "version": "1.3.7-patch.2",
+    "type": "release",
+    "published": "2026-11-17",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "fwa+1.21.1-neoforge-1.3.7-patch.2.jar",
+    "license": "MIT"
+  },
+  {
     "slug": "geckolib",
     "title": "Geckolib",
     "group": "Dependencias",
@@ -880,6 +1104,20 @@
     },
     "file": "ImmediatelyFast-NeoForge-1.6.15+1.21.1.jar",
     "license": "LGPL-3.0-or-later"
+  },
+  {
+    "slug": "immersive-aircraft",
+    "title": "Immersive Aircraft",
+    "group": "Veiculos",
+    "version": "1.7.0+1.21.1",
+    "type": "release",
+    "published": "2026-10-17",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "immersive_aircraft-neoforge-1.7.0+1.21.1.jar",
+    "license": "GPL-3.0-only"
   },
   {
     "slug": "immersiveengineering",
@@ -1078,6 +1316,20 @@
     "license": "LGPL-3.0-only"
   },
   {
+    "slug": "longer-chat-history",
+    "title": "Longer Chat History",
+    "group": "Chat e animacoes",
+    "version": "1.7",
+    "type": "release",
+    "published": "2025-04-08",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "LongerChatHistory-neoforge-1.7.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
     "slug": "macaws-biomes-o-plenty",
     "title": "Macaw's Biomes O' Plenty",
     "group": "Decoracao",
@@ -1145,6 +1397,20 @@
       "server": "required"
     },
     "file": "mcw-furniture-3.4.1-mc1.21.1neoforge.jar",
+    "license": "LicenseRef-All-Rights-Reserved"
+  },
+  {
+    "slug": "macaws-holidays",
+    "title": "Macaw's Holidays",
+    "group": "Decoracao",
+    "version": "1.1.2",
+    "type": "release",
+    "published": "2025-12-07",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "mcw-holidays-1.1.2-mc1.21.1neoforge.jar",
     "license": "LicenseRef-All-Rights-Reserved"
   },
   {
@@ -1372,6 +1638,34 @@
     "license": "LicenseRef-Custom"
   },
   {
+    "slug": "not-enough-animations",
+    "title": "Not Enough Animations",
+    "group": "Chat e animacoes",
+    "version": "1.12.7",
+    "type": "release",
+    "published": "2026-11-01",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "notenoughanimations-neoforge-1.12.7-mc1.21.1.jar",
+    "license": "LicenseRef-tr7zw-Protective-License"
+  },
+  {
+    "slug": "ntgl",
+    "title": "[NTGL] NukaTeam's Gun Lib",
+    "group": "Dependencias",
+    "version": "3.2.0",
+    "type": "release",
+    "published": "2026-08-05",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ntgl-1.21.1-3.2.0.jar",
+    "license": "LGPL-2.1-or-later"
+  },
+  {
     "slug": "oceans-delight",
     "title": "Ocean's Delight",
     "group": "Comidas",
@@ -1523,6 +1817,20 @@
       "server": "required"
     },
     "file": "rightclickharvest-neoforge-4.7.1+1.21.1.jar",
+    "license": "MIT"
+  },
+  {
+    "slug": "rpl",
+    "title": "Ritchie's Projectile Library",
+    "group": "Dependencias",
+    "version": "2.1.2",
+    "type": "release",
+    "published": "2026-02-07",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "ritchiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar",
     "license": "MIT"
   },
   {
@@ -1834,6 +2142,20 @@
     "license": "MIT"
   },
   {
+    "slug": "vista_tv",
+    "title": "vista",
+    "group": "Casa tecnologica",
+    "version": "1.21.1-5.6.9",
+    "type": "release",
+    "published": "2026-11-14",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "vista-1.21.1-5.6.9-neoforge.jar",
+    "license": "LicenseRef-Supplementaries-Team-License-1.5"
+  },
+  {
     "slug": "waystones",
     "title": "Waystones",
     "group": "Qualidade de vida",
@@ -1946,6 +2268,20 @@
     "license": "MPL-2.0"
   },
   {
+    "slug": "ziplines-rezipped",
+    "title": "Ziplines: Rezipped!",
+    "group": "Veiculos",
+    "version": "1.5.3+1.21.1-neoforge",
+    "type": "release",
+    "published": "2026-09-26",
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "zipline-1.5.3+1.21.1-neoforge.jar",
+    "license": "MIT"
+  },
+  {
     "slug": "complementary-reimagined",
     "title": "Complementary Shaders - Reimagined",
     "group": "Shaders",
@@ -1958,5 +2294,19 @@
     },
     "file": "ComplementaryReimagined_r5.9.3.zip",
     "license": "LicenseRef-Custom"
+  },
+  {
+    "slug": "fresh-animations",
+    "title": "Fresh Animations",
+    "group": "Pacotes de recursos",
+    "version": "1.11.2",
+    "type": "release",
+    "published": "2026-11-01",
+    "env": {
+      "client": "required",
+      "server": "unsupported"
+    },
+    "file": "FreshAnimations_v1.11.2_1.20+.zip",
+    "license": "LicenseRef-See-Terms-of-Use-in-Description"
   }
 ]

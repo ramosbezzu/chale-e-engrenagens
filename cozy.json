@@ -2,8 +2,8 @@
   "id": "chale",
   "name": "Chale & Engrenagens",
   "titulo": "Chalé & Engrenagens",
-  "version": "1.2.7",
-  "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create, Create Aeronautics, AE2, Immersive Engineering, Mystical Agriculture, comidas, biomas, animais e decoracao, otimizado para PC fraco.",
+  "version": "1.3.0",
+  "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create com eletricidade, armas e canhões, Create Aeronautics, AE2, Immersive Engineering, comidas, biomas, animais, decoração de Natal e casa tecnológica, otimizado para PC fraco.",
   "minecraft": "1.21.1",
   "neoforge": "21.1.265",
   "pasta": ".minecraft-chale",
@@ -30,7 +30,19 @@
       "ae2",
       "applied-energistics-2-wireless-terminals",
       "create-applied-kinetics",
-      "immersiveengineering"
+      "immersiveengineering",
+      "create-new-age",
+      "createaddition",
+      "create-solar-punk"
+    ],
+    "Armas": [
+      "cgs",
+      "create-big-cannons"
+    ],
+    "Casa tecnologica": [
+      "vista_tv",
+      "exposure",
+      "etched"
     ],
     "Magia e Fazenda": [
       "mystical-agriculture",
@@ -39,12 +51,15 @@
     "Ferramentas": [
       "instrumentus",
       "create-jetpack",
-      "create-quarry"
+      "create-quarry",
+      "cloud-boots"
     ],
     "Veiculos": [
       "create-aeronautics",
       "create-aeronautics-compatability",
-      "gravestone-and-sable-compatibility-patch"
+      "gravestone-and-sable-compatibility-patch",
+      "immersive-aircraft",
+      "ziplines-rezipped"
     ],
     "Comidas": [
       "farmers-delight",
@@ -90,7 +105,8 @@
       "amendments",
       "comforts",
       "farmers-cutting-biomes-o-plenty",
-      "delicious-kitchen-appliances"
+      "delicious-kitchen-appliances",
+      "macaws-holidays"
     ],
     "Storage": [
       "sophisticated-backpacks",
@@ -114,6 +130,17 @@
       "iris",
       "easylan",
       "quick-skin"
+    ],
+    "Chat e animacoes": [
+      "chat-heads",
+      "chatanimation",
+      "comics-bubbles-chat",
+      "longer-chat-history",
+      "not-enough-animations",
+      "emotecraft",
+      "fwa",
+      "better-animations-collection",
+      "entity-model-features"
     ],
     "Facilitadores": [
       "fallingtree",
@@ -160,6 +187,9 @@
   ],
   "default_shader": "complementary-reimagined",
   "shaders_enabled": false,
+  "resourcepacks": [
+    "fresh-animations"
+  ],
   "ajustes": [
     {
       "arquivo": "config/easylan.cfg",
@@ -205,9 +235,132 @@
       "arquivo": "config/quickskin-server.json",
       "de": "\"maxSkinResolution\": 0,",
       "para": "\"maxSkinResolution\": 128,"
+    },
+    {
+      "arquivo": "config/createbigcannons-server.toml",
+      "de": "damageRestriction = \"ALL_DAMAGE\"",
+      "para": "damageRestriction = \"NO_DAMAGE\""
     }
   ],
   "historico": [
+    {
+      "versao": "1.3.0",
+      "data": "2026-11-17",
+      "titulo": "Natal no Chalé! 🎄",
+      "tema": "natal",
+      "mensagem": "Ho ho ho, atualização do modpack chegou!\n\nO Natal chegou ao Chalé, e com ele uma leva de novidades para deixar a casa mais aconchegante e o mundo mais moderno.",
+      "secoes": [
+        {
+          "titulo": "🎁 Decoração de Natal",
+          "itens": [
+            "Árvores de Natal, pisca-pisca, guirlandas, meias, bengalas doces, bonecos de neve e presentes com o Macaw's Holidays",
+            "Tem decoração de Halloween também, para o ano que vem"
+          ],
+          "fotos": [
+            {
+              "url": "https://cdn.modrinth.com/data/rH20L2Lp/images/92d57acf7d3c39ef1fb8ca219a2dc8a928fca012_350.webp",
+              "legenda": "Árvores de Natal e presentes"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/rH20L2Lp/images/77f82cc46c0c9048b4bc7bac2a4838f3cff3dd74_350.webp",
+              "legenda": "Guirlandas na casa"
+            }
+          ]
+        },
+        {
+          "titulo": "📺 Casa tecnológica",
+          "itens": [
+            "TV e câmeras: coloque uma câmera na fazenda e acompanhe tudo da televisão da sala",
+            "Câmera fotográfica: tire fotos, revele e pendure nas paredes em porta-retratos ou guarde num álbum",
+            "Discos personalizados: grave e toque suas próprias músicas na vitrola"
+          ],
+          "fotos": [
+            {
+              "url": "https://cdn.modrinth.com/data/zuARv1N7/images/d573091f97ac48319aef2d99fbecb5009e5b4ed9_350.webp",
+              "legenda": "TV mostrando a câmera ao vivo"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/hB899VmG/images/0246c38c23b0d357c70278a2101b96d2ad0d30d4_350.webp",
+              "legenda": "Álbum de fotos"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/zi3Fnfmc/images/15d486da752dd0cca6bcfbc578aa065b7786c1a3_350.webp",
+              "legenda": "Banca de discos"
+            }
+          ]
+        },
+        {
+          "titulo": "⚡ Eletricidade e revolução industrial",
+          "itens": [
+            "Energia elétrica integrada às engrenagens do Create: geradores, fios e motores",
+            "Energia limpa: painéis solares, estufas, irrigadores e biocombustível",
+            "Armas de pólvora com cara de steampunk, difíceis de fabricar e montadas nas máquinas do Create: pederneira, revólver, espingarda e metralhadora",
+            "Canhões gigantes, fundidos em metal derretido e carregados com pólvora. Os tiros acertam monstros, mas não destroem construções"
+          ],
+          "fotos": [
+            {
+              "url": "https://cdn.modrinth.com/data/FTeXqI9v/images/433e7e1c06ad0210e68a26c289d17f81fa6985ab_350.webp",
+              "legenda": "Motores elétricos"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/kAynBp83/images/1d48bf67736bd3ad6c61a9739439251c6a7bed73_350.webp",
+              "legenda": "Irrigador na plantação"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/7KCNsGPM/images/dbd208af93091fc2babfee71b3f58006a55a7f80_350.webp",
+              "legenda": "Armas steampunk"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/GWp4jCJj/images/1f805681495c74dbe32b2a954a8864a701afa0db_350.webp",
+              "legenda": "Dirigível com canhões"
+            }
+          ]
+        },
+        {
+          "titulo": "🥾 Locomoção",
+          "itens": [
+            "Botas das nuvens: correm mais, pulam mais alto e acabam com o dano de queda",
+            "Tirolesas: estique correntes entre postes e deslize pelo mapa",
+            "Aviões rústicos: biplano, dirigível e girocóptero para viajar e explorar"
+          ],
+          "fotos": [
+            {
+              "url": "https://cdn.modrinth.com/data/x3HZvrj6/images/ef0947d09bc57e6febd326ba6659471acecdf56a_350.webp",
+              "legenda": "Biplano"
+            },
+            {
+              "url": "https://cdn.modrinth.com/data/C1MoWQlb/images/1f046eaf53c1e2d1acfcc3b2cd293d096cbcca96_350.webp",
+              "legenda": "Tirolesa"
+            }
+          ]
+        },
+        {
+          "titulo": "💬 Chat e animações",
+          "itens": [
+            "O chat mostra a carinha de quem mandou cada mensagem, as mensagens entram deslizando e o histórico guarda muito mais",
+            "Balões de fala aparecem em cima da cabeça de quem escreve",
+            "Emotes: acene, dance e comemore (tecla B)",
+            "Personagem com animações mais naturais, e portas, baús e alçapões abrindo com movimento suave. Funciona com qualquer skin",
+            "Aldeões e bichos com animações novas: ligue em Opções > Pacotes de recursos > Fresh Animations. Se o PC ficar pesado, é só desligar"
+          ],
+          "fotos": [
+            {
+              "url": "https://cdn.modrinth.com/data/50dA9Sha/images/26e5c0a8a65d421b1111e2c68880f1d657fdc920_350.webp",
+              "legenda": "Fresh Animations"
+            }
+          ]
+        }
+      ],
+      "compativel": [
+        "Mundos da 1.2.7 abrem normalmente",
+        "O Lareira antigo (1.0.0) continua funcionando, mas só o novo (1.1.0) instala as animações dos aldeões: se aparecer o aviso no topo, clique em Baixar"
+      ],
+      "incompativel": [
+        "Não conecta com quem está na 1.2.7: quem joga junto precisa atualizar junto",
+        "Abra o Lareira e clique em Atualizar antes de entrar"
+      ],
+      "despedida": "Feliz Natal e bom jogo! ❄️"
+    },
     {
       "versao": "1.2.7",
       "data": "2026-11-17",

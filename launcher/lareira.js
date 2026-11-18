@@ -10,7 +10,7 @@ const http = require('http');
 const crypto = require('crypto');
 const { spawn, execFileSync } = require('child_process');
 
-const VERSAO = '1.0.0';
+const VERSAO = '1.1.0';
 const REPO = 'ramosbezzu/chale-e-engrenagens';
 const MANIFESTO_PADRAO = `https://raw.githubusercontent.com/${REPO}/main/manifest/`;
 const HOSTS_DOWNLOAD = ['cdn.modrinth.com', 'github.com', 'raw.githubusercontent.com'];
@@ -123,15 +123,37 @@ const relSeguro = (rel, prefixos) => typeof rel === 'string' && !/[\\:]|^\/|(^|\
 
 // O manifesto vem da internet: tudo que vira caminho ou comando e validado antes de usar.
 // Parte que muda a cada versao do pack (a atual fica na raiz do manifesto, as outras em "anteriores").
+const arquivoValido = (prefixos) => (a) => {
+  let url; try { url = new URL(a.url); } catch { return false; }
+  return relSeguro(a.caminho, prefixos) && /^[0-9a-f]{40}$/.test(a.sha1)
+    && url.protocol === 'https:' && HOSTS_DOWNLOAD.includes(url.hostname);
+};
+// "pacotes" (pacotes de recursos) fica fora de "arquivos" porque o Lareira 1.0.0 recusa o
+// manifesto inteiro se "arquivos" tiver algo fora de mods/ e shaderpacks/.
 function versaoValida(v) {
   return !!v && /^\d+(\.\d+)*$/.test(v.versao) && /^\d+(\.\d+)*(-beta)?$/.test(v.neoforge) && /^\d+(\.\d+)*$/.test(v.minecraft)
-    && Array.isArray(v.arquivos) && v.arquivos.every((a) => {
-      let url; try { url = new URL(a.url); } catch { return false; }
-      return relSeguro(a.caminho, ['mods/', 'shaderpacks/']) && /^[0-9a-f]{40}$/.test(a.sha1)
-        && url.protocol === 'https:' && HOSTS_DOWNLOAD.includes(url.hostname);
-    })
+    && Array.isArray(v.arquivos) && v.arquivos.every(arquivoValido(['mods/', 'shaderpacks/']))
+    && (v.pacotes || []).every(arquivoValido(['resourcepacks/']))
     && (v.configs || []).every((c) => relSeguro(c.caminho, ['config/', 'options.txt']) && typeof c.conteudo === 'string')
     && (v.ajustes || []).every((a) => relSeguro(a.arquivo, ['config/', 'options.txt']) && typeof a.de === 'string' && typeof a.para === 'string');
+}
+
+// Notas de versao: so texto e fotos do CDN do Modrinth (a janela carrega as imagens direto de la).
+const FOTOS = ['cdn.modrinth.com'];
+const textos = (l) => (Array.isArray(l) ? l.filter((t) => typeof t === 'string') : []);
+function fotos(lista) {
+  return (Array.isArray(lista) ? lista : []).filter((f) => {
+    let url; try { url = new URL(f.url); } catch { return false; }
+    return url.protocol === 'https:' && FOTOS.includes(url.hostname);
+  }).map((f) => ({ url: f.url, legenda: typeof f.legenda === 'string' ? f.legenda : '' }));
+}
+function limparEntrada(h) {
+  const t = (x) => (typeof x === 'string' ? x : '');
+  return {
+    versao: t(h.versao), data: t(h.data), titulo: t(h.titulo), tema: t(h.tema), mensagem: t(h.mensagem), despedida: t(h.despedida),
+    novidades: textos(h.novidades), compativel: textos(h.compativel), incompativel: textos(h.incompativel),
+    secoes: (Array.isArray(h.secoes) ? h.secoes : []).map((s) => ({ titulo: t(s.titulo), itens: textos(s.itens), fotos: fotos(s.fotos) })),
+  };
 }
 
 function validarPack(p) {
@@ -140,9 +162,9 @@ function validarPack(p) {
     && (!p.marcadorAntigo || /^[a-z0-9.-]+\.txt$/.test(p.marcadorAntigo))
     && versaoValida(p) && (p.anteriores || []).every(versaoValida);
   if (!ok) throw new Error(`manifesto invalido: ${p && p.id}`);
-  p.historico = p.historico || [];
+  p.historico = (Array.isArray(p.historico) ? p.historico : []).map(limparEntrada);
   p.anteriores = p.anteriores || [];
-  for (const v of [p, ...p.anteriores]) { v.configs = v.configs || []; v.ajustes = v.ajustes || []; }
+  for (const v of [p, ...p.anteriores]) { v.configs = v.configs || []; v.ajustes = v.ajustes || []; v.pacotes = v.pacotes || []; }
   return p;
 }
 
@@ -211,7 +233,7 @@ function estadoPack(pack, modo) {
     id: pack.id, nome: pack.nome, resumo: pack.resumo, historico: pack.historico,
     versao: v.versao, maisNova: pack.versao, fixada: v !== pack, versoes: [pack.versao, ...pack.anteriores.map((a) => a.versao)],
     minecraft: v.minecraft, neoforge: v.neoforge, mods: v.arquivos.filter((a) => a.caminho.startsWith('mods/')).length,
-    tamanho: v.arquivos.reduce((s, a) => s + (a.tamanho || 0), 0),
+    tamanho: [...v.arquivos, ...v.pacotes].reduce((s, a) => s + (a.tamanho || 0), 0),
   };
   if (!modo) return { ...base, estado: 'sem-launcher' };
   const { jogo } = alvo(pack, modo);
@@ -518,7 +540,8 @@ async function sincronizar(pack, modo, avisar) {
 
   fase('Conferindo arquivos...');
   const faltam = [];
-  for (const a of pack.arquivos) {
+  const marcaAntiga = lerJSON(path.join(jogo, MARCA)) || {};
+  for (const a of [...pack.arquivos, ...pack.pacotes]) {
     const destino = path.join(jogo, a.caminho);
     let ok = false;
     try { ok = fs.statSync(destino).size === a.tamanho && (await sha1Arquivo(destino)) === a.sha1; } catch { /* nao existe */ }
@@ -538,6 +561,11 @@ async function sincronizar(pack, modo, avisar) {
   // Mods: espelho exato do pack, senao host e convidado ficam diferentes.
   const quer = new Set(pack.arquivos.filter((a) => a.caminho.startsWith('mods/')).map((a) => path.posix.basename(a.caminho)));
   for (const jar of jarsEm(path.join(jogo, 'mods'))) if (!quer.has(jar)) fs.rmSync(path.join(jogo, 'mods', jar), { force: true });
+  // Pacotes de recursos: so remove os que o proprio Lareira instalou (os do jogador ficam).
+  const pacotes = pack.pacotes.map((a) => a.caminho);
+  for (const velho of Array.isArray(marcaAntiga.pacotes) ? marcaAntiga.pacotes : []) {
+    if (!pacotes.includes(velho) && relSeguro(velho, ['resourcepacks/'])) fs.rmSync(path.join(jogo, velho), { force: true });
+  }
 
   // Configs: so o que ainda nao existe (preserva os ajustes do jogador)...
   for (const c of pack.configs) {
@@ -555,7 +583,7 @@ async function sincronizar(pack, modo, avisar) {
   }
 
   if (modo === 'oficial') perfilOficial(pack, raiz, jogo, pack.versao); else versaoTLauncher(pack);
-  gravarJSON(path.join(jogo, MARCA), { pack: pack.id, nome: pack.nome, versao: pack.versao, modo, em: new Date().toISOString() });
+  gravarJSON(path.join(jogo, MARCA), { pack: pack.id, nome: pack.nome, versao: pack.versao, modo, pacotes, em: new Date().toISOString() });
   log(`pronto: ${pack.id} ${pack.versao}`);
 }
 

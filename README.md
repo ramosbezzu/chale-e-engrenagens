@@ -52,7 +52,9 @@ git add -A && git commit -m "Chalé 1.3.0" && git push
 
 Pronto: todo Lareira aberto depois disso mostra **Atualizar**. A versão que estava publicada vira automaticamente a "anterior" dentro do manifesto (o `build.py` guarda uma; `"manter_anteriores": 2` no json do pack guarda mais). O launcher lê `manifest/index.json` e `manifest/<pack>.json` direto do branch `main` (o GitHub pode levar até 5 minutos para servir o arquivo novo).
 
-Cada entrada de `historico` tem `versao`, `data`, `titulo`, `novidades`, `compativel` e `incompativel`. É o que aparece na tela de novidades.
+Cada entrada de `historico` tem `versao`, `data`, `titulo`, `novidades`, `compativel` e `incompativel`. É o que aparece na tela de novidades. A partir do Lareira 1.1.0 a entrada também pode ter `mensagem`, `secoes` (título, itens e fotos do Modrinth), `despedida` e `tema` (ver AGENTS.md). Pacotes de recursos entram em `resourcepacks` e chegam pelo campo `pacotes` do manifesto.
+
+Entre 15/11 e 06/01 o Lareira se enfeita sozinho para o Natal (pisca-pisca, árvore, trenó). Para ver fora da época: abra a janela com `&natal=1` no endereço.
 
 `python3 build.py cozy.json --manifesto` regenera só o manifesto a partir do `.mrpack` que já existe em `dist/`, sem buscar versões novas de mods (útil para corrigir um texto do histórico).
 

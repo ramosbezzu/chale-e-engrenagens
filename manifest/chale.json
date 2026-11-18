@@ -2,8 +2,8 @@
  "formato": 1,
  "id": "chale",
  "nome": "Chalé & Engrenagens",
- "versao": "1.2.7",
- "resumo": "Vanilla plus cozy em NeoForge 1.21.1: Create, Create Aeronautics, AE2, Immersive Engineering, Mystical Agriculture, comidas, biomas, animais e decoracao, otimizado para PC fraco.",
+ "versao": "1.3.0",
+ "resumo": "Vanilla plus cozy em NeoForge 1.21.1: Create com eletricidade, armas e canhões, Create Aeronautics, AE2, Immersive Engineering, comidas, biomas, animais, decoração de Natal e casa tecnológica, otimizado para PC fraco.",
  "minecraft": "1.21.1",
  "neoforge": "21.1.265",
  "pasta": ".minecraft-chale",
@@ -96,6 +96,12 @@
    "url": "https://cdn.modrinth.com/data/MBAkmtvl/versions/gMedgtzL/balm-neoforge-1.21.1-21.0.67.jar"
   },
   {
+   "caminho": "mods/BetterAnimationsCollection-v21.1.1-1.21.1-NeoForge.jar",
+   "sha1": "1bacea8719a1af6079bb70a135129a2cd1559423",
+   "tamanho": 191292,
+   "url": "https://cdn.modrinth.com/data/OoOVj3J3/versions/3sJ71XQz/BetterAnimationsCollection-v21.1.1-1.21.1-NeoForge.jar"
+  },
+  {
    "caminho": "mods/BiomesOPlenty-neoforge-1.21.1-21.1.0.14.jar",
    "sha1": "294ae397c011980623bf155f9dfce82bb81865a0",
    "tamanho": 22338156,
@@ -120,6 +126,24 @@
    "url": "https://cdn.modrinth.com/data/joEfVgkn/versions/PV8oLZ1q/carryon-neoforge-1.21.1-2.2.6.13.jar"
   },
   {
+   "caminho": "mods/create-gunsmithing-1.21.1-1.4.9.jar",
+   "sha1": "b93931be985419f5ac021116e8fd166ce62e92de",
+   "tamanho": 1819221,
+   "url": "https://cdn.modrinth.com/data/7KCNsGPM/versions/AmBZCjMo/create-gunsmithing-1.21.1-1.4.9.jar"
+  },
+  {
+   "caminho": "mods/chat_heads-0.15.7-neoforge-1.21.jar",
+   "sha1": "536b2af675229d2a33eb4cf5afbe7148a62d5f3f",
+   "tamanho": 91948,
+   "url": "https://cdn.modrinth.com/data/Wb5oqrBJ/versions/ZPylso9i/chat_heads-0.15.7-neoforge-1.21.jar"
+  },
+  {
+   "caminho": "mods/chatanimation-neoforge-1.3.5+mc1.21.jar",
+   "sha1": "e647613d3818d4ff74eb7187ea1fe7a95db3b415",
+   "tamanho": 1068711,
+   "url": "https://cdn.modrinth.com/data/DnNYdJsx/versions/ObpFSVJe/chatanimation-neoforge-1.3.5%2Bmc1.21.jar"
+  },
+  {
    "caminho": "mods/Chunky-NeoForge-1.4.23.jar",
    "sha1": "ab0c74743a653020fe2dfc4986b43e893947f3e9",
    "tamanho": 340572,
@@ -138,6 +162,12 @@
    "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/izKINKFg/cloth-config-15.0.140-neoforge.jar"
   },
   {
+   "caminho": "mods/cloudboots-neoforge-1.21.1-3.0.3.jar",
+   "sha1": "aa0b52cc7b65560e8c9106c371ffdd9f2475026d",
+   "tamanho": 113585,
+   "url": "https://cdn.modrinth.com/data/hkztOJro/versions/UKsEJEtT/cloudboots-neoforge-1.21.1-3.0.3.jar"
+  },
+  {
    "caminho": "mods/Clumps-neoforge-1.21.1-19.0.0.1.jar",
    "sha1": "fa2576297c7bd12b28aa7070e8141792bd66da4c",
    "tamanho": 18382,
@@ -154,6 +184,12 @@
    "sha1": "21d6bee3821d62fe3356c51fb1d697871a3087ff",
    "tamanho": 422658,
    "url": "https://cdn.modrinth.com/data/SaCpeal4/versions/3kpPjcTc/comforts-neoforge-9.0.5%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/1.21.1-comicsbubbleschat-neoforge-1.4.0.jar",
+   "sha1": "086dd794e62ba266279a7bcbb9d29759a98097ea",
+   "tamanho": 181335,
+   "url": "https://cdn.modrinth.com/data/th4Wn63R/versions/g5mEYQAj/1.21.1-comicsbubbleschat-neoforge-1.4.0.jar"
   },
   {
    "caminho": "mods/configurable-3.5.3+1.21.1-neoforge.jar",
@@ -204,6 +240,12 @@
    "url": "https://cdn.modrinth.com/data/mYGTCuZY/versions/1nkYMksD/createappliedkinetics-1.5.6-1.21.1.jar"
   },
   {
+   "caminho": "mods/createbigcannons-5.11.7+mc.1.21.1.jar",
+   "sha1": "c90ee0b2142e2c58d233e150cb3a24c7cb07eb2d",
+   "tamanho": 3771506,
+   "url": "https://cdn.modrinth.com/data/GWp4jCJj/versions/bOiDu0LS/createbigcannons-5.11.7%2Bmc.1.21.1.jar"
+  },
+  {
    "caminho": "mods/create-central-kitchen-2.6.2b.jar",
    "sha1": "796355e592455c84c4eee8b7cd998734a9500c0d",
    "tamanho": 511818,
@@ -234,16 +276,34 @@
    "url": "https://cdn.modrinth.com/data/UbFnAd4l/versions/sCwiqLqq/create_jetpack-forge-5.2.1.jar"
   },
   {
+   "caminho": "mods/create-new-age-1.2.0+neoforge-mc1.21.1.jar",
+   "sha1": "849df57070ffa75c2446b9c460d03f6b49fa089e",
+   "tamanho": 1644485,
+   "url": "https://cdn.modrinth.com/data/FTeXqI9v/versions/IwtuwMZy/create-new-age-1.2.0%2Bneoforge-mc1.21.1.jar"
+  },
+  {
    "caminho": "mods/create_quarry-1.1.0.jar",
    "sha1": "34a0a6e3c554e6b6b381a71255341dbc4d326920",
    "tamanho": 112632,
    "url": "https://cdn.modrinth.com/data/gLTAirKi/versions/ZWQs6qLV/create_quarry-1.1.0.jar"
   },
   {
+   "caminho": "mods/solarpunk-2.1.0-1.21.1.jar",
+   "sha1": "210b4716f6dab9e1996c2735c4358d07f0049a1b",
+   "tamanho": 3894195,
+   "url": "https://cdn.modrinth.com/data/kAynBp83/versions/l0ePWHkF/solarpunk-2.1.0-1.21.1.jar"
+  },
+  {
    "caminho": "mods/railways-0.3.0-beta.2+neoforge-mc1.21.1.jar",
    "sha1": "82a28ce51fdbc583477d7ae7c4c94cc6d23ec2b4",
    "tamanho": 18728584,
    "url": "https://cdn.modrinth.com/data/L3Jv0QZI/versions/czVeSmZo/railways-0.3.0-beta.2%2Bneoforge-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/createaddition-1.7.2.jar",
+   "sha1": "8e7158d3144b1ee97e58092fe006675b0e09f6d8",
+   "tamanho": 1772844,
+   "url": "https://cdn.modrinth.com/data/kU1G12Nn/versions/hsjVajlP/createaddition-1.7.2.jar"
   },
   {
    "caminho": "mods/CreativeCore_NEOFORGE_v2.13.54_mc1.21.1.jar",
@@ -288,10 +348,40 @@
    "url": "https://cdn.modrinth.com/data/GwNdY4Sy/versions/PPv6en73/EasyLAN-neoforge-1.21.1-v1.6a.jar"
   },
   {
+   "caminho": "mods/emotecraft-for-MC1.21.1-2.4.12-neoforge.jar",
+   "sha1": "1228c7597c4b6cbaec10a090f9b5b471ca9042d4",
+   "tamanho": 861829,
+   "url": "https://cdn.modrinth.com/data/pZ2wrerK/versions/fu6N0NgM/emotecraft-for-MC1.21.1-2.4.12-neoforge.jar"
+  },
+  {
+   "caminho": "mods/entity_model_features-3.3.12-1.21-neoforge.jar",
+   "sha1": "e9a163b77243cdfcb0ad3d698dc48a60cb8710e9",
+   "tamanho": 656382,
+   "url": "https://cdn.modrinth.com/data/4I1XuqiY/versions/197m3VoU/entity_model_features-3.3.12-1.21-neoforge.jar"
+  },
+  {
    "caminho": "mods/entityculling-neoforge-1.12.1-mc1.21.1.jar",
    "sha1": "75671869d5991e7fbeed77f0549501d1368d6f44",
    "tamanho": 1523607,
    "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/DDaDZQ47/entityculling-neoforge-1.12.1-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/entity_texture_features-7.2.7-1.21-neoforge.jar",
+   "sha1": "5fd97ee3a0a3bb8c223f26f196bdb5c9e9841923",
+   "tamanho": 811876,
+   "url": "https://cdn.modrinth.com/data/BVzZfTc1/versions/1DVPB3a4/entity_texture_features-7.2.7-1.21-neoforge.jar"
+  },
+  {
+   "caminho": "mods/etched-5.1.0.jar",
+   "sha1": "0cc1f1d0bc5d9af3f9ffbb8ce166f5cc9b59ec89",
+   "tamanho": 628299,
+   "url": "https://cdn.modrinth.com/data/zi3Fnfmc/versions/h6eJfwiW/etched-5.1.0.jar"
+  },
+  {
+   "caminho": "mods/exposure-neoforge-1.21.1-1.9.21.jar",
+   "sha1": "6964c32c57f27297d2d773b2ff6d43b3807fa32a",
+   "tamanho": 2206630,
+   "url": "https://cdn.modrinth.com/data/hB899VmG/versions/tjX0GpFW/exposure-neoforge-1.21.1-1.9.21.jar"
   },
   {
    "caminho": "mods/FallingTree-1.21.1-1.21.1.11.jar",
@@ -348,6 +438,12 @@
    "url": "https://cdn.modrinth.com/data/g6sbyCTu/versions/TWbuEFZt/fruitsdelight-1.2.14.jar"
   },
   {
+   "caminho": "mods/fwa+1.21.1-neoforge-1.3.7-patch.2.jar",
+   "sha1": "e646970e0d5fc23a78c2bc155e025819f2c56379",
+   "tamanho": 410221,
+   "url": "https://cdn.modrinth.com/data/IAzUFvS6/versions/rPdp8rQH/fwa%2B1.21.1-neoforge-1.3.7-patch.2.jar"
+  },
+  {
    "caminho": "mods/geckolib-neoforge-1.21.1-4.9.3.jar",
    "sha1": "5cfe835472a5c5457ae9ac192d9d7b317454d5ac",
    "tamanho": 634531,
@@ -388,6 +484,12 @@
    "sha1": "f991166f7c82b493481c876e3c83c9fac4159671",
    "tamanho": 368896,
    "url": "https://cdn.modrinth.com/data/5ZwdcRci/versions/EJzmEPZV/ImmediatelyFast-NeoForge-1.6.15%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/immersive_aircraft-neoforge-1.7.0+1.21.1.jar",
+   "sha1": "5cf33cd634a88ec5728668bf13421645f11fbbe4",
+   "tamanho": 2543237,
+   "url": "https://cdn.modrinth.com/data/x3HZvrj6/versions/xO17G766/immersive_aircraft-neoforge-1.7.0%2B1.21.1.jar"
   },
   {
    "caminho": "mods/ImmersiveEngineering-1.21.1-12.4.2-194.jar",
@@ -474,6 +576,12 @@
    "url": "https://cdn.modrinth.com/data/vE2FN5qn/versions/83U4ROV4/letmedespawn-neoforge-1.21.1-1.26.11.1.jar"
   },
   {
+   "caminho": "mods/LongerChatHistory-neoforge-1.7.jar",
+   "sha1": "24a373d5310ccdb7a04e61dcce18ab67e1ec6852",
+   "tamanho": 6094,
+   "url": "https://cdn.modrinth.com/data/f4P7fNKN/versions/Une73t0n/LongerChatHistory-neoforge-1.7.jar"
+  },
+  {
    "caminho": "mods/mcwbiomesoplenty-neoforge-1.21.1-1.6.jar",
    "sha1": "ec8e661a5ef336eb2bd9b8a1978df1213a812ded",
    "tamanho": 7018204,
@@ -502,6 +610,12 @@
    "sha1": "3dccc819f14bcc60b3683edd82ca8c5e64964229",
    "tamanho": 2080436,
    "url": "https://cdn.modrinth.com/data/dtWC90iB/versions/Z5V3Ps7S/mcw-furniture-3.4.1-mc1.21.1neoforge.jar"
+  },
+  {
+   "caminho": "mods/mcw-holidays-1.1.2-mc1.21.1neoforge.jar",
+   "sha1": "fbe2d2239fdab916120357ca3c45f582ca34f71d",
+   "tamanho": 1012915,
+   "url": "https://cdn.modrinth.com/data/rH20L2Lp/versions/2mO9Xhpt/mcw-holidays-1.1.2-mc1.21.1neoforge.jar"
   },
   {
    "caminho": "mods/mcw-lights-1.1.5-mc1.21.1neoforge.jar",
@@ -600,6 +714,18 @@
    "url": "https://cdn.modrinth.com/data/bgDhVmqz/versions/KZh9Z9Sd/nexuslib-neoforge-1.21.1-1.2.0.jar"
   },
   {
+   "caminho": "mods/notenoughanimations-neoforge-1.12.7-mc1.21.1.jar",
+   "sha1": "137a878ed276a3dfab2715df1864d14f60bd3237",
+   "tamanho": 1868196,
+   "url": "https://cdn.modrinth.com/data/MPCX6s5C/versions/f9RkhlA0/notenoughanimations-neoforge-1.12.7-mc1.21.1.jar"
+  },
+  {
+   "caminho": "mods/ntgl-1.21.1-3.2.0.jar",
+   "sha1": "706a7b91a8f46c4773d01f7a0137b6aaf271e33b",
+   "tamanho": 3965533,
+   "url": "https://cdn.modrinth.com/data/5m2kV8xK/versions/zd7xJnqO/ntgl-1.21.1-3.2.0.jar"
+  },
+  {
    "caminho": "mods/oceansdelight-neoforge-1.0.4-1.21.1.jar",
    "sha1": "2246edd8fc1bbf60422f5099854c1de0b2a439c9",
    "tamanho": 117108,
@@ -664,6 +790,12 @@
    "sha1": "217830521d3086bec2ed4e420af8b17d92c7a157",
    "tamanho": 287188,
    "url": "https://cdn.modrinth.com/data/Cnejf5xM/versions/EjnJWMLk/rightclickharvest-neoforge-4.7.1%2B1.21.1.jar"
+  },
+  {
+   "caminho": "mods/ritchiesprojectilelib-2.1.2+mc.1.21.1-neoforge.jar",
+   "sha1": "ec2e4996f8bee8714173e603e379fef8a6901765",
+   "tamanho": 76369,
+   "url": "https://cdn.modrinth.com/data/B3pb093D/versions/hZ6B2Z0x/ritchiesprojectilelib-2.1.2%2Bmc.1.21.1-neoforge.jar"
   },
   {
    "caminho": "mods/rusticdelight-neoforge-1.21-1.7.1.jar",
@@ -798,6 +930,12 @@
    "url": "https://cdn.modrinth.com/data/ojFjz7JF/versions/vNlEAHKP/untitledduckmod-1.7.1-neoforge-1.21.1.jar"
   },
   {
+   "caminho": "mods/vista-1.21.1-5.6.9-neoforge.jar",
+   "sha1": "02711c23dbfd171d33634d502bd3ccddde8a94a1",
+   "tamanho": 5904041,
+   "url": "https://cdn.modrinth.com/data/zuARv1N7/versions/WphbaJfQ/vista-1.21.1-5.6.9-neoforge.jar"
+  },
+  {
    "caminho": "mods/waystones-neoforge-1.21.1-21.1.47.jar",
    "sha1": "51c3390c2555416979905f9d1b05ebc1a4de29c8",
    "tamanho": 1254420,
@@ -846,13 +984,31 @@
    "url": "https://cdn.modrinth.com/data/OnlVIpq5/versions/9vSFkDAr/zfastnoise-1.0.13%2B1.21.1%2Bneoforge.jar"
   },
   {
+   "caminho": "mods/zipline-1.5.3+1.21.1-neoforge.jar",
+   "sha1": "4ca5b47c6f58b33f77ffc3809c74f2d7c6dd9b21",
+   "tamanho": 89295,
+   "url": "https://cdn.modrinth.com/data/C1MoWQlb/versions/aoJSybb5/zipline-1.5.3%2B1.21.1-neoforge.jar"
+  },
+  {
    "caminho": "shaderpacks/ComplementaryReimagined_r5.9.3.zip",
    "sha1": "838139b54cddb56b2e83cd260d8efd960ac536d6",
    "tamanho": 553397,
    "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/Bqen1mJX/ComplementaryReimagined_r5.9.3.zip"
   }
  ],
+ "pacotes": [
+  {
+   "caminho": "resourcepacks/FreshAnimations_v1.11.2_1.20+.zip",
+   "sha1": "c0f564f3b9c12762923015eefad53edbdbbd3d96",
+   "tamanho": 742790,
+   "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/HC1XRKGD/FreshAnimations_v1.11.2_1.20%2B.zip"
+  }
+ ],
  "configs": [
+  {
+   "caminho": "config/createbigcannons-server.toml",
+   "conteudo": "#.\n#These values affect the extent of cannon failure.\n[failure]\n\t#.\n\t#.\n\t#If true, cannons cannot fail whatsoever. Equivalent to setting all the chances below to zero.\n\tdisableAllCannonFailure = false\n\t#.\n\t#Chance that a fired projectile will get stuck in a barrel after exceeding the squib ratio. 0 is 0%, 1 is 100%.\n\t# Default: 0.25\n\t# Range: 0.0 ~ 1.0\n\tsquibChance = 0.25\n\t#.\n\t#Chance that a cannon will fail if a Powder Charge is ignited in a \"barrel\"-type cannon block. 0 is 0%, 1 is 100%.\n\t#This chance can be affected by stronger and weaker charge blocks.\n\t# Default: 0.20000000298023224\n\t# Range: 0.0 ~ 1.0\n\tbarrelChargeBurstChance = 0.20000000298023224\n\t#.\n\t#How strong the explosion of a catastrophic failure is. Scaled by the amount of charges used in the shot.\n\t# Default: 2.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tfailureExplosionPower = 2.0\n\t#.\n\t#Chance that a cannon loaded with more Powder Charges that it can handle will fail. 0 is 0%, 1 is 100%.\n\t# Default: 0.5\n\t# Range: 0.0 ~ 1.0\n\toverloadBurstChance = 0.5\n\t#.\n\t#Chance that a load with gaps between the loaded Powder Charges will not completely combust. 0 is 0%, 1 is 100%.\n\t# Default: 0.33000001311302185\n\t# Range: 0.0 ~ 1.0\n\tinterruptedIgnitionChance = 0.33000001311302185\n\n#.\n#These values affect the characteristics of cannon munitions.\n[munitions]\n\t#.\n\t#.\n\t#If projectiles can bounce, ricochet, and be deflected.\n\tprojectilesCanBounce = true\n\t#.\n\t# Default: 0.33000001311302185\n\t# Range: 0.0 ~ 1.0\n\tbaseProjectileBounceChance = 0.33000001311302185\n\t#.\n\t# Default: 0.8999999761581421\n\t# Range: 0.0 ~ 1.0\n\tbaseProjectileFluidBounceChance = 0.8999999761581421\n\t#.\n\t#[in Meters per Tick]\n\t#The minimum velocity necessary to activate the penetration bonus.\n\t# Default: 1.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tminimumVelocityForPenetrationBonus = 1.0\n\t#.\n\t# Default: 0.10000000149011612\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tpenetrationBonusScale = 0.10000000149011612\n\t#.\n\t#The extent to which cannon projectiles can damage surrounding blocks.\n\t#All Damage - projectiles will destroy anything they hit, if applicable. Explosive projectiles will destroy blocks on detonation.\n\t#No Explosive Damage - projectiles will destroy anything they hit, if applicable. Explosive projectiles will only harm entities on detonation.\n\t#No Damage - projectiles will not destroy anything they hit, and will only deal entity damage. Explosive projectiles will only harm entities on detonation.\n\t#Allowed Values: ALL_DAMAGE, NO_EXPLOSIVE_DAMAGE, NO_DAMAGE\n\tdamageRestriction = \"NO_DAMAGE\"\n\t#.\n\tprojectilesChangeSurroundings = true\n\t#.\n\tmunitionBlocksCanExplode = true\n\n\t#.\n\t#Damp Big Cannon Propellant\n\t[munitions.dampBigCannonPropellant]\n\t\t#.\n\t\tdampPropellantBlocksStartingIgnition = true\n\t\t#.\n\t\tdampPropellantWeakensPropellant = true\n\n\t#.\n\t#Chunkloading\n\t[munitions.chunkloading]\n\t\t#.\n\t\tprojectilesCanChunkload = true\n\t\t#.\n\t\tsmokeCloudsCanChunkload = true\n\n\t#.\n\t#Big Cannon Munitions\n\t[munitions.bigCannonMunitions]\n\t\t#.\n\t\t#Allowed Values: NONE, LONG, SHORT\n\t\ttrailType = \"SHORT\"\n\t\t#.\n\t\t#Makes all shot big cannon projectiles tracers regardless if the item had a tracer tip applied.\n\t\tallBigCannonProjectilesAreTracers = false\n\t\t#.\n\t\t#[in Ticks]\n\t\t# Default: 20\n\t\t# Range: 0 ~ 100\n\t\tquickFiringBreechItemPickupDelay = 20\n\t\t#.\n\t\tquickFiringBreechItemGoesToInventory = false\n\t\t#.\n\t\t#The strength multiplier of big cannon projectile impacts on physics objects (i.e. from Sable, Valkyrien Skies).\n\t\t# Default: 1.0\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tbigCannonProjectileImpactForceMultiplier = 1.0\n\n\t#.\n\t#Projectile Fuzes\n\t[munitions.fuzes]\n\t\t#.\n\t\t#Chance that the Impact Fuze/Delayed Impact Fuze will detonate on hitting something. 0 is 0% (never), 1 is 100% (always).\n\t\t# Default: 0.6700000166893005\n\t\t# Range: 0.0 ~ 1.0\n\t\timpactFuzeDetonationChance = 0.6700000166893005\n\t\t#.\n\t\t#How many blocks the Impact Fuze/Delayed Impact Fuze can hit before breaking. Set to -1 to never break.\n\t\t# Default: 3\n\t\t# Range: > -1\n\t\timpactFuzeDurability = 3\n\t\t#.\n\t\t#Chance that the Inertia Fuze/Delayed Inertia Fuze will detonate on hitting something. 0 is 0% (never), 1 is 100% (always).\n\t\t# Default: 0.8999999761581421\n\t\t# Range: 0.0 ~ 1.0\n\t\tinertiaFuzeDetonationChance = 0.8999999761581421\n\t\t#.\n\t\t#How many blocks the Inertia Fuze/Delayed Inertia Fuze can hit before breaking. Set to -1 to never break.\n\t\t# Default: 3\n\t\t# Range: > -1\n\t\tinertiaFuzeDurability = 3\n\t\t#.\n\t\t#[in Ticks]\n\t\t#Time it takes for a proximity fuze to arm itself.\n\t\t#After the fuze has been in the air for the specified arming time, it will detonate when it gets close enough to a block or entity.\n\t\t# Default: 5\n\t\t# Range: > 0\n\t\tproximityFuzeArmingTime = 5\n\t\t#.\n\t\t#Scale of the area covered by the Proximity Fuze. Larger number means wider area covered\n\t\t# Default: 5\n\t\t# Range: 1 ~ 10\n\t\tproximityFuzeScale = 5\n\t\t#.\n\t\t#[in Blocks]\n\t\t#Spacing of the detection points of the Proximity Fuze.\n\t\t# Default: 1.5\n\t\t# Range: 0.5 ~ 2.0\n\t\tproximityFuzeSpacing = 1.5\n\n\t#.\n\t#Grouped Munitions\n\t[munitions.groupedMunitions]\n\t\t#.\n\t\t#The chance of a fluid blob affecting a block in its area of effect (AOE). 0 is 0% (never), 1 is 100% (always).\n\t\t# Default: 0.5\n\t\t# Range: 0.0 ~ 1.0\n\t\tfluidBlobBlockEffectChance = 0.5\n\n\t#.\n\t#Autocannon Munitions\n\t[munitions.autocannonMunitions]\n\t\t#.\n\t\t#Allowed Values: NONE, LONG, SHORT\n\t\ttrailType = \"SHORT\"\n\t\t#.\n\t\t#Makes all shot autocannon projectiles tracers regardless if the item had a tracer tip applied. Emulates legacy behavior.\n\t\tallAutocannonProjectilesAreTracers = false\n\t\t#.\n\t\t#How many autocannon rounds the Autocannon Ammo Container can store.\n\t\t# Default: 64\n\t\t# Range: 1 ~ 128\n\t\tautocannonAmmoContainerAutocannonRoundCapacity = 64\n\t\t#.\n\t\t#How many machine gun rounds the Autocannon Ammo Container can store.\n\t\t# Default: 128\n\t\t# Range: 1 ~ 128\n\t\tautocannonAmmoContainerMachineGunRoundCapacity = 128\n\t\t#.\n\t\t#The strength multiplier of autocannon projectile impacts (excluding machine gun rounds) on physics objects (i.e. from Sable, Valkyrien Skies).\n\t\t# Default: 0.10000000149011612\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tautocannonProjectileImpactForceMultiplier = 0.10000000149011612\n\t\t#.\n\t\t#The strength multiplier of machine gun projectile impacts on physics objects (i.e. from Sable, Valkyrien Skies).\n\t\t# Default: 0.009999999776482582\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tmachineGunProjectileImpactForceMultiplier = 0.009999999776482582\n\n#.\n#These values affect the characteristics of cannon materials and cannon structures\n[cannons]\n\t#.\n\t#.\n\t#Maximum length of cannons that can be built.\n\t# Default: 64\n\t# Range: > 3\n\tmaxCannonLength = 64\n\t#.\n\t#Time when the Quickfiring Breech cannot be loaded by Mechanical Arms.\n\t# Default: 40\n\t# Range: > 0\n\tquickfiringBreechLoadingCooldown = 40\n\t#.\n\t#Time it takes for the Quickfiring Breech to fully open/close, during which it cannot be loaded.\n\t# Default: 5\n\t# Range: > 0\n\tquickfiringBreechOpeningCooldown = 5\n\t#.\n\t# Default: 1.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tbigCannonRecoilScale = 1.0\n\t#.\n\t# Default: 0.5\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tautocannonRecoilScale = 0.5\n\n\t#.\n\t#Drop Mortar\n\t[cannons.dropMortar]\n\t\t#.\n\t\t#Time in ticks between inserting a munition into a drop mortar and the drop mortar firing it. There are 20 ticks in 1 second.\n\t\t# Default: 5\n\t\t# Range: > 0\n\t\tdropMortarDelay = 5\n\t\t#.\n\t\t#Length in ticks that the player has to wait for before inserting the same munition type into a drop mortar again. There are 20 ticks in 1 second.\n\t\t# Default: 40\n\t\t# Range: > 0\n\t\tdropMortarItemCooldown = 40\n\n\t#.\n\t#Loading Tools\n\t[cannons.loadingTools]\n\t\t#.\n\t\t#If deployers can use loading tools.\n\t\tdeployersCanUseLoadingTools = false\n\t\t#.\n\t\t#How many blocks inside a cannon a Ram Rod can reach.\n\t\t# Default: 5\n\t\t# Range: > 1\n\t\tramRodReach = 5\n\t\t#.\n\t\t#Maximum amount of munition blocks a Ram Rod can push.\n\t\t# Default: 3\n\t\t# Range: > 1\n\t\tramRodStrength = 3\n\t\t#.\n\t\t#How many blocks inside a cannon a Worm can reach.\n\t\t# Default: 5\n\t\t# Range: > 1\n\t\twormReach = 5\n\t\t#.\n\t\t#How many hunger/saturation points it takes to move one munition block a distance of one block using loading tools.\n\t\t# Default: 2.5\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tloadingToolHungerConsumption = 2.5\n\t\t#.\n\t\t#How many ticks before a player can use a manual loading tool again. There are 20 ticks in 1 second.\n\t\t# Default: 20\n\t\t# Range: > 0\n\t\tloadingToolCooldown = 20\n\n\t#.\n\t#Cannon Carriages\n\t[cannons.carriage]\n\t\t#.\n\t\t#How fast the carriage is, in blocks per tick.\n\t\t# Default: 0.03999999910593033\n\t\t# Range: 0.03999999910593033 ~ 1.0\n\t\tcarriageSpeed = 0.03999999910593033\n\t\t#.\n\t\t#How fast the carriage turns, in degrees per tick.\n\t\t# Default: 1.0\n\t\t# Range: 0.10000000149011612 ~ 10.0\n\t\tcarriageTurnRate = 1.0\n\t\t#.\n\t\tcannonWeightAffectsCarriageSpeed = true\n\n\t#.\n\t#Display Link Info\n\t[cannons.displayLink]\n\t\t#.\n\t\tshouldDisplayCannonRotation = true\n\t\t#.\n\t\tshouldDisplayContainedMunitions = true\n\n\t#.\n\t#Big Cannon Screen Shake\n\t[cannons.bigCannonScreenShake]\n\t\t#.\n\t\t# Default: 8.0\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tblastDistanceMultiplier = 8.0\n\n#.\n#These values affect various miscellaneous contraptions.\n[kinetics]\n\t#.\n\t#.\n\t#Maximum length of cannon loaders that can be built.\n\t# Default: 64\n\t# Range: > 3\n\tmaxLoaderLength = 64\n\t#.\n\t#When enabled, Cannon Loaders will not break if another contraption is placed on them. Enables legacy behavior.\n\tenableIntersectionLoading = false\n\n\t\t#.\n\t\t#These values affect the stress of Create Big Cannons' mechanical blocks.\n\t\t[kinetics.stressValues.v2]\n\n\t\t\t#.\n\t\t\t#.\n\t\t\t#[in Stress Units]\n\t\t\t#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.\n\t\t\t[kinetics.stressValues.v2.impact]\n\t\t\t\tsteel_sliding_breech = 32.0\n\t\t\t\tcannon_drill = 8.0\n\t\t\t\tnethersteel_screw_breech = 40.0\n\t\t\t\tsteel_screw_breech = 16.0\n\t\t\t\tbronze_sliding_breech = 12.0\n\t\t\t\tcannon_loader = 4.0\n\t\t\t\tcannon_builder = 8.0\n\t\t\t\tcast_iron_sliding_breech = 16.0\n\n#.\n#These values affect cannon crafting properties.\n[crafting]\n\t#.\n\t#.\n\t#Maximum height of a single cannon cast that can be built.\n\t# Default: 32\n\t# Range: > 1\n\tmaxCannonCastHeight = 32\n\t#.\n\t#Maximum length of a Cannon Drill that can be built.\n\t# Default: 32\n\t# Range: > 1\n\tmaxCannonDrillLength = 32\n\t#.\n\t#Maximum length of a Cannon Builder that can be built.\n\t# Default: 32\n\t# Range: > 1\n\tmaxCannonBuilderLength = 32\n\t#.\n\t#Maximum reach of a Cannon Builder.\n\t# Default: 32\n\t# Range: > 2\n\tmaxCannonBuilderRange = 32\n\t#.\n\t#[in Ticks]\n\t#Time a built-up cannon block needs to be heated for until it transforms into its finished form.\n\t# Default: 6000\n\t# Range: > 0\n\tbuiltUpCannonHeatingTime = 6000\n\n#.\n#These values affect server-side compatibility between Create Big Cannons and other mods.\n[compat]\n\n\t#.\n\t#.\n\t#Sable\n\t[compat.sable]\n\t\t#.\n\t\t#How much the recoil force generated by cannons is multiplied by when firing from a Sable physics object.\n\t\t# Default: 40.0\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tsableRecoilMultiplier = 40.0\n\t\t#.\n\t\t#How much the impact force generated by projectiles is multiplied by when hitting a Sable physics object.\n\t\t# Default: 40.0\n\t\t# Range: 0.0 ~ 3.4028234663852886E38\n\t\tsableImpactForceMultiplier = 40.0\n\t\t#.\n\t\tsableProjectilesInheritPhysicsObjectVelocity = true\n\t\t#.\n\t\t#Whether shell blocks on physics objects fuzed with impact and inertia fuzes can detonate.\n\t\tsableFuzedProjectilesCanExplodeAsPhysicsObject = true\n"
+  },
   {
    "caminho": "config/easylan.cfg",
    "conteudo": "#EasyLAN configuration\nonline-mode=false\nMotd=Chale & Engrenagens\n"
@@ -935,9 +1091,151 @@
    "arquivo": "config/quickskin-server.json",
    "de": "\"maxSkinResolution\": 0,",
    "para": "\"maxSkinResolution\": 128,"
+  },
+  {
+   "arquivo": "config/createbigcannons-server.toml",
+   "de": "damageRestriction = \"ALL_DAMAGE\"",
+   "para": "damageRestriction = \"NO_DAMAGE\""
   }
  ],
  "historico": [
+  {
+   "versao": "1.3.0",
+   "data": "2026-11-17",
+   "titulo": "Natal no Chalé! 🎄",
+   "tema": "natal",
+   "mensagem": "Ho ho ho, atualização do modpack chegou!\n\nO Natal chegou ao Chalé, e com ele uma leva de novidades para deixar a casa mais aconchegante e o mundo mais moderno.",
+   "secoes": [
+    {
+     "titulo": "🎁 Decoração de Natal",
+     "itens": [
+      "Árvores de Natal, pisca-pisca, guirlandas, meias, bengalas doces, bonecos de neve e presentes com o Macaw's Holidays",
+      "Tem decoração de Halloween também, para o ano que vem"
+     ],
+     "fotos": [
+      {
+       "url": "https://cdn.modrinth.com/data/rH20L2Lp/images/92d57acf7d3c39ef1fb8ca219a2dc8a928fca012_350.webp",
+       "legenda": "Árvores de Natal e presentes"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/rH20L2Lp/images/77f82cc46c0c9048b4bc7bac2a4838f3cff3dd74_350.webp",
+       "legenda": "Guirlandas na casa"
+      }
+     ]
+    },
+    {
+     "titulo": "📺 Casa tecnológica",
+     "itens": [
+      "TV e câmeras: coloque uma câmera na fazenda e acompanhe tudo da televisão da sala",
+      "Câmera fotográfica: tire fotos, revele e pendure nas paredes em porta-retratos ou guarde num álbum",
+      "Discos personalizados: grave e toque suas próprias músicas na vitrola"
+     ],
+     "fotos": [
+      {
+       "url": "https://cdn.modrinth.com/data/zuARv1N7/images/d573091f97ac48319aef2d99fbecb5009e5b4ed9_350.webp",
+       "legenda": "TV mostrando a câmera ao vivo"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/hB899VmG/images/0246c38c23b0d357c70278a2101b96d2ad0d30d4_350.webp",
+       "legenda": "Álbum de fotos"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/zi3Fnfmc/images/15d486da752dd0cca6bcfbc578aa065b7786c1a3_350.webp",
+       "legenda": "Banca de discos"
+      }
+     ]
+    },
+    {
+     "titulo": "⚡ Eletricidade e revolução industrial",
+     "itens": [
+      "Energia elétrica integrada às engrenagens do Create: geradores, fios e motores",
+      "Energia limpa: painéis solares, estufas, irrigadores e biocombustível",
+      "Armas de pólvora com cara de steampunk, difíceis de fabricar e montadas nas máquinas do Create: pederneira, revólver, espingarda e metralhadora",
+      "Canhões gigantes, fundidos em metal derretido e carregados com pólvora. Os tiros acertam monstros, mas não destroem construções"
+     ],
+     "fotos": [
+      {
+       "url": "https://cdn.modrinth.com/data/FTeXqI9v/images/433e7e1c06ad0210e68a26c289d17f81fa6985ab_350.webp",
+       "legenda": "Motores elétricos"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/kAynBp83/images/1d48bf67736bd3ad6c61a9739439251c6a7bed73_350.webp",
+       "legenda": "Irrigador na plantação"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/7KCNsGPM/images/dbd208af93091fc2babfee71b3f58006a55a7f80_350.webp",
+       "legenda": "Armas steampunk"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/GWp4jCJj/images/1f805681495c74dbe32b2a954a8864a701afa0db_350.webp",
+       "legenda": "Dirigível com canhões"
+      }
+     ]
+    },
+    {
+     "titulo": "🥾 Locomoção",
+     "itens": [
+      "Botas das nuvens: correm mais, pulam mais alto e acabam com o dano de queda",
+      "Tirolesas: estique correntes entre postes e deslize pelo mapa",
+      "Aviões rústicos: biplano, dirigível e girocóptero para viajar e explorar"
+     ],
+     "fotos": [
+      {
+       "url": "https://cdn.modrinth.com/data/x3HZvrj6/images/ef0947d09bc57e6febd326ba6659471acecdf56a_350.webp",
+       "legenda": "Biplano"
+      },
+      {
+       "url": "https://cdn.modrinth.com/data/C1MoWQlb/images/1f046eaf53c1e2d1acfcc3b2cd293d096cbcca96_350.webp",
+       "legenda": "Tirolesa"
+      }
+     ]
+    },
+    {
+     "titulo": "💬 Chat e animações",
+     "itens": [
+      "O chat mostra a carinha de quem mandou cada mensagem, as mensagens entram deslizando e o histórico guarda muito mais",
+      "Balões de fala aparecem em cima da cabeça de quem escreve",
+      "Emotes: acene, dance e comemore (tecla B)",
+      "Personagem com animações mais naturais, e portas, baús e alçapões abrindo com movimento suave. Funciona com qualquer skin",
+      "Aldeões e bichos com animações novas: ligue em Opções > Pacotes de recursos > Fresh Animations. Se o PC ficar pesado, é só desligar"
+     ],
+     "fotos": [
+      {
+       "url": "https://cdn.modrinth.com/data/50dA9Sha/images/26e5c0a8a65d421b1111e2c68880f1d657fdc920_350.webp",
+       "legenda": "Fresh Animations"
+      }
+     ]
+    }
+   ],
+   "compativel": [
+    "Mundos da 1.2.7 abrem normalmente",
+    "O Lareira antigo (1.0.0) continua funcionando, mas só o novo (1.1.0) instala as animações dos aldeões: se aparecer o aviso no topo, clique em Baixar"
+   ],
+   "incompativel": [
+    "Não conecta com quem está na 1.2.7: quem joga junto precisa atualizar junto",
+    "Abra o Lareira e clique em Atualizar antes de entrar"
+   ],
+   "despedida": "Feliz Natal e bom jogo! ❄️",
+   "novidades": [
+    "Árvores de Natal, pisca-pisca, guirlandas, meias, bengalas doces, bonecos de neve e presentes com o Macaw's Holidays",
+    "Tem decoração de Halloween também, para o ano que vem",
+    "TV e câmeras: coloque uma câmera na fazenda e acompanhe tudo da televisão da sala",
+    "Câmera fotográfica: tire fotos, revele e pendure nas paredes em porta-retratos ou guarde num álbum",
+    "Discos personalizados: grave e toque suas próprias músicas na vitrola",
+    "Energia elétrica integrada às engrenagens do Create: geradores, fios e motores",
+    "Energia limpa: painéis solares, estufas, irrigadores e biocombustível",
+    "Armas de pólvora com cara de steampunk, difíceis de fabricar e montadas nas máquinas do Create: pederneira, revólver, espingarda e metralhadora",
+    "Canhões gigantes, fundidos em metal derretido e carregados com pólvora. Os tiros acertam monstros, mas não destroem construções",
+    "Botas das nuvens: correm mais, pulam mais alto e acabam com o dano de queda",
+    "Tirolesas: estique correntes entre postes e deslize pelo mapa",
+    "Aviões rústicos: biplano, dirigível e girocóptero para viajar e explorar",
+    "O chat mostra a carinha de quem mandou cada mensagem, as mensagens entram deslizando e o histórico guarda muito mais",
+    "Balões de fala aparecem em cima da cabeça de quem escreve",
+    "Emotes: acene, dance e comemore (tecla B)",
+    "Personagem com animações mais naturais, e portas, baús e alçapões abrindo com movimento suave. Funciona com qualquer skin",
+    "Aldeões e bichos com animações novas: ligue em Opções > Pacotes de recursos > Fresh Animations. Se o PC ficar pesado, é só desligar"
+   ]
+  },
   {
    "versao": "1.2.7",
    "data": "2026-11-17",
@@ -978,7 +1276,7 @@
  ],
  "anteriores": [
   {
-   "versao": "1.2.6",
+   "versao": "1.2.7",
    "minecraft": "1.21.1",
    "neoforge": "21.1.265",
    "arquivos": [
@@ -1133,6 +1431,12 @@
      "url": "https://cdn.modrinth.com/data/lGffrQ3O/versions/lycKbfGw/configurable-3.5.3%2B1.21.1-neoforge.jar"
     },
     {
+     "caminho": "mods/cookingforblockheads-neoforge-1.21.1-21.1.25.jar",
+     "sha1": "aa09d3801fa6534a07ae1572fece23ca7f5ff852",
+     "tamanho": 1266873,
+     "url": "https://cdn.modrinth.com/data/vJnhuDde/versions/ZjiYlt4A/cookingforblockheads-neoforge-1.21.1-21.1.25.jar"
+    },
+    {
      "caminho": "mods/copycats-3.0.11+mc.1.21.1-neoforge.jar",
      "sha1": "020a921b43794bb2172d48a5e6ec4a4f56a681b9",
      "tamanho": 1805121,
@@ -1233,6 +1537,12 @@
      "sha1": "0e97553af44d39d1976fe6feb4baf1c30c6b2f06",
      "tamanho": 275588,
      "url": "https://cdn.modrinth.com/data/Rw1NrDzF/versions/8421rqFF/Cucumber-1.21.1-8.0.16.jar"
+    },
+    {
+     "caminho": "mods/delicious-kitchen-appliances-1.4.0-mc1.21.1-neoforge.jar",
+     "sha1": "dc07b0eac5975b681baac147dc8fe313254d4627",
+     "tamanho": 863966,
+     "url": "https://cdn.modrinth.com/data/1ckWgNBo/versions/jGSnYthb/delicious-kitchen-appliances-1.4.0-mc1.21.1-neoforge.jar"
     },
     {
      "caminho": "mods/dynamic-fps-3.11.4+minecraft-1.21.0-neoforge.jar",
@@ -1595,6 +1905,12 @@
      "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/kmN5PWk9/puzzleslib-v21.1.66-mc1.21.1%2Bneoforge.jar"
     },
     {
+     "caminho": "mods/Quick Skin - NeoForge - 1.21.1-4.2.0.jar",
+     "sha1": "32341d946d7642b9d8100e16b181e74177fd0364",
+     "tamanho": 5954855,
+     "url": "https://cdn.modrinth.com/data/zAIE84Ch/versions/S4sgtEdS/Quick%20Skin%20-%20NeoForge%20-%201.21.1-4.2.0.jar"
+    },
+    {
      "caminho": "mods/reeses-sodium-options-neoforge-2.2.4+mc1.21.1.jar",
      "sha1": "e9e6d101b31acb51539141937ad5b069ff2ccc4d",
      "tamanho": 258894,
@@ -1812,23 +2128,27 @@
     },
     {
      "caminho": "config/fastbench.cfg",
-     "conteudo": "# File Specification: https://gist.github.com/Shadows-of-Fire/88ac714a758636c57a52e32ace5474c1\r\n\r\n# \r\n\r\ngeneral {\r\n    # If the recipe book button is removed.\r\n    # Default: true\r\n    B:\"Remove Recipe Book Button\"=false\r\n\r\n    # If the crafting table has a tooltip\r\n    # Default: false\r\n    B:\"Disable tooltip on crafting table\"=false\r\n\r\n    # The tick interval at which all pooled grid updates will be run. Duplicate updates within the interval will be squashed.\r\n    # Default: 1; Range: [1 ~ 100]\r\n    I:\"Grid Update Interval\"=1\r\n}\r\n\r\n\r\n"
+     "conteudo": "# File Specification: https://gist.github.com/Shadows-of-Fire/88ac714a758636c57a52e32ace5474c1\n\n# \n\ngeneral {\n    # If the recipe book button is removed.\n    # Default: true\n    B:\"Remove Recipe Book Button\"=false\n\n    # If the crafting table has a tooltip\n    # Default: false\n    B:\"Disable tooltip on crafting table\"=false\n\n    # The tick interval at which all pooled grid updates will be run. Duplicate updates within the interval will be squashed.\n    # Default: 1; Range: [1 ~ 100]\n    I:\"Grid Update Interval\"=1\n}\n\n\n"
     },
     {
      "caminho": "config/flywheel-client.toml",
-     "conteudo": "#Select the backend to use. Set to \"DEFAULT\" to let Flywheel decide.\r\nbackend = \"DEFAULT\"\r\n#Enable or disable instance update limiting with distance.\r\nlimitUpdates = true\r\n#The number of worker threads to use. Set to -1 to let Flywheel decide. Set to 0 to disable parallelism. Requires a game restart to take effect.\r\n# Default: -1\r\n# Range: -1 ~ 12\r\nworkerThreads = -1\r\n\r\n#Config options for Flywheel's built-in backends.\r\n[flw_backends]\r\n\t#How smooth Flywheel's shader-based lighting should be. May have a large performance impact.\r\n\t#Allowed Values: FLAT, TRI_LINEAR, SMOOTH, SMOOTH_INNER_FACE_CORRECTED\r\n\tlightSmoothness = \"FLAT\"\r\n"
+     "conteudo": "#Select the backend to use. Set to \"DEFAULT\" to let Flywheel decide.\nbackend = \"DEFAULT\"\n#Enable or disable instance update limiting with distance.\nlimitUpdates = true\n#The number of worker threads to use. Set to -1 to let Flywheel decide. Set to 0 to disable parallelism. Requires a game restart to take effect.\n# Default: -1\n# Range: -1 ~ 12\nworkerThreads = -1\n\n#Config options for Flywheel's built-in backends.\n[flw_backends]\n\t#How smooth Flywheel's shader-based lighting should be. May have a large performance impact.\n\t#Allowed Values: FLAT, TRI_LINEAR, SMOOTH, SMOOTH_INNER_FACE_CORRECTED\n\tlightSmoothness = \"FLAT\"\n"
     },
     {
      "caminho": "config/iris.properties",
      "conteudo": "shaderPack=ComplementaryReimagined_r5.9.3.zip\nenableShaders=false\n"
     },
     {
+     "caminho": "config/quickskin-server.json",
+     "conteudo": "{\n  \"disableSkinTransparency\": false,\n  \"skinChangeCooldownSeconds\": 0,\n  \"maxTextureUploadKilobytes\": 1024,\n  \"maxSkinResolution\": 128,\n  \"shareAccountSkinWithVanillaClients\": false,\n  \"notifyPlayersWithoutQuickSkin\": true,\n  \"playersWithoutQuickSkinMessage\": \"\",\n  \"playersWithoutQuickSkinLink\": \"https://modrinth.com/mod/quick-skin\",\n  \"allowNicknames\": true,\n  \"allowHiddenArmor\": true\n}\n"
+    },
+    {
      "caminho": "config/sable-common.toml",
-     "conteudo": "#Whether sub-levels can split when parts are separated\r\nsub_level_splitting = true\r\n#Sub-level splitting heatmap steps that take place per tick\r\n# Default: 200\r\n# Range: > 1\r\nsub_level_splitting_heatmap_steps = 200\r\n#The distance to network sub-levels to players at\r\n# Default: 320.0\r\n# Range: 1.0 ~ 1.7976931348623157E308\r\nsub_level_tracking_range = 160.0\r\n#Keeps sub-levels with intersecting players from unloading at all\r\nsub_levels_with_players_cannot_unload = true\r\n#The minimum y coordinate sub-levels can exist at\r\n# Default: -10000.0\r\n# Range: -Infinity ~ Infinity\r\nsub_level_remove_min = -10000.0\r\n#The maximum y coordinate sub-levels can exist at\r\n# Default: 100000.0\r\n# Range: -Infinity ~ Infinity\r\nsub_level_remove_max = 100000.0\r\n#The fraction of velocity that is retained when a sub-level is loaded in. A value of 0.0 will indicate that no velocity should be carried over, while a value of 1.0 would carry over 100% of velocity on load.\r\n# Default: 0.9\r\n# Range: 0.0 ~ 1.0\r\nsub_level_velocity_retained_on_load = 0.9\r\n#The strength multiplier applied to sub-level punching impulses\r\n# Default: 2.1\r\n# Range: 0.0 ~ Infinity\r\nsub_level_punch_strength_multiplier = 2.1\r\n#The strength multiplier applied to the vertical component of downward sub-level punching impulses (to prevent jumping by punching the ground while standing on something light)\r\n# Default: 0.175\r\n# Range: 0.0 ~ Infinity\r\nsub_level_punch_downward_strength_multiplier = 0.175\r\n#The cooldown in ticks between sub-level punches\r\n# Default: 3\r\n# Range: > 0\r\nsub_level_punch_cooldown_ticks = 3\r\n#If the entire Sable UDP Networking pipeline should be disabled. This can improve compatibility with certain mods like Replay mod and certain networking setups, but will have worse performance and latency for networking sub-levels.\r\ndisable_udp_pipeline = false\r\n#If Sable should attempt to authenticate with clients and send them sub-level movement data over UDP\r\nattempt_udp_networking = true\r\n#If Sable should log when saving sub-levels for a dimension.\r\nsub_level_saving_log_message = true\r\n#If Sable should use verbose logging for its serialization system and the holding chunk-map. Not recommended- for debugging purposes only.\r\nverbose_serialization_logging = false\r\n"
+     "conteudo": "#Whether sub-levels can split when parts are separated\nsub_level_splitting = true\n#Sub-level splitting heatmap steps that take place per tick\n# Default: 200\n# Range: > 1\nsub_level_splitting_heatmap_steps = 200\n#The distance to network sub-levels to players at\n# Default: 320.0\n# Range: 1.0 ~ 1.7976931348623157E308\nsub_level_tracking_range = 160.0\n#Keeps sub-levels with intersecting players from unloading at all\nsub_levels_with_players_cannot_unload = true\n#The minimum y coordinate sub-levels can exist at\n# Default: -10000.0\n# Range: -Infinity ~ Infinity\nsub_level_remove_min = -10000.0\n#The maximum y coordinate sub-levels can exist at\n# Default: 100000.0\n# Range: -Infinity ~ Infinity\nsub_level_remove_max = 100000.0\n#The fraction of velocity that is retained when a sub-level is loaded in. A value of 0.0 will indicate that no velocity should be carried over, while a value of 1.0 would carry over 100% of velocity on load.\n# Default: 0.9\n# Range: 0.0 ~ 1.0\nsub_level_velocity_retained_on_load = 0.9\n#The strength multiplier applied to sub-level punching impulses\n# Default: 2.1\n# Range: 0.0 ~ Infinity\nsub_level_punch_strength_multiplier = 2.1\n#The strength multiplier applied to the vertical component of downward sub-level punching impulses (to prevent jumping by punching the ground while standing on something light)\n# Default: 0.175\n# Range: 0.0 ~ Infinity\nsub_level_punch_downward_strength_multiplier = 0.175\n#The cooldown in ticks between sub-level punches\n# Default: 3\n# Range: > 0\nsub_level_punch_cooldown_ticks = 3\n#If the entire Sable UDP Networking pipeline should be disabled. This can improve compatibility with certain mods like Replay mod and certain networking setups, but will have worse performance and latency for networking sub-levels.\ndisable_udp_pipeline = false\n#If Sable should attempt to authenticate with clients and send them sub-level movement data over UDP\nattempt_udp_networking = true\n#If Sable should log when saving sub-levels for a dimension.\nsub_level_saving_log_message = true\n#If Sable should use verbose logging for its serialization system and the holding chunk-map. Not recommended- for debugging purposes only.\nverbose_serialization_logging = false\n"
     },
     {
      "caminho": "config/simulated-server.toml",
-     "conteudo": "#.\r\n#Parameters and abilities of Simulated's kinetic mechanisms\r\n[kinetics]\r\n\r\n\t\t#.\r\n\t\t#.\r\n\t\t#Fine tune the kinetic stats of individual components\r\n\t\t[kinetics.stressValues.v2]\r\n\r\n\t\t\t#.\r\n\t\t\t#.\r\n\t\t\t#[in Stress Units]\r\n\t\t\t#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.\r\n\t\t\t[kinetics.stressValues.v2.impact]\r\n\t\t\t\trope_winch = 4.0\r\n\t\t\t\tauger_shaft = 0.5\r\n\t\t\t\ttorsion_spring = 16.0\r\n\t\t\t\tauger_cog = 0.5\r\n\t\t\t\tswivel_bearing = 4.0\r\n\r\n\t\t\t#.\r\n\t\t\t#[in Stress Units]\r\n\t\t\t#Configure how much stress a source can accommodate for.\r\n\t\t\t[kinetics.stressValues.v2.capacity]\r\n\t\t\t\tlight_blue_portable_engine = 64.0\r\n\t\t\t\tyellow_portable_engine = 64.0\r\n\t\t\t\tgray_portable_engine = 64.0\r\n\t\t\t\tblack_portable_engine = 64.0\r\n\t\t\t\tred_portable_engine = 64.0\r\n\t\t\t\tlime_portable_engine = 64.0\r\n\t\t\t\tlight_gray_portable_engine = 64.0\r\n\t\t\t\tpink_portable_engine = 64.0\r\n\t\t\t\tgreen_portable_engine = 64.0\r\n\t\t\t\tcyan_portable_engine = 64.0\r\n\t\t\t\ttorsion_spring = 8.0\r\n\t\t\t\tbrown_portable_engine = 64.0\r\n\t\t\t\tmagenta_portable_engine = 64.0\r\n\t\t\t\tpurple_portable_engine = 64.0\r\n\t\t\t\tsteering_wheel = 16.0\r\n\t\t\t\twhite_portable_engine = 64.0\r\n\t\t\t\tblue_portable_engine = 64.0\r\n\t\t\t\torange_portable_engine = 64.0\r\n\r\n#.\r\n#Settings for sub-level assembly\r\n[assembly]\r\n\t#.\r\n\t#.\r\n\t#Maximum amount of blocks in a structure assemble-able by Physics Assemblers, Swivel Bearings, or other means.\r\n\t# Default: 128000\r\n\t# Range: > 1\r\n\tmaxBlocksMoved = 16384\r\n\t#.\r\n\t#Maximum range in blocks which honey glue may initially be placed\r\n\t# Default: 48\r\n\t# Range: > 1\r\n\thoneyGlueRange = 48\r\n\t#.\r\n\t#Maximum range in blocks which merging glue may be placed by items such as slime balls\r\n\t# Default: 4.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tmergingGlueRange = 4.0\r\n\t#.\r\n\t#The amount of ticks that disassembly alignment is allowed to take before failing.\r\n\t# Default: 20\r\n\t# Range: > 5\r\n\tmaxDisassemblyTicks = 20\r\n\t#.\r\n\t#The maximum amount of degrees a Simulated Contraption is allowed to be tilted to fully disassemble\r\n\t# Default: 4.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdisassemblyDegreeTolerance = 4.0\r\n\t#.\r\n\t#The maximum velocity a Simulated Contraption is allowed to disassemble at in m/s\r\n\t# Default: 5.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdisassemblyMaxVelocity = 5.0\r\n\t#.\r\n\t#The maximum angular velocity a Simulated Contraption is allowed to disassemble at in rad/s\r\n\t# Default: 1.5707963705062866\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdisassemblyMaxAngularVelocity = 1.5707963705062866\r\n\t#.\r\n\t#Disallow disassembly of Simulated Contraptions in mid-air, requiring them to be within a few chunk sections of terrain\r\n\tdisallowMidAirDisassembly = true\r\n\t#.\r\n\t#Whether only the original Physics Assembler can disassemble the Sub-Level it assembled\r\n\t#Disabling allows *ALL* Physics Assemblers to disassemble any Sub-Level\r\n\t\"Primary Disassembly\" = false\r\n\r\n#.\r\n#Parameters related to the physics of Simulated Contraptions\r\n[physics]\r\n\t#.\r\n\t#.\r\n\t#The maximum force two magnets will apply towards each other\r\n\t# Default: 1000.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tredstoneMagnetStrength = 1000.0\r\n\t#.\r\n\t#The maximum force two docking connectors will apply towards each other\r\n\t# Default: 1000.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdockingConnectorStrength = 1000.0\r\n\t#.\r\n\t#Limit for linear acceleration for a magnet pair\r\n\t# Default: 500.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tredstoneMagnetLinearAccelerationClamping = 500.0\r\n\t#.\r\n\t#Limit for angular acceleration for a magnet pair\r\n\t# Default: 50.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tredstoneMagnetAngularAccelerationClamping = 50.0\r\n\t#.\r\n\t#Limit for linear acceleration for a docking connector pair\r\n\t# Default: 500.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdockingConnectorLinearAccelerationClamping = 500.0\r\n\t#.\r\n\t#Limit for angular acceleration for a docking connector pair\r\n\t# Default: 50.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tdockingConnectorAngularAccelerationClamping = 50.0\r\n\t#.\r\n\t#The stiffness of locked swivel bearing joints\r\n\t# Default: 1600.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tswivel_stiffness = 1600.0\r\n\t#.\r\n\t#The friction / damping of unlocked swivel bearing joints\r\n\t# Default: 0.30000001192092896\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tswivel_friction = 0.30000001192092896\r\n\t#.\r\n\t#The damping of locked swivel bearing joints\r\n\t# Default: 40.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tswivel_damping = 40.0\r\n\t#.\r\n\t#The angle tolerance in degrees for docking connectors to link\r\n\t# Default: 20.0\r\n\t# Range: 0.0 ~ 365.0\r\n\tdocking_connector_angle = 20.0\r\n\t#.\r\n\t#The distance tolerance in blocks for docking connectors to link\r\n\t# Default: 0.5\r\n\t# Range: 0.0 ~ 4.0\r\n\tdocking_connector_distance = 0.5\r\n\t#.\r\n\t#The maximum force handles are allowed to apply to the contraption they are attached to\r\n\t# Default: 120.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\thandleMaxForce = 120.0\r\n\t#.\r\n\t#The linear stiffness of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 2650.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_linear_stiffness = 2650.0\r\n\t#.\r\n\t#The linear damping of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 125.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_linear_damping = 125.0\r\n\t#.\r\n\t#The angular stiffness of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 10000.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_angular_stiffness = 10000.0\r\n\t#.\r\n\t#The angular damping of the joint motors used to hold sub-levels by the Creative Physics Staff\r\n\t# Default: 850.0\r\n\t# Range: 0.0 ~ 3.4028234663852886E38\r\n\tphysics_staff_angular_damping = 850.0\r\n\r\n#.\r\n#Parameters and abilities of Simulated Blocks\r\n[blocks]\r\n\t#.\r\n\t#.\r\n\t#Maximum range for the Optical Sensor\r\n\t# Default: 15\r\n\t# Range: > 0\r\n\toptical_sensor_max_range = 15\r\n\t#.\r\n\t#Maximum range for the Laser Pointer\r\n\t# Default: 100\r\n\t# Range: > 0\r\n\tlaser_pointer_max_range = 100\r\n\t#.\r\n\t#Maximum range for rope connections\r\n\t# Default: 40.0\r\n\t# Range: 0.0 ~ 1000.0\r\n\tmax_rope_range = 40.0\r\n\t#.\r\n\t#Maximum percent the rope mounted on a Rope Winch is allowed to stretch before not accepting input\r\n\t# Default: 25.0\r\n\t# Range: 0.0 ~ 100.0\r\n\tmax_rope_winch_stretch_allowed = 25.0\r\n\t#.\r\n\t#Steepest angle at which a rope can be grabbed onto using a wrench in degrees\r\n\t# Default: 85.0\r\n\t# Range: 0.0 ~ 90.0\r\n\tmax_rope_zipline_angle = 85.0\r\n\t#.\r\n\t#The maximum RPM a Swivel Bearing is allowed to rotate at\r\n\t# Default: 96.0\r\n\t# Range: 0.0 ~ 256.0\r\n\tmax_swivel_bearing_speed = 96.0\r\n\t#.\r\n\t#The maximum FE capacity of Docking Connectors\r\n\t# Default: 10000\r\n\t# Range: > 0\r\n\tdocking_connector_fe_capacity = 10000\r\n\t#.\r\n\t#The maximum FE/t throughput of Docking Connectors\r\n\t# Default: 10000\r\n\t# Range: > 0\r\n\tdocking_connector_fe_throughput = 10000\r\n\r\n#.\r\n#Equipment and gadgets added by Simulated\r\n[equipment]\r\n\t#.\r\n\t#.\r\n\t#Amount of free Plunger Launcher shots provided by one filled Backtank. Set to 0 makes Plunger Launchers unbreakable\r\n\t# Default: 100\r\n\t# Range: > 0\r\n\tmaxPlungerLauncherShots = 100\r\n\t#.\r\n\t#The max range that launched plungers can be from each other\r\n\t# Default: 64\r\n\t# Range: > 0\r\n\tmaxPlungerLauncherRange = 64\r\n"
+     "conteudo": "#.\n#Parameters and abilities of Simulated's kinetic mechanisms\n[kinetics]\n\n\t\t#.\n\t\t#.\n\t\t#Fine tune the kinetic stats of individual components\n\t\t[kinetics.stressValues.v2]\n\n\t\t\t#.\n\t\t\t#.\n\t\t\t#[in Stress Units]\n\t\t\t#Configure the individual stress impact of mechanical blocks. Note that this cost is doubled for every speed increase it receives.\n\t\t\t[kinetics.stressValues.v2.impact]\n\t\t\t\trope_winch = 4.0\n\t\t\t\tauger_shaft = 0.5\n\t\t\t\ttorsion_spring = 16.0\n\t\t\t\tauger_cog = 0.5\n\t\t\t\tswivel_bearing = 4.0\n\n\t\t\t#.\n\t\t\t#[in Stress Units]\n\t\t\t#Configure how much stress a source can accommodate for.\n\t\t\t[kinetics.stressValues.v2.capacity]\n\t\t\t\tlight_blue_portable_engine = 64.0\n\t\t\t\tyellow_portable_engine = 64.0\n\t\t\t\tgray_portable_engine = 64.0\n\t\t\t\tblack_portable_engine = 64.0\n\t\t\t\tred_portable_engine = 64.0\n\t\t\t\tlime_portable_engine = 64.0\n\t\t\t\tlight_gray_portable_engine = 64.0\n\t\t\t\tpink_portable_engine = 64.0\n\t\t\t\tgreen_portable_engine = 64.0\n\t\t\t\tcyan_portable_engine = 64.0\n\t\t\t\ttorsion_spring = 8.0\n\t\t\t\tbrown_portable_engine = 64.0\n\t\t\t\tmagenta_portable_engine = 64.0\n\t\t\t\tpurple_portable_engine = 64.0\n\t\t\t\tsteering_wheel = 16.0\n\t\t\t\twhite_portable_engine = 64.0\n\t\t\t\tblue_portable_engine = 64.0\n\t\t\t\torange_portable_engine = 64.0\n\n#.\n#Settings for sub-level assembly\n[assembly]\n\t#.\n\t#.\n\t#Maximum amount of blocks in a structure assemble-able by Physics Assemblers, Swivel Bearings, or other means.\n\t# Default: 128000\n\t# Range: > 1\n\tmaxBlocksMoved = 16384\n\t#.\n\t#Maximum range in blocks which honey glue may initially be placed\n\t# Default: 48\n\t# Range: > 1\n\thoneyGlueRange = 48\n\t#.\n\t#Maximum range in blocks which merging glue may be placed by items such as slime balls\n\t# Default: 4.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tmergingGlueRange = 4.0\n\t#.\n\t#The amount of ticks that disassembly alignment is allowed to take before failing.\n\t# Default: 20\n\t# Range: > 5\n\tmaxDisassemblyTicks = 20\n\t#.\n\t#The maximum amount of degrees a Simulated Contraption is allowed to be tilted to fully disassemble\n\t# Default: 4.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tdisassemblyDegreeTolerance = 4.0\n\t#.\n\t#The maximum velocity a Simulated Contraption is allowed to disassemble at in m/s\n\t# Default: 5.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tdisassemblyMaxVelocity = 5.0\n\t#.\n\t#The maximum angular velocity a Simulated Contraption is allowed to disassemble at in rad/s\n\t# Default: 1.5707963705062866\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tdisassemblyMaxAngularVelocity = 1.5707963705062866\n\t#.\n\t#Disallow disassembly of Simulated Contraptions in mid-air, requiring them to be within a few chunk sections of terrain\n\tdisallowMidAirDisassembly = true\n\t#.\n\t#Whether only the original Physics Assembler can disassemble the Sub-Level it assembled\n\t#Disabling allows *ALL* Physics Assemblers to disassemble any Sub-Level\n\t\"Primary Disassembly\" = false\n\n#.\n#Parameters related to the physics of Simulated Contraptions\n[physics]\n\t#.\n\t#.\n\t#The maximum force two magnets will apply towards each other\n\t# Default: 1000.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tredstoneMagnetStrength = 1000.0\n\t#.\n\t#The maximum force two docking connectors will apply towards each other\n\t# Default: 1000.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tdockingConnectorStrength = 1000.0\n\t#.\n\t#Limit for linear acceleration for a magnet pair\n\t# Default: 500.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tredstoneMagnetLinearAccelerationClamping = 500.0\n\t#.\n\t#Limit for angular acceleration for a magnet pair\n\t# Default: 50.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tredstoneMagnetAngularAccelerationClamping = 50.0\n\t#.\n\t#Limit for linear acceleration for a docking connector pair\n\t# Default: 500.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tdockingConnectorLinearAccelerationClamping = 500.0\n\t#.\n\t#Limit for angular acceleration for a docking connector pair\n\t# Default: 50.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tdockingConnectorAngularAccelerationClamping = 50.0\n\t#.\n\t#The stiffness of locked swivel bearing joints\n\t# Default: 1600.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tswivel_stiffness = 1600.0\n\t#.\n\t#The friction / damping of unlocked swivel bearing joints\n\t# Default: 0.30000001192092896\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tswivel_friction = 0.30000001192092896\n\t#.\n\t#The damping of locked swivel bearing joints\n\t# Default: 40.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tswivel_damping = 40.0\n\t#.\n\t#The angle tolerance in degrees for docking connectors to link\n\t# Default: 20.0\n\t# Range: 0.0 ~ 365.0\n\tdocking_connector_angle = 20.0\n\t#.\n\t#The distance tolerance in blocks for docking connectors to link\n\t# Default: 0.5\n\t# Range: 0.0 ~ 4.0\n\tdocking_connector_distance = 0.5\n\t#.\n\t#The maximum force handles are allowed to apply to the contraption they are attached to\n\t# Default: 120.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\thandleMaxForce = 120.0\n\t#.\n\t#The linear stiffness of the joint motors used to hold sub-levels by the Creative Physics Staff\n\t# Default: 2650.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tphysics_staff_linear_stiffness = 2650.0\n\t#.\n\t#The linear damping of the joint motors used to hold sub-levels by the Creative Physics Staff\n\t# Default: 125.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tphysics_staff_linear_damping = 125.0\n\t#.\n\t#The angular stiffness of the joint motors used to hold sub-levels by the Creative Physics Staff\n\t# Default: 10000.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tphysics_staff_angular_stiffness = 10000.0\n\t#.\n\t#The angular damping of the joint motors used to hold sub-levels by the Creative Physics Staff\n\t# Default: 850.0\n\t# Range: 0.0 ~ 3.4028234663852886E38\n\tphysics_staff_angular_damping = 850.0\n\n#.\n#Parameters and abilities of Simulated Blocks\n[blocks]\n\t#.\n\t#.\n\t#Maximum range for the Optical Sensor\n\t# Default: 15\n\t# Range: > 0\n\toptical_sensor_max_range = 15\n\t#.\n\t#Maximum range for the Laser Pointer\n\t# Default: 100\n\t# Range: > 0\n\tlaser_pointer_max_range = 100\n\t#.\n\t#Maximum range for rope connections\n\t# Default: 40.0\n\t# Range: 0.0 ~ 1000.0\n\tmax_rope_range = 40.0\n\t#.\n\t#Maximum percent the rope mounted on a Rope Winch is allowed to stretch before not accepting input\n\t# Default: 25.0\n\t# Range: 0.0 ~ 100.0\n\tmax_rope_winch_stretch_allowed = 25.0\n\t#.\n\t#Steepest angle at which a rope can be grabbed onto using a wrench in degrees\n\t# Default: 85.0\n\t# Range: 0.0 ~ 90.0\n\tmax_rope_zipline_angle = 85.0\n\t#.\n\t#The maximum RPM a Swivel Bearing is allowed to rotate at\n\t# Default: 96.0\n\t# Range: 0.0 ~ 256.0\n\tmax_swivel_bearing_speed = 96.0\n\t#.\n\t#The maximum FE capacity of Docking Connectors\n\t# Default: 10000\n\t# Range: > 0\n\tdocking_connector_fe_capacity = 10000\n\t#.\n\t#The maximum FE/t throughput of Docking Connectors\n\t# Default: 10000\n\t# Range: > 0\n\tdocking_connector_fe_throughput = 10000\n\n#.\n#Equipment and gadgets added by Simulated\n[equipment]\n\t#.\n\t#.\n\t#Amount of free Plunger Launcher shots provided by one filled Backtank. Set to 0 makes Plunger Launchers unbreakable\n\t# Default: 100\n\t# Range: > 0\n\tmaxPlungerLauncherShots = 100\n\t#.\n\t#The max range that launched plungers can be from each other\n\t# Default: 64\n\t# Range: > 0\n\tmaxPlungerLauncherRange = 64\n"
     },
     {
      "caminho": "config/xaero/minimap/default_radar_categories_client.json",
@@ -1874,6 +2194,16 @@
      "arquivo": "config/simulated-server.toml",
      "de": "maxBlocksMoved = 128000",
      "para": "maxBlocksMoved = 16384"
+    },
+    {
+     "arquivo": "config/quickskin-server.json",
+     "de": "\"maxTextureUploadKilobytes\": 16384,",
+     "para": "\"maxTextureUploadKilobytes\": 1024,"
+    },
+    {
+     "arquivo": "config/quickskin-server.json",
+     "de": "\"maxSkinResolution\": 0,",
+     "para": "\"maxSkinResolution\": 128,"
     }
    ]
   }
