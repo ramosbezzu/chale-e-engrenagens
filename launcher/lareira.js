@@ -10,7 +10,7 @@ const http = require('http');
 const crypto = require('crypto');
 const { spawn, execFileSync } = require('child_process');
 
-const VERSAO = '1.2.0';
+const VERSAO = '1.3.0';
 const REPO = 'ramosbezzu/chale-e-engrenagens';
 const MANIFESTO_PADRAO = `https://raw.githubusercontent.com/${REPO}/main/manifest/`;
 const HOSTS_DOWNLOAD = ['cdn.modrinth.com', 'github.com', 'raw.githubusercontent.com'];
@@ -30,6 +30,17 @@ const existe = (p) => { try { fs.accessSync(p); return true; } catch { return fa
 const lerJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, '')); } catch { return null; } };
 const gravarJSON = (p, v) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, JSON.stringify(v, null, 2)); };
 const primeiro = (lista) => lista.find(existe) || null;
+
+// Apaga arquivo ou pasta (recursivo) e nao reclama se nao existir. Nao usa fs.rmSync: no Node 24
+// do Windows ele falha calado quando o caminho tem acento (C:\Users\José), e o arquivo fica la.
+function apagar(alvoApagar) {
+  let info;
+  try { info = fs.lstatSync(alvoApagar); } catch (e) { if (e.code === 'ENOENT') return; throw e; }
+  if (info.isDirectory()) {
+    for (const nome of fs.readdirSync(alvoApagar)) apagar(path.join(alvoApagar, nome));
+    fs.rmdirSync(alvoApagar);
+  } else fs.unlinkSync(alvoApagar);
+}
 
 function log(...partes) {
   const linha = `[${new Date().toISOString()}] ${partes.join(' ')}\n`;
@@ -179,6 +190,21 @@ const escolhida = (pack) => variante(pack, config.fixado[pack.id]) || pack;
 
 const remoto = { packs: [], launcher: null, offline: false, erro: null };
 
+// Parte "launcher" do index.json: versao mais nova do Lareira, pagina de download e o changelog dele
+// (launcher/historico.json, que o build.py copia para o index.json).
+const saoTextos = (v) => Array.isArray(v) && v.every((t) => typeof t === 'string');
+function validarLauncher(l) {
+  if (!l || !/^\d+(\.\d+)*$/.test(l.versao)) return null;
+  const historico = (Array.isArray(l.historico) ? l.historico : []).filter((h) => h && /^\d+(\.\d+)*$/.test(h.versao)
+    && typeof (h.titulo || '') === 'string' && typeof (h.data || '') === 'string' && saoTextos(h.novidades || []));
+  return { ...l, historico };
+}
+// Entradas do changelog do Lareira entre duas versoes: (de, ate].
+const novidadesLareira = (de, ate) => ((remoto.launcher && remoto.launcher.historico) || [])
+  .filter((h) => cmpVersao(h.versao, de) > 0 && cmpVersao(h.versao, ate) <= 0);
+// Versao do Lareira que rodou antes neste PC, quando ela era mais velha que esta (ou '?' se nao se sabe qual).
+let lareiraAntes = null;
+
 async function carregarManifesto() {
   const cache = path.join(DADOS, 'cache');
   let textos;
@@ -203,7 +229,7 @@ async function carregarManifesto() {
     if (!textos['index.json']) { remoto.packs = []; return; }
   }
   const idx = JSON.parse(textos['index.json']);
-  remoto.launcher = idx.launcher || null;
+  remoto.launcher = validarLauncher(idx.launcher);
   remoto.packs = idx.packs.filter((p) => textos[p.arquivo]).map((p) => validarPack(JSON.parse(textos[p.arquivo])));
 }
 
@@ -261,6 +287,16 @@ function estado() {
   const nova = remoto.launcher && cmpVersao(remoto.launcher.versao, VERSAO) > 0 ? remoto.launcher : null;
   return {
     versao: VERSAO, novaVersao: nova, autoAtualizacao: auto, offline: remoto.offline, erroManifesto: remoto.erro,
+    lareira: {
+      historico: remoto.launcher ? remoto.launcher.historico : [],
+      // o que muda na versao nova que esta chegando
+      novidadesNova: nova ? novidadesLareira(VERSAO, nova.versao) : [],
+      // acabou de atualizar: o que mudou desde a versao que estava (so a atual quando nao se sabe qual era)
+      atualizado: lareiraAntes ? {
+        de: lareiraAntes === '?' ? null : lareiraAntes,
+        novidades: lareiraAntes === '?' ? novidadesLareira('0', VERSAO).filter((h) => h.versao === VERSAO) : novidadesLareira(lareiraAntes, VERSAO),
+      } : null,
+    },
     launchers: l, modo, ramGB: Math.round(os.totalmem() / 2 ** 30), xmx: xmxGB(),
     packs: remoto.packs.map((p) => estadoPack(p, modo)), tarefa,
   };
@@ -389,7 +425,7 @@ async function baixarArquivo(url, destino, sha1, aoBaixar, algoritmo = 'sha1') {
     } catch (e) {
       ultimo = e;
       if (aoBaixar) aoBaixar(-lidos);
-      try { fs.rmSync(parte, { force: true }); } catch { /* nada */ }
+      try { apagar(parte); } catch { /* nada */ }
       await new Promise((ok) => setTimeout(ok, 1500 * (tentativa + 1)));
     }
   }
@@ -434,12 +470,12 @@ async function garantirJava(fase) {
   const so = WIN ? 'windows' : MAC ? 'mac' : 'linux';
   const arq = process.arch === 'arm64' ? 'aarch64' : 'x64';
   const pasta = path.join(DADOS, 'java');
-  fs.rmSync(pasta, { recursive: true, force: true });
+  apagar(pasta);
   fs.mkdirSync(pasta, { recursive: true });
   const pacote = path.join(pasta, WIN ? 'jre.zip' : 'jre.tar.gz');
   await baixarArquivo(`https://api.adoptium.net/v3/binary/latest/21/ga/${so}/${arq}/jre/hotspot/normal/eclipse`, pacote, null, null);
   await rodar('tar', ['-xf', pacote, '-C', pasta]); // o tar do Windows 10+ tambem abre .zip
-  fs.rmSync(pacote, { force: true });
+  apagar(pacote);
   java = javaProprio();
   if (!java) throw new Error('Não consegui preparar o Java 21.');
   return java;
@@ -560,11 +596,11 @@ async function sincronizar(pack, modo, avisar) {
 
   // Mods: espelho exato do pack, senao host e convidado ficam diferentes.
   const quer = new Set(pack.arquivos.filter((a) => a.caminho.startsWith('mods/')).map((a) => path.posix.basename(a.caminho)));
-  for (const jar of jarsEm(path.join(jogo, 'mods'))) if (!quer.has(jar)) fs.rmSync(path.join(jogo, 'mods', jar), { force: true });
+  for (const jar of jarsEm(path.join(jogo, 'mods'))) if (!quer.has(jar)) apagar(path.join(jogo, 'mods', jar));
   // Pacotes de recursos: so remove os que o proprio Lareira instalou (os do jogador ficam).
   const pacotes = pack.pacotes.map((a) => a.caminho);
   for (const velho of Array.isArray(marcaAntiga.pacotes) ? marcaAntiga.pacotes : []) {
-    if (!pacotes.includes(velho) && relSeguro(velho, ['resourcepacks/'])) fs.rmSync(path.join(jogo, velho), { force: true });
+    if (!pacotes.includes(velho) && relSeguro(velho, ['resourcepacks/'])) apagar(path.join(jogo, velho));
   }
 
   // Configs: so o que ainda nao existe (preserva os ajustes do jogador)...
@@ -653,7 +689,7 @@ async function autoAtualizar(versao) {
   enviarEstado();
   const temp = path.join(DADOS, 'atualizacao');
   try {
-    fs.rmSync(temp, { recursive: true, force: true });
+    apagar(temp);
     fs.mkdirSync(temp, { recursive: true });
     const base = `${RELEASES}/launcher-v${versao}/`;
     const r = await fetch(base + 'atualizacao.json', { cache: 'no-store', signal: AbortSignal.timeout(15000) });
@@ -666,13 +702,13 @@ async function autoAtualizar(versao) {
 
     // Monta o novo ao lado do atual (mesmo disco, para a troca ser um rename).
     const novo = `${alvo}.novo`, velho = `${alvo}.velho`;
-    fs.rmSync(novo, { recursive: true, force: true });
+    apagar(novo);
     if (pacote.tipo === 'exe') fs.copyFileSync(baixado, novo);
     else if (pacote.tipo === 'tar') { await rodar('tar', ['-xzf', baixado, '-C', temp]); fs.copyFileSync(path.join(temp, 'lareira'), novo); }
     else { await rodar('ditto', ['-x', '-k', baixado, temp]); await rodar('ditto', [path.join(temp, 'Lareira.app'), novo]); }
     if (pacote.tipo !== 'app') fs.chmodSync(novo, 0o755);
     // O Windows deixa renomear um .exe em uso (so nao deixa apagar): o atual vira .velho.
-    fs.rmSync(velho, { recursive: true, force: true });
+    apagar(velho);
     fs.renameSync(alvo, velho);
     try { fs.renameSync(novo, alvo); } catch (e) { fs.renameSync(velho, alvo); throw e; }
     log(`Lareira atualizado para ${versao} em ${alvo}`);
@@ -684,7 +720,7 @@ async function autoAtualizar(versao) {
     Object.assign(auto, { fase: 'erro', erro: e.message });
     enviarEstado();
   } finally {
-    try { fs.rmSync(temp, { recursive: true, force: true }); } catch { /* fica para a proxima */ }
+    try { apagar(temp); } catch { /* fica para a proxima */ }
   }
 }
 
@@ -716,7 +752,7 @@ function limparSobras() {
   const alvo = alvoAtualizacao();
   if (!alvo) return;
   for (const sufixo of ['.velho', '.novo']) {
-    try { fs.rmSync(alvo + sufixo, { recursive: true, force: true }); } catch (e) { log('limpar', sufixo, e.message); }
+    try { apagar(alvo + sufixo); } catch (e) { log('limpar', sufixo, e.message); }
   }
 }
 
@@ -764,6 +800,9 @@ async function acao(corpo) {
     }
     case 'recarregar':
       await carregarManifesto();
+      if (remoto.launcher && !remoto.offline && cmpVersao(remoto.launcher.versao, VERSAO) > 0 && !['baixando', 'reiniciando'].includes(auto.fase)) {
+        autoAtualizar(remoto.launcher.versao); // em segundo plano; o progresso chega pela conexao de eventos
+      }
       return {};
     case 'pasta':
       if (!pack || !modo) throw new Error('Pack não encontrado.');
@@ -851,8 +890,19 @@ function escutar(porta, tentativas) {
   });
 }
 
+// Guarda a versao que esta rodando e descobre se o Lareira acabou de mudar de versao, para mostrar o
+// changelog dele. A 1.2.0 e anteriores nao gravavam a versao: se ja rodou um Lareira aqui (tem cache)
+// ou se veio de uma autoatualizacao, a anterior e mais velha, so nao se sabe qual.
+function lembrarVersao() {
+  const antes = config.lareira;
+  if (antes && /^\d+(\.\d+)*$/.test(antes)) lareiraAntes = cmpVersao(antes, VERSAO) < 0 ? antes : null;
+  else lareiraAntes = CONTINUAR || existe(path.join(DADOS, 'cache')) ? '?' : null;
+  if (antes !== VERSAO) { config.lareira = VERSAO; try { salvarConfig(); } catch (e) { log('config:', e.message); } }
+}
+
 async function principal() {
   fs.mkdirSync(DADOS, { recursive: true });
+  lembrarVersao();
   log(`Lareira ${VERSAO} em ${process.platform}/${process.arch}${CONTINUAR ? ' (recem-atualizado)' : ''}`);
   await carregarManifesto();
   let continuou = false;
@@ -880,6 +930,7 @@ if (require.main === module) principal().catch((e) => { log('fatal:', e.stack ||
 module.exports = {
   validarPack, cmpVersao, estado, carregarManifesto, remoto, launchers, pastaTLauncher, variante, config, pacoteDoSistema, infoAtualizacao,
   _teste: {
+    VERSAO, DADOS, apagar, validarLauncher, novidadesLareira, lembrarVersao,
     estadoPack,
     sincronizar: (pack, modo, avisar) => { tarefa = { pack: pack.id, fase: '', feito: 0, total: 0, erro: null, fim: false, aviso: null }; return sincronizar(pack, modo, avisar); },
   },

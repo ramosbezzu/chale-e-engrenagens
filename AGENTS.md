@@ -137,6 +137,7 @@ git push
 - Commit com o autor `ramosbezzu <ramosbezzu@users.noreply.github.com>` (já configurado neste clone). Nunca use e-mail pessoal: o repositório é público.
 - Em até uns 5 minutos todo Lareira aberto mostra "Atualizar".
 - Não crie tag para versão de pack. Tag `launcher-vX.Y.Z` é só para versão nova do launcher (ver `README.md`) e dispara o build no GitHub Actions.
+- **Versão nova do launcher sempre leva changelog**: entrada no topo de `launcher/historico.json` (`versao`, `data`, `titulo`, `novidades`), escrita para a esposa do dono entender. É o que o Lareira mostra depois de se atualizar sozinho e o que vira nota do release. Siga a ordem do `README.md` (tag, esperar o release, só então anunciar com `build.py --manifesto`). Se o `.mrpack` do Chalé não estiver em `dist/`, `python build.py mods.json --manifesto` também regrava o `index.json`; confira com `git diff manifest/` que só ele mudou.
 - O `.mrpack` em `dist/` não vai para o git. Se o dono pedir o arquivo para outro launcher, ele está em `dist/`.
 
 ## Armadilhas conhecidas (não repita)
@@ -160,5 +161,8 @@ git push
 - **Skins**: o **Skin Restorer** não serve, porque não funciona no TLauncher (ele sobrescreve o sistema de skins do cliente). O pack usa o **Quick Skin** (cliente e servidor, sincroniza pelo próprio mod, menu na tela inicial e na pausa). Os limites de 128x128 e 1 MB em `quickskin-server.json` são de propósito, por causa do PC fraco.
 - **Cozinha**: Cooking for Blockheads (funcional, lê receitas de todos os mods de comida) e Delicious Kitchen Appliances (micro-ondas, fogão, lava-louças) convivem bem; o servidor sobe sem erro novo com os dois (1.2.7).
 - A pasta portátil antiga (`Chale-e-Engrenagens-<versao>` com `.bat` e `.ps1`) está **aposentada**: o Lareira substitui. Não gere mais.
+- **Autoupdate do Lareira** só existe da 1.2.0 em diante. Quem roda 1.0.0 ou 1.1.0 vê só o botão Baixar (link para o GitHub) e precisa baixar a versão nova uma vez à mão. Não mude os nomes dos pacotes do release (`Lareira-<versao>-windows-x64.exe` etc.) nem o `atualizacao.json`: é o que a 1.2.0+ procura para se atualizar.
+- **`fs.rmSync` no Windows** (Node 24) falha **calado** quando o caminho tem acento (ex.: `C:\Users\José`): não dá erro e o arquivo fica lá. No `lareira.js` use sempre `apagar()`, nunca `fs.rmSync`.
+- O clone do WSL pode estar com o e-mail pessoal no `git config`: confira `git config user.email` antes de commitar (tem que ser `ramosbezzu@users.noreply.github.com`).
 
 Ao descobrir uma armadilha nova, adicione aqui no mesmo commit da correção.

@@ -165,10 +165,13 @@ footer { flex: none; display: flex; gap: 18px; align-items: center; padding: 6px
 .link:disabled { opacity: .4; cursor: default; }
 
 /* ------------------------------------------------ dialogo */
-.fundo-dialogo { position: fixed; inset: 0; background: rgba(27, 22, 38, .75); display: grid; place-items: center; }
+.fundo-dialogo { position: fixed; inset: 0; background: rgba(27, 22, 38, .75); display: grid; place-items: center; z-index: 10; }
 .dialogo { --b: var(--chama); background: var(--creme); padding: 20px 24px; max-width: 560px; }
 .dialogo h3 { margin: 0 0 8px; color: var(--tinta); }
 .dialogo p { color: var(--tinta-suave); white-space: pre-line; }
+.dialogo-corpo { max-height: 52vh; overflow: auto; margin-top: 4px; }
+.dialogo-corpo .entrada { margin-bottom: 10px; }
+.faixa .botoes { display: flex; gap: 10px; flex: none; }
 .dialogo-botoes { margin-top: 18px; display: flex; gap: 18px; justify-content: flex-end; padding: var(--px); }
 
 ::-webkit-scrollbar { width: 12px; }

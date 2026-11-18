@@ -36,6 +36,7 @@ jobs:
     needs: montar
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           path: pacotes
@@ -54,7 +55,19 @@ jobs:
           PY
         env:
           TAG: ${{ github.ref_name }}
-      - run: gh release create "$TAG" pacotes/* --repo "$GITHUB_REPOSITORY" --title "Lareira ${TAG#launcher-v}" --generate-notes --latest
+      # Notas do release = entrada da versao em launcher/historico.json (o mesmo changelog que o launcher mostra).
+      - run: |
+          node -e '
+            const v = process.env.TAG.replace("launcher-v", "");
+            const h = require("./launcher/historico.json").find((e) => e.versao === v);
+            if (!h) { console.error("launcher/historico.json sem entrada para " + v); process.exit(1); }
+            const linhas = [`## ${h.titulo || "Lareira " + v}`, "", ...(h.novidades || []).map((n) => "- " + n), "",
+              "Baixe o arquivo do seu sistema abaixo. Quem já tem o Lareira 1.2.0 ou mais novo recebe esta versão sozinho."];
+            require("fs").writeFileSync("notas.md", linhas.join("\n") + "\n");
+          '
+        env:
+          TAG: ${{ github.ref_name }}
+      - run: gh release create "$TAG" pacotes/* --repo "$GITHUB_REPOSITORY" --title "Lareira ${TAG#launcher-v}" --notes-file notas.md --latest
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}

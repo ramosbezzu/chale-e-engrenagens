@@ -59,13 +59,14 @@
     <button class="link" id="reparar" type="button">reparar arquivos</button>
     <button class="link" id="recarregar" type="button">procurar atualizações</button>
   </span>
-  <span class="versao" id="versao"></span>
+  <button class="link versao" id="versao" type="button" title="Novidades do Lareira"></button>
 </footer>
 
 <div class="fundo-dialogo" id="dialogo" hidden>
   <div class="dialogo" role="dialog" aria-modal="true" aria-labelledby="dialogoTitulo">
     <h3 id="dialogoTitulo"></h3>
     <p id="dialogoTexto"></p>
+    <div class="dialogo-corpo" id="dialogoCorpo" hidden></div>
     <div class="dialogo-botoes">
       <button class="botao pequeno claro" id="dialogoNao" type="button">Cancelar</button>
       <button class="botao pequeno" id="dialogoSim" type="button">Continuar</button>

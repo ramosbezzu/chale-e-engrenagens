@@ -65,7 +65,8 @@ Entre 15/11 e 06/01 o Lareira se enfeita sozinho para o Natal (pisca-pisca, árv
 A ordem importa: o manifesto só anuncia a versão nova **depois** que o release existe, senão os Lareiras abertos tentam se atualizar com um release que ainda está sendo montado (não quebra nada, só falha e tenta de novo na próxima vez).
 
 ```bash
-# 1. troque a versão em launcher/package.json e em VERSAO no launcher/lareira.js
+# 1. troque a versão em launcher/package.json e em VERSAO no launcher/lareira.js e escreva a
+#    entrada da versão no TOPO de launcher/historico.json (changelog do launcher, obrigatório)
 (cd launcher && node teste.js)
 git commit -am "Lareira 1.2.1" && git tag launcher-v1.2.1 && git push && git push origin launcher-v1.2.1
 # (a tag é simples: "git push --follow-tags" não envia)
@@ -79,6 +80,8 @@ git commit -am "Anuncia o Lareira 1.2.1" && git push
 ```
 
 A partir daí cada Lareira 1.2.0+ se atualiza sozinho ao abrir. Quem está em versão anterior à 1.2.0 vê o aviso com o botão **Baixar**.
+
+**Changelog do launcher**: `launcher/historico.json`, da versão mais nova para a mais antiga, cada uma com `versao`, `data`, `titulo` e `novidades` (escritas para quem joga). Vai para o `manifest/index.json` pelo `build.py` e aparece em três lugares: no botão "o que muda" enquanto a versão nova baixa, no aviso que o Lareira 1.3.0+ mostra depois de se atualizar e no histórico completo (clique na versão, no canto de baixo). O GitHub Actions usa a mesma entrada como notas do release. `teste.js`, `build.py` e `montar.js` barram versão sem entrada.
 
 ## Desenvolver
 

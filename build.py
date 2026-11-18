@@ -124,9 +124,14 @@ def manifest(cfg):
             p = json.loads(path.read_text(encoding="utf-8"))
             packs.append({"id": p["id"], "arquivo": path.name, "nome": p["nome"], "versao": p["versao"]})
     launcher = json.loads((ROOT / "launcher" / "package.json").read_text(encoding="utf-8"))
+    # Changelog do Lareira: toda versao do launcher precisa de entrada no topo de launcher/historico.json.
+    historico_launcher = json.loads((ROOT / "launcher" / "historico.json").read_text(encoding="utf-8"))
+    if not historico_launcher or historico_launcher[0].get("versao") != launcher["version"]:
+        sys.exit(f"launcher/historico.json precisa de uma entrada no topo para o Lareira {launcher['version']}")
     (out / "index.json").write_text(json.dumps({
         "formato": 1,
-        "launcher": {"versao": launcher["version"], "pagina": launcher["homepage"] + "/releases/latest"},
+        "launcher": {"versao": launcher["version"], "pagina": launcher["homepage"] + "/releases/latest",
+                     "historico": historico_launcher[:15]},
         "packs": packs,
     }, indent=1, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(f"manifesto -> manifest/{cfg['id']}.json ({len(pack['arquivos'])} arquivos, {len(pack['pacotes'])} pacotes, "

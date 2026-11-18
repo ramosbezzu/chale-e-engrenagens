@@ -194,6 +194,48 @@ async function rodar(pack, modo) {
   await rodar(semMod, 'tlauncher');
   assert.strictEqual(fs.readdirSync(tlJogo).filter((n) => n.startsWith('mods-antes-do-lareira-')).length, 1);
 
+  // ---- apagar com acento no caminho (fs.rmSync do Node 24 no Windows falha calado com isso)
+  const acento = path.join(casa, 'José Conceição', 'mods ç');
+  escrever(path.join(acento, 'sub pasta', 'a.jar'), 'a');
+  escrever(path.join(acento, 'b.jar'), 'b');
+  L._teste.apagar(path.join(acento, 'b.jar'));
+  assert.ok(!fs.existsSync(path.join(acento, 'b.jar')), 'arquivo com acento no caminho apagado');
+  L._teste.apagar(path.dirname(acento));
+  assert.ok(!fs.existsSync(path.dirname(acento)), 'pasta com acento apagada');
+  L._teste.apagar(path.join(casa, 'nao existe'));
+
+  // ---- changelog do Lareira: toda versao do launcher tem entrada no topo de historico.json
+  const historicoLareira = JSON.parse(fs.readFileSync(path.join(__dirname, 'historico.json'), 'utf8'));
+  const pacoteLareira = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
+  assert.strictEqual(L._teste.VERSAO, pacoteLareira.version, 'VERSAO do lareira.js igual a do package.json');
+  assert.strictEqual(historicoLareira[0].versao, pacoteLareira.version, 'escreva a entrada desta versao no topo de launcher/historico.json');
+  for (const h of historicoLareira) {
+    assert.ok(/^\d+\.\d+\.\d+$/.test(h.versao) && /^\d{4}-\d{2}-\d{2}$/.test(h.data) && h.titulo && h.novidades.length, `entrada ${h.versao} completa`);
+    assert.ok(!JSON.stringify(h).includes('\u2014'), 'sem travessao no historico');
+  }
+  for (let i = 1; i < historicoLareira.length; i++) assert.ok(L.cmpVersao(historicoLareira[i - 1].versao, historicoLareira[i].versao) > 0, 'historico da mais nova para a mais antiga');
+  assert.strictEqual(L._teste.validarLauncher({ versao: '1.0.0; x' }), null);
+  const lan = L._teste.validarLauncher({ versao: '9.0.0', pagina: 'https://github.com/x', historico: [
+    { versao: '9.0.0', titulo: 'nove', novidades: ['a'] }, { versao: 'x' }, { versao: '8.0.0', novidades: [1] }, ...historicoLareira,
+  ] });
+  assert.deepStrictEqual(lan.historico.map((h) => h.versao), ['9.0.0', ...historicoLareira.map((h) => h.versao)], 'entradas invalidas saem');
+  L.remoto.launcher = lan;
+  assert.deepStrictEqual(L.estado().lareira.novidadesNova.map((h) => h.versao), ['9.0.0'], 'o que muda na versao que esta chegando');
+  // acabou de se atualizar: mostra o que mudou desde a versao gravada
+  L.config.lareira = historicoLareira[1].versao;
+  L._teste.lembrarVersao();
+  let at = L.estado().lareira.atualizado;
+  assert.deepStrictEqual([at.de, at.novidades.map((h) => h.versao)], [historicoLareira[1].versao, [pacoteLareira.version]]);
+  assert.strictEqual(L.config.lareira, pacoteLareira.version, 'versao atual gravada');
+  L._teste.lembrarVersao();
+  assert.strictEqual(L.estado().lareira.atualizado, null, 'mesma versao: sem aviso');
+  // vindo da 1.2.0 (que nao gravava a versao) com cache: aviso so com a versao atual
+  delete L.config.lareira;
+  fs.mkdirSync(path.join(L._teste.DADOS, 'cache'), { recursive: true });
+  L._teste.lembrarVersao();
+  at = L.estado().lareira.atualizado;
+  assert.deepStrictEqual([at.de, at.novidades.map((h) => h.versao)], [null, [pacoteLareira.version]]);
+
   fs.rmSync(casa, { recursive: true, force: true });
   console.log('tudo certo');
 })().catch((erro) => { console.error(erro); process.exit(1); });

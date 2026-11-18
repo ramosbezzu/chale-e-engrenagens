@@ -7,6 +7,7 @@ let estado = null;
 let escolhido = new URLSearchParams(location.search).get('pack') || localStorage.getItem('pack');
 let recado = null; // { texto, erro }
 let tarefaVista = null;
+let atualizadoVisto = false; // aviso "o Lareira se atualizou" ja dispensado
 
 async function acao(corpo) {
   try {
@@ -25,12 +26,32 @@ function confirmar(titulo, texto) {
   return new Promise((resolver) => {
     $('dialogoTitulo').textContent = titulo;
     $('dialogoTexto').textContent = texto;
+    $('dialogoTexto').hidden = false;
+    $('dialogoCorpo').hidden = true;
+    $('dialogoNao').hidden = false;
+    $('dialogoSim').textContent = 'Continuar';
     $('dialogo').hidden = false;
     $('dialogoSim').focus();
     const fechar = (valor) => { $('dialogo').hidden = true; resolver(valor); };
     $('dialogoSim').onclick = () => fechar(true);
     $('dialogoNao').onclick = () => fechar(false);
   });
+}
+
+// Changelog do proprio Lareira num dialogo so de leitura.
+function mostrarNovidades(titulo, texto, entradas, instalada) {
+  $('dialogoTitulo').textContent = titulo;
+  $('dialogoTexto').textContent = texto || '';
+  $('dialogoTexto').hidden = !texto;
+  const corpo = $('dialogoCorpo');
+  corpo.replaceChildren(...entradas.map((h) => entradaHistorico(h, instalada)));
+  if (!entradas.length) corpo.append(el('p', 'resumo', 'Sem notas para esta versão.'));
+  corpo.hidden = false;
+  $('dialogoNao').hidden = true;
+  $('dialogoSim').textContent = 'Fechar';
+  $('dialogo').hidden = false;
+  $('dialogoSim').focus();
+  $('dialogoSim').onclick = () => { $('dialogo').hidden = true; };
 }
 
 const cmp = (a, b) => {
@@ -84,16 +105,26 @@ function desenharFaixa() {
   f.replaceChildren();
   f.className = 'faixa';
   const a = estado.autoAtualizacao || {};
+  const lareira = estado.lareira || {};
+  const botao = (texto, fn, classe = 'botao pequeno') => { const b = el('button', classe, texto); b.type = 'button'; b.onclick = fn; return b; };
+  const botoes = (...lista) => { const c = el('span', 'botoes'); c.append(...lista); return c; };
+  const oQueMuda = () => botao('o que muda', () => mostrarNovidades(`Lareira ${estado.novaVersao.versao}`, `Você tem a ${estado.versao}.`, lareira.novidadesNova || []), 'botao pequeno claro');
   if (a.fase === 'baixando' || a.fase === 'reiniciando') {
     const pct = a.total ? ` ${Math.min(100, Math.floor((a.feito / a.total) * 100))}%` : '';
     f.append(el('span', null, a.fase === 'reiniciando' ? `Lareira ${a.versao} instalado! Reiniciando...` : `Atualizando o Lareira para a ${a.versao}...${pct}`));
+    if (estado.novaVersao) f.append(botoes(oQueMuda()));
   } else if (estado.novaVersao) {
     f.append(el('span', null, a.fase === 'erro'
       ? `Não consegui atualizar o Lareira sozinho (${a.erro}). Baixe a ${estado.novaVersao.versao} (você tem a ${estado.versao}).`
       : `Saiu o Lareira ${estado.novaVersao.versao} (você tem a ${estado.versao}).`));
-    const b = el('button', 'botao pequeno', 'Baixar');
-    b.onclick = () => acao({ acao: 'pagina' });
-    f.append(b);
+    f.append(botoes(oQueMuda(), botao('Baixar', () => acao({ acao: 'pagina' }))));
+  } else if (lareira.atualizado && !atualizadoVisto) {
+    const at = lareira.atualizado;
+    f.append(el('span', null, `O Lareira foi atualizado: agora está na ${estado.versao}.`));
+    f.append(botoes(
+      botao('novidades', () => mostrarNovidades(`Novidades do Lareira ${estado.versao}`, at.de ? `Antes você estava na ${at.de}.` : null, at.novidades), 'botao pequeno claro'),
+      botao('ok', () => { atualizadoVisto = true; desenharFaixa(); }),
+    ));
   } else if (estado.offline) {
     f.classList.add('cinza');
     f.append(el('span', null, estado.packs.length
@@ -125,36 +156,39 @@ function desenharHistorico(p) {
   const caixa = $('historico');
   caixa.replaceChildren();
   const instalada = p.instalada && p.instalada !== 'desconhecida' ? p.instalada : null;
-  for (const h of p.historico) {
-    const e = el('article', 'entrada');
-    const cab = el('header');
-    cab.append(el('b', null, h.versao), el('span', null, h.titulo || ''));
-    if (instalada && cmp(h.versao, instalada) > 0) cab.append(el('span', 'novo', 'NOVO'));
-    if (instalada && cmp(h.versao, instalada) === 0) cab.append(el('span', 'instalada', 'INSTALADA'));
-    if (h.data) cab.append(el('time', null, h.data.split('-').reverse().join('/')));
-    e.append(cab);
-    if (h.tema === 'natal') e.classList.add('natal');
-    const bloco = (rotulo, itens, classe) => {
-      if (!itens || !itens.length) return;
-      if (rotulo) e.append(el('span', 'rotulo', rotulo));
-      const ul = el('ul');
-      for (const i of itens) ul.append(el('li', classe, i));
-      e.append(ul);
-    };
-    if (h.mensagem) e.append(el('p', 'mensagem', h.mensagem));
-    if (h.secoes && h.secoes.length) {
-      for (const s of h.secoes) {
-        e.append(el('h4', null, s.titulo));
-        bloco(null, s.itens, null);
-        if (s.fotos.length) e.append(galeria(s.fotos));
-      }
-    } else bloco(null, h.novidades, null);
-    bloco('Compatível', h.compativel, 'sim');
-    bloco('Incompatível / atenção', h.incompativel, 'nao');
-    if (h.despedida) e.append(el('p', 'mensagem despedida', h.despedida));
-    caixa.append(e);
-  }
+  for (const h of p.historico) caixa.append(entradaHistorico(h, instalada));
   if (!p.historico.length) caixa.append(el('p', 'resumo', 'Sem notas para este pack ainda.'));
+}
+
+// Uma entrada de historico (de pack ou do Lareira). instalada: versao que o jogador tem, para as etiquetas.
+function entradaHistorico(h, instalada) {
+  const e = el('article', 'entrada');
+  const cab = el('header');
+  cab.append(el('b', null, h.versao), el('span', null, h.titulo || ''));
+  if (instalada && cmp(h.versao, instalada) > 0) cab.append(el('span', 'novo', 'NOVO'));
+  if (instalada && cmp(h.versao, instalada) === 0) cab.append(el('span', 'instalada', 'INSTALADA'));
+  if (h.data) cab.append(el('time', null, h.data.split('-').reverse().join('/')));
+  e.append(cab);
+  if (h.tema === 'natal') e.classList.add('natal');
+  const bloco = (rotulo, itens, classe) => {
+    if (!itens || !itens.length) return;
+    if (rotulo) e.append(el('span', 'rotulo', rotulo));
+    const ul = el('ul');
+    for (const i of itens) ul.append(el('li', classe, i));
+    e.append(ul);
+  };
+  if (h.mensagem) e.append(el('p', 'mensagem', h.mensagem));
+  if (h.secoes && h.secoes.length) {
+    for (const s of h.secoes) {
+      e.append(el('h4', null, s.titulo));
+      bloco(null, s.itens, null);
+      if (s.fotos.length) e.append(galeria(s.fotos));
+    }
+  } else bloco(null, h.novidades, null);
+  bloco('Compatível', h.compativel, 'sim');
+  bloco('Incompatível / atenção', h.incompativel, 'nao');
+  if (h.despedida) e.append(el('p', 'mensagem despedida', h.despedida));
+  return e;
 }
 
 // Fotos dos mods (do CDN do Modrinth). Clique amplia; se a foto nao carregar (sem internet), some.
@@ -198,6 +232,7 @@ function desenhar() {
   desenharFaixa();
   desenharPacks();
   $('versao').textContent = `Lareira ${estado.versao}`;
+  $('versao').onclick = () => mostrarNovidades('Novidades do Lareira', null, (estado.lareira && estado.lareira.historico) || [], estado.versao);
 
   const p = packAtual();
   $('detalhe').hidden = !p;

@@ -18,6 +18,8 @@ const rodar = (cmd, args) => (WIN && cmd === 'npx'
 
 const fonte = fs.readFileSync(path.join(raiz, 'lareira.js'), 'utf8');
 if (!fonte.includes(`const VERSAO = '${pacote.version}';`)) throw new Error('VERSAO em lareira.js diferente da version do package.json');
+const historico = JSON.parse(fs.readFileSync(path.join(raiz, 'historico.json'), 'utf8'));
+if (!historico.length || historico[0].versao !== pacote.version) throw new Error(`historico.json precisa de uma entrada no topo para a ${pacote.version}`);
 
 fs.rmSync(saida, { recursive: true, force: true });
 fs.mkdirSync(saida, { recursive: true });
