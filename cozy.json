@@ -2,7 +2,7 @@
   "id": "chale",
   "name": "Chale & Engrenagens",
   "titulo": "Chalé & Engrenagens",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create com eletricidade, armas e canhões, Create Aeronautics, AE2, Immersive Engineering, comidas, biomas, animais, decoração de Natal e casa tecnológica, otimizado para PC fraco.",
   "minecraft": "1.21.1",
   "neoforge": "21.1.265",
@@ -128,6 +128,8 @@
       "natures-compass",
       "ambientsounds",
       "iris",
+      "irisbonk",
+      "veil-bonk",
       "easylan",
       "quick-skin"
     ],
@@ -243,6 +245,25 @@
     }
   ],
   "historico": [
+    {
+      "versao": "1.4.0",
+      "data": "2026-11-18",
+      "titulo": "Shaders sem defeitos visuais",
+      "novidades": [
+        "Iris Bonk: com shaders ligados, objetos de outros mods que apareciam pretos (como a TV, as câmeras e alguns efeitos) agora aparecem do jeito certo",
+        "Veil Bonk: corrige vários defeitos visuais conhecidos, como a mão e o item sumindo em primeira pessoa em algumas placas de vídeo e imagens que ficavam em branco",
+        "Para quem joga com shaders desligados nada muda: o jogo continua leve como antes",
+        "Applied Energistics 2 atualizado para a versão mais recente (19.2.20)"
+      ],
+      "compativel": [
+        "Mundos da 1.3.0 abrem normalmente",
+        "Nenhum bloco ou item novo: é só correção visual"
+      ],
+      "incompativel": [
+        "Não conecta com quem está na 1.3.0: quem joga junto precisa atualizar junto",
+        "Abra o Lareira e clique em Atualizar antes de entrar"
+      ]
+    },
     {
       "versao": "1.3.0",
       "data": "2026-11-17",
