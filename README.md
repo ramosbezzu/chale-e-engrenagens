@@ -63,7 +63,7 @@ Entre 15/11 e 06/01 o Lareira se enfeita sozinho para o Natal (pisca-pisca, árv
 ```bash
 # troque a versão em launcher/package.json e em VERSAO no launcher/lareira.js
 python3 build.py cozy.json --manifesto   # atualiza a versão anunciada em manifest/index.json
-git commit -am "Lareira 1.0.1" && git tag launcher-v1.0.1 && git push --follow-tags
+git commit -am "Lareira 1.0.1" && git tag launcher-v1.0.1 && git push && git push origin launcher-v1.0.1
 ```
 
 O GitHub Actions monta os executáveis dos três sistemas e cria o release. Quem estiver numa versão antiga vê um aviso com o botão **Baixar**.
