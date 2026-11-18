@@ -1,9 +1,23 @@
 {
  "formato": 1,
  "launcher": {
-  "versao": "1.3.0",
+  "versao": "1.3.2",
   "pagina": "https://github.com/ramosbezzu/chale-e-engrenagens/releases/latest",
   "historico": [
+   {
+    "versao": "1.3.2",
+    "data": "2026-11-18",
+    "titulo": "Pente fino: mais firme e com cara de aplicativo",
+    "novidades": [
+     "No Windows, o Lareira agora se instala sozinho: na primeira vez ele se guarda numa pasta própria e cria o atalho no menu Iniciar e na área de trabalho. O atalho abre sempre a versão mais nova.",
+     "Jogar abre o Minecraft Launcher certo. Quem tinha o da Microsoft Store e o antigo instalados via abrir o antigo, sem a conta.",
+     "Abrir o Lareira duas vezes não abre dois: mostra a janela do que já está aberto.",
+     "Lareira esquecido aberto procura atualização sozinho a cada 10 minutos.",
+     "Antes de se atualizar, ele confere se a versão nova abre de verdade. Se não abrir, fica na que está.",
+     "Se o computador desligar no meio de uma gravação, os arquivos do Lareira e os perfis do Minecraft Launcher não ficam corrompidos.",
+     "Se o Lareira for fechado, a janela avisa em vez de ficar parada."
+    ]
+   },
    {
     "versao": "1.3.0",
     "data": "2026-11-18",
