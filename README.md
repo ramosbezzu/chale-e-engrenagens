@@ -18,7 +18,11 @@ Pegue o arquivo do seu sistema na página de [releases](https://github.com/ramos
 
 Os executáveis não são assinados, por isso os avisos do Windows e do macOS.
 
-Só precisa baixar uma vez: a partir da 1.2.0 o Lareira **se atualiza sozinho ao abrir** (Windows, macOS e `.tar.gz` do Linux). Ele baixa a versão nova do release, confere o sha256, troca o próprio arquivo (mesmo nome e lugar, atalhos continuam valendo) e reabre na mesma janela. Se não conseguir (pasta sem permissão, `.deb`, sem internet), aparece o aviso com o botão **Baixar**, como antes. Para desligar: variável de ambiente `LAREIRA_SEM_AUTOATUALIZAR=1`.
+Só precisa baixar uma vez: a partir da 1.2.0 o Lareira **se atualiza sozinho ao abrir** (Windows, macOS e `.tar.gz` do Linux). Ele baixa a versão nova do release, confere o sha256, troca o próprio arquivo (mesmo nome e lugar, atalhos continuam valendo) e reabre na mesma janela. Se não conseguir (pasta sem permissão, `.deb`, sem internet), aparece o aviso com o botão **Baixar**, como antes. Para desligar: variável de ambiente `LAREIRA_SEM_AUTOATUALIZAR=1`. Antes de trocar o arquivo ele roda a versão baixada com `--versao`; se ela não abrir ou disser outra versão, fica na que está. Com o Lareira aberto, ele procura versão nova (dele e dos packs) a cada 10 minutos.
+
+No Windows, a partir da 1.3.2, o `.exe` baixado **se instala sozinho**: copia a si mesmo para `%LOCALAPPDATA%\Programs\Lareira\Lareira.exe`, cria o atalho no menu Iniciar (e na área de trabalho, na primeira vez) e passa a rodar de lá. É essa cópia que os atalhos abrem e que a auto-atualização troca, então o `.exe` da pasta Downloads pode ser apagado. Abrir um `.exe` baixado mais novo atualiza a cópia instalada; abrir um mais velho só abre a instalada. Para desligar: `LAREIRA_SEM_INSTALAR=1`.
+
+Só existe um Lareira aberto por vez: abrir de novo mostra a janela do que já está rodando.
 
 ## Como usar
 
@@ -30,6 +34,7 @@ Só precisa baixar uma vez: a partir da 1.2.0 o Lareira **se atualiza sozinho ao
 
 O que o Lareira faz em cada launcher:
 
+- **Qual Minecraft Launcher no Windows**: quando existem o da Microsoft Store (app Xbox) e o clássico (`Arquivos de Programas`), o Lareira abre o da Store. Para forçar, coloque `"oficial": "classico"` (ou `"store"`) em `%APPDATA%\Lareira\config.json`. O log diz qual foi aberto.
 - **Minecraft Launcher**: cada pack ganha uma pasta própria (`.minecraft-chale`, `.minecraft-trilhos`) e um perfil só, com a versão no nome. A sua `.minecraft` normal não é tocada.
 - **TLauncher**: o pack vai para a pasta de jogo do TLauncher. Na primeira vez, os mods que já estavam lá são movidos para `mods-antes-do-lareira-DATA` (nada é apagado). A memória (RAM) continua sendo ajustada nas configurações do TLauncher.
 

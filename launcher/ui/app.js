@@ -340,8 +340,16 @@ function conectar() {
     const p = packAtual();
     desenharProgresso(p && estado.tarefa.pack === p.id ? estado.tarefa : null);
   });
+  // Sem resposta por um tempo (o navegador tenta de novo a cada poucos segundos): o Lareira fechou.
+  // Poucas falhas seguidas sao normais enquanto ele reinicia para se atualizar.
+  let falhas = 0;
+  fonte.onopen = () => { falhas = 0; if (recado && recado.fechado) { recado = null; desenhar(); } };
   fonte.onerror = () => {
-    if (fonte.readyState === EventSource.CLOSED) { $('vazio').textContent = 'O Lareira foi fechado. Abra de novo.'; }
+    falhas++;
+    if (fonte.readyState !== EventSource.CLOSED && falhas < 6) return;
+    $('vazio').textContent = 'O Lareira foi fechado. Abra de novo.';
+    recado = { texto: 'O Lareira foi fechado. Feche esta janela e abra o Lareira de novo.', erro: true, fechado: true };
+    desenhar();
   };
 }
 

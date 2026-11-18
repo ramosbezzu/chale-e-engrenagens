@@ -8,9 +8,9 @@ const os = require('os');
 const path = require('path');
 const http = require('http');
 const crypto = require('crypto');
-const { spawn, execFileSync } = require('child_process');
+const { spawn, execFile, execFileSync } = require('child_process');
 
-const VERSAO = '1.3.0';
+const VERSAO = '1.3.2';
 const REPO = 'ramosbezzu/chale-e-engrenagens';
 const MANIFESTO_PADRAO = `https://raw.githubusercontent.com/${REPO}/main/manifest/`;
 const HOSTS_DOWNLOAD = ['cdn.modrinth.com', 'github.com', 'raw.githubusercontent.com'];
@@ -22,13 +22,29 @@ const MAC = process.platform === 'darwin';
 
 const HOME = process.env.LAREIRA_HOME || os.homedir();
 const APPDATA = WIN ? (process.env.LAREIRA_HOME ? path.join(HOME, 'AppData', 'Roaming') : process.env.APPDATA) : null;
+const LOCAL = WIN ? (process.env.LAREIRA_HOME ? path.join(HOME, 'AppData', 'Local') : process.env.LOCALAPPDATA || path.join(HOME, 'AppData', 'Local')) : null;
 const SUPORTE = MAC ? path.join(HOME, 'Library', 'Application Support') : null;
 const DADOS = process.env.LAREIRA_DADOS
   || (WIN ? path.join(APPDATA, 'Lareira') : MAC ? path.join(SUPORTE, 'Lareira') : path.join(HOME, '.config', 'lareira'));
 
 const existe = (p) => { try { fs.accessSync(p); return true; } catch { return false; } };
 const lerJSON = (p) => { try { return JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, '')); } catch { return null; } };
-const gravarJSON = (p, v) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, JSON.stringify(v, null, 2)); };
+// Grava num arquivo ao lado e troca de uma vez: se o PC desligar no meio (acontece), o arquivo antigo
+// continua inteiro em vez de ficar pela metade ou so com bytes nulos.
+function gravar(p, texto, codificacao = 'utf8') {
+  fs.mkdirSync(path.dirname(p), { recursive: true });
+  const temp = `${p}.tmp-lareira`;
+  try {
+    const fd = fs.openSync(temp, 'w');
+    try { fs.writeSync(fd, Buffer.from(texto, codificacao)); fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+    fs.renameSync(temp, p);
+  } catch (e) {
+    // Destino travado por outro programa (ou disco sem suporte a troca): grava direto, como antes.
+    try { fs.unlinkSync(temp); } catch { /* nao ficou */ }
+    fs.writeFileSync(p, texto, codificacao);
+  }
+}
+const gravarJSON = (p, v) => gravar(p, JSON.stringify(v, null, 2));
 const primeiro = (lista) => lista.find(existe) || null;
 
 // Apaga arquivo ou pasta (recursivo) e nao reclama se nao existir. Nao usa fs.rmSync: no Node 24
@@ -42,6 +58,16 @@ function apagar(alvoApagar) {
   } else fs.unlinkSync(alvoApagar);
 }
 
+// O log nao cresce para sempre: passou de 1 MB, fica so a metade mais recente.
+function apararLog() {
+  const arquivo = path.join(DADOS, 'lareira.log');
+  try {
+    if (fs.statSync(arquivo).size < 1048576) return;
+    const texto = fs.readFileSync(arquivo, 'utf8');
+    fs.writeFileSync(arquivo, texto.slice(texto.indexOf('\n', texto.length - 524288) + 1));
+  } catch { /* sem log ainda */ }
+}
+
 function log(...partes) {
   const linha = `[${new Date().toISOString()}] ${partes.join(' ')}\n`;
   try { fs.mkdirSync(DADOS, { recursive: true }); fs.appendFileSync(path.join(DADOS, 'lareira.log'), linha); } catch { /* sem log */ }
@@ -49,7 +75,9 @@ function log(...partes) {
 }
 
 // fixado: { <id do pack>: '<versao>' } quando o jogador escolhe ficar na versao anterior.
-const config = Object.assign({ modo: null, tlauncherExe: null, manifesto: null, fixado: {} }, lerJSON(path.join(DADOS, 'config.json')));
+// oficial: 'store' ou 'classico' para forcar qual Minecraft Launcher abrir no Windows quando ha os dois.
+const config = Object.assign({ modo: null, tlauncherExe: null, manifesto: null, fixado: {}, oficial: null }, lerJSON(path.join(DADOS, 'config.json')));
+if (!config.fixado || typeof config.fixado !== 'object') config.fixado = {};
 const salvarConfig = () => gravarJSON(path.join(DADOS, 'config.json'), config);
 
 // Pasta .minecraft do launcher oficial (onde ficam launcher_profiles.json, versions e libraries).
@@ -218,7 +246,7 @@ async function carregarManifesto() {
       textos[p.arquivo] = await baixarTexto(p.arquivo);
     }
     fs.mkdirSync(cache, { recursive: true });
-    for (const [nome, texto] of Object.entries(textos)) fs.writeFileSync(path.join(cache, nome), texto);
+    for (const [nome, texto] of Object.entries(textos)) gravar(path.join(cache, nome), texto);
     remoto.offline = false; remoto.erro = null;
   } catch (e) {
     // Sem internet (ou GitHub fora): usa a ultima copia boa.
@@ -228,9 +256,16 @@ async function carregarManifesto() {
     for (const nome of existe(cache) ? fs.readdirSync(cache) : []) textos[nome] = fs.readFileSync(path.join(cache, nome), 'utf8');
     if (!textos['index.json']) { remoto.packs = []; return; }
   }
-  const idx = JSON.parse(textos['index.json']);
-  remoto.launcher = validarLauncher(idx.launcher);
-  remoto.packs = idx.packs.filter((p) => textos[p.arquivo]).map((p) => validarPack(JSON.parse(textos[p.arquivo])));
+  try {
+    const idx = JSON.parse(textos['index.json']);
+    const packs = idx.packs.filter((p) => textos[p.arquivo]).map((p) => validarPack(JSON.parse(textos[p.arquivo])));
+    remoto.launcher = validarLauncher(idx.launcher);
+    remoto.packs = packs;
+  } catch (e) {
+    // Copia salva estragada (PC desligou enquanto gravava): fica com o que ja estava na memoria.
+    log('manifesto salvo ilegivel:', e.message);
+    remoto.offline = true; remoto.erro = remoto.erro || e.message;
+  }
 }
 
 // ---------------------------------------------------------------- estado
@@ -351,15 +386,31 @@ function abrirNoSistema(alvoAbrir) {
 
 const noPath = (nome) => (process.env.PATH || '').split(path.delimiter).map((d) => path.join(d, nome)).find(existe) || null;
 
+// No Windows existem dois Minecraft Launcher: o atual (Microsoft Store / app Xbox) e o classico (.msi,
+// em Arquivos de Programas). Muita gente tem os dois instalados, e a conta costuma estar so no da Store.
+const PACOTE_STORE = 'Microsoft.4297127D64EC6_8wekyb3d8bbwe';
+function oficiaisWindows() {
+  const pf = [process.env['ProgramFiles(x86)'], process.env.ProgramFiles, 'C:\\Program Files (x86)', 'C:\\Program Files'].filter(Boolean);
+  return {
+    store: !!LOCAL && existe(path.join(LOCAL, 'Packages', PACOTE_STORE)),
+    classico: primeiro(pf.map((p) => path.join(p, 'Minecraft Launcher', 'MinecraftLauncher.exe'))),
+  };
+}
+// Qual abrir: o que o jogador fixou em config.json ("oficial"), senao o da Store, senao o classico.
+function escolherOficial({ store, classico }, preferido) {
+  if (preferido === 'classico' && classico) return 'classico';
+  if (preferido === 'store' && store) return 'store';
+  return store || !classico ? 'store' : 'classico';
+}
+
 function abrirOficial() {
   if (WIN) {
-    const exe = primeiro([
-      'C:\\Program Files (x86)\\Minecraft Launcher\\MinecraftLauncher.exe',
-      'C:\\Program Files\\Minecraft Launcher\\MinecraftLauncher.exe',
-      'C:\\XboxGames\\Minecraft Launcher\\Content\\Minecraft.exe',
-    ]);
-    if (exe) soltar(exe, []);
-    else soltar('explorer.exe', ['shell:AppsFolder\\Microsoft.4297127D64EC6_8wekyb3d8bbwe!Minecraft']); // Microsoft Store
+    const achados = oficiaisWindows();
+    const qual = escolherOficial(achados, config.oficial);
+    log(`abrindo o Minecraft Launcher (${qual}; store=${achados.store}, classico=${achados.classico || 'nao'})`);
+    if (qual === 'classico') soltar(achados.classico, []);
+    // O da Store e um app empacotado: abre pelo atalho do sistema, nao pelo .exe direto.
+    else soltar('explorer.exe', [`shell:AppsFolder\\${PACOTE_STORE}!Minecraft`]);
     return true;
   }
   if (MAC) { soltar('open', ['-a', 'Minecraft']); return true; }
@@ -547,7 +598,7 @@ function versaoTLauncher(pack) {
   const nova = `login.version.game=neoforge-${pack.neoforge}`;
   const i = linhas.findIndex((l) => l.startsWith('login.version.game='));
   if (i >= 0) linhas[i] = nova; else linhas.splice(linhas[linhas.length - 1] === '' ? linhas.length - 1 : linhas.length, 0, nova);
-  fs.writeFileSync(arquivo, linhas.join(eol), 'latin1');
+  gravar(arquivo, linhas.join(eol), 'latin1');
 }
 
 // ---------------------------------------------------------------- instalar / atualizar
@@ -674,6 +725,18 @@ function alvoAtualizacao() {
   return alvo;
 }
 
+async function conferirExecutavel(exe, versao) {
+  let saida;
+  try { saida = (await rodar(exe, ['--versao'], { timeout: 90000 })).trim(); } catch (e) { throw new Error(`o arquivo baixado não abriu (${e.message.slice(0, 120)})`); }
+  if (saida !== versao) throw new Error(`o arquivo baixado não é a versão ${versao}`);
+}
+
+// Nome para onde o executavel em uso e movido. O .velho de uma troca anterior pode ainda estar travado
+// (processo antigo fechando): ai usa outro nome, e limparSobras apaga todos depois.
+function nomeLivre(base) {
+  try { apagar(base); return base; } catch { return `${base}-${Date.now()}`; }
+}
+
 let ultimoAuto = 0;
 function avisarAuto() {
   if (Date.now() - ultimoAuto < 250) return;
@@ -700,15 +763,20 @@ async function autoAtualizar(versao) {
     const baixado = path.join(temp, pacote.nome);
     await baixarArquivo(base + pacote.nome, baixado, info.sha256, (n) => { auto.feito += n; avisarAuto(); }, 'sha256');
 
+    // Antes de trocar, confere que o arquivo baixado abre e e mesmo a versao anunciada. Sem isso um
+    // release quebrado deixaria o jogador sem Lareira (ou atualizando em circulo).
+    let pronto = baixado;
+    if (pacote.tipo === 'tar') { await rodar('tar', ['-xzf', baixado, '-C', temp]); pronto = path.join(temp, 'lareira'); }
+    if (pacote.tipo === 'app') { await rodar('ditto', ['-x', '-k', baixado, temp]); pronto = path.join(temp, 'Lareira.app'); }
+    await conferirExecutavel(pacote.tipo === 'app' ? path.join(pronto, 'Contents', 'MacOS', 'lareira') : pronto, versao);
+
     // Monta o novo ao lado do atual (mesmo disco, para a troca ser um rename).
-    const novo = `${alvo}.novo`, velho = `${alvo}.velho`;
+    const novo = `${alvo}.novo`;
     apagar(novo);
-    if (pacote.tipo === 'exe') fs.copyFileSync(baixado, novo);
-    else if (pacote.tipo === 'tar') { await rodar('tar', ['-xzf', baixado, '-C', temp]); fs.copyFileSync(path.join(temp, 'lareira'), novo); }
-    else { await rodar('ditto', ['-x', '-k', baixado, temp]); await rodar('ditto', [path.join(temp, 'Lareira.app'), novo]); }
-    if (pacote.tipo !== 'app') fs.chmodSync(novo, 0o755);
+    if (pacote.tipo === 'app') await rodar('ditto', [pronto, novo]);
+    else { fs.copyFileSync(pronto, novo); fs.chmodSync(novo, 0o755); }
     // O Windows deixa renomear um .exe em uso (so nao deixa apagar): o atual vira .velho.
-    apagar(velho);
+    const velho = nomeLivre(`${alvo}.velho`);
     fs.renameSync(alvo, velho);
     try { fs.renameSync(novo, alvo); } catch (e) { fs.renameSync(velho, alvo); throw e; }
     log(`Lareira atualizado para ${versao} em ${alvo}`);
@@ -751,9 +819,101 @@ async function reiniciar(exe) {
 function limparSobras() {
   const alvo = alvoAtualizacao();
   if (!alvo) return;
-  for (const sufixo of ['.velho', '.novo']) {
-    try { apagar(alvo + sufixo); } catch (e) { log('limpar', sufixo, e.message); }
+  const pasta = path.dirname(alvo), nome = path.basename(alvo);
+  let itens = [];
+  try { itens = fs.readdirSync(pasta); } catch { return; }
+  for (const item of itens) {
+    if (!item.startsWith(`${nome}.velho`) && item !== `${nome}.novo`) continue;
+    try { apagar(path.join(pasta, item)); } catch (e) { log('limpar', item, e.message); }
   }
+}
+
+// ---------------------------------------------------------------- instalacao no Windows
+// O .exe baixado e o proprio programa, sem instalador. Para virar um aplicativo de verdade, na primeira
+// vez ele se copia para %LOCALAPPDATA%\Programs\Lareira\Lareira.exe, cria os atalhos e passa a vez para
+// essa copia. Dai em diante os atalhos abrem sempre o mesmo arquivo, que e o que a auto-atualizacao troca.
+// Abrir um .exe baixado mais novo atualiza a copia instalada; um mais velho so abre a instalada.
+const PASTA_APP = WIN && LOCAL ? path.join(LOCAL, 'Programs', 'Lareira') : null;
+const ARQ_INSTALADO = path.join(DADOS, 'instalado.json');
+
+// Atalhos no menu Iniciar e (so na primeira instalacao) na area de trabalho. O PowerShell acha as pastas
+// certas mesmo quando a area de trabalho esta no OneDrive. Se falhar, o Lareira abre igual. Quem chama e a
+// copia instalada (que fica aberta), nao o .exe baixado, que sai antes de o PowerShell terminar.
+function criarAtalhos(exe, comAreaDeTrabalho) {
+  const script = `
+$pastas = @()
+if ($env:LAREIRA_ATALHOS) { $pastas = $env:LAREIRA_ATALHOS.Split('|') }
+else {
+  $pastas += [Environment]::GetFolderPath('Programs')
+  if ($env:LAREIRA_ATALHO_MESA -eq '1') { $pastas += [Environment]::GetFolderPath('Desktop') }
+}
+$w = New-Object -ComObject WScript.Shell
+foreach ($p in $pastas) {
+  if (-not $p) { continue }
+  $lnk = Join-Path $p 'Lareira.lnk'
+  $s = $w.CreateShortcut($lnk)
+  if ((Test-Path -LiteralPath $lnk) -and ($s.TargetPath -ieq $env:LAREIRA_ALVO)) { continue }
+  $s.TargetPath = $env:LAREIRA_ALVO
+  $s.WorkingDirectory = Split-Path -Parent $env:LAREIRA_ALVO
+  $s.Description = 'Lareira'
+  $s.Save()
+}`;
+  const env = { ...process.env, LAREIRA_ALVO: exe, LAREIRA_ATALHO_MESA: comAreaDeTrabalho ? '1' : '0' };
+  if (process.env.LAREIRA_HOME) {
+    // casa de teste: nunca mexe nos atalhos de verdade
+    const pastas = [path.join(APPDATA, 'Microsoft', 'Windows', 'Start Menu', 'Programs'), ...(comAreaDeTrabalho ? [path.join(HOME, 'Desktop')] : [])];
+    for (const p of pastas) fs.mkdirSync(p, { recursive: true });
+    env.LAREIRA_ATALHOS = pastas.join('|');
+  }
+  execFile('powershell.exe', ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-EncodedCommand', Buffer.from(script, 'utf16le').toString('base64')],
+    { env, windowsHide: true, timeout: 60000 }, (e) => log(e ? `atalhos: ${e.message.slice(0, 300)}` : 'atalhos conferidos'));
+}
+
+// Devolve o executavel instalado para quem este processo deve passar a vez, ou null para seguir aqui.
+function instalarNoWindows() {
+  if (!WIN || !sea || !PASTA_APP || process.env.LAREIRA_TESTE || process.env.LAREIRA_SEM_INSTALAR) return null;
+  const aqui = process.execPath, destino = path.join(PASTA_APP, 'Lareira.exe');
+  try {
+    const reg = lerJSON(ARQ_INSTALADO);
+    if (mesmoCaminho(aqui, destino)) {
+      // atalhos: pedido deixado por quem acabou de copiar este arquivo para ca ('mesa' = tambem na area de trabalho)
+      if (reg && reg.atalhos) criarAtalhos(destino, reg.atalhos === 'mesa');
+      if (!reg || reg.versao !== VERSAO || reg.atalhos) gravarJSON(ARQ_INSTALADO, { versao: VERSAO, caminho: destino });
+      return null;
+    }
+    // A 1.3.0 e anteriores nao gravavam instalado.json: sem registro, a copia que esta la e mais velha.
+    const jaTem = existe(destino) && reg && /^\d+(\.\d+)*$/.test(reg.versao || '') && cmpVersao(reg.versao, VERSAO) >= 0;
+    if (!jaTem) {
+      fs.mkdirSync(PASTA_APP, { recursive: true });
+      let velho = null;
+      if (existe(destino)) { velho = nomeLivre(`${destino}.velho`); fs.renameSync(destino, velho); }
+      try { fs.copyFileSync(aqui, destino); } catch (e) { if (velho && !existe(destino)) fs.renameSync(velho, destino); throw e; }
+      gravarJSON(ARQ_INSTALADO, { versao: VERSAO, caminho: destino, atalhos: reg ? 'menu' : 'mesa' });
+      log(`Lareira ${VERSAO} instalado em ${destino} (aberto de ${aqui})`);
+    }
+    return destino;
+  } catch (e) { log('instalar:', e.message); return null; }
+}
+
+// ---------------------------------------------------------------- uma instancia so
+// Abrir o Lareira com ele ja aberto nao sobe um segundo servidor: so mostra a janela do que ja esta rodando.
+const ARQ_INSTANCIA = path.join(DADOS, 'instancia.json');
+
+async function outraInstancia() {
+  const i = lerJSON(ARQ_INSTANCIA);
+  if (!i || !Number.isInteger(i.porta) || !/^[0-9a-f]{36}$/.test(i.token || '')) return null;
+  try {
+    const r = await fetch(`http://127.0.0.1:${i.porta}/api/estado?t=${i.token}`, { signal: AbortSignal.timeout(2000) });
+    const e = r.ok ? await r.json() : null;
+    return e && /^\d+(\.\d+)*$/.test(e.versao) ? { porta: i.porta, token: i.token, versao: e.versao } : null;
+  } catch { return null; }
+}
+
+function marcarInstancia() {
+  try { gravarJSON(ARQ_INSTANCIA, { pid: process.pid, porta: servidor.address().port, token: TOKEN, versao: VERSAO }); } catch (e) { log('instancia:', e.message); }
+  process.on('exit', () => {
+    try { if ((lerJSON(ARQ_INSTANCIA) || {}).pid === process.pid) fs.unlinkSync(ARQ_INSTANCIA); } catch { /* fica; a proxima confere se responde */ }
+  });
 }
 
 // ---------------------------------------------------------------- interface (servidor local)
@@ -767,7 +927,8 @@ const TIPOS = { 'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javasc
 // porta e o mesmo token, para a janela que ja estava aberta so reconectar (e recarregar).
 const CONTINUAR = /^(\d{2,5}):([0-9a-f]{36})$/.exec(process.env.LAREIRA_CONTINUAR || '');
 delete process.env.LAREIRA_CONTINUAR; // nao passa para o launcher do jogo nem para a proxima atualizacao
-const TOKEN = CONTINUAR ? CONTINUAR[2] : crypto.randomBytes(18).toString('hex');
+let TOKEN = CONTINUAR ? CONTINUAR[2] : crypto.randomBytes(18).toString('hex');
+let portaHerdada = CONTINUAR ? Number(CONTINUAR[1]) : null;
 const clientes = new Set();
 let jaConectou = false;
 let ultimoEnvio = 0, envioPendente = null;
@@ -799,10 +960,11 @@ async function acao(corpo) {
       return {};
     }
     case 'recarregar':
-      await carregarManifesto();
-      if (remoto.launcher && !remoto.offline && cmpVersao(remoto.launcher.versao, VERSAO) > 0 && !['baixando', 'reiniciando'].includes(auto.fase)) {
-        autoAtualizar(remoto.launcher.versao); // em segundo plano; o progresso chega pela conexao de eventos
-      }
+      await procurarAtualizacoes();
+      return {};
+    case 'sair': // pedido de um Lareira mais novo que foi aberto por cima deste
+      if (ocupado()) throw new Error('ocupado');
+      setTimeout(() => process.exit(0), 150);
       return {};
     case 'pasta':
       if (!pack || !modo) throw new Error('Pack não encontrado.');
@@ -826,6 +988,17 @@ async function acao(corpo) {
       return {};
     default:
       throw new Error('ação desconhecida');
+  }
+}
+
+const ocupado = () => !!(tarefa && !tarefa.fim) || ['baixando', 'reiniciando'].includes(auto.fase);
+
+// Busca o manifesto de novo e, se saiu Lareira novo, comeca a auto-atualizacao em segundo plano
+// (o progresso chega pela conexao de eventos).
+async function procurarAtualizacoes() {
+  await carregarManifesto();
+  if (remoto.launcher && !remoto.offline && cmpVersao(remoto.launcher.versao, VERSAO) > 0 && !['baixando', 'reiniciando'].includes(auto.fase)) {
+    autoAtualizar(remoto.launcher.versao);
   }
 }
 
@@ -902,25 +1075,69 @@ function lembrarVersao() {
 
 async function principal() {
   fs.mkdirSync(DADOS, { recursive: true });
+  apararLog();
+  // Um erro perdido num canto nao pode fechar o Lareira calado no meio de uma instalacao.
+  process.on('uncaughtException', (e) => log('erro inesperado:', e.stack || e.message));
+  process.on('unhandledRejection', (e) => log('promessa sem tratamento:', (e && (e.stack || e.message)) || String(e)));
+  const semJanelaPedida = process.argv.includes('--sem-janela');
+
+  // Windows: roda sempre da copia instalada (e a que os atalhos abrem e a que se atualiza sozinha).
+  const instalado = instalarNoWindows();
+  if (!CONTINUAR) {
+    if (instalado) {
+      try {
+        const filho = spawn(instalado, process.argv.filter((a) => a.startsWith('--')), { detached: true, stdio: ['ignore', 'inherit', 'inherit'], windowsHide: false });
+        await new Promise((ok, falha) => { filho.once('spawn', ok); filho.once('error', falha); });
+        filho.unref();
+        process.exit(0);
+      } catch (e) { log('nao abriu a copia instalada, sigo daqui:', e.message); }
+    }
+    const outra = await outraInstancia();
+    if (outra) {
+      const endereco = `http://127.0.0.1:${outra.porta}/?t=${outra.token}`;
+      let assumir = false;
+      if (cmpVersao(outra.versao, VERSAO) < 0) {
+        // O que esta aberto e mais velho: pede para ele sair e assume a porta e a janela dele.
+        try {
+          const r = await fetch(`http://127.0.0.1:${outra.porta}/api/acao?t=${outra.token}`, { method: 'POST', body: JSON.stringify({ acao: 'sair' }), signal: AbortSignal.timeout(3000) });
+          assumir = r.ok;
+        } catch { /* nao respondeu: trata como aberto */ }
+      }
+      if (!assumir) {
+        log(`Lareira ${outra.versao} ja esta aberto: mostrando a janela dele`);
+        if (semJanelaPedida) console.log(endereco); else abrirJanela(endereco);
+        await new Promise((ok) => setTimeout(ok, 300));
+        process.exit(0);
+      }
+      log(`assumindo o lugar do Lareira ${outra.versao} que estava aberto`);
+      TOKEN = outra.token; portaHerdada = outra.porta;
+    }
+  }
+
   lembrarVersao();
   log(`Lareira ${VERSAO} em ${process.platform}/${process.arch}${CONTINUAR ? ' (recem-atualizado)' : ''}`);
   await carregarManifesto();
   let continuou = false;
-  if (CONTINUAR) {
-    try { await escutar(Number(CONTINUAR[1]), 20); continuou = true; } catch (e) { log('porta anterior:', e.message); }
+  if (portaHerdada) {
+    try { await escutar(portaHerdada, 20); continuou = true; } catch (e) { log('porta anterior:', e.message); }
   }
   if (!continuou) await escutar(Number(process.env.LAREIRA_PORTA) || 0, 0);
+  marcarInstancia();
   const endereco = `http://127.0.0.1:${servidor.address().port}/?t=${TOKEN}`;
-  if (process.argv.includes('--sem-janela')) console.log(endereco);
+  if (semJanelaPedida) console.log(endereco);
   else if (!continuou) abrirJanela(endereco);
   else setTimeout(() => { if (!jaConectou) abrirJanela(endereco); }, 12000); // a janela antiga nao voltou: abre outra
   setTimeout(limparSobras, 5000);
   if (remoto.launcher && !remoto.offline && cmpVersao(remoto.launcher.versao, VERSAO) > 0) autoAtualizar(remoto.launcher.versao);
+  // Lareira esquecido aberto: confere de tempos em tempos se saiu versao nova (do pack ou dele mesmo).
+  setInterval(() => {
+    if (ocupado()) return;
+    procurarAtualizacoes().then(enviarEstado).catch((e) => log('procurar:', e.message));
+  }, Number(process.env.LAREIRA_INTERVALO) || 10 * 60 * 1000);
   // Fecha sozinho quando a janela fecha (ou se ela nunca abrir), mas nunca no meio de uma instalacao.
   let semJanela = 0;
   setInterval(() => {
-    const ocupado = (tarefa && !tarefa.fim) || ['baixando', 'reiniciando'].includes(auto.fase);
-    semJanela = clientes.size || ocupado ? 0 : semJanela + 1;
+    semJanela = clientes.size || ocupado() ? 0 : semJanela + 1;
     if (semJanela >= (jaConectou ? 8 : 180)) process.exit(0);
   }, 1000);
 }
@@ -930,7 +1147,7 @@ if (require.main === module) principal().catch((e) => { log('fatal:', e.stack ||
 module.exports = {
   validarPack, cmpVersao, estado, carregarManifesto, remoto, launchers, pastaTLauncher, variante, config, pacoteDoSistema, infoAtualizacao,
   _teste: {
-    VERSAO, DADOS, apagar, validarLauncher, novidadesLareira, lembrarVersao,
+    VERSAO, DADOS, apagar, validarLauncher, novidadesLareira, lembrarVersao, gravar, escolherOficial, nomeLivre,
     estadoPack,
     sincronizar: (pack, modo, avisar) => { tarefa = { pack: pack.id, fase: '', feito: 0, total: 0, erro: null, fim: false, aviso: null }; return sincronizar(pack, modo, avisar); },
   },

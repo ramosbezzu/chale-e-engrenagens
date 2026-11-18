@@ -204,6 +204,31 @@ async function rodar(pack, modo) {
   assert.ok(!fs.existsSync(path.dirname(acento)), 'pasta com acento apagada');
   L._teste.apagar(path.join(casa, 'nao existe'));
 
+  // ---- gravacao segura: troca de uma vez, sem deixar arquivo temporario, e respeita Latin-1
+  const seguro = path.join(casa, 'José', 'perfis.json');
+  L._teste.gravar(seguro, '{"a":1}');
+  L._teste.gravar(seguro, '{"a":2}');
+  assert.strictEqual(fs.readFileSync(seguro, 'utf8'), '{"a":2}');
+  assert.deepStrictEqual(fs.readdirSync(path.dirname(seguro)), ['perfis.json'], 'sem sobra de arquivo temporario');
+  L._teste.gravar(seguro, 'nome=Jos\xe9', 'latin1');
+  assert.deepStrictEqual([...fs.readFileSync(seguro)].slice(-1), [0xe9]);
+  assert.ok(!fs.readdirSync(mc).some((n) => n.includes('tmp-lareira')), 'perfis do launcher sem sobra');
+
+  // ---- Windows com dois Minecraft Launcher: o da Store ganha, a nao ser que o jogador fixe o classico
+  const E = L._teste.escolherOficial, classico = 'C:\\x\\MinecraftLauncher.exe';
+  assert.strictEqual(E({ store: true, classico }, null), 'store');
+  assert.strictEqual(E({ store: false, classico }, null), 'classico');
+  assert.strictEqual(E({ store: true, classico }, 'classico'), 'classico');
+  assert.strictEqual(E({ store: true, classico: null }, 'classico'), 'store');
+  assert.strictEqual(E({ store: false, classico }, 'store'), 'classico');
+  assert.strictEqual(E({ store: false, classico: null }, null), 'store', 'nenhum achado: tenta o atalho da Store');
+
+  // ---- nome para o executavel antigo: reaproveita o .velho quando da para apagar
+  const velho = path.join(casa, 'Lareira.exe.velho');
+  escrever(velho, 'x');
+  assert.strictEqual(L._teste.nomeLivre(velho), velho);
+  assert.ok(!fs.existsSync(velho));
+
   // ---- changelog do Lareira: toda versao do launcher tem entrada no topo de historico.json
   const historicoLareira = JSON.parse(fs.readFileSync(path.join(__dirname, 'historico.json'), 'utf8'));
   const pacoteLareira = JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'));
