@@ -40,6 +40,20 @@ jobs:
         with:
           path: pacotes
           merge-multiple: true
+      # Lista com sha256 e tamanho de cada arquivo: o Lareira confere o download antes de se trocar.
+      - run: |
+          python3 - <<'PY'
+          import hashlib, json, os
+          v = os.environ["TAG"][len("launcher-v"):]
+          arquivos = {}
+          for nome in sorted(os.listdir("pacotes")):
+              dados = open(os.path.join("pacotes", nome), "rb").read()
+              arquivos[nome] = {"sha256": hashlib.sha256(dados).hexdigest(), "tamanho": len(dados)}
+          json.dump({"formato": 1, "versao": v, "arquivos": arquivos}, open("pacotes/atualizacao.json", "w"), indent=1)
+          print(json.dumps(arquivos, indent=1))
+          PY
+        env:
+          TAG: ${{ github.ref_name }}
       - run: gh release create "$TAG" pacotes/* --repo "$GITHUB_REPOSITORY" --title "Lareira ${TAG#launcher-v}" --generate-notes --latest
         env:
           GH_TOKEN: ${{ github.token }}

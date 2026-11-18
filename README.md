@@ -18,6 +18,8 @@ Pegue o arquivo do seu sistema na página de [releases](https://github.com/ramos
 
 Os executáveis não são assinados, por isso os avisos do Windows e do macOS.
 
+Só precisa baixar uma vez: a partir da 1.2.0 o Lareira **se atualiza sozinho ao abrir** (Windows, macOS e `.tar.gz` do Linux). Ele baixa a versão nova do release, confere o sha256, troca o próprio arquivo (mesmo nome e lugar, atalhos continuam valendo) e reabre na mesma janela. Se não conseguir (pasta sem permissão, `.deb`, sem internet), aparece o aviso com o botão **Baixar**, como antes. Para desligar: variável de ambiente `LAREIRA_SEM_AUTOATUALIZAR=1`.
+
 ## Como usar
 
 1. Abra uma vez o Minecraft Launcher (ou o TLauncher), entre na conta e feche.
@@ -60,13 +62,23 @@ Entre 15/11 e 06/01 o Lareira se enfeita sozinho para o Natal (pisca-pisca, árv
 
 ## Publicar uma versão nova do launcher
 
+A ordem importa: o manifesto só anuncia a versão nova **depois** que o release existe, senão os Lareiras abertos tentam se atualizar com um release que ainda está sendo montado (não quebra nada, só falha e tenta de novo na próxima vez).
+
 ```bash
-# troque a versão em launcher/package.json e em VERSAO no launcher/lareira.js
-python3 build.py cozy.json --manifesto   # atualiza a versão anunciada em manifest/index.json
-git commit -am "Lareira 1.0.1" && git tag launcher-v1.0.1 && git push && git push origin launcher-v1.0.1
+# 1. troque a versão em launcher/package.json e em VERSAO no launcher/lareira.js
+(cd launcher && node teste.js)
+git commit -am "Lareira 1.2.1" && git tag launcher-v1.2.1 && git push && git push origin launcher-v1.2.1
+# (a tag é simples: "git push --follow-tags" não envia)
+
+# 2. espere o GitHub Actions terminar (gh run watch): ele monta os executáveis dos três sistemas,
+#    publica o release e o atualizacao.json com o sha256 de cada um
+
+# 3. só então anuncie para todo mundo
+python3 build.py cozy.json --manifesto   # atualiza a versão do launcher em manifest/index.json
+git commit -am "Anuncia o Lareira 1.2.1" && git push
 ```
 
-O GitHub Actions monta os executáveis dos três sistemas e cria o release. Quem estiver numa versão antiga vê um aviso com o botão **Baixar**.
+A partir daí cada Lareira 1.2.0+ se atualiza sozinho ao abrir. Quem está em versão anterior à 1.2.0 vê o aviso com o botão **Baixar**.
 
 ## Desenvolver
 

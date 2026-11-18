@@ -83,8 +83,14 @@ function desenharFaixa() {
   const f = $('faixa');
   f.replaceChildren();
   f.className = 'faixa';
-  if (estado.novaVersao) {
-    f.append(el('span', null, `Saiu o Lareira ${estado.novaVersao.versao} (você tem a ${estado.versao}).`));
+  const a = estado.autoAtualizacao || {};
+  if (a.fase === 'baixando' || a.fase === 'reiniciando') {
+    const pct = a.total ? ` ${Math.min(100, Math.floor((a.feito / a.total) * 100))}%` : '';
+    f.append(el('span', null, a.fase === 'reiniciando' ? `Lareira ${a.versao} instalado! Reiniciando...` : `Atualizando o Lareira para a ${a.versao}...${pct}`));
+  } else if (estado.novaVersao) {
+    f.append(el('span', null, a.fase === 'erro'
+      ? `Não consegui atualizar o Lareira sozinho (${a.erro}). Baixe a ${estado.novaVersao.versao} (você tem a ${estado.versao}).`
+      : `Saiu o Lareira ${estado.novaVersao.versao} (você tem a ${estado.versao}).`));
     const b = el('button', 'botao pequeno', 'Baixar');
     b.onclick = () => acao({ acao: 'pagina' });
     f.append(b);
@@ -285,7 +291,14 @@ function conectar() {
     return;
   }
   const fonte = new EventSource(`/api/eventos?t=${TOKEN}`);
-  fonte.addEventListener('estado', (e) => { estado = JSON.parse(e.data); desenhar(); });
+  let versaoDaPagina = null;
+  fonte.addEventListener('estado', (e) => {
+    const novo = JSON.parse(e.data);
+    // O Lareira se atualizou e reabriu na mesma porta: recarrega para pegar a interface nova.
+    if (versaoDaPagina && novo.versao !== versaoDaPagina) { location.reload(); return; }
+    versaoDaPagina = novo.versao;
+    estado = novo; desenhar();
+  });
   fonte.addEventListener('tarefa', (e) => {
     if (!estado) return;
     estado.tarefa = JSON.parse(e.data);

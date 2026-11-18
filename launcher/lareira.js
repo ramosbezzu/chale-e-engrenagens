@@ -10,7 +10,7 @@ const http = require('http');
 const crypto = require('crypto');
 const { spawn, execFileSync } = require('child_process');
 
-const VERSAO = '1.1.0';
+const VERSAO = '1.2.0';
 const REPO = 'ramosbezzu/chale-e-engrenagens';
 const MANIFESTO_PADRAO = `https://raw.githubusercontent.com/${REPO}/main/manifest/`;
 const HOSTS_DOWNLOAD = ['cdn.modrinth.com', 'github.com', 'raw.githubusercontent.com'];
@@ -260,7 +260,7 @@ function estado() {
   const modo = modoAtual(remoto.packs);
   const nova = remoto.launcher && cmpVersao(remoto.launcher.versao, VERSAO) > 0 ? remoto.launcher : null;
   return {
-    versao: VERSAO, novaVersao: nova, offline: remoto.offline, erroManifesto: remoto.erro,
+    versao: VERSAO, novaVersao: nova, autoAtualizacao: auto, offline: remoto.offline, erroManifesto: remoto.erro,
     launchers: l, modo, ramGB: Math.round(os.totalmem() / 2 ** 30), xmx: xmxGB(),
     packs: remoto.packs.map((p) => estadoPack(p, modo)), tarefa,
   };
@@ -366,7 +366,7 @@ function abrirTLauncher() {
 
 // ---------------------------------------------------------------- downloads
 
-async function baixarArquivo(url, destino, sha1, aoBaixar) {
+async function baixarArquivo(url, destino, sha1, aoBaixar, algoritmo = 'sha1') {
   fs.mkdirSync(path.dirname(destino), { recursive: true });
   const parte = destino + '.parte';
   let ultimo;
@@ -375,7 +375,7 @@ async function baixarArquivo(url, destino, sha1, aoBaixar) {
     try {
       const r = await fetch(url, { signal: AbortSignal.timeout(10 * 60 * 1000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      const hash = crypto.createHash('sha1');
+      const hash = crypto.createHash(algoritmo);
       const saida = fs.createWriteStream(parte);
       for await (const pedaco of r.body) {
         hash.update(pedaco); lidos += pedaco.length;
@@ -383,7 +383,7 @@ async function baixarArquivo(url, destino, sha1, aoBaixar) {
         if (!saida.write(pedaco)) await new Promise((ok) => saida.once('drain', ok));
       }
       await new Promise((ok, falha) => saida.end((e) => (e ? falha(e) : ok())));
-      if (sha1 && hash.digest('hex') !== sha1) throw new Error('arquivo corrompido (sha1 diferente)');
+      if (sha1 && hash.digest('hex') !== sha1) throw new Error(`arquivo corrompido (${algoritmo} diferente)`);
       fs.renameSync(parte, destino);
       return;
     } catch (e) {
@@ -607,6 +607,119 @@ function jogar(pack, modo) {
   return abriu ? `Abrindo o TLauncher. ${dica}` : `Não achei o TLauncher. Abra você mesmo. ${dica}`;
 }
 
+// ---------------------------------------------------------------- auto-atualizacao do proprio Lareira
+// Ao abrir, se o manifesto anuncia um Lareira mais novo, baixa o executavel do release no GitHub,
+// confere o sha256 (lista atualizacao.json que o GitHub Actions publica junto), troca o arquivo e
+// reinicia na mesma porta. Onde nao da para trocar (.deb, pasta sem permissao, rodando do codigo-fonte),
+// fica o aviso com o botao Baixar.
+const RELEASES = process.env.LAREIRA_RELEASES || `https://github.com/${REPO}/releases/download`;
+const auto = { fase: null, versao: null, feito: 0, total: 0, erro: null }; // fase: baixando | reiniciando | erro | manual
+
+// Arquivo do release para este sistema e como ele vira o Lareira instalado.
+function pacoteDoSistema(versao, plataforma = process.platform, arq = process.arch) {
+  const a = arq === 'arm64' ? 'arm64' : 'x64';
+  if (plataforma === 'win32') return { nome: `Lareira-${versao}-windows-${a}.exe`, tipo: 'exe' };
+  if (plataforma === 'darwin') return { nome: `Lareira-${versao}-mac-${a}.zip`, tipo: 'app' };
+  if (plataforma === 'linux') return { nome: `Lareira-${versao}-linux-${a}.tar.gz`, tipo: 'tar' };
+  return null;
+}
+
+function infoAtualizacao(info, versao, nome) {
+  const a = info && info.formato === 1 && info.versao === versao && info.arquivos && info.arquivos[nome];
+  return a && /^[0-9a-f]{64}$/.test(a.sha256) && Number.isInteger(a.tamanho) && a.tamanho > 0 ? a : null;
+}
+
+// O que e trocado: o executavel (Windows, .tar.gz do Linux) ou a pasta Lareira.app (mac).
+function alvoAtualizacao() {
+  if (!sea || process.env.LAREIRA_TESTE || process.env.LAREIRA_SEM_AUTOATUALIZAR) return null;
+  const alvo = MAC ? path.resolve(process.execPath, '..', '..', '..') : process.execPath;
+  if (MAC && !alvo.endsWith('.app')) return null;
+  try { fs.accessSync(path.dirname(alvo), fs.constants.W_OK); } catch { return null; } // .deb em /opt, app em pasta protegida
+  return alvo;
+}
+
+let ultimoAuto = 0;
+function avisarAuto() {
+  if (Date.now() - ultimoAuto < 250) return;
+  ultimoAuto = Date.now();
+  enviarEstado();
+}
+
+async function autoAtualizar(versao) {
+  const alvo = alvoAtualizacao();
+  const pacote = pacoteDoSistema(versao);
+  Object.assign(auto, { versao, feito: 0, total: 0, erro: null, fase: alvo && pacote ? 'baixando' : 'manual' });
+  if (auto.fase === 'manual') return;
+  enviarEstado();
+  const temp = path.join(DADOS, 'atualizacao');
+  try {
+    fs.rmSync(temp, { recursive: true, force: true });
+    fs.mkdirSync(temp, { recursive: true });
+    const base = `${RELEASES}/launcher-v${versao}/`;
+    const r = await fetch(base + 'atualizacao.json', { cache: 'no-store', signal: AbortSignal.timeout(15000) });
+    if (!r.ok) throw new Error(`o Lareira ${versao} ainda está sendo publicado (HTTP ${r.status})`);
+    const info = infoAtualizacao(await r.json(), versao, pacote.nome);
+    if (!info) throw new Error('o release não tem o arquivo deste sistema');
+    auto.total = info.tamanho;
+    const baixado = path.join(temp, pacote.nome);
+    await baixarArquivo(base + pacote.nome, baixado, info.sha256, (n) => { auto.feito += n; avisarAuto(); }, 'sha256');
+
+    // Monta o novo ao lado do atual (mesmo disco, para a troca ser um rename).
+    const novo = `${alvo}.novo`, velho = `${alvo}.velho`;
+    fs.rmSync(novo, { recursive: true, force: true });
+    if (pacote.tipo === 'exe') fs.copyFileSync(baixado, novo);
+    else if (pacote.tipo === 'tar') { await rodar('tar', ['-xzf', baixado, '-C', temp]); fs.copyFileSync(path.join(temp, 'lareira'), novo); }
+    else { await rodar('ditto', ['-x', '-k', baixado, temp]); await rodar('ditto', [path.join(temp, 'Lareira.app'), novo]); }
+    if (pacote.tipo !== 'app') fs.chmodSync(novo, 0o755);
+    // O Windows deixa renomear um .exe em uso (so nao deixa apagar): o atual vira .velho.
+    fs.rmSync(velho, { recursive: true, force: true });
+    fs.renameSync(alvo, velho);
+    try { fs.renameSync(novo, alvo); } catch (e) { fs.renameSync(velho, alvo); throw e; }
+    log(`Lareira atualizado para ${versao} em ${alvo}`);
+    auto.fase = 'reiniciando';
+    enviarEstado();
+    await reiniciar(MAC ? path.join(alvo, 'Contents', 'MacOS', 'lareira') : alvo);
+  } catch (e) {
+    log('auto-atualizacao:', e.stack || e.message);
+    Object.assign(auto, { fase: 'erro', erro: e.message });
+    enviarEstado();
+  } finally {
+    try { fs.rmSync(temp, { recursive: true, force: true }); } catch { /* fica para a proxima */ }
+  }
+}
+
+// Passa a vez para o executavel novo na mesma porta. Sem janela aberta, so sai: a versao nova abre na proxima vez.
+async function reiniciar(exe) {
+  while (tarefa && !tarefa.fim) await new Promise((ok) => setTimeout(ok, 1000)); // nunca no meio de uma instalacao
+  // Download rapido pode acabar antes de a janela abrir: espera ela conectar a primeira vez.
+  for (let i = 0; i < 40 && !jaConectou; i++) await new Promise((ok) => setTimeout(ok, 500));
+  if (!clientes.size) { log('atualizado sem janela aberta; a versao nova abre na proxima vez'); process.exit(0); }
+  await new Promise((ok) => setTimeout(ok, 1200)); // deixa a janela mostrar "reiniciando"
+  const porta = servidor.address().port;
+  for (const c of clientes) c.end();
+  await new Promise((ok) => { servidor.close(ok); servidor.closeAllConnections(); });
+  try {
+    const filho = spawn(exe, [], { detached: true, stdio: 'ignore', windowsHide: false, env: { ...process.env, LAREIRA_CONTINUAR: `${porta}:${TOKEN}` } });
+    await new Promise((ok, falha) => { filho.once('spawn', ok); filho.once('error', falha); });
+    filho.unref();
+    process.exit(0);
+  } catch (e) {
+    // Nao abriu o novo: este processo continua atendendo a janela (o arquivo novo ja esta no lugar).
+    log('reiniciar:', e.message);
+    Object.assign(auto, { fase: 'erro', erro: 'Atualizado, mas não consegui reabrir. Feche e abra o Lareira.' });
+    servidor.listen(porta, '127.0.0.1');
+  }
+}
+
+// Sobras de uma atualizacao anterior (.velho fica travado no Windows ate o processo antigo sair).
+function limparSobras() {
+  const alvo = alvoAtualizacao();
+  if (!alvo) return;
+  for (const sufixo of ['.velho', '.novo']) {
+    try { fs.rmSync(alvo + sufixo, { recursive: true, force: true }); } catch (e) { log('limpar', sufixo, e.message); }
+  }
+}
+
 // ---------------------------------------------------------------- interface (servidor local)
 
 let sea = null;
@@ -614,7 +727,11 @@ try { sea = require('node:sea'); if (!sea.isSea()) sea = null; } catch { sea = n
 const recurso = (nome) => (sea ? Buffer.from(sea.getAsset(nome)) : fs.readFileSync(path.join(__dirname, 'ui', nome)));
 const TIPOS = { 'index.html': 'text/html; charset=utf-8', 'app.js': 'text/javascript; charset=utf-8', 'estilo.css': 'text/css; charset=utf-8', 'fonte.ttf': 'font/ttf', 'icone.png': 'image/png' };
 
-const TOKEN = crypto.randomBytes(18).toString('hex');
+// LAREIRA_CONTINUAR=<porta>:<token>: o Lareira acabou de se atualizar e a versao nova assume a mesma
+// porta e o mesmo token, para a janela que ja estava aberta so reconectar (e recarregar).
+const CONTINUAR = /^(\d{2,5}):([0-9a-f]{36})$/.exec(process.env.LAREIRA_CONTINUAR || '');
+delete process.env.LAREIRA_CONTINUAR; // nao passa para o launcher do jogo nem para a proxima atualizacao
+const TOKEN = CONTINUAR ? CONTINUAR[2] : crypto.randomBytes(18).toString('hex');
 const clientes = new Set();
 let jaConectou = false;
 let ultimoEnvio = 0, envioPendente = null;
@@ -722,26 +839,46 @@ function abrirJanela(endereco) {
   } else abrirNoSistema(endereco);
 }
 
+// Escuta na porta pedida; depois de uma atualizacao a porta pode demorar um instante para ser liberada.
+function escutar(porta, tentativas) {
+  return new Promise((ok, falha) => {
+    servidor.once('error', falha);
+    servidor.listen(porta, '127.0.0.1', () => { servidor.off('error', falha); ok(); });
+  }).catch(async (e) => {
+    if (e.code !== 'EADDRINUSE' || tentativas <= 0) throw e;
+    await new Promise((ok) => setTimeout(ok, 300));
+    return escutar(porta, tentativas - 1);
+  });
+}
+
 async function principal() {
   fs.mkdirSync(DADOS, { recursive: true });
-  log(`Lareira ${VERSAO} em ${process.platform}/${process.arch}`);
+  log(`Lareira ${VERSAO} em ${process.platform}/${process.arch}${CONTINUAR ? ' (recem-atualizado)' : ''}`);
   await carregarManifesto();
-  servidor.listen(Number(process.env.LAREIRA_PORTA) || 0, '127.0.0.1', () => {
-    const endereco = `http://127.0.0.1:${servidor.address().port}/?t=${TOKEN}`;
-    if (process.argv.includes('--sem-janela')) console.log(endereco); else abrirJanela(endereco);
-  });
+  let continuou = false;
+  if (CONTINUAR) {
+    try { await escutar(Number(CONTINUAR[1]), 20); continuou = true; } catch (e) { log('porta anterior:', e.message); }
+  }
+  if (!continuou) await escutar(Number(process.env.LAREIRA_PORTA) || 0, 0);
+  const endereco = `http://127.0.0.1:${servidor.address().port}/?t=${TOKEN}`;
+  if (process.argv.includes('--sem-janela')) console.log(endereco);
+  else if (!continuou) abrirJanela(endereco);
+  else setTimeout(() => { if (!jaConectou) abrirJanela(endereco); }, 12000); // a janela antiga nao voltou: abre outra
+  setTimeout(limparSobras, 5000);
+  if (remoto.launcher && !remoto.offline && cmpVersao(remoto.launcher.versao, VERSAO) > 0) autoAtualizar(remoto.launcher.versao);
   // Fecha sozinho quando a janela fecha (ou se ela nunca abrir), mas nunca no meio de uma instalacao.
   let semJanela = 0;
   setInterval(() => {
-    const ocupado = tarefa && !tarefa.fim;
+    const ocupado = (tarefa && !tarefa.fim) || ['baixando', 'reiniciando'].includes(auto.fase);
     semJanela = clientes.size || ocupado ? 0 : semJanela + 1;
     if (semJanela >= (jaConectou ? 8 : 180)) process.exit(0);
   }, 1000);
 }
 
+if (require.main === module && process.argv.includes('--versao')) { console.log(VERSAO); process.exit(0); }
 if (require.main === module) principal().catch((e) => { log('fatal:', e.stack || e.message); console.error(e); process.exit(1); });
 module.exports = {
-  validarPack, cmpVersao, estado, carregarManifesto, remoto, launchers, pastaTLauncher, variante, config,
+  validarPack, cmpVersao, estado, carregarManifesto, remoto, launchers, pastaTLauncher, variante, config, pacoteDoSistema, infoAtualizacao,
   _teste: {
     estadoPack,
     sincronizar: (pack, modo, avisar) => { tarefa = { pack: pack.id, fase: '', feito: 0, total: 0, erro: null, fim: false, aviso: null }; return sincronizar(pack, modo, avisar); },

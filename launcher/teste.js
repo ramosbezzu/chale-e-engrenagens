@@ -73,6 +73,16 @@ async function rodar(pack, modo) {
   }] }).historico[0];
   assert.deepStrictEqual(notas.novidades, ['a']);
   assert.deepStrictEqual(notas.secoes, [{ titulo: 'Casa', itens: ['TV'], fotos: [{ url: 'https://cdn.modrinth.com/data/x/a.webp', legenda: 'boa' }] }]);
+  // ---- auto-atualizacao: arquivo certo de cada sistema e lista de sha256 conferida
+  assert.deepStrictEqual(L.pacoteDoSistema('1.2.0', 'win32', 'x64'), { nome: 'Lareira-1.2.0-windows-x64.exe', tipo: 'exe' });
+  assert.deepStrictEqual(L.pacoteDoSistema('1.2.0', 'darwin', 'arm64'), { nome: 'Lareira-1.2.0-mac-arm64.zip', tipo: 'app' });
+  assert.deepStrictEqual(L.pacoteDoSistema('1.2.0', 'linux', 'x64'), { nome: 'Lareira-1.2.0-linux-x64.tar.gz', tipo: 'tar' });
+  const lista = { formato: 1, versao: '1.2.0', arquivos: { 'Lareira-1.2.0-windows-x64.exe': { sha256: 'a'.repeat(64), tamanho: 10 } } };
+  assert.ok(L.infoAtualizacao(lista, '1.2.0', 'Lareira-1.2.0-windows-x64.exe'));
+  assert.strictEqual(L.infoAtualizacao(lista, '1.3.0', 'Lareira-1.2.0-windows-x64.exe'), null, 'versao da lista tem que bater');
+  assert.ok(!L.infoAtualizacao(lista, '1.2.0', 'Lareira-1.2.0-mac-arm64.zip'));
+  assert.ok(!L.infoAtualizacao({ ...lista, arquivos: { x: { sha256: 'zz', tamanho: 1 } } }, '1.2.0', 'x'));
+
   assert.ok(L.cmpVersao('1.10.0', '1.9.9') > 0 && L.cmpVersao('1.2', '1.2.0') === 0 && L.cmpVersao('1.2.5', '1.2.6') < 0);
 
   // ---- launcher oficial: atualizacao de uma instalacao antiga (marcador .txt, perfil com outro nome)
