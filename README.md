@@ -48,6 +48,8 @@ Abra o Claude Code nesta pasta e peça em português ("coloca o mod X no Chalé"
 python ferramentas/testar_servidor.py cozy.json
 ```
 
+Os mods feitos por nós ficam em `mods-proprios/` e são compilados por `ferramentas/montar_mod.py` (sem Gradle). A skill `lareira-moder` do Claude Code descreve o processo.
+
 ## Publicar uma versão nova de um pack
 
 ```bash

@@ -2462,5 +2462,19 @@
     },
     "file": "FreshAnimations_v1.11.2_1.20+.zip",
     "license": "LicenseRef-See-Terms-of-Use-in-Description"
+  },
+  {
+    "slug": "lareira-fixes",
+    "title": "Lareira Fixes",
+    "group": "Proprios",
+    "version": "1.0.0",
+    "type": "release",
+    "published": null,
+    "env": {
+      "client": "required",
+      "server": "required"
+    },
+    "file": "lareira-fixes-1.0.0.jar",
+    "license": "MIT"
   }
 ]

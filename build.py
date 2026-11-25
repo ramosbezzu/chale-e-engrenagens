@@ -3,8 +3,10 @@
 
   python3 build.py cozy.json               resolve tudo de novo (versao nova do pack)
   python3 build.py cozy.json --manifesto   so regenera manifest/ a partir do .mrpack existente
+  python3 build.py cozy.json --congelado   hotfix: mantem os mods da versao publicada (precisa do .mrpack dela
+                                           em dist/) e so troca os mods proprios e as configs
 """
-import json, re, sys, time, urllib.request, zipfile
+import hashlib, json, re, sys, time, urllib.request, zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -56,6 +58,9 @@ CAMPOS_VERSAO = ("versao", "minecraft", "neoforge", "arquivos", "pacotes", "conf
 # Pacotes de recursos vao em "pacotes", fora de "arquivos": o Lareira 1.0.0 recusa o manifesto
 # inteiro se "arquivos" tiver algo fora de mods/ e shaderpacks/. O 1.1.0+ instala os dois.
 PREFIXO_PACOTES = "resourcepacks/"
+
+# Mods feitos aqui (mods-proprios/): o .jar vai versionado no repositorio e o launcher baixa do GitHub.
+URL_PROPRIOS = "https://raw.githubusercontent.com/ramosbezzu/chale-e-engrenagens/main/mods-proprios/jars/"
 
 
 def mrpack_path(cfg):
@@ -138,14 +143,8 @@ def manifest(cfg):
           f"anterior: {', '.join(a['versao'] for a in anteriores) or 'nenhuma'})")
 
 
-def main():
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    cfg_path = ROOT / (args[0] if args else "mods.json")
-    cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
-    if "--manifesto" in sys.argv:
-        # So regenera o manifesto do launcher a partir do .mrpack ja existente (nao resolve mods de novo).
-        return manifest(cfg)
-    lock_path = ROOT / ("lock.json" if cfg_path.stem == "mods" else f"{cfg_path.stem}.lock.json")
+def resolver(cfg):
+    """Resolve tudo de novo no Modrinth."""
     queue = [(s, group) for group, slugs in cfg["mods"].items() for s in slugs]
     resolved, conflicts = {}, []
     while queue:
@@ -229,7 +228,70 @@ def main():
             "published": version["date_published"][:10], "env": env, "file": f["filename"],
             "license": project["license"]["id"],
         })
+    return files, lock, shader_default
 
+
+def congelado(cfg, lock_path):
+    """Arquivos e lock da versao publicada, sem os mods proprios."""
+    publicada = json.loads((ROOT / "manifest" / f"{cfg['id']}.json").read_text(encoding="utf-8"))
+    antigo = mrpack_path({**cfg, "version": publicada["versao"]})
+    if not antigo.exists():
+        raise SystemExit(f"--congelado precisa do {antigo.name} em dist/")
+    if publicada["versao"] == cfg["version"]:
+        raise SystemExit("--congelado: suba a versao antes")
+    lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    proprios = {f"mods/{x['file']}" for x in lock if x["group"] == "Proprios"}
+    lock = [x for x in lock if x["group"] != "Proprios"]
+    listados = {s for slugs in cfg["mods"].values() for s in slugs}
+    # A lista de mods tem que ser a mesma: mod novo ou removido precisa do build completo.
+    atuais = {x["slug"] for x in lock if x["group"] in cfg["mods"]}
+    if listados - {x["slug"] for x in lock} or atuais - listados:
+        raise SystemExit(f"--congelado: a lista de mods mudou ({listados ^ atuais}); rode o build completo")
+    with zipfile.ZipFile(antigo) as z:
+        index = json.loads(z.read("modrinth.index.json"))
+        iris = next((l.split("=", 1)[1] for l in z.read("overrides/config/iris.properties").decode().splitlines()
+                     if l.startswith("shaderPack=")), None) if "overrides/config/iris.properties" in z.namelist() else None
+    if index["dependencies"]["minecraft"] != cfg["minecraft"] or index["dependencies"]["neoforge"] != cfg["neoforge"]:
+        raise SystemExit("--congelado: Minecraft ou NeoForge mudou; rode o build completo")
+    # o .mrpack local tem que ser mesmo o que foi publicado
+    assinatura = lambda fs: sorted((f["path"], f["hashes"]["sha1"]) for f in fs)
+    if assinatura(index["files"]) != sorted((a["caminho"], a["sha1"]) for a in publicada["arquivos"] + publicada["pacotes"]):
+        raise SystemExit(f"--congelado: {antigo.name} nao e igual ao publicado")
+    return [f for f in index["files"] if f["path"] not in proprios], lock, iris
+
+
+def somar_proprios(cfg, files, lock):
+    """Mods proprios ("proprios": ["lareira-fixes"]), compilados antes pelo ferramentas/montar_mod.py."""
+    for nome in cfg.get("proprios", []):
+        meta = json.loads((ROOT / "mods-proprios" / nome / "mod.json").read_text(encoding="utf-8"))
+        jar = ROOT / "mods-proprios" / "jars" / f"{meta['jar']}-{meta['versao']}.jar"
+        if not jar.exists():
+            raise SystemExit(f"{jar.name} nao existe: rode  python ferramentas/montar_mod.py mods-proprios/{nome}")
+        dados, env = jar.read_bytes(), {"client": "required", "server": "required"}
+        files.append({
+            "path": f"mods/{jar.name}",
+            "hashes": {"sha1": hashlib.sha1(dados).hexdigest(), "sha512": hashlib.sha512(dados).hexdigest()},
+            "env": env, "downloads": [URL_PROPRIOS + jar.name], "fileSize": len(dados),
+        })
+        lock.append({
+            "slug": nome, "title": meta["nome"], "group": "Proprios",
+            "version": meta["versao"], "type": "release", "published": None,
+            "env": env, "file": jar.name, "license": "MIT",
+        })
+
+def main():
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    cfg_path = ROOT / (args[0] if args else "mods.json")
+    cfg = json.loads(cfg_path.read_text(encoding="utf-8"))
+    if "--manifesto" in sys.argv:
+        # So regenera o manifesto do launcher a partir do .mrpack ja existente (nao resolve mods de novo).
+        return manifest(cfg)
+    lock_path = ROOT / ("lock.json" if cfg_path.stem == "mods" else f"{cfg_path.stem}.lock.json")
+    if "--congelado" in sys.argv:
+        files, lock, shader_default = congelado(cfg, lock_path)
+    else:
+        files, lock, shader_default = resolver(cfg)
+    somar_proprios(cfg, files, lock)
     index = {
         "formatVersion": 1, "game": "minecraft",
         "versionId": cfg["version"], "name": cfg["name"], "summary": cfg["summary"],

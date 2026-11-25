@@ -2,7 +2,7 @@
   "id": "chale",
   "name": "Chale & Engrenagens",
   "titulo": "Chalé & Engrenagens",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "summary": "Vanilla plus cozy em NeoForge 1.21.1: Create com eletricidade, armas e canhões, Create Aeronautics, AE2, Immersive Engineering, comidas, biomas, animais, decoração de Natal e casa tecnológica, otimizado para PC fraco.",
   "minecraft": "1.21.1",
   "neoforge": "21.1.265",
@@ -197,6 +197,9 @@
   "resourcepacks": [
     "fresh-animations"
   ],
+  "proprios": [
+    "lareira-fixes"
+  ],
   "ajustes": [
     {
       "arquivo": "config/easylan.cfg",
@@ -255,6 +258,23 @@
     }
   ],
   "historico": [
+    {
+      "versao": "1.4.2",
+      "data": "2026-11-25",
+      "titulo": "Correção do crash das máquinas do Create",
+      "novidades": [
+        "Corrigido o crash que fechava o jogo quando um item parava bem no meio de uma máquina em movimento do Create (broca na polia, elevador, rolamento) e depois não deixava mais abrir o mundo",
+        "Mundos que tinham parado de abrir por causa disso voltam a abrir normalmente, sem perder nada",
+        "Primeiro mod feito por nós: o Lareira Fixes, só com consertos para o pack"
+      ],
+      "compativel": [
+        "Mundos da 1.4.1 abrem normalmente",
+        "Nenhum bloco ou item muda"
+      ],
+      "incompativel": [
+        "Quem joga junto precisa atualizar junto: abra o Lareira e clique em Atualizar antes de entrar"
+      ]
+    },
     {
       "versao": "1.4.1",
       "data": "2026-11-18",

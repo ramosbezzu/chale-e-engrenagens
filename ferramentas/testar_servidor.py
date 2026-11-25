@@ -143,6 +143,12 @@ def main():
     (srv / "mods").mkdir()
     for f in mods:
         sha1 = f["hashes"]["sha1"]
+        proprio = RAIZ / "mods-proprios" / "jars" / Path(f["path"]).name
+        if proprio.exists():  # mod nosso: ainda pode nao estar no GitHub
+            if hashlib.sha1(proprio.read_bytes()).hexdigest() != sha1:
+                raise SystemExit(f"{proprio.name} mudou depois do build: rode o build.py de novo")
+            shutil.copyfile(proprio, srv / f["path"])
+            continue
         jar = baixar(f["downloads"][0], CACHE / "mods" / sha1[:2] / f"{sha1}.jar", sha1)
         shutil.copyfile(jar, srv / f["path"])
     for nome in pacote.namelist():

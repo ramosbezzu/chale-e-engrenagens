@@ -15,6 +15,7 @@ Dois modpacks NeoForge 1.21.1 e o launcher **Lareira**, que instala e atualiza o
 
 - `build.py`: resolve os mods no Modrinth (API v2), puxa as dependências obrigatórias, acusa incompatibilidades declaradas, gera o lock, o `.mrpack` em `dist/` e o manifesto em `manifest/`.
 - `manifest/`: é **o que os jogadores recebem**. O launcher lê `manifest/index.json` e `manifest/<id>.json` direto do branch `main` no GitHub. Fazer push em `main` com manifesto novo = publicar a atualização para todo mundo. Nunca faça push de manifesto não testado.
+- `mods-proprios/`: mods feitos aqui (o **Lareira Fixes** tem os nossos consertos). Para criar, consertar ou mudar o comportamento de um mod, use a skill **lareira-moder** (`.claude/skills/lareira-moder/SKILL.md`). O `ferramentas/montar_mod.py` compila; o `.jar` vai versionado em `mods-proprios/jars/`, o Lareira baixa do `raw.githubusercontent.com` e **um jar publicado nunca muda**.
 - `launcher/`: código do Lareira (Node 24, sem dependências). Só mexa nele se o pedido for sobre o launcher.
 - `ferramentas/testar_servidor.py`: teste automático de servidor (seção "Testar").
 - `dist/` e `.teste/` estão no `.gitignore` (têm os .jar). O `.mrpack` da versão atual precisa existir em `dist/` para o teste e para `build.py --manifesto`; se não existir, rode `python build.py cozy.json`.
@@ -37,7 +38,7 @@ Comandos: no Windows use `python` (3.10+); no WSL/Linux use `python3`. Node 24+ 
    - Dependências obrigatórias: quantas e quais. Cada uma é peso a mais.
    - Incompatibilidades declaradas e issues abertas recentes com crash envolvendo mods que já estão no pack (Create, Sodium, Iris, Aeronautics/Sable, Carry On, Storage Drawers, Another Furniture, GraveStone).
    - `client_side` / `server_side`: mods só de cliente não vão para o servidor (o `build.py` cuida disso pelo campo `env`).
-   - Mod que não está no Modrinth (só CurseForge) **não entra**: o launcher só baixa de `cdn.modrinth.com`. Avise o dono e sugira alternativa. Exemplos já conferidos: Mining Gadgets e Building Gadgets não existem no Modrinth.
+   - Mod que não está no Modrinth (só CurseForge) **não entra**: o build só pega de lá (a exceção são os nossos, em `mods-proprios/`). Avise o dono e sugira alternativa. Exemplos já conferidos: Mining Gadgets e Building Gadgets não existem no Modrinth.
    - Licença `All Rights Reserved` sem permissão de modpack: tudo bem, porque o launcher baixa do Modrinth e não redistribui o arquivo.
 3. **Avaliar o custo de desempenho** (seção "Otimizar"). Se for pesado para o PC fraco, diga isso antes e proponha a versão leve ou uma config que reduza o custo.
 4. **Editar o config do pack** (`cozy.json` por padrão; `mods.json` só se o pedido for para o Trilhos):
@@ -69,6 +70,7 @@ Toda versão publicada fica disponível como "anterior" no launcher na versão s
 - **Nunca** apague nem edite à mão `manifest/*.json`. Sempre gere pelo `build.py`.
 - **Nunca** gere a mesma versão duas vezes com conteúdo diferente depois de publicada. Errou depois do push? Suba a CORRECAO.
 - Antes do push, se precisar refazer, rode `git checkout manifest/` e gere de novo, senão a versão nova vira "anterior" dela mesma. (O `build.py` só guarda como anterior versões menores que a atual, mas o manifesto local tem que ser o publicado.)
+- `python build.py cozy.json --congelado` faz hotfix: mantém exatamente os mods da versão publicada (precisa do `.mrpack` dela em `dist/`) e só troca os mods próprios, configs e ajustes. Use quando o conserto é urgente e não dá para testar updates de outros mods no cliente.
 - `python build.py cozy.json --manifesto` regenera só o manifesto a partir do `.mrpack` existente, sem buscar mods. Use para corrigir texto do histórico **antes** do push.
 
 ### Entrada de histórico
@@ -123,7 +125,7 @@ Ordem mínima para toda versão nova:
 2. Leia o crash report mais recente e o `latest.log` da pasta do jogo. Procure a primeira exceção, `Mixin apply failed`, `Caused by`, e nomes de mod no stack trace.
 3. **Config corrompida**: o PC do dono desliga sozinho às vezes (Kernel-Power 41, problema de energia/hardware, não do pack). Isso deixa arquivos de `config/` só com bytes nulos, que derrubam mods em cascata (ex.: spark com config nula gera o falso erro "sodium_extra not found in ModList"). Procure arquivos em `config/` cujo conteúdo é todo `\x00` e mova para uma pasta `_corrompidos-DATA` fora de `config/`; o mod recria o arquivo.
 4. "channel missing on the server side" na LAN = versões diferentes entre host e cliente. Os dois atualizam pelo Lareira.
-5. Mod culpado identificado: remova ou fixe a versão boa (`pins`), suba CORRECAO, registre em "Armadilhas conhecidas".
+5. Mod culpado identificado: conserte com mixin no Lareira Fixes (skill lareira-moder), remova ou fixe a versão boa (`pins`), suba CORRECAO, registre em "Armadilhas conhecidas".
 6. Travamento (não crash): peça ao dono para rodar `/spark profiler start`, jogar 1 a 2 minutos, `/spark profiler stop` e mandar o link.
 
 ## Publicar
@@ -166,6 +168,8 @@ git push
 - **MrCrayfish's Furniture Refurbished** (eletrodomésticos com eletricidade) não existe no Modrinth: não entra.
 - **Skins**: o **Skin Restorer** não serve, porque não funciona no TLauncher (ele sobrescreve o sistema de skins do cliente). O pack usa o **Quick Skin** (cliente e servidor, sincroniza pelo próprio mod, menu na tela inicial e na pausa). Os limites de 128x128 e 1 MB em `quickskin-server.json` são de propósito, por causa do PC fraco.
 - **Cozinha**: Cooking for Blockheads (funcional, lê receitas de todos os mods de comida) e Delicious Kitchen Appliances (micro-ondas, fogão, lava-louças) convivem bem; o servidor sobe sem erro novo com os dois (1.2.7).
+- **Create 6.0.10, `mf.axis is null`** em `ContinuousOBBCollider.collideMany` (1.4.2): item parado exatamente no centro de um bloco de contraption (broca na polia, elevador, rolamento, Deployer) derruba o servidor, e o mundo não abre mais porque o crash se repete ao carregar o chunk. Issue #10218, corrigido no Create depois da 6.0.10. O **Lareira Fixes** conserta; ele exige Create `[6.0.10,6.0.11)`, então quando o Create subir o jogo avisa e o mixin precisa ser revisto. Não adicione `createobbcollisioncrashfix` nem `create_collision_fix`: é o mesmo conserto.
+- **Updates que ficaram de fora da 1.4.2** de propósito (hotfix com `--congelado`): o próximo build normal traz Quick Skin 5, Aeronautics 1.3.3, EasyLAN 1.6, Supplementaries, Sophisticated e outros. Confira com calma, e veja o `spark`, que o build troca por uma versão de 2025.
 - A pasta portátil antiga (`Chale-e-Engrenagens-<versao>` com `.bat` e `.ps1`) está **aposentada**: o Lareira substitui. Não gere mais.
 - **Autoupdate do Lareira** só existe da 1.2.0 em diante. Quem roda 1.0.0 ou 1.1.0 vê só o botão Baixar (link para o GitHub) e precisa baixar a versão nova uma vez à mão. Não mude os nomes dos pacotes do release (`Lareira-<versao>-windows-x64.exe` etc.) nem o `atualizacao.json`: é o que a 1.2.0+ procura para se atualizar.
 - **`fs.rmSync` no Windows** (Node 24) falha **calado** quando o caminho tem acento (ex.: `C:\Users\José`): não dá erro e o arquivo fica lá. No `lareira.js` use sempre `apagar()`, nunca `fs.rmSync`.
